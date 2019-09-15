@@ -301,12 +301,6 @@ Partial Public Class QuoteOrdersDS
         
         Private columnQuote_Due_Date As Global.System.Data.DataColumn
         
-        Private columnPricingRequired As Global.System.Data.DataColumn
-        
-        Private columnPricingStarted As Global.System.Data.DataColumn
-        
-        Private columnPricingCompleted As Global.System.Data.DataColumn
-        
         Private columnEngRequired As Global.System.Data.DataColumn
         
         Private columnEngStarted As Global.System.Data.DataColumn
@@ -336,6 +330,12 @@ Partial Public Class QuoteOrdersDS
         Private columnShipStarted As Global.System.Data.DataColumn
         
         Private columnShipCompleted As Global.System.Data.DataColumn
+        
+        Private columnPricingRequired As Global.System.Data.DataColumn
+        
+        Private columnPricingStarted As Global.System.Data.DataColumn
+        
+        Private columnPricingCompleted As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
@@ -441,30 +441,6 @@ Partial Public Class QuoteOrdersDS
         Public ReadOnly Property Quote_Due_DateColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnQuote_Due_Date
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property PricingRequiredColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnPricingRequired
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property PricingStartedColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnPricingStarted
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property PricingCompletedColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnPricingCompleted
             End Get
         End Property
         
@@ -589,6 +565,30 @@ Partial Public Class QuoteOrdersDS
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property PricingRequiredColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnPricingRequired
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property PricingStartedColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnPricingStarted
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property PricingCompletedColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnPricingCompleted
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -635,9 +635,6 @@ Partial Public Class QuoteOrdersDS
                     ByVal PO_Reciept As Date,  _
                     ByVal Delivery_Date As Date,  _
                     ByVal Quote_Due_Date As Date,  _
-                    ByVal PricingRequired As Date,  _
-                    ByVal PricingStarted As Date,  _
-                    ByVal PricingCompleted As Date,  _
                     ByVal EngRequired As Date,  _
                     ByVal EngStarted As Date,  _
                     ByVal EngCompleted As Date,  _
@@ -652,9 +649,12 @@ Partial Public Class QuoteOrdersDS
                     ByVal FinishCompleted As Date,  _
                     ByVal ShipRequired As Date,  _
                     ByVal ShipStarted As Date,  _
-                    ByVal ShipCompleted As Date) As TableRow
+                    ByVal ShipCompleted As Date,  _
+                    ByVal PricingRequired As Date,  _
+                    ByVal PricingStarted As Date,  _
+                    ByVal PricingCompleted As Date) As TableRow
             Dim rowTableRow As TableRow = CType(Me.NewRow,TableRow)
-            Dim columnValuesArray() As Object = New Object() {Id, _Quote_, _Order_, Customer, Project, _PO_, PO_Reciept, Delivery_Date, Quote_Due_Date, PricingRequired, PricingStarted, PricingCompleted, EngRequired, EngStarted, EngCompleted, DrftRequired, DrftStarted, DrftCompleted, FabRequired, FabStarted, FabCompleted, FinishRequired, FinishStarted, FinishCompleted, ShipRequired, ShipStarted, ShipCompleted}
+            Dim columnValuesArray() As Object = New Object() {Id, _Quote_, _Order_, Customer, Project, _PO_, PO_Reciept, Delivery_Date, Quote_Due_Date, EngRequired, EngStarted, EngCompleted, DrftRequired, DrftStarted, DrftCompleted, FabRequired, FabStarted, FabCompleted, FinishRequired, FinishStarted, FinishCompleted, ShipRequired, ShipStarted, ShipCompleted, PricingRequired, PricingStarted, PricingCompleted}
             rowTableRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowTableRow)
             Return rowTableRow
@@ -692,9 +692,6 @@ Partial Public Class QuoteOrdersDS
             Me.columnPO_Reciept = MyBase.Columns("PO Reciept")
             Me.columnDelivery_Date = MyBase.Columns("Delivery Date")
             Me.columnQuote_Due_Date = MyBase.Columns("Quote Due Date")
-            Me.columnPricingRequired = MyBase.Columns("PricingRequired")
-            Me.columnPricingStarted = MyBase.Columns("PricingStarted")
-            Me.columnPricingCompleted = MyBase.Columns("PricingCompleted")
             Me.columnEngRequired = MyBase.Columns("EngRequired")
             Me.columnEngStarted = MyBase.Columns("EngStarted")
             Me.columnEngCompleted = MyBase.Columns("EngCompleted")
@@ -710,6 +707,9 @@ Partial Public Class QuoteOrdersDS
             Me.columnShipRequired = MyBase.Columns("ShipRequired")
             Me.columnShipStarted = MyBase.Columns("ShipStarted")
             Me.columnShipCompleted = MyBase.Columns("ShipCompleted")
+            Me.columnPricingRequired = MyBase.Columns("PricingRequired")
+            Me.columnPricingStarted = MyBase.Columns("PricingStarted")
+            Me.columnPricingCompleted = MyBase.Columns("PricingCompleted")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -739,12 +739,6 @@ Partial Public Class QuoteOrdersDS
             MyBase.Columns.Add(Me.columnDelivery_Date)
             Me.columnQuote_Due_Date = New Global.System.Data.DataColumn("Quote Due Date", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnQuote_Due_Date)
-            Me.columnPricingRequired = New Global.System.Data.DataColumn("PricingRequired", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnPricingRequired)
-            Me.columnPricingStarted = New Global.System.Data.DataColumn("PricingStarted", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnPricingStarted)
-            Me.columnPricingCompleted = New Global.System.Data.DataColumn("PricingCompleted", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnPricingCompleted)
             Me.columnEngRequired = New Global.System.Data.DataColumn("EngRequired", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnEngRequired)
             Me.columnEngStarted = New Global.System.Data.DataColumn("EngStarted", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
@@ -775,6 +769,12 @@ Partial Public Class QuoteOrdersDS
             MyBase.Columns.Add(Me.columnShipStarted)
             Me.columnShipCompleted = New Global.System.Data.DataColumn("ShipCompleted", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnShipCompleted)
+            Me.columnPricingRequired = New Global.System.Data.DataColumn("PricingRequired", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnPricingRequired)
+            Me.columnPricingStarted = New Global.System.Data.DataColumn("PricingStarted", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnPricingStarted)
+            Me.columnPricingCompleted = New Global.System.Data.DataColumn("PricingCompleted", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnPricingCompleted)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnId}, true))
             Me.columnId.AllowDBNull = false
             Me.columnId.Unique = true
@@ -1054,51 +1054,6 @@ Partial Public Class QuoteOrdersDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property PricingRequired() As Date
-            Get
-                Try 
-                    Return CType(Me(Me.tableTable.PricingRequiredColumn),Date)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'PricingRequired' in table 'Table' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableTable.PricingRequiredColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property PricingStarted() As Date
-            Get
-                Try 
-                    Return CType(Me(Me.tableTable.PricingStartedColumn),Date)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'PricingStarted' in table 'Table' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableTable.PricingStartedColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property PricingCompleted() As Date
-            Get
-                Try 
-                    Return CType(Me(Me.tableTable.PricingCompletedColumn),Date)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'PricingCompleted' in table 'Table' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableTable.PricingCompletedColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Property EngRequired() As Date
             Get
                 Try 
@@ -1324,6 +1279,51 @@ Partial Public Class QuoteOrdersDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property PricingRequired() As Date
+            Get
+                Try 
+                    Return CType(Me(Me.tableTable.PricingRequiredColumn),Date)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'PricingRequired' in table 'Table' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableTable.PricingRequiredColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property PricingStarted() As Date
+            Get
+                Try 
+                    Return CType(Me(Me.tableTable.PricingStartedColumn),Date)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'PricingStarted' in table 'Table' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableTable.PricingStartedColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property PricingCompleted() As Date
+            Get
+                Try 
+                    Return CType(Me(Me.tableTable.PricingCompletedColumn),Date)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'PricingCompleted' in table 'Table' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableTable.PricingCompletedColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function Is_Order_Null() As Boolean
             Return Me.IsNull(Me.tableTable._Order_Column)
         End Function
@@ -1368,42 +1368,6 @@ Partial Public Class QuoteOrdersDS
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub SetDelivery_DateNull()
             Me(Me.tableTable.Delivery_DateColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function IsPricingRequiredNull() As Boolean
-            Return Me.IsNull(Me.tableTable.PricingRequiredColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub SetPricingRequiredNull()
-            Me(Me.tableTable.PricingRequiredColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function IsPricingStartedNull() As Boolean
-            Return Me.IsNull(Me.tableTable.PricingStartedColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub SetPricingStartedNull()
-            Me(Me.tableTable.PricingStartedColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function IsPricingCompletedNull() As Boolean
-            Return Me.IsNull(Me.tableTable.PricingCompletedColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub SetPricingCompletedNull()
-            Me(Me.tableTable.PricingCompletedColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1585,6 +1549,42 @@ Partial Public Class QuoteOrdersDS
         Public Sub SetShipCompletedNull()
             Me(Me.tableTable.ShipCompletedColumn) = Global.System.Convert.DBNull
         End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsPricingRequiredNull() As Boolean
+            Return Me.IsNull(Me.tableTable.PricingRequiredColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetPricingRequiredNull()
+            Me(Me.tableTable.PricingRequiredColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsPricingStartedNull() As Boolean
+            Return Me.IsNull(Me.tableTable.PricingStartedColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetPricingStartedNull()
+            Me(Me.tableTable.PricingStartedColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsPricingCompletedNull() As Boolean
+            Return Me.IsNull(Me.tableTable.PricingCompletedColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetPricingCompletedNull()
+            Me(Me.tableTable.PricingCompletedColumn) = Global.System.Convert.DBNull
+        End Sub
     End Class
     
     '''<summary>
@@ -1762,9 +1762,6 @@ Namespace QuoteOrdersDSTableAdapters
             tableMapping.ColumnMappings.Add("PO Reciept", "PO Reciept")
             tableMapping.ColumnMappings.Add("Delivery Date", "Delivery Date")
             tableMapping.ColumnMappings.Add("Quote Due Date", "Quote Due Date")
-            tableMapping.ColumnMappings.Add("PricingRequired", "PricingRequired")
-            tableMapping.ColumnMappings.Add("PricingStarted", "PricingStarted")
-            tableMapping.ColumnMappings.Add("PricingCompleted", "PricingCompleted")
             tableMapping.ColumnMappings.Add("EngRequired", "EngRequired")
             tableMapping.ColumnMappings.Add("EngStarted", "EngStarted")
             tableMapping.ColumnMappings.Add("EngCompleted", "EngCompleted")
@@ -1780,41 +1777,44 @@ Namespace QuoteOrdersDSTableAdapters
             tableMapping.ColumnMappings.Add("ShipRequired", "ShipRequired")
             tableMapping.ColumnMappings.Add("ShipStarted", "ShipStarted")
             tableMapping.ColumnMappings.Add("ShipCompleted", "ShipCompleted")
+            tableMapping.ColumnMappings.Add("PricingRequired", "PricingRequired")
+            tableMapping.ColumnMappings.Add("PricingStarted", "PricingStarted")
+            tableMapping.ColumnMappings.Add("PricingCompleted", "PricingCompleted")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Table] WHERE (([Id] = @Original_Id) AND ([Quote#] = @Original_"& _ 
-                "Quote#) AND ((@IsNull_Order# = 1 AND [Order#] IS NULL) OR ([Order#] = @Original_"& _ 
-                "Order#)) AND ([Customer] = @Original_Customer) AND ([Project] = @Original_Projec"& _ 
-                "t) AND ((@IsNull_PO# = 1 AND [PO#] IS NULL) OR ([PO#] = @Original_PO#)) AND ((@I"& _ 
-                "sNull_PO_Reciept = 1 AND [PO Reciept] IS NULL) OR ([PO Reciept] = @Original_PO_R"& _ 
-                "eciept)) AND ((@IsNull_Delivery_Date = 1 AND [Delivery Date] IS NULL) OR ([Deliv"& _ 
-                "ery Date] = @Original_Delivery_Date)) AND ([Quote Due Date] = @Original_Quote_Du"& _ 
-                "e_Date) AND ((@IsNull_PricingRequired = 1 AND [PricingRequired] IS NULL) OR ([Pr"& _ 
-                "icingRequired] = @Original_PricingRequired)) AND ((@IsNull_PricingStarted = 1 AN"& _ 
-                "D [PricingStarted] IS NULL) OR ([PricingStarted] = @Original_PricingStarted)) AN"& _ 
-                "D ((@IsNull_PricingCompleted = 1 AND [PricingCompleted] IS NULL) OR ([PricingCom"& _ 
-                "pleted] = @Original_PricingCompleted)) AND ((@IsNull_EngRequired = 1 AND [EngReq"& _ 
-                "uired] IS NULL) OR ([EngRequired] = @Original_EngRequired)) AND ((@IsNull_EngSta"& _ 
-                "rted = 1 AND [EngStarted] IS NULL) OR ([EngStarted] = @Original_EngStarted)) AND"& _ 
-                " ((@IsNull_EngCompleted = 1 AND [EngCompleted] IS NULL) OR ([EngCompleted] = @Or"& _ 
-                "iginal_EngCompleted)) AND ((@IsNull_DrftRequired = 1 AND [DrftRequired] IS NULL)"& _ 
-                " OR ([DrftRequired] = @Original_DrftRequired)) AND ((@IsNull_DrftStarted = 1 AND"& _ 
-                " [DrftStarted] IS NULL) OR ([DrftStarted] = @Original_DrftStarted)) AND ((@IsNul"& _ 
-                "l_DrftCompleted = 1 AND [DrftCompleted] IS NULL) OR ([DrftCompleted] = @Original"& _ 
-                "_DrftCompleted)) AND ((@IsNull_FabRequired = 1 AND [FabRequired] IS NULL) OR ([F"& _ 
-                "abRequired] = @Original_FabRequired)) AND ((@IsNull_FabStarted = 1 AND [FabStart"& _ 
-                "ed] IS NULL) OR ([FabStarted] = @Original_FabStarted)) AND ((@IsNull_FabComplete"& _ 
-                "d = 1 AND [FabCompleted] IS NULL) OR ([FabCompleted] = @Original_FabCompleted)) "& _ 
-                "AND ((@IsNull_FinishRequired = 1 AND [FinishRequired] IS NULL) OR ([FinishRequir"& _ 
-                "ed] = @Original_FinishRequired)) AND ((@IsNull_FinishStarted = 1 AND [FinishStar"& _ 
-                "ted] IS NULL) OR ([FinishStarted] = @Original_FinishStarted)) AND ((@IsNull_Fini"& _ 
-                "shCompleted = 1 AND [FinishCompleted] IS NULL) OR ([FinishCompleted] = @Original"& _ 
-                "_FinishCompleted)) AND ((@IsNull_ShipRequired = 1 AND [ShipRequired] IS NULL) OR"& _ 
-                " ([ShipRequired] = @Original_ShipRequired)) AND ((@IsNull_ShipStarted = 1 AND [S"& _ 
-                "hipStarted] IS NULL) OR ([ShipStarted] = @Original_ShipStarted)) AND ((@IsNull_S"& _ 
-                "hipCompleted = 1 AND [ShipCompleted] IS NULL) OR ([ShipCompleted] = @Original_Sh"& _ 
-                "ipCompleted)))"
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [Table] WHERE (([Id] = @Original_Id) AND ([Quote#] = @Original_Quote#"& _ 
+                ") AND ((@IsNull_Order# = 1 AND [Order#] IS NULL) OR ([Order#] = @Original_Order#"& _ 
+                ")) AND ([Customer] = @Original_Customer) AND ([Project] = @Original_Project) AND"& _ 
+                " ((@IsNull_PO# = 1 AND [PO#] IS NULL) OR ([PO#] = @Original_PO#)) AND ((@IsNull_"& _ 
+                "PO_Reciept = 1 AND [PO Reciept] IS NULL) OR ([PO Reciept] = @Original_PO_Reciept"& _ 
+                ")) AND ((@IsNull_Delivery_Date = 1 AND [Delivery Date] IS NULL) OR ([Delivery Da"& _ 
+                "te] = @Original_Delivery_Date)) AND ([Quote Due Date] = @Original_Quote_Due_Date"& _ 
+                ") AND ((@IsNull_EngRequired = 1 AND [EngRequired] IS NULL) OR ([EngRequired] = @"& _ 
+                "Original_EngRequired)) AND ((@IsNull_EngStarted = 1 AND [EngStarted] IS NULL) OR"& _ 
+                " ([EngStarted] = @Original_EngStarted)) AND ((@IsNull_EngCompleted = 1 AND [EngC"& _ 
+                "ompleted] IS NULL) OR ([EngCompleted] = @Original_EngCompleted)) AND ((@IsNull_D"& _ 
+                "rftRequired = 1 AND [DrftRequired] IS NULL) OR ([DrftRequired] = @Original_DrftR"& _ 
+                "equired)) AND ((@IsNull_DrftStarted = 1 AND [DrftStarted] IS NULL) OR ([DrftStar"& _ 
+                "ted] = @Original_DrftStarted)) AND ((@IsNull_DrftCompleted = 1 AND [DrftComplete"& _ 
+                "d] IS NULL) OR ([DrftCompleted] = @Original_DrftCompleted)) AND ((@IsNull_FabReq"& _ 
+                "uired = 1 AND [FabRequired] IS NULL) OR ([FabRequired] = @Original_FabRequired))"& _ 
+                " AND ((@IsNull_FabStarted = 1 AND [FabStarted] IS NULL) OR ([FabStarted] = @Orig"& _ 
+                "inal_FabStarted)) AND ((@IsNull_FabCompleted = 1 AND [FabCompleted] IS NULL) OR "& _ 
+                "([FabCompleted] = @Original_FabCompleted)) AND ((@IsNull_FinishRequired = 1 AND "& _ 
+                "[FinishRequired] IS NULL) OR ([FinishRequired] = @Original_FinishRequired)) AND "& _ 
+                "((@IsNull_FinishStarted = 1 AND [FinishStarted] IS NULL) OR ([FinishStarted] = @"& _ 
+                "Original_FinishStarted)) AND ((@IsNull_FinishCompleted = 1 AND [FinishCompleted]"& _ 
+                " IS NULL) OR ([FinishCompleted] = @Original_FinishCompleted)) AND ((@IsNull_Ship"& _ 
+                "Required = 1 AND [ShipRequired] IS NULL) OR ([ShipRequired] = @Original_ShipRequ"& _ 
+                "ired)) AND ((@IsNull_ShipStarted = 1 AND [ShipStarted] IS NULL) OR ([ShipStarted"& _ 
+                "] = @Original_ShipStarted)) AND ((@IsNull_ShipCompleted = 1 AND [ShipCompleted] "& _ 
+                "IS NULL) OR ([ShipCompleted] = @Original_ShipCompleted)) AND ((@IsNull_PricingCo"& _ 
+                "mpleted = 1 AND [PricingCompleted] IS NULL) OR ([PricingCompleted] = @Original_P"& _ 
+                "ricingCompleted)) AND ((@IsNull_PricingRequired = 1 AND [PricingRequired] IS NUL"& _ 
+                "L) OR ([PricingRequired] = @Original_PricingRequired)) AND ((@IsNull_PricingStar"& _ 
+                "ted = 1 AND [PricingStarted] IS NULL) OR ([PricingStarted] = @Original_PricingSt"& _ 
+                "arted)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Id", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Id", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Quote#", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Quote#", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
@@ -1829,12 +1829,6 @@ Namespace QuoteOrdersDSTableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Delivery_Date", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Delivery Date", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Delivery_Date", Global.System.Data.SqlDbType.SmallDateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Delivery Date", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Quote_Due_Date", Global.System.Data.SqlDbType.SmallDateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Quote Due Date", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_PricingRequired", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PricingRequired", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_PricingRequired", Global.System.Data.SqlDbType.SmallDateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PricingRequired", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_PricingStarted", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PricingStarted", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_PricingStarted", Global.System.Data.SqlDbType.SmallDateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PricingStarted", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_PricingCompleted", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PricingCompleted", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_PricingCompleted", Global.System.Data.SqlDbType.SmallDateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PricingCompleted", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_EngRequired", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EngRequired", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_EngRequired", Global.System.Data.SqlDbType.SmallDateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EngRequired", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_EngStarted", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EngStarted", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
@@ -1865,24 +1859,29 @@ Namespace QuoteOrdersDSTableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ShipStarted", Global.System.Data.SqlDbType.SmallDateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ShipStarted", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ShipCompleted", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ShipCompleted", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ShipCompleted", Global.System.Data.SqlDbType.SmallDateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ShipCompleted", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_PricingCompleted", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PricingCompleted", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_PricingCompleted", Global.System.Data.SqlDbType.SmallDateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PricingCompleted", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_PricingRequired", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PricingRequired", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_PricingRequired", Global.System.Data.SqlDbType.SmallDateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PricingRequired", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_PricingStarted", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PricingStarted", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_PricingStarted", Global.System.Data.SqlDbType.SmallDateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PricingStarted", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Table] ([Id], [Quote#], [Order#], [Customer], [Project], [PO#]"& _ 
-                ", [PO Reciept], [Delivery Date], [Quote Due Date], [PricingRequired], [PricingSt"& _ 
-                "arted], [PricingCompleted], [EngRequired], [EngStarted], [EngCompleted], [DrftRe"& _ 
-                "quired], [DrftStarted], [DrftCompleted], [FabRequired], [FabStarted], [FabComple"& _ 
-                "ted], [FinishRequired], [FinishStarted], [FinishCompleted], [ShipRequired], [Shi"& _ 
-                "pStarted], [ShipCompleted]) VALUES (@Id, @Quote#, @Order#, @Customer, @Project, "& _ 
-                "@PO#, @PO_Reciept, @Delivery_Date, @Quote_Due_Date, @PricingRequired, @PricingSt"& _ 
-                "arted, @PricingCompleted, @EngRequired, @EngStarted, @EngCompleted, @DrftRequire"& _ 
-                "d, @DrftStarted, @DrftCompleted, @FabRequired, @FabStarted, @FabCompleted, @Fini"& _ 
-                "shRequired, @FinishStarted, @FinishCompleted, @ShipRequired, @ShipStarted, @Ship"& _ 
-                "Completed);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Id, Quote#, Order#, Customer, Project, PO#, [PO Reciept], [D"& _ 
-                "elivery Date], [Quote Due Date], PricingRequired, PricingStarted, PricingComplet"& _ 
-                "ed, EngRequired, EngStarted, EngCompleted, DrftRequired, DrftStarted, DrftComple"& _ 
-                "ted, FabRequired, FabStarted, FabCompleted, FinishRequired, FinishStarted, Finis"& _ 
-                "hCompleted, ShipRequired, ShipStarted, ShipCompleted FROM [Table] WHERE (Id = @I"& _ 
-                "d)"
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [Table] ([Id], [Quote#], [Order#], [Customer], [Project], [PO#], [PO "& _ 
+                "Reciept], [Delivery Date], [Quote Due Date], [EngRequired], [EngStarted], [EngCo"& _ 
+                "mpleted], [DrftRequired], [DrftStarted], [DrftCompleted], [FabRequired], [FabSta"& _ 
+                "rted], [FabCompleted], [FinishRequired], [FinishStarted], [FinishCompleted], [Sh"& _ 
+                "ipRequired], [ShipStarted], [ShipCompleted], [PricingCompleted], [PricingRequire"& _ 
+                "d], [PricingStarted]) VALUES (@Id, @Quote#, @Order#, @Customer, @Project, @PO#, "& _ 
+                "@PO_Reciept, @Delivery_Date, @Quote_Due_Date, @EngRequired, @EngStarted, @EngCom"& _ 
+                "pleted, @DrftRequired, @DrftStarted, @DrftCompleted, @FabRequired, @FabStarted, "& _ 
+                "@FabCompleted, @FinishRequired, @FinishStarted, @FinishCompleted, @ShipRequired,"& _ 
+                " @ShipStarted, @ShipCompleted, @PricingCompleted, @PricingRequired, @PricingStar"& _ 
+                "ted);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Id, Quote#, Order#, Customer, Project, PO#, [PO Reciept], [Deliver"& _ 
+                "y Date], [Quote Due Date], EngRequired, EngStarted, EngCompleted, DrftRequired, "& _ 
+                "DrftStarted, DrftCompleted, FabRequired, FabStarted, FabCompleted, FinishRequire"& _ 
+                "d, FinishStarted, FinishCompleted, ShipRequired, ShipStarted, ShipCompleted, Pri"& _ 
+                "cingCompleted, PricingRequired, PricingStarted FROM [Table] WHERE (Id = @Id)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Id", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Id", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Quote#", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Quote#", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -1893,9 +1892,6 @@ Namespace QuoteOrdersDSTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PO_Reciept", Global.System.Data.SqlDbType.SmallDateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PO Reciept", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Delivery_Date", Global.System.Data.SqlDbType.SmallDateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Delivery Date", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Quote_Due_Date", Global.System.Data.SqlDbType.SmallDateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Quote Due Date", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PricingRequired", Global.System.Data.SqlDbType.SmallDateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PricingRequired", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PricingStarted", Global.System.Data.SqlDbType.SmallDateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PricingStarted", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PricingCompleted", Global.System.Data.SqlDbType.SmallDateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PricingCompleted", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EngRequired", Global.System.Data.SqlDbType.SmallDateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EngRequired", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EngStarted", Global.System.Data.SqlDbType.SmallDateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EngStarted", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EngCompleted", Global.System.Data.SqlDbType.SmallDateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EngCompleted", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -1911,55 +1907,58 @@ Namespace QuoteOrdersDSTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ShipRequired", Global.System.Data.SqlDbType.SmallDateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ShipRequired", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ShipStarted", Global.System.Data.SqlDbType.SmallDateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ShipStarted", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ShipCompleted", Global.System.Data.SqlDbType.SmallDateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ShipCompleted", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PricingCompleted", Global.System.Data.SqlDbType.SmallDateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PricingCompleted", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PricingRequired", Global.System.Data.SqlDbType.SmallDateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PricingRequired", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PricingStarted", Global.System.Data.SqlDbType.SmallDateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PricingStarted", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Table] SET [Id] = @Id, [Quote#] = @Quote#, [Order#] = @Order#, [Cus"& _ 
-                "tomer] = @Customer, [Project] = @Project, [PO#] = @PO#, [PO Reciept] = @PO_Recie"& _ 
-                "pt, [Delivery Date] = @Delivery_Date, [Quote Due Date] = @Quote_Due_Date, [Prici"& _ 
-                "ngRequired] = @PricingRequired, [PricingStarted] = @PricingStarted, [PricingComp"& _ 
-                "leted] = @PricingCompleted, [EngRequired] = @EngRequired, [EngStarted] = @EngSta"& _ 
-                "rted, [EngCompleted] = @EngCompleted, [DrftRequired] = @DrftRequired, [DrftStart"& _ 
-                "ed] = @DrftStarted, [DrftCompleted] = @DrftCompleted, [FabRequired] = @FabRequir"& _ 
-                "ed, [FabStarted] = @FabStarted, [FabCompleted] = @FabCompleted, [FinishRequired]"& _ 
-                " = @FinishRequired, [FinishStarted] = @FinishStarted, [FinishCompleted] = @Finis"& _ 
-                "hCompleted, [ShipRequired] = @ShipRequired, [ShipStarted] = @ShipStarted, [ShipC"& _ 
-                "ompleted] = @ShipCompleted WHERE (([Id] = @Original_Id) AND ([Quote#] = @Origina"& _ 
-                "l_Quote#) AND ((@IsNull_Order# = 1 AND [Order#] IS NULL) OR ([Order#] = @Origina"& _ 
-                "l_Order#)) AND ([Customer] = @Original_Customer) AND ([Project] = @Original_Proj"& _ 
-                "ect) AND ((@IsNull_PO# = 1 AND [PO#] IS NULL) OR ([PO#] = @Original_PO#)) AND (("& _ 
-                "@IsNull_PO_Reciept = 1 AND [PO Reciept] IS NULL) OR ([PO Reciept] = @Original_PO"& _ 
-                "_Reciept)) AND ((@IsNull_Delivery_Date = 1 AND [Delivery Date] IS NULL) OR ([Del"& _ 
-                "ivery Date] = @Original_Delivery_Date)) AND ([Quote Due Date] = @Original_Quote_"& _ 
-                "Due_Date) AND ((@IsNull_PricingRequired = 1 AND [PricingRequired] IS NULL) OR (["& _ 
-                "PricingRequired] = @Original_PricingRequired)) AND ((@IsNull_PricingStarted = 1 "& _ 
-                "AND [PricingStarted] IS NULL) OR ([PricingStarted] = @Original_PricingStarted)) "& _ 
-                "AND ((@IsNull_PricingCompleted = 1 AND [PricingCompleted] IS NULL) OR ([PricingC"& _ 
-                "ompleted] = @Original_PricingCompleted)) AND ((@IsNull_EngRequired = 1 AND [EngR"& _ 
-                "equired] IS NULL) OR ([EngRequired] = @Original_EngRequired)) AND ((@IsNull_EngS"& _ 
-                "tarted = 1 AND [EngStarted] IS NULL) OR ([EngStarted] = @Original_EngStarted)) A"& _ 
-                "ND ((@IsNull_EngCompleted = 1 AND [EngCompleted] IS NULL) OR ([EngCompleted] = @"& _ 
-                "Original_EngCompleted)) AND ((@IsNull_DrftRequired = 1 AND [DrftRequired] IS NUL"& _ 
-                "L) OR ([DrftRequired] = @Original_DrftRequired)) AND ((@IsNull_DrftStarted = 1 A"& _ 
-                "ND [DrftStarted] IS NULL) OR ([DrftStarted] = @Original_DrftStarted)) AND ((@IsN"& _ 
-                "ull_DrftCompleted = 1 AND [DrftCompleted] IS NULL) OR ([DrftCompleted] = @Origin"& _ 
-                "al_DrftCompleted)) AND ((@IsNull_FabRequired = 1 AND [FabRequired] IS NULL) OR ("& _ 
-                "[FabRequired] = @Original_FabRequired)) AND ((@IsNull_FabStarted = 1 AND [FabSta"& _ 
-                "rted] IS NULL) OR ([FabStarted] = @Original_FabStarted)) AND ((@IsNull_FabComple"& _ 
-                "ted = 1 AND [FabCompleted] IS NULL) OR ([FabCompleted] = @Original_FabCompleted)"& _ 
-                ") AND ((@IsNull_FinishRequired = 1 AND [FinishRequired] IS NULL) OR ([FinishRequ"& _ 
-                "ired] = @Original_FinishRequired)) AND ((@IsNull_FinishStarted = 1 AND [FinishSt"& _ 
-                "arted] IS NULL) OR ([FinishStarted] = @Original_FinishStarted)) AND ((@IsNull_Fi"& _ 
-                "nishCompleted = 1 AND [FinishCompleted] IS NULL) OR ([FinishCompleted] = @Origin"& _ 
-                "al_FinishCompleted)) AND ((@IsNull_ShipRequired = 1 AND [ShipRequired] IS NULL) "& _ 
-                "OR ([ShipRequired] = @Original_ShipRequired)) AND ((@IsNull_ShipStarted = 1 AND "& _ 
-                "[ShipStarted] IS NULL) OR ([ShipStarted] = @Original_ShipStarted)) AND ((@IsNull"& _ 
-                "_ShipCompleted = 1 AND [ShipCompleted] IS NULL) OR ([ShipCompleted] = @Original_"& _ 
-                "ShipCompleted)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Id, Quote#, Order#, Customer, Project, PO#, [PO Reciep"& _ 
-                "t], [Delivery Date], [Quote Due Date], PricingRequired, PricingStarted, PricingC"& _ 
-                "ompleted, EngRequired, EngStarted, EngCompleted, DrftRequired, DrftStarted, Drft"& _ 
-                "Completed, FabRequired, FabStarted, FabCompleted, FinishRequired, FinishStarted,"& _ 
-                " FinishCompleted, ShipRequired, ShipStarted, ShipCompleted FROM [Table] WHERE (I"& _ 
-                "d = @Id)"
+            Me._adapter.UpdateCommand.CommandText = "UPDATE [Table] SET [Id] = @Id, [Quote#] = @Quote#, [Order#] = @Order#, [Customer]"& _ 
+                " = @Customer, [Project] = @Project, [PO#] = @PO#, [PO Reciept] = @PO_Reciept, [D"& _ 
+                "elivery Date] = @Delivery_Date, [Quote Due Date] = @Quote_Due_Date, [EngRequired"& _ 
+                "] = @EngRequired, [EngStarted] = @EngStarted, [EngCompleted] = @EngCompleted, [D"& _ 
+                "rftRequired] = @DrftRequired, [DrftStarted] = @DrftStarted, [DrftCompleted] = @D"& _ 
+                "rftCompleted, [FabRequired] = @FabRequired, [FabStarted] = @FabStarted, [FabComp"& _ 
+                "leted] = @FabCompleted, [FinishRequired] = @FinishRequired, [FinishStarted] = @F"& _ 
+                "inishStarted, [FinishCompleted] = @FinishCompleted, [ShipRequired] = @ShipRequir"& _ 
+                "ed, [ShipStarted] = @ShipStarted, [ShipCompleted] = @ShipCompleted, [PricingComp"& _ 
+                "leted] = @PricingCompleted, [PricingRequired] = @PricingRequired, [PricingStarte"& _ 
+                "d] = @PricingStarted WHERE (([Id] = @Original_Id) AND ([Quote#] = @Original_Quot"& _ 
+                "e#) AND ((@IsNull_Order# = 1 AND [Order#] IS NULL) OR ([Order#] = @Original_Orde"& _ 
+                "r#)) AND ([Customer] = @Original_Customer) AND ([Project] = @Original_Project) A"& _ 
+                "ND ((@IsNull_PO# = 1 AND [PO#] IS NULL) OR ([PO#] = @Original_PO#)) AND ((@IsNul"& _ 
+                "l_PO_Reciept = 1 AND [PO Reciept] IS NULL) OR ([PO Reciept] = @Original_PO_Recie"& _ 
+                "pt)) AND ((@IsNull_Delivery_Date = 1 AND [Delivery Date] IS NULL) OR ([Delivery "& _ 
+                "Date] = @Original_Delivery_Date)) AND ([Quote Due Date] = @Original_Quote_Due_Da"& _ 
+                "te) AND ((@IsNull_EngRequired = 1 AND [EngRequired] IS NULL) OR ([EngRequired] ="& _ 
+                " @Original_EngRequired)) AND ((@IsNull_EngStarted = 1 AND [EngStarted] IS NULL) "& _ 
+                "OR ([EngStarted] = @Original_EngStarted)) AND ((@IsNull_EngCompleted = 1 AND [En"& _ 
+                "gCompleted] IS NULL) OR ([EngCompleted] = @Original_EngCompleted)) AND ((@IsNull"& _ 
+                "_DrftRequired = 1 AND [DrftRequired] IS NULL) OR ([DrftRequired] = @Original_Drf"& _ 
+                "tRequired)) AND ((@IsNull_DrftStarted = 1 AND [DrftStarted] IS NULL) OR ([DrftSt"& _ 
+                "arted] = @Original_DrftStarted)) AND ((@IsNull_DrftCompleted = 1 AND [DrftComple"& _ 
+                "ted] IS NULL) OR ([DrftCompleted] = @Original_DrftCompleted)) AND ((@IsNull_FabR"& _ 
+                "equired = 1 AND [FabRequired] IS NULL) OR ([FabRequired] = @Original_FabRequired"& _ 
+                ")) AND ((@IsNull_FabStarted = 1 AND [FabStarted] IS NULL) OR ([FabStarted] = @Or"& _ 
+                "iginal_FabStarted)) AND ((@IsNull_FabCompleted = 1 AND [FabCompleted] IS NULL) O"& _ 
+                "R ([FabCompleted] = @Original_FabCompleted)) AND ((@IsNull_FinishRequired = 1 AN"& _ 
+                "D [FinishRequired] IS NULL) OR ([FinishRequired] = @Original_FinishRequired)) AN"& _ 
+                "D ((@IsNull_FinishStarted = 1 AND [FinishStarted] IS NULL) OR ([FinishStarted] ="& _ 
+                " @Original_FinishStarted)) AND ((@IsNull_FinishCompleted = 1 AND [FinishComplete"& _ 
+                "d] IS NULL) OR ([FinishCompleted] = @Original_FinishCompleted)) AND ((@IsNull_Sh"& _ 
+                "ipRequired = 1 AND [ShipRequired] IS NULL) OR ([ShipRequired] = @Original_ShipRe"& _ 
+                "quired)) AND ((@IsNull_ShipStarted = 1 AND [ShipStarted] IS NULL) OR ([ShipStart"& _ 
+                "ed] = @Original_ShipStarted)) AND ((@IsNull_ShipCompleted = 1 AND [ShipCompleted"& _ 
+                "] IS NULL) OR ([ShipCompleted] = @Original_ShipCompleted)) AND ((@IsNull_Pricing"& _ 
+                "Completed = 1 AND [PricingCompleted] IS NULL) OR ([PricingCompleted] = @Original"& _ 
+                "_PricingCompleted)) AND ((@IsNull_PricingRequired = 1 AND [PricingRequired] IS N"& _ 
+                "ULL) OR ([PricingRequired] = @Original_PricingRequired)) AND ((@IsNull_PricingSt"& _ 
+                "arted = 1 AND [PricingStarted] IS NULL) OR ([PricingStarted] = @Original_Pricing"& _ 
+                "Started)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Id, Quote#, Order#, Customer, Project, PO#, [PO Reciept], [D"& _ 
+                "elivery Date], [Quote Due Date], EngRequired, EngStarted, EngCompleted, DrftRequ"& _ 
+                "ired, DrftStarted, DrftCompleted, FabRequired, FabStarted, FabCompleted, FinishR"& _ 
+                "equired, FinishStarted, FinishCompleted, ShipRequired, ShipStarted, ShipComplete"& _ 
+                "d, PricingCompleted, PricingRequired, PricingStarted FROM [Table] WHERE (Id = @I"& _ 
+                "d)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Id", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Id", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Quote#", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Quote#", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -1970,9 +1969,6 @@ Namespace QuoteOrdersDSTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PO_Reciept", Global.System.Data.SqlDbType.SmallDateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PO Reciept", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Delivery_Date", Global.System.Data.SqlDbType.SmallDateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Delivery Date", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Quote_Due_Date", Global.System.Data.SqlDbType.SmallDateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Quote Due Date", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PricingRequired", Global.System.Data.SqlDbType.SmallDateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PricingRequired", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PricingStarted", Global.System.Data.SqlDbType.SmallDateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PricingStarted", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PricingCompleted", Global.System.Data.SqlDbType.SmallDateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PricingCompleted", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EngRequired", Global.System.Data.SqlDbType.SmallDateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EngRequired", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EngStarted", Global.System.Data.SqlDbType.SmallDateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EngStarted", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EngCompleted", Global.System.Data.SqlDbType.SmallDateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EngCompleted", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -1988,6 +1984,9 @@ Namespace QuoteOrdersDSTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ShipRequired", Global.System.Data.SqlDbType.SmallDateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ShipRequired", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ShipStarted", Global.System.Data.SqlDbType.SmallDateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ShipStarted", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ShipCompleted", Global.System.Data.SqlDbType.SmallDateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ShipCompleted", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PricingCompleted", Global.System.Data.SqlDbType.SmallDateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PricingCompleted", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PricingRequired", Global.System.Data.SqlDbType.SmallDateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PricingRequired", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PricingStarted", Global.System.Data.SqlDbType.SmallDateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PricingStarted", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Id", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Id", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Quote#", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Quote#", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Order#", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Order#", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
@@ -2001,12 +2000,6 @@ Namespace QuoteOrdersDSTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Delivery_Date", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Delivery Date", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Delivery_Date", Global.System.Data.SqlDbType.SmallDateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Delivery Date", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Quote_Due_Date", Global.System.Data.SqlDbType.SmallDateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Quote Due Date", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_PricingRequired", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PricingRequired", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_PricingRequired", Global.System.Data.SqlDbType.SmallDateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PricingRequired", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_PricingStarted", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PricingStarted", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_PricingStarted", Global.System.Data.SqlDbType.SmallDateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PricingStarted", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_PricingCompleted", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PricingCompleted", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_PricingCompleted", Global.System.Data.SqlDbType.SmallDateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PricingCompleted", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_EngRequired", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EngRequired", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_EngRequired", Global.System.Data.SqlDbType.SmallDateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EngRequired", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_EngStarted", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EngStarted", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
@@ -2037,6 +2030,12 @@ Namespace QuoteOrdersDSTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ShipStarted", Global.System.Data.SqlDbType.SmallDateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ShipStarted", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ShipCompleted", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ShipCompleted", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ShipCompleted", Global.System.Data.SqlDbType.SmallDateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ShipCompleted", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_PricingCompleted", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PricingCompleted", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_PricingCompleted", Global.System.Data.SqlDbType.SmallDateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PricingCompleted", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_PricingRequired", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PricingRequired", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_PricingRequired", Global.System.Data.SqlDbType.SmallDateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PricingRequired", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_PricingStarted", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PricingStarted", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_PricingStarted", Global.System.Data.SqlDbType.SmallDateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PricingStarted", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2053,10 +2052,10 @@ Namespace QuoteOrdersDSTableAdapters
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT Id, Quote#, Order#, Customer, Project, PO#, [PO Reciept], [Delivery Date],"& _ 
-                " [Quote Due Date], PricingRequired, PricingStarted, PricingCompleted, EngRequire"& _ 
-                "d, EngStarted, EngCompleted, DrftRequired, DrftStarted, DrftCompleted, FabRequir"& _ 
-                "ed, FabStarted, FabCompleted, FinishRequired, FinishStarted, FinishCompleted, Sh"& _ 
-                "ipRequired, ShipStarted, ShipCompleted FROM dbo.[Table]"
+                " [Quote Due Date], EngRequired, EngStarted, EngCompleted, DrftRequired, DrftStar"& _ 
+                "ted, DrftCompleted, FabRequired, FabStarted, FabCompleted, FinishRequired, Finis"& _ 
+                "hStarted, FinishCompleted, ShipRequired, ShipStarted, ShipCompleted, PricingComp"& _ 
+                "leted, PricingRequired, PricingStarted FROM [Table]"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -2126,9 +2125,6 @@ Namespace QuoteOrdersDSTableAdapters
                     ByVal Original_PO_Reciept As Global.System.Nullable(Of Date),  _
                     ByVal Original_Delivery_Date As Global.System.Nullable(Of Date),  _
                     ByVal Original_Quote_Due_Date As Date,  _
-                    ByVal Original_PricingRequired As Global.System.Nullable(Of Date),  _
-                    ByVal Original_PricingStarted As Global.System.Nullable(Of Date),  _
-                    ByVal Original_PricingCompleted As Global.System.Nullable(Of Date),  _
                     ByVal Original_EngRequired As Global.System.Nullable(Of Date),  _
                     ByVal Original_EngStarted As Global.System.Nullable(Of Date),  _
                     ByVal Original_EngCompleted As Global.System.Nullable(Of Date),  _
@@ -2143,7 +2139,10 @@ Namespace QuoteOrdersDSTableAdapters
                     ByVal Original_FinishCompleted As Global.System.Nullable(Of Date),  _
                     ByVal Original_ShipRequired As Global.System.Nullable(Of Date),  _
                     ByVal Original_ShipStarted As Global.System.Nullable(Of Date),  _
-                    ByVal Original_ShipCompleted As Global.System.Nullable(Of Date)) As Integer
+                    ByVal Original_ShipCompleted As Global.System.Nullable(Of Date),  _
+                    ByVal Original_PricingCompleted As Global.System.Nullable(Of Date),  _
+                    ByVal Original_PricingRequired As Global.System.Nullable(Of Date),  _
+                    ByVal Original_PricingStarted As Global.System.Nullable(Of Date)) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_Id,Integer)
             If (_Original_Quote_ Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("_Original_Quote_")
@@ -2189,128 +2188,128 @@ Namespace QuoteOrdersDSTableAdapters
                 Me.Adapter.DeleteCommand.Parameters(11).Value = Global.System.DBNull.Value
             End If
             Me.Adapter.DeleteCommand.Parameters(12).Value = CType(Original_Quote_Due_Date,Date)
-            If (Original_PricingRequired.HasValue = true) Then
+            If (Original_EngRequired.HasValue = true) Then
                 Me.Adapter.DeleteCommand.Parameters(13).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(14).Value = CType(Original_PricingRequired.Value,Date)
+                Me.Adapter.DeleteCommand.Parameters(14).Value = CType(Original_EngRequired.Value,Date)
             Else
                 Me.Adapter.DeleteCommand.Parameters(13).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(14).Value = Global.System.DBNull.Value
             End If
-            If (Original_PricingStarted.HasValue = true) Then
+            If (Original_EngStarted.HasValue = true) Then
                 Me.Adapter.DeleteCommand.Parameters(15).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(16).Value = CType(Original_PricingStarted.Value,Date)
+                Me.Adapter.DeleteCommand.Parameters(16).Value = CType(Original_EngStarted.Value,Date)
             Else
                 Me.Adapter.DeleteCommand.Parameters(15).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(16).Value = Global.System.DBNull.Value
             End If
-            If (Original_PricingCompleted.HasValue = true) Then
+            If (Original_EngCompleted.HasValue = true) Then
                 Me.Adapter.DeleteCommand.Parameters(17).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(18).Value = CType(Original_PricingCompleted.Value,Date)
+                Me.Adapter.DeleteCommand.Parameters(18).Value = CType(Original_EngCompleted.Value,Date)
             Else
                 Me.Adapter.DeleteCommand.Parameters(17).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(18).Value = Global.System.DBNull.Value
             End If
-            If (Original_EngRequired.HasValue = true) Then
+            If (Original_DrftRequired.HasValue = true) Then
                 Me.Adapter.DeleteCommand.Parameters(19).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(20).Value = CType(Original_EngRequired.Value,Date)
+                Me.Adapter.DeleteCommand.Parameters(20).Value = CType(Original_DrftRequired.Value,Date)
             Else
                 Me.Adapter.DeleteCommand.Parameters(19).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(20).Value = Global.System.DBNull.Value
             End If
-            If (Original_EngStarted.HasValue = true) Then
+            If (Original_DrftStarted.HasValue = true) Then
                 Me.Adapter.DeleteCommand.Parameters(21).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(22).Value = CType(Original_EngStarted.Value,Date)
+                Me.Adapter.DeleteCommand.Parameters(22).Value = CType(Original_DrftStarted.Value,Date)
             Else
                 Me.Adapter.DeleteCommand.Parameters(21).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(22).Value = Global.System.DBNull.Value
             End If
-            If (Original_EngCompleted.HasValue = true) Then
+            If (Original_DrftCompleted.HasValue = true) Then
                 Me.Adapter.DeleteCommand.Parameters(23).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(24).Value = CType(Original_EngCompleted.Value,Date)
+                Me.Adapter.DeleteCommand.Parameters(24).Value = CType(Original_DrftCompleted.Value,Date)
             Else
                 Me.Adapter.DeleteCommand.Parameters(23).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(24).Value = Global.System.DBNull.Value
             End If
-            If (Original_DrftRequired.HasValue = true) Then
+            If (Original_FabRequired.HasValue = true) Then
                 Me.Adapter.DeleteCommand.Parameters(25).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(26).Value = CType(Original_DrftRequired.Value,Date)
+                Me.Adapter.DeleteCommand.Parameters(26).Value = CType(Original_FabRequired.Value,Date)
             Else
                 Me.Adapter.DeleteCommand.Parameters(25).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(26).Value = Global.System.DBNull.Value
             End If
-            If (Original_DrftStarted.HasValue = true) Then
+            If (Original_FabStarted.HasValue = true) Then
                 Me.Adapter.DeleteCommand.Parameters(27).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(28).Value = CType(Original_DrftStarted.Value,Date)
+                Me.Adapter.DeleteCommand.Parameters(28).Value = CType(Original_FabStarted.Value,Date)
             Else
                 Me.Adapter.DeleteCommand.Parameters(27).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(28).Value = Global.System.DBNull.Value
             End If
-            If (Original_DrftCompleted.HasValue = true) Then
+            If (Original_FabCompleted.HasValue = true) Then
                 Me.Adapter.DeleteCommand.Parameters(29).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(30).Value = CType(Original_DrftCompleted.Value,Date)
+                Me.Adapter.DeleteCommand.Parameters(30).Value = CType(Original_FabCompleted.Value,Date)
             Else
                 Me.Adapter.DeleteCommand.Parameters(29).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(30).Value = Global.System.DBNull.Value
             End If
-            If (Original_FabRequired.HasValue = true) Then
+            If (Original_FinishRequired.HasValue = true) Then
                 Me.Adapter.DeleteCommand.Parameters(31).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(32).Value = CType(Original_FabRequired.Value,Date)
+                Me.Adapter.DeleteCommand.Parameters(32).Value = CType(Original_FinishRequired.Value,Date)
             Else
                 Me.Adapter.DeleteCommand.Parameters(31).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(32).Value = Global.System.DBNull.Value
             End If
-            If (Original_FabStarted.HasValue = true) Then
+            If (Original_FinishStarted.HasValue = true) Then
                 Me.Adapter.DeleteCommand.Parameters(33).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(34).Value = CType(Original_FabStarted.Value,Date)
+                Me.Adapter.DeleteCommand.Parameters(34).Value = CType(Original_FinishStarted.Value,Date)
             Else
                 Me.Adapter.DeleteCommand.Parameters(33).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(34).Value = Global.System.DBNull.Value
             End If
-            If (Original_FabCompleted.HasValue = true) Then
+            If (Original_FinishCompleted.HasValue = true) Then
                 Me.Adapter.DeleteCommand.Parameters(35).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(36).Value = CType(Original_FabCompleted.Value,Date)
+                Me.Adapter.DeleteCommand.Parameters(36).Value = CType(Original_FinishCompleted.Value,Date)
             Else
                 Me.Adapter.DeleteCommand.Parameters(35).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(36).Value = Global.System.DBNull.Value
             End If
-            If (Original_FinishRequired.HasValue = true) Then
+            If (Original_ShipRequired.HasValue = true) Then
                 Me.Adapter.DeleteCommand.Parameters(37).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(38).Value = CType(Original_FinishRequired.Value,Date)
+                Me.Adapter.DeleteCommand.Parameters(38).Value = CType(Original_ShipRequired.Value,Date)
             Else
                 Me.Adapter.DeleteCommand.Parameters(37).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(38).Value = Global.System.DBNull.Value
             End If
-            If (Original_FinishStarted.HasValue = true) Then
+            If (Original_ShipStarted.HasValue = true) Then
                 Me.Adapter.DeleteCommand.Parameters(39).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(40).Value = CType(Original_FinishStarted.Value,Date)
+                Me.Adapter.DeleteCommand.Parameters(40).Value = CType(Original_ShipStarted.Value,Date)
             Else
                 Me.Adapter.DeleteCommand.Parameters(39).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(40).Value = Global.System.DBNull.Value
             End If
-            If (Original_FinishCompleted.HasValue = true) Then
+            If (Original_ShipCompleted.HasValue = true) Then
                 Me.Adapter.DeleteCommand.Parameters(41).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(42).Value = CType(Original_FinishCompleted.Value,Date)
+                Me.Adapter.DeleteCommand.Parameters(42).Value = CType(Original_ShipCompleted.Value,Date)
             Else
                 Me.Adapter.DeleteCommand.Parameters(41).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(42).Value = Global.System.DBNull.Value
             End If
-            If (Original_ShipRequired.HasValue = true) Then
+            If (Original_PricingCompleted.HasValue = true) Then
                 Me.Adapter.DeleteCommand.Parameters(43).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(44).Value = CType(Original_ShipRequired.Value,Date)
+                Me.Adapter.DeleteCommand.Parameters(44).Value = CType(Original_PricingCompleted.Value,Date)
             Else
                 Me.Adapter.DeleteCommand.Parameters(43).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(44).Value = Global.System.DBNull.Value
             End If
-            If (Original_ShipStarted.HasValue = true) Then
+            If (Original_PricingRequired.HasValue = true) Then
                 Me.Adapter.DeleteCommand.Parameters(45).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(46).Value = CType(Original_ShipStarted.Value,Date)
+                Me.Adapter.DeleteCommand.Parameters(46).Value = CType(Original_PricingRequired.Value,Date)
             Else
                 Me.Adapter.DeleteCommand.Parameters(45).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(46).Value = Global.System.DBNull.Value
             End If
-            If (Original_ShipCompleted.HasValue = true) Then
+            If (Original_PricingStarted.HasValue = true) Then
                 Me.Adapter.DeleteCommand.Parameters(47).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(48).Value = CType(Original_ShipCompleted.Value,Date)
+                Me.Adapter.DeleteCommand.Parameters(48).Value = CType(Original_PricingStarted.Value,Date)
             Else
                 Me.Adapter.DeleteCommand.Parameters(47).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(48).Value = Global.System.DBNull.Value
@@ -2344,9 +2343,6 @@ Namespace QuoteOrdersDSTableAdapters
                     ByVal PO_Reciept As Global.System.Nullable(Of Date),  _
                     ByVal Delivery_Date As Global.System.Nullable(Of Date),  _
                     ByVal Quote_Due_Date As Date,  _
-                    ByVal PricingRequired As Global.System.Nullable(Of Date),  _
-                    ByVal PricingStarted As Global.System.Nullable(Of Date),  _
-                    ByVal PricingCompleted As Global.System.Nullable(Of Date),  _
                     ByVal EngRequired As Global.System.Nullable(Of Date),  _
                     ByVal EngStarted As Global.System.Nullable(Of Date),  _
                     ByVal EngCompleted As Global.System.Nullable(Of Date),  _
@@ -2361,7 +2357,10 @@ Namespace QuoteOrdersDSTableAdapters
                     ByVal FinishCompleted As Global.System.Nullable(Of Date),  _
                     ByVal ShipRequired As Global.System.Nullable(Of Date),  _
                     ByVal ShipStarted As Global.System.Nullable(Of Date),  _
-                    ByVal ShipCompleted As Global.System.Nullable(Of Date)) As Integer
+                    ByVal ShipCompleted As Global.System.Nullable(Of Date),  _
+                    ByVal PricingCompleted As Global.System.Nullable(Of Date),  _
+                    ByVal PricingRequired As Global.System.Nullable(Of Date),  _
+                    ByVal PricingStarted As Global.System.Nullable(Of Date)) As Integer
             Me.Adapter.InsertCommand.Parameters(0).Value = CType(Id,Integer)
             If (_Quote_ Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("_Quote_")
@@ -2399,93 +2398,93 @@ Namespace QuoteOrdersDSTableAdapters
                 Me.Adapter.InsertCommand.Parameters(7).Value = Global.System.DBNull.Value
             End If
             Me.Adapter.InsertCommand.Parameters(8).Value = CType(Quote_Due_Date,Date)
-            If (PricingRequired.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(9).Value = CType(PricingRequired.Value,Date)
+            If (EngRequired.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(9).Value = CType(EngRequired.Value,Date)
             Else
                 Me.Adapter.InsertCommand.Parameters(9).Value = Global.System.DBNull.Value
             End If
-            If (PricingStarted.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(10).Value = CType(PricingStarted.Value,Date)
+            If (EngStarted.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(10).Value = CType(EngStarted.Value,Date)
             Else
                 Me.Adapter.InsertCommand.Parameters(10).Value = Global.System.DBNull.Value
             End If
-            If (PricingCompleted.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(11).Value = CType(PricingCompleted.Value,Date)
+            If (EngCompleted.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(11).Value = CType(EngCompleted.Value,Date)
             Else
                 Me.Adapter.InsertCommand.Parameters(11).Value = Global.System.DBNull.Value
             End If
-            If (EngRequired.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(12).Value = CType(EngRequired.Value,Date)
+            If (DrftRequired.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(12).Value = CType(DrftRequired.Value,Date)
             Else
                 Me.Adapter.InsertCommand.Parameters(12).Value = Global.System.DBNull.Value
             End If
-            If (EngStarted.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(13).Value = CType(EngStarted.Value,Date)
+            If (DrftStarted.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(13).Value = CType(DrftStarted.Value,Date)
             Else
                 Me.Adapter.InsertCommand.Parameters(13).Value = Global.System.DBNull.Value
             End If
-            If (EngCompleted.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(14).Value = CType(EngCompleted.Value,Date)
+            If (DrftCompleted.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(14).Value = CType(DrftCompleted.Value,Date)
             Else
                 Me.Adapter.InsertCommand.Parameters(14).Value = Global.System.DBNull.Value
             End If
-            If (DrftRequired.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(15).Value = CType(DrftRequired.Value,Date)
+            If (FabRequired.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(15).Value = CType(FabRequired.Value,Date)
             Else
                 Me.Adapter.InsertCommand.Parameters(15).Value = Global.System.DBNull.Value
             End If
-            If (DrftStarted.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(16).Value = CType(DrftStarted.Value,Date)
+            If (FabStarted.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(16).Value = CType(FabStarted.Value,Date)
             Else
                 Me.Adapter.InsertCommand.Parameters(16).Value = Global.System.DBNull.Value
             End If
-            If (DrftCompleted.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(17).Value = CType(DrftCompleted.Value,Date)
+            If (FabCompleted.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(17).Value = CType(FabCompleted.Value,Date)
             Else
                 Me.Adapter.InsertCommand.Parameters(17).Value = Global.System.DBNull.Value
             End If
-            If (FabRequired.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(18).Value = CType(FabRequired.Value,Date)
+            If (FinishRequired.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(18).Value = CType(FinishRequired.Value,Date)
             Else
                 Me.Adapter.InsertCommand.Parameters(18).Value = Global.System.DBNull.Value
             End If
-            If (FabStarted.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(19).Value = CType(FabStarted.Value,Date)
+            If (FinishStarted.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(19).Value = CType(FinishStarted.Value,Date)
             Else
                 Me.Adapter.InsertCommand.Parameters(19).Value = Global.System.DBNull.Value
             End If
-            If (FabCompleted.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(20).Value = CType(FabCompleted.Value,Date)
+            If (FinishCompleted.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(20).Value = CType(FinishCompleted.Value,Date)
             Else
                 Me.Adapter.InsertCommand.Parameters(20).Value = Global.System.DBNull.Value
             End If
-            If (FinishRequired.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(21).Value = CType(FinishRequired.Value,Date)
+            If (ShipRequired.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(21).Value = CType(ShipRequired.Value,Date)
             Else
                 Me.Adapter.InsertCommand.Parameters(21).Value = Global.System.DBNull.Value
             End If
-            If (FinishStarted.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(22).Value = CType(FinishStarted.Value,Date)
+            If (ShipStarted.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(22).Value = CType(ShipStarted.Value,Date)
             Else
                 Me.Adapter.InsertCommand.Parameters(22).Value = Global.System.DBNull.Value
             End If
-            If (FinishCompleted.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(23).Value = CType(FinishCompleted.Value,Date)
+            If (ShipCompleted.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(23).Value = CType(ShipCompleted.Value,Date)
             Else
                 Me.Adapter.InsertCommand.Parameters(23).Value = Global.System.DBNull.Value
             End If
-            If (ShipRequired.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(24).Value = CType(ShipRequired.Value,Date)
+            If (PricingCompleted.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(24).Value = CType(PricingCompleted.Value,Date)
             Else
                 Me.Adapter.InsertCommand.Parameters(24).Value = Global.System.DBNull.Value
             End If
-            If (ShipStarted.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(25).Value = CType(ShipStarted.Value,Date)
+            If (PricingRequired.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(25).Value = CType(PricingRequired.Value,Date)
             Else
                 Me.Adapter.InsertCommand.Parameters(25).Value = Global.System.DBNull.Value
             End If
-            If (ShipCompleted.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(26).Value = CType(ShipCompleted.Value,Date)
+            If (PricingStarted.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(26).Value = CType(PricingStarted.Value,Date)
             Else
                 Me.Adapter.InsertCommand.Parameters(26).Value = Global.System.DBNull.Value
             End If
@@ -2518,9 +2517,6 @@ Namespace QuoteOrdersDSTableAdapters
                     ByVal PO_Reciept As Global.System.Nullable(Of Date),  _
                     ByVal Delivery_Date As Global.System.Nullable(Of Date),  _
                     ByVal Quote_Due_Date As Date,  _
-                    ByVal PricingRequired As Global.System.Nullable(Of Date),  _
-                    ByVal PricingStarted As Global.System.Nullable(Of Date),  _
-                    ByVal PricingCompleted As Global.System.Nullable(Of Date),  _
                     ByVal EngRequired As Global.System.Nullable(Of Date),  _
                     ByVal EngStarted As Global.System.Nullable(Of Date),  _
                     ByVal EngCompleted As Global.System.Nullable(Of Date),  _
@@ -2536,6 +2532,9 @@ Namespace QuoteOrdersDSTableAdapters
                     ByVal ShipRequired As Global.System.Nullable(Of Date),  _
                     ByVal ShipStarted As Global.System.Nullable(Of Date),  _
                     ByVal ShipCompleted As Global.System.Nullable(Of Date),  _
+                    ByVal PricingCompleted As Global.System.Nullable(Of Date),  _
+                    ByVal PricingRequired As Global.System.Nullable(Of Date),  _
+                    ByVal PricingStarted As Global.System.Nullable(Of Date),  _
                     ByVal Original_Id As Integer,  _
                     ByVal _Original_Quote_ As String,  _
                     ByVal _Original_Order_ As Global.System.Nullable(Of Integer),  _
@@ -2545,9 +2544,6 @@ Namespace QuoteOrdersDSTableAdapters
                     ByVal Original_PO_Reciept As Global.System.Nullable(Of Date),  _
                     ByVal Original_Delivery_Date As Global.System.Nullable(Of Date),  _
                     ByVal Original_Quote_Due_Date As Date,  _
-                    ByVal Original_PricingRequired As Global.System.Nullable(Of Date),  _
-                    ByVal Original_PricingStarted As Global.System.Nullable(Of Date),  _
-                    ByVal Original_PricingCompleted As Global.System.Nullable(Of Date),  _
                     ByVal Original_EngRequired As Global.System.Nullable(Of Date),  _
                     ByVal Original_EngStarted As Global.System.Nullable(Of Date),  _
                     ByVal Original_EngCompleted As Global.System.Nullable(Of Date),  _
@@ -2562,7 +2558,10 @@ Namespace QuoteOrdersDSTableAdapters
                     ByVal Original_FinishCompleted As Global.System.Nullable(Of Date),  _
                     ByVal Original_ShipRequired As Global.System.Nullable(Of Date),  _
                     ByVal Original_ShipStarted As Global.System.Nullable(Of Date),  _
-                    ByVal Original_ShipCompleted As Global.System.Nullable(Of Date)) As Integer
+                    ByVal Original_ShipCompleted As Global.System.Nullable(Of Date),  _
+                    ByVal Original_PricingCompleted As Global.System.Nullable(Of Date),  _
+                    ByVal Original_PricingRequired As Global.System.Nullable(Of Date),  _
+                    ByVal Original_PricingStarted As Global.System.Nullable(Of Date)) As Integer
             Me.Adapter.UpdateCommand.Parameters(0).Value = CType(Id,Integer)
             If (_Quote_ Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("_Quote_")
@@ -2600,93 +2599,93 @@ Namespace QuoteOrdersDSTableAdapters
                 Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
             End If
             Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Quote_Due_Date,Date)
-            If (PricingRequired.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(PricingRequired.Value,Date)
+            If (EngRequired.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(EngRequired.Value,Date)
             Else
                 Me.Adapter.UpdateCommand.Parameters(9).Value = Global.System.DBNull.Value
             End If
-            If (PricingStarted.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(PricingStarted.Value,Date)
+            If (EngStarted.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(EngStarted.Value,Date)
             Else
                 Me.Adapter.UpdateCommand.Parameters(10).Value = Global.System.DBNull.Value
             End If
-            If (PricingCompleted.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(PricingCompleted.Value,Date)
+            If (EngCompleted.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(EngCompleted.Value,Date)
             Else
                 Me.Adapter.UpdateCommand.Parameters(11).Value = Global.System.DBNull.Value
             End If
-            If (EngRequired.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(EngRequired.Value,Date)
+            If (DrftRequired.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(DrftRequired.Value,Date)
             Else
                 Me.Adapter.UpdateCommand.Parameters(12).Value = Global.System.DBNull.Value
             End If
-            If (EngStarted.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(EngStarted.Value,Date)
+            If (DrftStarted.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(DrftStarted.Value,Date)
             Else
                 Me.Adapter.UpdateCommand.Parameters(13).Value = Global.System.DBNull.Value
             End If
-            If (EngCompleted.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(EngCompleted.Value,Date)
+            If (DrftCompleted.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(DrftCompleted.Value,Date)
             Else
                 Me.Adapter.UpdateCommand.Parameters(14).Value = Global.System.DBNull.Value
             End If
-            If (DrftRequired.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(DrftRequired.Value,Date)
+            If (FabRequired.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(FabRequired.Value,Date)
             Else
                 Me.Adapter.UpdateCommand.Parameters(15).Value = Global.System.DBNull.Value
             End If
-            If (DrftStarted.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(DrftStarted.Value,Date)
+            If (FabStarted.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(FabStarted.Value,Date)
             Else
                 Me.Adapter.UpdateCommand.Parameters(16).Value = Global.System.DBNull.Value
             End If
-            If (DrftCompleted.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(DrftCompleted.Value,Date)
+            If (FabCompleted.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(FabCompleted.Value,Date)
             Else
                 Me.Adapter.UpdateCommand.Parameters(17).Value = Global.System.DBNull.Value
             End If
-            If (FabRequired.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(FabRequired.Value,Date)
+            If (FinishRequired.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(FinishRequired.Value,Date)
             Else
                 Me.Adapter.UpdateCommand.Parameters(18).Value = Global.System.DBNull.Value
             End If
-            If (FabStarted.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(FabStarted.Value,Date)
+            If (FinishStarted.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(FinishStarted.Value,Date)
             Else
                 Me.Adapter.UpdateCommand.Parameters(19).Value = Global.System.DBNull.Value
             End If
-            If (FabCompleted.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(FabCompleted.Value,Date)
+            If (FinishCompleted.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(FinishCompleted.Value,Date)
             Else
                 Me.Adapter.UpdateCommand.Parameters(20).Value = Global.System.DBNull.Value
             End If
-            If (FinishRequired.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(FinishRequired.Value,Date)
+            If (ShipRequired.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(ShipRequired.Value,Date)
             Else
                 Me.Adapter.UpdateCommand.Parameters(21).Value = Global.System.DBNull.Value
             End If
-            If (FinishStarted.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(FinishStarted.Value,Date)
+            If (ShipStarted.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(ShipStarted.Value,Date)
             Else
                 Me.Adapter.UpdateCommand.Parameters(22).Value = Global.System.DBNull.Value
             End If
-            If (FinishCompleted.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(FinishCompleted.Value,Date)
+            If (ShipCompleted.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(ShipCompleted.Value,Date)
             Else
                 Me.Adapter.UpdateCommand.Parameters(23).Value = Global.System.DBNull.Value
             End If
-            If (ShipRequired.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(ShipRequired.Value,Date)
+            If (PricingCompleted.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(PricingCompleted.Value,Date)
             Else
                 Me.Adapter.UpdateCommand.Parameters(24).Value = Global.System.DBNull.Value
             End If
-            If (ShipStarted.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(ShipStarted.Value,Date)
+            If (PricingRequired.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(PricingRequired.Value,Date)
             Else
                 Me.Adapter.UpdateCommand.Parameters(25).Value = Global.System.DBNull.Value
             End If
-            If (ShipCompleted.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(ShipCompleted.Value,Date)
+            If (PricingStarted.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(PricingStarted.Value,Date)
             Else
                 Me.Adapter.UpdateCommand.Parameters(26).Value = Global.System.DBNull.Value
             End If
@@ -2735,128 +2734,128 @@ Namespace QuoteOrdersDSTableAdapters
                 Me.Adapter.UpdateCommand.Parameters(38).Value = Global.System.DBNull.Value
             End If
             Me.Adapter.UpdateCommand.Parameters(39).Value = CType(Original_Quote_Due_Date,Date)
-            If (Original_PricingRequired.HasValue = true) Then
+            If (Original_EngRequired.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(40).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(41).Value = CType(Original_PricingRequired.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(41).Value = CType(Original_EngRequired.Value,Date)
             Else
                 Me.Adapter.UpdateCommand.Parameters(40).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(41).Value = Global.System.DBNull.Value
             End If
-            If (Original_PricingStarted.HasValue = true) Then
+            If (Original_EngStarted.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(42).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(43).Value = CType(Original_PricingStarted.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(43).Value = CType(Original_EngStarted.Value,Date)
             Else
                 Me.Adapter.UpdateCommand.Parameters(42).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(43).Value = Global.System.DBNull.Value
             End If
-            If (Original_PricingCompleted.HasValue = true) Then
+            If (Original_EngCompleted.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(44).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(45).Value = CType(Original_PricingCompleted.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(45).Value = CType(Original_EngCompleted.Value,Date)
             Else
                 Me.Adapter.UpdateCommand.Parameters(44).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(45).Value = Global.System.DBNull.Value
             End If
-            If (Original_EngRequired.HasValue = true) Then
+            If (Original_DrftRequired.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(46).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(47).Value = CType(Original_EngRequired.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(47).Value = CType(Original_DrftRequired.Value,Date)
             Else
                 Me.Adapter.UpdateCommand.Parameters(46).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(47).Value = Global.System.DBNull.Value
             End If
-            If (Original_EngStarted.HasValue = true) Then
+            If (Original_DrftStarted.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(48).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(49).Value = CType(Original_EngStarted.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(49).Value = CType(Original_DrftStarted.Value,Date)
             Else
                 Me.Adapter.UpdateCommand.Parameters(48).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(49).Value = Global.System.DBNull.Value
             End If
-            If (Original_EngCompleted.HasValue = true) Then
+            If (Original_DrftCompleted.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(50).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(51).Value = CType(Original_EngCompleted.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(51).Value = CType(Original_DrftCompleted.Value,Date)
             Else
                 Me.Adapter.UpdateCommand.Parameters(50).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(51).Value = Global.System.DBNull.Value
             End If
-            If (Original_DrftRequired.HasValue = true) Then
+            If (Original_FabRequired.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(52).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(53).Value = CType(Original_DrftRequired.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(53).Value = CType(Original_FabRequired.Value,Date)
             Else
                 Me.Adapter.UpdateCommand.Parameters(52).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(53).Value = Global.System.DBNull.Value
             End If
-            If (Original_DrftStarted.HasValue = true) Then
+            If (Original_FabStarted.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(54).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(55).Value = CType(Original_DrftStarted.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(55).Value = CType(Original_FabStarted.Value,Date)
             Else
                 Me.Adapter.UpdateCommand.Parameters(54).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(55).Value = Global.System.DBNull.Value
             End If
-            If (Original_DrftCompleted.HasValue = true) Then
+            If (Original_FabCompleted.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(56).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(57).Value = CType(Original_DrftCompleted.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(57).Value = CType(Original_FabCompleted.Value,Date)
             Else
                 Me.Adapter.UpdateCommand.Parameters(56).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(57).Value = Global.System.DBNull.Value
             End If
-            If (Original_FabRequired.HasValue = true) Then
+            If (Original_FinishRequired.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(58).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(59).Value = CType(Original_FabRequired.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(59).Value = CType(Original_FinishRequired.Value,Date)
             Else
                 Me.Adapter.UpdateCommand.Parameters(58).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(59).Value = Global.System.DBNull.Value
             End If
-            If (Original_FabStarted.HasValue = true) Then
+            If (Original_FinishStarted.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(60).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(61).Value = CType(Original_FabStarted.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(61).Value = CType(Original_FinishStarted.Value,Date)
             Else
                 Me.Adapter.UpdateCommand.Parameters(60).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(61).Value = Global.System.DBNull.Value
             End If
-            If (Original_FabCompleted.HasValue = true) Then
+            If (Original_FinishCompleted.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(62).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(63).Value = CType(Original_FabCompleted.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(63).Value = CType(Original_FinishCompleted.Value,Date)
             Else
                 Me.Adapter.UpdateCommand.Parameters(62).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(63).Value = Global.System.DBNull.Value
             End If
-            If (Original_FinishRequired.HasValue = true) Then
+            If (Original_ShipRequired.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(64).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(65).Value = CType(Original_FinishRequired.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(65).Value = CType(Original_ShipRequired.Value,Date)
             Else
                 Me.Adapter.UpdateCommand.Parameters(64).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(65).Value = Global.System.DBNull.Value
             End If
-            If (Original_FinishStarted.HasValue = true) Then
+            If (Original_ShipStarted.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(66).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(67).Value = CType(Original_FinishStarted.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(67).Value = CType(Original_ShipStarted.Value,Date)
             Else
                 Me.Adapter.UpdateCommand.Parameters(66).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(67).Value = Global.System.DBNull.Value
             End If
-            If (Original_FinishCompleted.HasValue = true) Then
+            If (Original_ShipCompleted.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(68).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(69).Value = CType(Original_FinishCompleted.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(69).Value = CType(Original_ShipCompleted.Value,Date)
             Else
                 Me.Adapter.UpdateCommand.Parameters(68).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(69).Value = Global.System.DBNull.Value
             End If
-            If (Original_ShipRequired.HasValue = true) Then
+            If (Original_PricingCompleted.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(70).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(71).Value = CType(Original_ShipRequired.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(71).Value = CType(Original_PricingCompleted.Value,Date)
             Else
                 Me.Adapter.UpdateCommand.Parameters(70).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(71).Value = Global.System.DBNull.Value
             End If
-            If (Original_ShipStarted.HasValue = true) Then
+            If (Original_PricingRequired.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(72).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(73).Value = CType(Original_ShipStarted.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(73).Value = CType(Original_PricingRequired.Value,Date)
             Else
                 Me.Adapter.UpdateCommand.Parameters(72).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(73).Value = Global.System.DBNull.Value
             End If
-            If (Original_ShipCompleted.HasValue = true) Then
+            If (Original_PricingStarted.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(74).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(75).Value = CType(Original_ShipCompleted.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(75).Value = CType(Original_PricingStarted.Value,Date)
             Else
                 Me.Adapter.UpdateCommand.Parameters(74).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(75).Value = Global.System.DBNull.Value
@@ -2889,9 +2888,6 @@ Namespace QuoteOrdersDSTableAdapters
                     ByVal PO_Reciept As Global.System.Nullable(Of Date),  _
                     ByVal Delivery_Date As Global.System.Nullable(Of Date),  _
                     ByVal Quote_Due_Date As Date,  _
-                    ByVal PricingRequired As Global.System.Nullable(Of Date),  _
-                    ByVal PricingStarted As Global.System.Nullable(Of Date),  _
-                    ByVal PricingCompleted As Global.System.Nullable(Of Date),  _
                     ByVal EngRequired As Global.System.Nullable(Of Date),  _
                     ByVal EngStarted As Global.System.Nullable(Of Date),  _
                     ByVal EngCompleted As Global.System.Nullable(Of Date),  _
@@ -2907,6 +2903,9 @@ Namespace QuoteOrdersDSTableAdapters
                     ByVal ShipRequired As Global.System.Nullable(Of Date),  _
                     ByVal ShipStarted As Global.System.Nullable(Of Date),  _
                     ByVal ShipCompleted As Global.System.Nullable(Of Date),  _
+                    ByVal PricingCompleted As Global.System.Nullable(Of Date),  _
+                    ByVal PricingRequired As Global.System.Nullable(Of Date),  _
+                    ByVal PricingStarted As Global.System.Nullable(Of Date),  _
                     ByVal Original_Id As Integer,  _
                     ByVal _Original_Quote_ As String,  _
                     ByVal _Original_Order_ As Global.System.Nullable(Of Integer),  _
@@ -2916,9 +2915,6 @@ Namespace QuoteOrdersDSTableAdapters
                     ByVal Original_PO_Reciept As Global.System.Nullable(Of Date),  _
                     ByVal Original_Delivery_Date As Global.System.Nullable(Of Date),  _
                     ByVal Original_Quote_Due_Date As Date,  _
-                    ByVal Original_PricingRequired As Global.System.Nullable(Of Date),  _
-                    ByVal Original_PricingStarted As Global.System.Nullable(Of Date),  _
-                    ByVal Original_PricingCompleted As Global.System.Nullable(Of Date),  _
                     ByVal Original_EngRequired As Global.System.Nullable(Of Date),  _
                     ByVal Original_EngStarted As Global.System.Nullable(Of Date),  _
                     ByVal Original_EngCompleted As Global.System.Nullable(Of Date),  _
@@ -2933,8 +2929,11 @@ Namespace QuoteOrdersDSTableAdapters
                     ByVal Original_FinishCompleted As Global.System.Nullable(Of Date),  _
                     ByVal Original_ShipRequired As Global.System.Nullable(Of Date),  _
                     ByVal Original_ShipStarted As Global.System.Nullable(Of Date),  _
-                    ByVal Original_ShipCompleted As Global.System.Nullable(Of Date)) As Integer
-            Return Me.Update(Original_Id, _Quote_, _Order_, Customer, Project, _PO_, PO_Reciept, Delivery_Date, Quote_Due_Date, PricingRequired, PricingStarted, PricingCompleted, EngRequired, EngStarted, EngCompleted, DrftRequired, DrftStarted, DrftCompleted, FabRequired, FabStarted, FabCompleted, FinishRequired, FinishStarted, FinishCompleted, ShipRequired, ShipStarted, ShipCompleted, Original_Id, _Original_Quote_, _Original_Order_, Original_Customer, Original_Project, _Original_PO_, Original_PO_Reciept, Original_Delivery_Date, Original_Quote_Due_Date, Original_PricingRequired, Original_PricingStarted, Original_PricingCompleted, Original_EngRequired, Original_EngStarted, Original_EngCompleted, Original_DrftRequired, Original_DrftStarted, Original_DrftCompleted, Original_FabRequired, Original_FabStarted, Original_FabCompleted, Original_FinishRequired, Original_FinishStarted, Original_FinishCompleted, Original_ShipRequired, Original_ShipStarted, Original_ShipCompleted)
+                    ByVal Original_ShipCompleted As Global.System.Nullable(Of Date),  _
+                    ByVal Original_PricingCompleted As Global.System.Nullable(Of Date),  _
+                    ByVal Original_PricingRequired As Global.System.Nullable(Of Date),  _
+                    ByVal Original_PricingStarted As Global.System.Nullable(Of Date)) As Integer
+            Return Me.Update(Original_Id, _Quote_, _Order_, Customer, Project, _PO_, PO_Reciept, Delivery_Date, Quote_Due_Date, EngRequired, EngStarted, EngCompleted, DrftRequired, DrftStarted, DrftCompleted, FabRequired, FabStarted, FabCompleted, FinishRequired, FinishStarted, FinishCompleted, ShipRequired, ShipStarted, ShipCompleted, PricingCompleted, PricingRequired, PricingStarted, Original_Id, _Original_Quote_, _Original_Order_, Original_Customer, Original_Project, _Original_PO_, Original_PO_Reciept, Original_Delivery_Date, Original_Quote_Due_Date, Original_EngRequired, Original_EngStarted, Original_EngCompleted, Original_DrftRequired, Original_DrftStarted, Original_DrftCompleted, Original_FabRequired, Original_FabStarted, Original_FabCompleted, Original_FinishRequired, Original_FinishStarted, Original_FinishCompleted, Original_ShipRequired, Original_ShipStarted, Original_ShipCompleted, Original_PricingCompleted, Original_PricingRequired, Original_PricingStarted)
         End Function
     End Class
     

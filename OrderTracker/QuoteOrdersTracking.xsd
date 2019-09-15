@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="QuoteOrdersTracking" targetNamespace="http://tempuri.org/QuoteOrdersTracking.xsd" xmlns:mstns="http://tempuri.org/QuoteOrdersTracking.xsd" xmlns="http://tempuri.org/QuoteOrdersTracking.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="QuoteOrdersConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="QuoteOrdersConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.OrderTracker.My.MySettings.GlobalReference.Default.QuoteOrdersConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TableTableAdapter" GeneratorDataComponentClassName="TableTableAdapter" Name="Table" UserDataComponentName="TableTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="QuoteOrdersConnectionString (MySettings)" DbObjectName="dbo.[Table]" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT PricingRequired, PricingStarted, PricingCompleted, EngRequired, EngStarted, EngCompleted, DrftRequired, DrftStarted, DrftCompleted, FabRequired, FabStarted, FabCompleted, FinishRequired, FinishStarted, FinishCompleted, ShipRequired, ShipStarted, ShipCompleted FROM dbo.[Table]</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="PricingRequired" DataSetColumn="PricingRequired" />
+              <Mapping SourceColumn="PricingStarted" DataSetColumn="PricingStarted" />
+              <Mapping SourceColumn="PricingCompleted" DataSetColumn="PricingCompleted" />
+              <Mapping SourceColumn="EngRequired" DataSetColumn="EngRequired" />
+              <Mapping SourceColumn="EngStarted" DataSetColumn="EngStarted" />
+              <Mapping SourceColumn="EngCompleted" DataSetColumn="EngCompleted" />
+              <Mapping SourceColumn="DrftRequired" DataSetColumn="DrftRequired" />
+              <Mapping SourceColumn="DrftStarted" DataSetColumn="DrftStarted" />
+              <Mapping SourceColumn="DrftCompleted" DataSetColumn="DrftCompleted" />
+              <Mapping SourceColumn="FabRequired" DataSetColumn="FabRequired" />
+              <Mapping SourceColumn="FabStarted" DataSetColumn="FabStarted" />
+              <Mapping SourceColumn="FabCompleted" DataSetColumn="FabCompleted" />
+              <Mapping SourceColumn="FinishRequired" DataSetColumn="FinishRequired" />
+              <Mapping SourceColumn="FinishStarted" DataSetColumn="FinishStarted" />
+              <Mapping SourceColumn="FinishCompleted" DataSetColumn="FinishCompleted" />
+              <Mapping SourceColumn="ShipRequired" DataSetColumn="ShipRequired" />
+              <Mapping SourceColumn="ShipStarted" DataSetColumn="ShipStarted" />
+              <Mapping SourceColumn="ShipCompleted" DataSetColumn="ShipCompleted" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="QuoteOrdersTracking" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="QuoteOrdersTracking" msprop:Generator_UserDSName="QuoteOrdersTracking">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Table" msprop:Generator_TableClassName="TableDataTable" msprop:Generator_TableVarName="tableTable" msprop:Generator_TablePropName="Table" msprop:Generator_RowDeletingName="TableRowDeleting" msprop:Generator_RowChangingName="TableRowChanging" msprop:Generator_RowEvHandlerName="TableRowChangeEventHandler" msprop:Generator_RowDeletedName="TableRowDeleted" msprop:Generator_UserTableName="Table" msprop:Generator_RowChangedName="TableRowChanged" msprop:Generator_RowEvArgName="TableRowChangeEvent" msprop:Generator_RowClassName="TableRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="PricingRequired" msprop:Generator_ColumnVarNameInTable="columnPricingRequired" msprop:Generator_ColumnPropNameInRow="PricingRequired" msprop:Generator_ColumnPropNameInTable="PricingRequiredColumn" msprop:Generator_UserColumnName="PricingRequired" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="PricingStarted" msprop:Generator_ColumnVarNameInTable="columnPricingStarted" msprop:Generator_ColumnPropNameInRow="PricingStarted" msprop:Generator_ColumnPropNameInTable="PricingStartedColumn" msprop:Generator_UserColumnName="PricingStarted" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="PricingCompleted" msprop:Generator_ColumnVarNameInTable="columnPricingCompleted" msprop:Generator_ColumnPropNameInRow="PricingCompleted" msprop:Generator_ColumnPropNameInTable="PricingCompletedColumn" msprop:Generator_UserColumnName="PricingCompleted" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="EngRequired" msprop:Generator_ColumnVarNameInTable="columnEngRequired" msprop:Generator_ColumnPropNameInRow="EngRequired" msprop:Generator_ColumnPropNameInTable="EngRequiredColumn" msprop:Generator_UserColumnName="EngRequired" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="EngStarted" msprop:Generator_ColumnVarNameInTable="columnEngStarted" msprop:Generator_ColumnPropNameInRow="EngStarted" msprop:Generator_ColumnPropNameInTable="EngStartedColumn" msprop:Generator_UserColumnName="EngStarted" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="EngCompleted" msprop:Generator_ColumnVarNameInTable="columnEngCompleted" msprop:Generator_ColumnPropNameInRow="EngCompleted" msprop:Generator_ColumnPropNameInTable="EngCompletedColumn" msprop:Generator_UserColumnName="EngCompleted" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="DrftRequired" msprop:Generator_ColumnVarNameInTable="columnDrftRequired" msprop:Generator_ColumnPropNameInRow="DrftRequired" msprop:Generator_ColumnPropNameInTable="DrftRequiredColumn" msprop:Generator_UserColumnName="DrftRequired" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="DrftStarted" msprop:Generator_ColumnVarNameInTable="columnDrftStarted" msprop:Generator_ColumnPropNameInRow="DrftStarted" msprop:Generator_ColumnPropNameInTable="DrftStartedColumn" msprop:Generator_UserColumnName="DrftStarted" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="DrftCompleted" msprop:Generator_ColumnVarNameInTable="columnDrftCompleted" msprop:Generator_ColumnPropNameInRow="DrftCompleted" msprop:Generator_ColumnPropNameInTable="DrftCompletedColumn" msprop:Generator_UserColumnName="DrftCompleted" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="FabRequired" msprop:Generator_ColumnVarNameInTable="columnFabRequired" msprop:Generator_ColumnPropNameInRow="FabRequired" msprop:Generator_ColumnPropNameInTable="FabRequiredColumn" msprop:Generator_UserColumnName="FabRequired" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="FabStarted" msprop:Generator_ColumnVarNameInTable="columnFabStarted" msprop:Generator_ColumnPropNameInRow="FabStarted" msprop:Generator_ColumnPropNameInTable="FabStartedColumn" msprop:Generator_UserColumnName="FabStarted" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="FabCompleted" msprop:Generator_ColumnVarNameInTable="columnFabCompleted" msprop:Generator_ColumnPropNameInRow="FabCompleted" msprop:Generator_ColumnPropNameInTable="FabCompletedColumn" msprop:Generator_UserColumnName="FabCompleted" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="FinishRequired" msprop:Generator_ColumnVarNameInTable="columnFinishRequired" msprop:Generator_ColumnPropNameInRow="FinishRequired" msprop:Generator_ColumnPropNameInTable="FinishRequiredColumn" msprop:Generator_UserColumnName="FinishRequired" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="FinishStarted" msprop:Generator_ColumnVarNameInTable="columnFinishStarted" msprop:Generator_ColumnPropNameInRow="FinishStarted" msprop:Generator_ColumnPropNameInTable="FinishStartedColumn" msprop:Generator_UserColumnName="FinishStarted" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="FinishCompleted" msprop:Generator_ColumnVarNameInTable="columnFinishCompleted" msprop:Generator_ColumnPropNameInRow="FinishCompleted" msprop:Generator_ColumnPropNameInTable="FinishCompletedColumn" msprop:Generator_UserColumnName="FinishCompleted" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="ShipRequired" msprop:Generator_ColumnVarNameInTable="columnShipRequired" msprop:Generator_ColumnPropNameInRow="ShipRequired" msprop:Generator_ColumnPropNameInTable="ShipRequiredColumn" msprop:Generator_UserColumnName="ShipRequired" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="ShipStarted" msprop:Generator_ColumnVarNameInTable="columnShipStarted" msprop:Generator_ColumnPropNameInRow="ShipStarted" msprop:Generator_ColumnPropNameInTable="ShipStartedColumn" msprop:Generator_UserColumnName="ShipStarted" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="ShipCompleted" msprop:Generator_ColumnVarNameInTable="columnShipCompleted" msprop:Generator_ColumnPropNameInRow="ShipCompleted" msprop:Generator_ColumnPropNameInTable="ShipCompletedColumn" msprop:Generator_UserColumnName="ShipCompleted" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

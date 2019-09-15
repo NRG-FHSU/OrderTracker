@@ -23,7 +23,6 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Dim Quote_Label As System.Windows.Forms.Label
         Dim Order_Label As System.Windows.Forms.Label
         Dim CustomerLabel As System.Windows.Forms.Label
@@ -63,8 +62,10 @@ Partial Class Form1
         Dim Label36 As System.Windows.Forms.Label
         Dim Label37 As System.Windows.Forms.Label
         Dim Label38 As System.Windows.Forms.Label
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.TableDataGridView = New System.Windows.Forms.DataGridView()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.PictureBox_ShipActual = New System.Windows.Forms.PictureBox()
         Me.PictureBox_ShipCommit = New System.Windows.Forms.PictureBox()
@@ -93,24 +94,74 @@ Partial Class Form1
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
-        Me.QuoteOrdersDS = New OrderTracker.QuoteOrdersDS()
-        Me.TableBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.TableTableAdapter = New OrderTracker.QuoteOrdersDSTableAdapters.TableTableAdapter()
-        Me.TableAdapterManager = New OrderTracker.QuoteOrdersDSTableAdapters.TableAdapterManager()
+        Me.Button_OrderReport = New System.Windows.Forms.Button()
+        Me.Button_QuoteReport = New System.Windows.Forms.Button()
+        Me.GroupBox5 = New System.Windows.Forms.GroupBox()
+        Me.GroupBox9 = New System.Windows.Forms.GroupBox()
+        Me.Label_ShipRequired = New System.Windows.Forms.Label()
+        Me.GroupBox8 = New System.Windows.Forms.GroupBox()
+        Me.Label_DrftRequired = New System.Windows.Forms.Label()
+        Me.GroupBox10 = New System.Windows.Forms.GroupBox()
+        Me.Label_FinishRequired = New System.Windows.Forms.Label()
+        Me.GroupBox7 = New System.Windows.Forms.GroupBox()
+        Me.Label_EngRequired = New System.Windows.Forms.Label()
+        Me.GroupBox11 = New System.Windows.Forms.GroupBox()
+        Me.Label_FabRequired = New System.Windows.Forms.Label()
+        Me.GroupBox6 = New System.Windows.Forms.GroupBox()
+        Me.Label_PricingRequired = New System.Windows.Forms.Label()
+        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.Button_BackSchedule = New System.Windows.Forms.Button()
+        Me.Delivery_DateDateTimePicker = New System.Windows.Forms.DateTimePicker()
+        Me.PO_RecieptDateTimePicker = New System.Windows.Forms.DateTimePicker()
+        Me.PO_TextBox = New System.Windows.Forms.TextBox()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.Button_Convert2Order = New System.Windows.Forms.Button()
+        Me.ProjectTextBox = New System.Windows.Forms.TextBox()
+        Me.CustomerTextBox = New System.Windows.Forms.TextBox()
+        Me.Order_TextBox = New System.Windows.Forms.TextBox()
+        Me.Quote_TextBox = New System.Windows.Forms.TextBox()
+        Me.Quote_Due_DateDateTimePicker = New System.Windows.Forms.DateTimePicker()
         Me.TableBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
+        Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
+        Me.BindingNavigatorCountItem = New System.Windows.Forms.ToolStripLabel()
+        Me.BindingNavigatorDeleteItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorMoveFirstItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorMovePreviousItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorSeparator = New System.Windows.Forms.ToolStripSeparator()
         Me.BindingNavigatorPositionItem = New System.Windows.Forms.ToolStripTextBox()
-        Me.BindingNavigatorCountItem = New System.Windows.Forms.ToolStripLabel()
         Me.BindingNavigatorSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.BindingNavigatorMoveNextItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorMoveLastItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorSeparator2 = New System.Windows.Forms.ToolStripSeparator()
-        Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
-        Me.BindingNavigatorDeleteItem = New System.Windows.Forms.ToolStripButton()
         Me.TableBindingNavigatorSaveItem = New System.Windows.Forms.ToolStripButton()
-        Me.TableDataGridView = New System.Windows.Forms.DataGridView()
+        Me.Label_DatePricingStarted = New System.Windows.Forms.Label()
+        Me.Label_DatePricingComplet = New System.Windows.Forms.Label()
+        Me.Label_DateEngCompleted = New System.Windows.Forms.Label()
+        Me.Label_DateEngStart = New System.Windows.Forms.Label()
+        Me.Label_DateDrftComplete = New System.Windows.Forms.Label()
+        Me.Label_DateDrftStart = New System.Windows.Forms.Label()
+        Me.Label_DateFabCompleted = New System.Windows.Forms.Label()
+        Me.Label_DateFabStarted = New System.Windows.Forms.Label()
+        Me.Label_DateFinishCompleted = New System.Windows.Forms.Label()
+        Me.Label_DateFinishStart = New System.Windows.Forms.Label()
+        Me.Label_DateShipCompleted = New System.Windows.Forms.Label()
+        Me.Label_DateShipStart = New System.Windows.Forms.Label()
+        Me.Button_LogDatePriceStart = New System.Windows.Forms.Button()
+        Me.Button_LogDatePriceComplete = New System.Windows.Forms.Button()
+        Me.Button_LogDateEngComplete = New System.Windows.Forms.Button()
+        Me.Button_LogDateEngStart = New System.Windows.Forms.Button()
+        Me.Button_LogDateFabComplete = New System.Windows.Forms.Button()
+        Me.Button_LogDateFabStart = New System.Windows.Forms.Button()
+        Me.Button_LogDateFinishComplete = New System.Windows.Forms.Button()
+        Me.Button_LogDateFinishStart = New System.Windows.Forms.Button()
+        Me.Button_LogDateDrftComplete = New System.Windows.Forms.Button()
+        Me.Button_LogDateDrftStart = New System.Windows.Forms.Button()
+        Me.Button_LogDateShipComplete = New System.Windows.Forms.Button()
+        Me.Button_LogDateShipStart = New System.Windows.Forms.Button()
+        Me.Label_UserPriceStarted = New System.Windows.Forms.Label()
+        Me.TableBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.QuoteOrdersDS = New OrderTracker.QuoteOrdersDS()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -120,9 +171,6 @@ Partial Class Form1
         Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -138,46 +186,19 @@ Partial Class Form1
         Me.DataGridViewTextBoxColumn25 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn26 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn27 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Quote_TextBox = New System.Windows.Forms.TextBox()
-        Me.Order_TextBox = New System.Windows.Forms.TextBox()
-        Me.CustomerTextBox = New System.Windows.Forms.TextBox()
-        Me.ProjectTextBox = New System.Windows.Forms.TextBox()
-        Me.PO_TextBox = New System.Windows.Forms.TextBox()
-        Me.PO_RecieptDateTimePicker = New System.Windows.Forms.DateTimePicker()
-        Me.Delivery_DateDateTimePicker = New System.Windows.Forms.DateTimePicker()
-        Me.Quote_Due_DateDateTimePicker = New System.Windows.Forms.DateTimePicker()
-        Me.PricingStartedDateTimePicker = New System.Windows.Forms.DateTimePicker()
-        Me.PricingCompletedDateTimePicker = New System.Windows.Forms.DateTimePicker()
-        Me.EngRequiredDateTimePicker = New System.Windows.Forms.DateTimePicker()
-        Me.EngStartedDateTimePicker = New System.Windows.Forms.DateTimePicker()
-        Me.EngCompletedDateTimePicker = New System.Windows.Forms.DateTimePicker()
-        Me.DrftRequiredDateTimePicker = New System.Windows.Forms.DateTimePicker()
-        Me.DrftStartedDateTimePicker = New System.Windows.Forms.DateTimePicker()
-        Me.DrftCompletedDateTimePicker = New System.Windows.Forms.DateTimePicker()
-        Me.FabRequiredDateTimePicker = New System.Windows.Forms.DateTimePicker()
-        Me.FabStartedDateTimePicker = New System.Windows.Forms.DateTimePicker()
-        Me.FabCompletedDateTimePicker = New System.Windows.Forms.DateTimePicker()
-        Me.FinishRequiredDateTimePicker = New System.Windows.Forms.DateTimePicker()
-        Me.FinishStartedDateTimePicker = New System.Windows.Forms.DateTimePicker()
-        Me.FinishCompletedDateTimePicker = New System.Windows.Forms.DateTimePicker()
-        Me.ShipRequiredDateTimePicker = New System.Windows.Forms.DateTimePicker()
-        Me.ShipStartedDateTimePicker = New System.Windows.Forms.DateTimePicker()
-        Me.ShipCompletedDateTimePicker = New System.Windows.Forms.DateTimePicker()
-        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.Button_Convert2Order = New System.Windows.Forms.Button()
-        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
-        Me.Button_BackSchedule = New System.Windows.Forms.Button()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.PricingRequiredDateTimePicker = New System.Windows.Forms.DateTimePicker()
-        Me.GroupBox5 = New System.Windows.Forms.GroupBox()
-        Me.GroupBox6 = New System.Windows.Forms.GroupBox()
-        Me.GroupBox7 = New System.Windows.Forms.GroupBox()
-        Me.GroupBox8 = New System.Windows.Forms.GroupBox()
-        Me.GroupBox9 = New System.Windows.Forms.GroupBox()
-        Me.GroupBox10 = New System.Windows.Forms.GroupBox()
-        Me.GroupBox11 = New System.Windows.Forms.GroupBox()
-        Me.Button_QuoteReport = New System.Windows.Forms.Button()
-        Me.Button_OrderReport = New System.Windows.Forms.Button()
+        Me.TableTableAdapter = New OrderTracker.QuoteOrdersDSTableAdapters.TableTableAdapter()
+        Me.TableAdapterManager = New OrderTracker.QuoteOrdersDSTableAdapters.TableAdapterManager()
+        Me.Label_UserPriceComplete = New System.Windows.Forms.Label()
+        Me.Label_UserEngComplete = New System.Windows.Forms.Label()
+        Me.Label_UserEngStart = New System.Windows.Forms.Label()
+        Me.Label_UserDrftComplete = New System.Windows.Forms.Label()
+        Me.Label_UserDrftStart = New System.Windows.Forms.Label()
+        Me.Label_UserFabComplete = New System.Windows.Forms.Label()
+        Me.Label_UserFabStart = New System.Windows.Forms.Label()
+        Me.Label_UserFinishComplete = New System.Windows.Forms.Label()
+        Me.Label_UserFinishStart = New System.Windows.Forms.Label()
+        Me.Label_UserShipComplete = New System.Windows.Forms.Label()
+        Me.Label_UserShipStart = New System.Windows.Forms.Label()
         Quote_Label = New System.Windows.Forms.Label()
         Order_Label = New System.Windows.Forms.Label()
         CustomerLabel = New System.Windows.Forms.Label()
@@ -219,6 +240,7 @@ Partial Class Form1
         Label38 = New System.Windows.Forms.Label()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
+        CType(Me.TableDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         CType(Me.PictureBox_ShipActual, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox_ShipCommit, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -234,21 +256,391 @@ Partial Class Form1
         CType(Me.PictureBox_PriceCommit, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
-        CType(Me.QuoteOrdersDS, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TableBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox5.SuspendLayout()
+        Me.GroupBox9.SuspendLayout()
+        Me.GroupBox8.SuspendLayout()
+        Me.GroupBox10.SuspendLayout()
+        Me.GroupBox7.SuspendLayout()
+        Me.GroupBox11.SuspendLayout()
+        Me.GroupBox6.SuspendLayout()
+        Me.GroupBox4.SuspendLayout()
+        Me.GroupBox3.SuspendLayout()
         CType(Me.TableBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableBindingNavigator.SuspendLayout()
-        CType(Me.TableDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox3.SuspendLayout()
-        Me.GroupBox4.SuspendLayout()
-        Me.GroupBox5.SuspendLayout()
-        Me.GroupBox6.SuspendLayout()
-        Me.GroupBox7.SuspendLayout()
-        Me.GroupBox8.SuspendLayout()
-        Me.GroupBox9.SuspendLayout()
-        Me.GroupBox10.SuspendLayout()
-        Me.GroupBox11.SuspendLayout()
+        CType(Me.TableBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.QuoteOrdersDS, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'Quote_Label
+        '
+        Quote_Label.AutoSize = True
+        Quote_Label.Location = New System.Drawing.Point(17, 22)
+        Quote_Label.Name = "Quote_Label"
+        Quote_Label.Size = New System.Drawing.Size(56, 13)
+        Quote_Label.TabIndex = 2
+        Quote_Label.Text = "Quote No:"
+        '
+        'Order_Label
+        '
+        Order_Label.AutoSize = True
+        Order_Label.Location = New System.Drawing.Point(141, 22)
+        Order_Label.Name = "Order_Label"
+        Order_Label.Size = New System.Drawing.Size(53, 13)
+        Order_Label.TabIndex = 4
+        Order_Label.Text = "Order No:"
+        '
+        'CustomerLabel
+        '
+        CustomerLabel.AutoSize = True
+        CustomerLabel.Location = New System.Drawing.Point(19, 48)
+        CustomerLabel.Name = "CustomerLabel"
+        CustomerLabel.Size = New System.Drawing.Size(54, 13)
+        CustomerLabel.TabIndex = 6
+        CustomerLabel.Text = "Customer:"
+        '
+        'ProjectLabel
+        '
+        ProjectLabel.AutoSize = True
+        ProjectLabel.Location = New System.Drawing.Point(30, 74)
+        ProjectLabel.Name = "ProjectLabel"
+        ProjectLabel.Size = New System.Drawing.Size(43, 13)
+        ProjectLabel.TabIndex = 8
+        ProjectLabel.Text = "Project:"
+        '
+        'PO_Label
+        '
+        PO_Label.AutoSize = True
+        PO_Label.Location = New System.Drawing.Point(37, 22)
+        PO_Label.Name = "PO_Label"
+        PO_Label.Size = New System.Drawing.Size(42, 13)
+        PO_Label.TabIndex = 10
+        PO_Label.Text = "PO No:"
+        '
+        'PO_RecieptLabel
+        '
+        PO_RecieptLabel.AutoSize = True
+        PO_RecieptLabel.Location = New System.Drawing.Point(14, 48)
+        PO_RecieptLabel.Name = "PO_RecieptLabel"
+        PO_RecieptLabel.Size = New System.Drawing.Size(65, 13)
+        PO_RecieptLabel.TabIndex = 12
+        PO_RecieptLabel.Text = "PO Reciept:"
+        '
+        'Delivery_DateLabel
+        '
+        Delivery_DateLabel.AutoSize = True
+        Delivery_DateLabel.Location = New System.Drawing.Point(5, 99)
+        Delivery_DateLabel.Name = "Delivery_DateLabel"
+        Delivery_DateLabel.Size = New System.Drawing.Size(74, 13)
+        Delivery_DateLabel.TabIndex = 14
+        Delivery_DateLabel.Text = "Delivery Date:"
+        '
+        'Quote_Due_DateLabel
+        '
+        Quote_Due_DateLabel.AutoSize = True
+        Quote_Due_DateLabel.Location = New System.Drawing.Point(11, 100)
+        Quote_Due_DateLabel.Name = "Quote_Due_DateLabel"
+        Quote_Due_DateLabel.Size = New System.Drawing.Size(62, 13)
+        Quote_Due_DateLabel.TabIndex = 16
+        Quote_Due_DateLabel.Text = "Quote Due:"
+        '
+        'PricingRequiredLabel
+        '
+        PricingRequiredLabel.AutoSize = True
+        PricingRequiredLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        PricingRequiredLabel.Location = New System.Drawing.Point(6, 25)
+        PricingRequiredLabel.Name = "PricingRequiredLabel"
+        PricingRequiredLabel.Size = New System.Drawing.Size(62, 13)
+        PricingRequiredLabel.TabIndex = 18
+        PricingRequiredLabel.Text = "Required:"
+        '
+        'PricingStartedLabel
+        '
+        PricingStartedLabel.AutoSize = True
+        PricingStartedLabel.Location = New System.Drawing.Point(23, 75)
+        PricingStartedLabel.Name = "PricingStartedLabel"
+        PricingStartedLabel.Size = New System.Drawing.Size(44, 13)
+        PricingStartedLabel.TabIndex = 20
+        PricingStartedLabel.Text = "Started:"
+        AddHandler PricingStartedLabel.Click, AddressOf Me.PricingStartedLabel_Click
+        '
+        'PricingCompletedLabel
+        '
+        PricingCompletedLabel.AutoSize = True
+        PricingCompletedLabel.Location = New System.Drawing.Point(13, 101)
+        PricingCompletedLabel.Name = "PricingCompletedLabel"
+        PricingCompletedLabel.Size = New System.Drawing.Size(54, 13)
+        PricingCompletedLabel.TabIndex = 22
+        PricingCompletedLabel.Text = "Complete:"
+        AddHandler PricingCompletedLabel.Click, AddressOf Me.PricingCompletedLabel_Click
+        '
+        'Label12
+        '
+        Label12.AutoSize = True
+        Label12.Location = New System.Drawing.Point(36, 74)
+        Label12.Name = "Label12"
+        Label12.Size = New System.Drawing.Size(43, 13)
+        Label12.TabIndex = 8
+        Label12.Text = "Project:"
+        '
+        'Label11
+        '
+        Label11.AutoSize = True
+        Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Label11.Location = New System.Drawing.Point(86, 53)
+        Label11.Name = "Label11"
+        Label11.Size = New System.Drawing.Size(43, 13)
+        Label11.TabIndex = 20
+        Label11.Text = "Actual"
+        '
+        'Label13
+        '
+        Label13.AutoSize = True
+        Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Label13.Location = New System.Drawing.Point(155, 53)
+        Label13.Name = "Label13"
+        Label13.Size = New System.Drawing.Size(33, 13)
+        Label13.TabIndex = 21
+        Label13.Text = "User"
+        '
+        'Label14
+        '
+        Label14.AutoSize = True
+        Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Label14.Location = New System.Drawing.Point(155, 53)
+        Label14.Name = "Label14"
+        Label14.Size = New System.Drawing.Size(33, 13)
+        Label14.TabIndex = 21
+        Label14.Text = "User"
+        '
+        'Label15
+        '
+        Label15.AutoSize = True
+        Label15.Location = New System.Drawing.Point(23, 75)
+        Label15.Name = "Label15"
+        Label15.Size = New System.Drawing.Size(44, 13)
+        Label15.TabIndex = 20
+        Label15.Text = "Started:"
+        '
+        'Label16
+        '
+        Label16.AutoSize = True
+        Label16.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Label16.Location = New System.Drawing.Point(86, 53)
+        Label16.Name = "Label16"
+        Label16.Size = New System.Drawing.Size(43, 13)
+        Label16.TabIndex = 20
+        Label16.Text = "Actual"
+        '
+        'Label17
+        '
+        Label17.AutoSize = True
+        Label17.Location = New System.Drawing.Point(13, 101)
+        Label17.Name = "Label17"
+        Label17.Size = New System.Drawing.Size(54, 13)
+        Label17.TabIndex = 22
+        Label17.Text = "Complete:"
+        '
+        'Label18
+        '
+        Label18.AutoSize = True
+        Label18.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Label18.Location = New System.Drawing.Point(6, 25)
+        Label18.Name = "Label18"
+        Label18.Size = New System.Drawing.Size(62, 13)
+        Label18.TabIndex = 18
+        Label18.Text = "Required:"
+        '
+        'Label19
+        '
+        Label19.AutoSize = True
+        Label19.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Label19.Location = New System.Drawing.Point(155, 53)
+        Label19.Name = "Label19"
+        Label19.Size = New System.Drawing.Size(33, 13)
+        Label19.TabIndex = 21
+        Label19.Text = "User"
+        '
+        'Label20
+        '
+        Label20.AutoSize = True
+        Label20.Location = New System.Drawing.Point(23, 75)
+        Label20.Name = "Label20"
+        Label20.Size = New System.Drawing.Size(44, 13)
+        Label20.TabIndex = 20
+        Label20.Text = "Started:"
+        '
+        'Label21
+        '
+        Label21.AutoSize = True
+        Label21.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Label21.Location = New System.Drawing.Point(86, 53)
+        Label21.Name = "Label21"
+        Label21.Size = New System.Drawing.Size(43, 13)
+        Label21.TabIndex = 20
+        Label21.Text = "Actual"
+        '
+        'Label22
+        '
+        Label22.AutoSize = True
+        Label22.Location = New System.Drawing.Point(13, 101)
+        Label22.Name = "Label22"
+        Label22.Size = New System.Drawing.Size(54, 13)
+        Label22.TabIndex = 22
+        Label22.Text = "Complete:"
+        '
+        'Label23
+        '
+        Label23.AutoSize = True
+        Label23.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Label23.Location = New System.Drawing.Point(6, 25)
+        Label23.Name = "Label23"
+        Label23.Size = New System.Drawing.Size(62, 13)
+        Label23.TabIndex = 18
+        Label23.Text = "Required:"
+        '
+        'Label24
+        '
+        Label24.AutoSize = True
+        Label24.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Label24.Location = New System.Drawing.Point(155, 53)
+        Label24.Name = "Label24"
+        Label24.Size = New System.Drawing.Size(33, 13)
+        Label24.TabIndex = 21
+        Label24.Text = "User"
+        '
+        'Label25
+        '
+        Label25.AutoSize = True
+        Label25.Location = New System.Drawing.Point(23, 75)
+        Label25.Name = "Label25"
+        Label25.Size = New System.Drawing.Size(44, 13)
+        Label25.TabIndex = 20
+        Label25.Text = "Started:"
+        '
+        'Label26
+        '
+        Label26.AutoSize = True
+        Label26.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Label26.Location = New System.Drawing.Point(86, 53)
+        Label26.Name = "Label26"
+        Label26.Size = New System.Drawing.Size(43, 13)
+        Label26.TabIndex = 20
+        Label26.Text = "Actual"
+        '
+        'Label27
+        '
+        Label27.AutoSize = True
+        Label27.Location = New System.Drawing.Point(13, 101)
+        Label27.Name = "Label27"
+        Label27.Size = New System.Drawing.Size(54, 13)
+        Label27.TabIndex = 22
+        Label27.Text = "Complete:"
+        '
+        'Label28
+        '
+        Label28.AutoSize = True
+        Label28.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Label28.Location = New System.Drawing.Point(6, 25)
+        Label28.Name = "Label28"
+        Label28.Size = New System.Drawing.Size(62, 13)
+        Label28.TabIndex = 18
+        Label28.Text = "Required:"
+        '
+        'Label29
+        '
+        Label29.AutoSize = True
+        Label29.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Label29.Location = New System.Drawing.Point(155, 53)
+        Label29.Name = "Label29"
+        Label29.Size = New System.Drawing.Size(33, 13)
+        Label29.TabIndex = 21
+        Label29.Text = "User"
+        '
+        'Label30
+        '
+        Label30.AutoSize = True
+        Label30.Location = New System.Drawing.Point(23, 75)
+        Label30.Name = "Label30"
+        Label30.Size = New System.Drawing.Size(44, 13)
+        Label30.TabIndex = 20
+        Label30.Text = "Started:"
+        '
+        'Label31
+        '
+        Label31.AutoSize = True
+        Label31.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Label31.Location = New System.Drawing.Point(86, 53)
+        Label31.Name = "Label31"
+        Label31.Size = New System.Drawing.Size(43, 13)
+        Label31.TabIndex = 20
+        Label31.Text = "Actual"
+        '
+        'Label32
+        '
+        Label32.AutoSize = True
+        Label32.Location = New System.Drawing.Point(13, 101)
+        Label32.Name = "Label32"
+        Label32.Size = New System.Drawing.Size(54, 13)
+        Label32.TabIndex = 22
+        Label32.Text = "Complete:"
+        '
+        'Label33
+        '
+        Label33.AutoSize = True
+        Label33.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Label33.Location = New System.Drawing.Point(6, 25)
+        Label33.Name = "Label33"
+        Label33.Size = New System.Drawing.Size(62, 13)
+        Label33.TabIndex = 18
+        Label33.Text = "Required:"
+        '
+        'Label34
+        '
+        Label34.AutoSize = True
+        Label34.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Label34.Location = New System.Drawing.Point(155, 53)
+        Label34.Name = "Label34"
+        Label34.Size = New System.Drawing.Size(33, 13)
+        Label34.TabIndex = 21
+        Label34.Text = "User"
+        '
+        'Label35
+        '
+        Label35.AutoSize = True
+        Label35.Location = New System.Drawing.Point(23, 75)
+        Label35.Name = "Label35"
+        Label35.Size = New System.Drawing.Size(44, 13)
+        Label35.TabIndex = 20
+        Label35.Text = "Started:"
+        '
+        'Label36
+        '
+        Label36.AutoSize = True
+        Label36.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Label36.Location = New System.Drawing.Point(86, 53)
+        Label36.Name = "Label36"
+        Label36.Size = New System.Drawing.Size(43, 13)
+        Label36.TabIndex = 20
+        Label36.Text = "Actual"
+        '
+        'Label37
+        '
+        Label37.AutoSize = True
+        Label37.Location = New System.Drawing.Point(13, 101)
+        Label37.Name = "Label37"
+        Label37.Size = New System.Drawing.Size(54, 13)
+        Label37.TabIndex = 22
+        Label37.Text = "Complete:"
+        '
+        'Label38
+        '
+        Label38.AutoSize = True
+        Label38.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Label38.Location = New System.Drawing.Point(6, 25)
+        Label38.Name = "Label38"
+        Label38.Size = New System.Drawing.Size(62, 13)
+        Label38.TabIndex = 18
+        Label38.Text = "Required:"
         '
         'TabControl1
         '
@@ -272,6 +664,17 @@ Partial Class Form1
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Main"
         Me.TabPage1.UseVisualStyleBackColor = True
+        '
+        'TableDataGridView
+        '
+        Me.TableDataGridView.AutoGenerateColumns = False
+        Me.TableDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.TableDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn13, Me.DataGridViewTextBoxColumn14, Me.DataGridViewTextBoxColumn15, Me.DataGridViewTextBoxColumn16, Me.DataGridViewTextBoxColumn17, Me.DataGridViewTextBoxColumn18, Me.DataGridViewTextBoxColumn19, Me.DataGridViewTextBoxColumn20, Me.DataGridViewTextBoxColumn21, Me.DataGridViewTextBoxColumn22, Me.DataGridViewTextBoxColumn23, Me.DataGridViewTextBoxColumn24, Me.DataGridViewTextBoxColumn25, Me.DataGridViewTextBoxColumn26, Me.DataGridViewTextBoxColumn27})
+        Me.TableDataGridView.DataSource = Me.TableBindingSource
+        Me.TableDataGridView.Location = New System.Drawing.Point(8, 102)
+        Me.TableDataGridView.Name = "TableDataGridView"
+        Me.TableDataGridView.Size = New System.Drawing.Size(781, 374)
+        Me.TableDataGridView.TabIndex = 5
         '
         'GroupBox2
         '
@@ -543,25 +946,358 @@ Partial Class Form1
         Me.TabPage2.Text = "Quote/Order"
         Me.TabPage2.UseVisualStyleBackColor = True
         '
-        'QuoteOrdersDS
+        'Button_OrderReport
         '
-        Me.QuoteOrdersDS.DataSetName = "QuoteOrdersDS"
-        Me.QuoteOrdersDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        Me.Button_OrderReport.Location = New System.Drawing.Point(542, 95)
+        Me.Button_OrderReport.Name = "Button_OrderReport"
+        Me.Button_OrderReport.Size = New System.Drawing.Size(243, 72)
+        Me.Button_OrderReport.TabIndex = 58
+        Me.Button_OrderReport.Text = "Order Report"
+        Me.Button_OrderReport.UseVisualStyleBackColor = True
         '
-        'TableBindingSource
+        'Button_QuoteReport
         '
-        Me.TableBindingSource.DataMember = "Table"
-        Me.TableBindingSource.DataSource = Me.QuoteOrdersDS
+        Me.Button_QuoteReport.Location = New System.Drawing.Point(542, 12)
+        Me.Button_QuoteReport.Name = "Button_QuoteReport"
+        Me.Button_QuoteReport.Size = New System.Drawing.Size(243, 72)
+        Me.Button_QuoteReport.TabIndex = 57
+        Me.Button_QuoteReport.Text = "Quote Report"
+        Me.Button_QuoteReport.UseVisualStyleBackColor = True
         '
-        'TableTableAdapter
+        'GroupBox5
         '
-        Me.TableTableAdapter.ClearBeforeFill = True
+        Me.GroupBox5.Controls.Add(Me.GroupBox9)
+        Me.GroupBox5.Controls.Add(Me.GroupBox8)
+        Me.GroupBox5.Controls.Add(Me.GroupBox10)
+        Me.GroupBox5.Controls.Add(Me.GroupBox7)
+        Me.GroupBox5.Controls.Add(Me.GroupBox11)
+        Me.GroupBox5.Controls.Add(Me.GroupBox6)
+        Me.GroupBox5.Location = New System.Drawing.Point(8, 173)
+        Me.GroupBox5.Name = "GroupBox5"
+        Me.GroupBox5.Size = New System.Drawing.Size(784, 297)
+        Me.GroupBox5.TabIndex = 56
+        Me.GroupBox5.TabStop = False
+        Me.GroupBox5.Text = "Schedule"
         '
-        'TableAdapterManager
+        'GroupBox9
         '
-        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
-        Me.TableAdapterManager.TableTableAdapter = Me.TableTableAdapter
-        Me.TableAdapterManager.UpdateOrder = OrderTracker.QuoteOrdersDSTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        Me.GroupBox9.Controls.Add(Me.Label_UserShipComplete)
+        Me.GroupBox9.Controls.Add(Me.Button_LogDateShipComplete)
+        Me.GroupBox9.Controls.Add(Me.Label_UserShipStart)
+        Me.GroupBox9.Controls.Add(Me.Label_ShipRequired)
+        Me.GroupBox9.Controls.Add(Me.Button_LogDateShipStart)
+        Me.GroupBox9.Controls.Add(Label24)
+        Me.GroupBox9.Controls.Add(Label25)
+        Me.GroupBox9.Controls.Add(Label26)
+        Me.GroupBox9.Controls.Add(Label27)
+        Me.GroupBox9.Controls.Add(Label28)
+        Me.GroupBox9.Controls.Add(Me.Label_DateShipCompleted)
+        Me.GroupBox9.Controls.Add(Me.Label_DateShipStart)
+        Me.GroupBox9.Location = New System.Drawing.Point(524, 158)
+        Me.GroupBox9.Name = "GroupBox9"
+        Me.GroupBox9.Size = New System.Drawing.Size(253, 133)
+        Me.GroupBox9.TabIndex = 35
+        Me.GroupBox9.TabStop = False
+        Me.GroupBox9.Text = "Shipping"
+        '
+        'Label_ShipRequired
+        '
+        Me.Label_ShipRequired.AutoSize = True
+        Me.Label_ShipRequired.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "ShipRequired", True))
+        Me.Label_ShipRequired.Location = New System.Drawing.Point(74, 25)
+        Me.Label_ShipRequired.Name = "Label_ShipRequired"
+        Me.Label_ShipRequired.Size = New System.Drawing.Size(45, 13)
+        Me.Label_ShipRequired.TabIndex = 41
+        Me.Label_ShipRequired.Text = "DateSR"
+        '
+        'GroupBox8
+        '
+        Me.GroupBox8.Controls.Add(Me.Label_UserDrftComplete)
+        Me.GroupBox8.Controls.Add(Me.Button_LogDateDrftComplete)
+        Me.GroupBox8.Controls.Add(Me.Label_UserDrftStart)
+        Me.GroupBox8.Controls.Add(Me.Label_DateDrftComplete)
+        Me.GroupBox8.Controls.Add(Me.Button_LogDateDrftStart)
+        Me.GroupBox8.Controls.Add(Me.Label_DateDrftStart)
+        Me.GroupBox8.Controls.Add(Me.Label_DrftRequired)
+        Me.GroupBox8.Controls.Add(Label19)
+        Me.GroupBox8.Controls.Add(Label20)
+        Me.GroupBox8.Controls.Add(Label21)
+        Me.GroupBox8.Controls.Add(Label22)
+        Me.GroupBox8.Controls.Add(Label23)
+        Me.GroupBox8.Location = New System.Drawing.Point(524, 19)
+        Me.GroupBox8.Name = "GroupBox8"
+        Me.GroupBox8.Size = New System.Drawing.Size(253, 133)
+        Me.GroupBox8.TabIndex = 32
+        Me.GroupBox8.TabStop = False
+        Me.GroupBox8.Text = "Drafting"
+        '
+        'Label_DrftRequired
+        '
+        Me.Label_DrftRequired.AutoSize = True
+        Me.Label_DrftRequired.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "DrftRequired", True))
+        Me.Label_DrftRequired.Location = New System.Drawing.Point(71, 25)
+        Me.Label_DrftRequired.Name = "Label_DrftRequired"
+        Me.Label_DrftRequired.Size = New System.Drawing.Size(46, 13)
+        Me.Label_DrftRequired.TabIndex = 38
+        Me.Label_DrftRequired.Text = "DateDR"
+        '
+        'GroupBox10
+        '
+        Me.GroupBox10.Controls.Add(Me.Label_UserFinishComplete)
+        Me.GroupBox10.Controls.Add(Me.Button_LogDateFinishComplete)
+        Me.GroupBox10.Controls.Add(Me.Label_UserFinishStart)
+        Me.GroupBox10.Controls.Add(Me.Label_FinishRequired)
+        Me.GroupBox10.Controls.Add(Me.Button_LogDateFinishStart)
+        Me.GroupBox10.Controls.Add(Label29)
+        Me.GroupBox10.Controls.Add(Label30)
+        Me.GroupBox10.Controls.Add(Me.Label_DateFinishCompleted)
+        Me.GroupBox10.Controls.Add(Label31)
+        Me.GroupBox10.Controls.Add(Label32)
+        Me.GroupBox10.Controls.Add(Label33)
+        Me.GroupBox10.Controls.Add(Me.Label_DateFinishStart)
+        Me.GroupBox10.Location = New System.Drawing.Point(265, 158)
+        Me.GroupBox10.Name = "GroupBox10"
+        Me.GroupBox10.Size = New System.Drawing.Size(253, 133)
+        Me.GroupBox10.TabIndex = 34
+        Me.GroupBox10.TabStop = False
+        Me.GroupBox10.Text = "Finish"
+        '
+        'Label_FinishRequired
+        '
+        Me.Label_FinishRequired.AutoSize = True
+        Me.Label_FinishRequired.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "FinishRequired", True))
+        Me.Label_FinishRequired.Location = New System.Drawing.Point(74, 25)
+        Me.Label_FinishRequired.Name = "Label_FinishRequired"
+        Me.Label_FinishRequired.Size = New System.Drawing.Size(52, 13)
+        Me.Label_FinishRequired.TabIndex = 40
+        Me.Label_FinishRequired.Text = "DateFinR"
+        '
+        'GroupBox7
+        '
+        Me.GroupBox7.Controls.Add(Me.Label_UserEngComplete)
+        Me.GroupBox7.Controls.Add(Me.Button_LogDateEngComplete)
+        Me.GroupBox7.Controls.Add(Me.Label_UserEngStart)
+        Me.GroupBox7.Controls.Add(Me.Label_EngRequired)
+        Me.GroupBox7.Controls.Add(Me.Button_LogDateEngStart)
+        Me.GroupBox7.Controls.Add(Label14)
+        Me.GroupBox7.Controls.Add(Me.Label_DateEngCompleted)
+        Me.GroupBox7.Controls.Add(Label15)
+        Me.GroupBox7.Controls.Add(Me.Label_DateEngStart)
+        Me.GroupBox7.Controls.Add(Label16)
+        Me.GroupBox7.Controls.Add(Label17)
+        Me.GroupBox7.Controls.Add(Label18)
+        Me.GroupBox7.Location = New System.Drawing.Point(265, 19)
+        Me.GroupBox7.Name = "GroupBox7"
+        Me.GroupBox7.Size = New System.Drawing.Size(253, 133)
+        Me.GroupBox7.TabIndex = 31
+        Me.GroupBox7.TabStop = False
+        Me.GroupBox7.Text = "Engineering"
+        '
+        'Label_EngRequired
+        '
+        Me.Label_EngRequired.AutoSize = True
+        Me.Label_EngRequired.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "EngRequired", True))
+        Me.Label_EngRequired.Location = New System.Drawing.Point(74, 25)
+        Me.Label_EngRequired.Name = "Label_EngRequired"
+        Me.Label_EngRequired.Size = New System.Drawing.Size(45, 13)
+        Me.Label_EngRequired.TabIndex = 37
+        Me.Label_EngRequired.Text = "DateER"
+        '
+        'GroupBox11
+        '
+        Me.GroupBox11.Controls.Add(Me.Label_UserFabComplete)
+        Me.GroupBox11.Controls.Add(Me.Button_LogDateFabComplete)
+        Me.GroupBox11.Controls.Add(Me.Label_UserFabStart)
+        Me.GroupBox11.Controls.Add(Me.Label_DateFabCompleted)
+        Me.GroupBox11.Controls.Add(Me.Button_LogDateFabStart)
+        Me.GroupBox11.Controls.Add(Me.Label_FabRequired)
+        Me.GroupBox11.Controls.Add(Me.Label_DateFabStarted)
+        Me.GroupBox11.Controls.Add(Label34)
+        Me.GroupBox11.Controls.Add(Label35)
+        Me.GroupBox11.Controls.Add(Label36)
+        Me.GroupBox11.Controls.Add(Label37)
+        Me.GroupBox11.Controls.Add(Label38)
+        Me.GroupBox11.Location = New System.Drawing.Point(6, 158)
+        Me.GroupBox11.Name = "GroupBox11"
+        Me.GroupBox11.Size = New System.Drawing.Size(253, 133)
+        Me.GroupBox11.TabIndex = 33
+        Me.GroupBox11.TabStop = False
+        Me.GroupBox11.Text = "Fabrication"
+        '
+        'Label_FabRequired
+        '
+        Me.Label_FabRequired.AutoSize = True
+        Me.Label_FabRequired.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "FabRequired", True))
+        Me.Label_FabRequired.Location = New System.Drawing.Point(74, 25)
+        Me.Label_FabRequired.Name = "Label_FabRequired"
+        Me.Label_FabRequired.Size = New System.Drawing.Size(56, 13)
+        Me.Label_FabRequired.TabIndex = 39
+        Me.Label_FabRequired.Text = "DateFabR"
+        '
+        'GroupBox6
+        '
+        Me.GroupBox6.Controls.Add(Me.Label_UserPriceComplete)
+        Me.GroupBox6.Controls.Add(Me.Label_UserPriceStarted)
+        Me.GroupBox6.Controls.Add(Me.Button_LogDatePriceComplete)
+        Me.GroupBox6.Controls.Add(Me.Button_LogDatePriceStart)
+        Me.GroupBox6.Controls.Add(Me.Label_DatePricingComplet)
+        Me.GroupBox6.Controls.Add(Me.Label_DatePricingStarted)
+        Me.GroupBox6.Controls.Add(Me.Label_PricingRequired)
+        Me.GroupBox6.Controls.Add(Label13)
+        Me.GroupBox6.Controls.Add(PricingStartedLabel)
+        Me.GroupBox6.Controls.Add(Label11)
+        Me.GroupBox6.Controls.Add(PricingCompletedLabel)
+        Me.GroupBox6.Controls.Add(PricingRequiredLabel)
+        Me.GroupBox6.Location = New System.Drawing.Point(6, 19)
+        Me.GroupBox6.Name = "GroupBox6"
+        Me.GroupBox6.Size = New System.Drawing.Size(253, 133)
+        Me.GroupBox6.TabIndex = 30
+        Me.GroupBox6.TabStop = False
+        Me.GroupBox6.Text = "Pricing"
+        '
+        'Label_PricingRequired
+        '
+        Me.Label_PricingRequired.AutoSize = True
+        Me.Label_PricingRequired.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "PricingRequired", True))
+        Me.Label_PricingRequired.Location = New System.Drawing.Point(74, 25)
+        Me.Label_PricingRequired.Name = "Label_PricingRequired"
+        Me.Label_PricingRequired.Size = New System.Drawing.Size(45, 13)
+        Me.Label_PricingRequired.TabIndex = 36
+        Me.Label_PricingRequired.Text = "DatePR"
+        '
+        'GroupBox4
+        '
+        Me.GroupBox4.Controls.Add(Me.Button_BackSchedule)
+        Me.GroupBox4.Controls.Add(Label12)
+        Me.GroupBox4.Controls.Add(Delivery_DateLabel)
+        Me.GroupBox4.Controls.Add(PO_RecieptLabel)
+        Me.GroupBox4.Controls.Add(Me.Delivery_DateDateTimePicker)
+        Me.GroupBox4.Controls.Add(PO_Label)
+        Me.GroupBox4.Controls.Add(Me.PO_RecieptDateTimePicker)
+        Me.GroupBox4.Controls.Add(Me.PO_TextBox)
+        Me.GroupBox4.Controls.Add(Me.TextBox1)
+        Me.GroupBox4.Location = New System.Drawing.Point(273, 6)
+        Me.GroupBox4.Name = "GroupBox4"
+        Me.GroupBox4.Size = New System.Drawing.Size(259, 161)
+        Me.GroupBox4.TabIndex = 55
+        Me.GroupBox4.TabStop = False
+        Me.GroupBox4.Text = "Order"
+        '
+        'Button_BackSchedule
+        '
+        Me.Button_BackSchedule.Location = New System.Drawing.Point(85, 123)
+        Me.Button_BackSchedule.Name = "Button_BackSchedule"
+        Me.Button_BackSchedule.Size = New System.Drawing.Size(168, 24)
+        Me.Button_BackSchedule.TabIndex = 18
+        Me.Button_BackSchedule.Text = "Back Schedule"
+        Me.Button_BackSchedule.UseVisualStyleBackColor = True
+        '
+        'Delivery_DateDateTimePicker
+        '
+        Me.Delivery_DateDateTimePicker.CustomFormat = " "
+        Me.Delivery_DateDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.TableBindingSource, "Delivery Date", True))
+        Me.Delivery_DateDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.Delivery_DateDateTimePicker.Location = New System.Drawing.Point(85, 96)
+        Me.Delivery_DateDateTimePicker.Name = "Delivery_DateDateTimePicker"
+        Me.Delivery_DateDateTimePicker.Size = New System.Drawing.Size(115, 20)
+        Me.Delivery_DateDateTimePicker.TabIndex = 15
+        '
+        'PO_RecieptDateTimePicker
+        '
+        Me.PO_RecieptDateTimePicker.CustomFormat = " "
+        Me.PO_RecieptDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.TableBindingSource, "PO Reciept", True))
+        Me.PO_RecieptDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.PO_RecieptDateTimePicker.Location = New System.Drawing.Point(85, 45)
+        Me.PO_RecieptDateTimePicker.Name = "PO_RecieptDateTimePicker"
+        Me.PO_RecieptDateTimePicker.Size = New System.Drawing.Size(115, 20)
+        Me.PO_RecieptDateTimePicker.TabIndex = 13
+        '
+        'PO_TextBox
+        '
+        Me.PO_TextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "PO#", True))
+        Me.PO_TextBox.Location = New System.Drawing.Point(85, 19)
+        Me.PO_TextBox.Name = "PO_TextBox"
+        Me.PO_TextBox.Size = New System.Drawing.Size(168, 20)
+        Me.PO_TextBox.TabIndex = 11
+        '
+        'TextBox1
+        '
+        Me.TextBox1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "Project", True))
+        Me.TextBox1.Location = New System.Drawing.Point(85, 71)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(168, 20)
+        Me.TextBox1.TabIndex = 9
+        '
+        'GroupBox3
+        '
+        Me.GroupBox3.Controls.Add(Me.Button_Convert2Order)
+        Me.GroupBox3.Controls.Add(Quote_Label)
+        Me.GroupBox3.Controls.Add(ProjectLabel)
+        Me.GroupBox3.Controls.Add(CustomerLabel)
+        Me.GroupBox3.Controls.Add(Me.ProjectTextBox)
+        Me.GroupBox3.Controls.Add(Order_Label)
+        Me.GroupBox3.Controls.Add(Me.CustomerTextBox)
+        Me.GroupBox3.Controls.Add(Me.Order_TextBox)
+        Me.GroupBox3.Controls.Add(Quote_Due_DateLabel)
+        Me.GroupBox3.Controls.Add(Me.Quote_TextBox)
+        Me.GroupBox3.Controls.Add(Me.Quote_Due_DateDateTimePicker)
+        Me.GroupBox3.Location = New System.Drawing.Point(8, 6)
+        Me.GroupBox3.Name = "GroupBox3"
+        Me.GroupBox3.Size = New System.Drawing.Size(259, 161)
+        Me.GroupBox3.TabIndex = 54
+        Me.GroupBox3.TabStop = False
+        Me.GroupBox3.Text = "Quote"
+        '
+        'Button_Convert2Order
+        '
+        Me.Button_Convert2Order.Location = New System.Drawing.Point(79, 123)
+        Me.Button_Convert2Order.Name = "Button_Convert2Order"
+        Me.Button_Convert2Order.Size = New System.Drawing.Size(174, 24)
+        Me.Button_Convert2Order.TabIndex = 18
+        Me.Button_Convert2Order.Text = "Convert to Order"
+        Me.Button_Convert2Order.UseVisualStyleBackColor = True
+        '
+        'ProjectTextBox
+        '
+        Me.ProjectTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "Project", True))
+        Me.ProjectTextBox.Location = New System.Drawing.Point(79, 71)
+        Me.ProjectTextBox.Name = "ProjectTextBox"
+        Me.ProjectTextBox.Size = New System.Drawing.Size(174, 20)
+        Me.ProjectTextBox.TabIndex = 9
+        '
+        'CustomerTextBox
+        '
+        Me.CustomerTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "Customer", True))
+        Me.CustomerTextBox.Location = New System.Drawing.Point(79, 45)
+        Me.CustomerTextBox.Name = "CustomerTextBox"
+        Me.CustomerTextBox.Size = New System.Drawing.Size(174, 20)
+        Me.CustomerTextBox.TabIndex = 7
+        '
+        'Order_TextBox
+        '
+        Me.Order_TextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "Order#", True))
+        Me.Order_TextBox.Location = New System.Drawing.Point(200, 19)
+        Me.Order_TextBox.Name = "Order_TextBox"
+        Me.Order_TextBox.Size = New System.Drawing.Size(53, 20)
+        Me.Order_TextBox.TabIndex = 5
+        '
+        'Quote_TextBox
+        '
+        Me.Quote_TextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "Quote#", True))
+        Me.Quote_TextBox.Location = New System.Drawing.Point(79, 19)
+        Me.Quote_TextBox.Name = "Quote_TextBox"
+        Me.Quote_TextBox.Size = New System.Drawing.Size(53, 20)
+        Me.Quote_TextBox.TabIndex = 3
+        '
+        'Quote_Due_DateDateTimePicker
+        '
+        Me.Quote_Due_DateDateTimePicker.CustomFormat = " "
+        Me.Quote_Due_DateDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.TableBindingSource, "Quote Due Date", True))
+        Me.Quote_Due_DateDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.Quote_Due_DateDateTimePicker.Location = New System.Drawing.Point(79, 97)
+        Me.Quote_Due_DateDateTimePicker.Name = "Quote_Due_DateDateTimePicker"
+        Me.Quote_Due_DateDateTimePicker.Size = New System.Drawing.Size(115, 20)
+        Me.Quote_Due_DateDateTimePicker.TabIndex = 17
         '
         'TableBindingNavigator
         '
@@ -580,6 +1316,31 @@ Partial Class Form1
         Me.TableBindingNavigator.Size = New System.Drawing.Size(799, 25)
         Me.TableBindingNavigator.TabIndex = 1
         Me.TableBindingNavigator.Text = "BindingNavigator1"
+        '
+        'BindingNavigatorAddNewItem
+        '
+        Me.BindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorAddNewItem.Image = CType(resources.GetObject("BindingNavigatorAddNewItem.Image"), System.Drawing.Image)
+        Me.BindingNavigatorAddNewItem.Name = "BindingNavigatorAddNewItem"
+        Me.BindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorAddNewItem.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorAddNewItem.Text = "Add new"
+        '
+        'BindingNavigatorCountItem
+        '
+        Me.BindingNavigatorCountItem.Name = "BindingNavigatorCountItem"
+        Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(35, 22)
+        Me.BindingNavigatorCountItem.Text = "of {0}"
+        Me.BindingNavigatorCountItem.ToolTipText = "Total number of items"
+        '
+        'BindingNavigatorDeleteItem
+        '
+        Me.BindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorDeleteItem.Image = CType(resources.GetObject("BindingNavigatorDeleteItem.Image"), System.Drawing.Image)
+        Me.BindingNavigatorDeleteItem.Name = "BindingNavigatorDeleteItem"
+        Me.BindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorDeleteItem.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorDeleteItem.Text = "Delete"
         '
         'BindingNavigatorMoveFirstItem
         '
@@ -613,16 +1374,9 @@ Partial Class Form1
         Me.BindingNavigatorPositionItem.Text = "0"
         Me.BindingNavigatorPositionItem.ToolTipText = "Current position"
         '
-        'BindingNavigatorCountItem
-        '
-        Me.BindingNavigatorCountItem.Name = "BindingNavigatorCountItem"
-        Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(35, 22)
-        Me.BindingNavigatorCountItem.Text = "of {0}"
-        Me.BindingNavigatorCountItem.ToolTipText = "Total number of items"
-        '
         'BindingNavigatorSeparator1
         '
-        Me.BindingNavigatorSeparator1.Name = "BindingNavigatorSeparator"
+        Me.BindingNavigatorSeparator1.Name = "BindingNavigatorSeparator1"
         Me.BindingNavigatorSeparator1.Size = New System.Drawing.Size(6, 25)
         '
         'BindingNavigatorMoveNextItem
@@ -645,26 +1399,8 @@ Partial Class Form1
         '
         'BindingNavigatorSeparator2
         '
-        Me.BindingNavigatorSeparator2.Name = "BindingNavigatorSeparator"
+        Me.BindingNavigatorSeparator2.Name = "BindingNavigatorSeparator2"
         Me.BindingNavigatorSeparator2.Size = New System.Drawing.Size(6, 25)
-        '
-        'BindingNavigatorAddNewItem
-        '
-        Me.BindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.BindingNavigatorAddNewItem.Image = CType(resources.GetObject("BindingNavigatorAddNewItem.Image"), System.Drawing.Image)
-        Me.BindingNavigatorAddNewItem.Name = "BindingNavigatorAddNewItem"
-        Me.BindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorAddNewItem.Size = New System.Drawing.Size(23, 22)
-        Me.BindingNavigatorAddNewItem.Text = "Add new"
-        '
-        'BindingNavigatorDeleteItem
-        '
-        Me.BindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.BindingNavigatorDeleteItem.Image = CType(resources.GetObject("BindingNavigatorDeleteItem.Image"), System.Drawing.Image)
-        Me.BindingNavigatorDeleteItem.Name = "BindingNavigatorDeleteItem"
-        Me.BindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorDeleteItem.Size = New System.Drawing.Size(23, 22)
-        Me.BindingNavigatorDeleteItem.Text = "Delete"
         '
         'TableBindingNavigatorSaveItem
         '
@@ -674,16 +1410,253 @@ Partial Class Form1
         Me.TableBindingNavigatorSaveItem.Size = New System.Drawing.Size(23, 22)
         Me.TableBindingNavigatorSaveItem.Text = "Save Data"
         '
-        'TableDataGridView
+        'Label_DatePricingStarted
         '
-        Me.TableDataGridView.AutoGenerateColumns = False
-        Me.TableDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.TableDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn10, Me.DataGridViewTextBoxColumn11, Me.DataGridViewTextBoxColumn12, Me.DataGridViewTextBoxColumn13, Me.DataGridViewTextBoxColumn14, Me.DataGridViewTextBoxColumn15, Me.DataGridViewTextBoxColumn16, Me.DataGridViewTextBoxColumn17, Me.DataGridViewTextBoxColumn18, Me.DataGridViewTextBoxColumn19, Me.DataGridViewTextBoxColumn20, Me.DataGridViewTextBoxColumn21, Me.DataGridViewTextBoxColumn22, Me.DataGridViewTextBoxColumn23, Me.DataGridViewTextBoxColumn24, Me.DataGridViewTextBoxColumn25, Me.DataGridViewTextBoxColumn26, Me.DataGridViewTextBoxColumn27})
-        Me.TableDataGridView.DataSource = Me.TableBindingSource
-        Me.TableDataGridView.Location = New System.Drawing.Point(8, 102)
-        Me.TableDataGridView.Name = "TableDataGridView"
-        Me.TableDataGridView.Size = New System.Drawing.Size(781, 374)
-        Me.TableDataGridView.TabIndex = 5
+        Me.Label_DatePricingStarted.AutoSize = True
+        Me.Label_DatePricingStarted.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "PricingStarted", True))
+        Me.Label_DatePricingStarted.Location = New System.Drawing.Point(74, 75)
+        Me.Label_DatePricingStarted.Name = "Label_DatePricingStarted"
+        Me.Label_DatePricingStarted.Size = New System.Drawing.Size(61, 13)
+        Me.Label_DatePricingStarted.TabIndex = 37
+        Me.Label_DatePricingStarted.Text = "DatePriceS"
+        '
+        'Label_DatePricingComplet
+        '
+        Me.Label_DatePricingComplet.AutoSize = True
+        Me.Label_DatePricingComplet.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "PricingCompleted", True))
+        Me.Label_DatePricingComplet.Location = New System.Drawing.Point(74, 101)
+        Me.Label_DatePricingComplet.Name = "Label_DatePricingComplet"
+        Me.Label_DatePricingComplet.Size = New System.Drawing.Size(61, 13)
+        Me.Label_DatePricingComplet.TabIndex = 38
+        Me.Label_DatePricingComplet.Text = "DatePriceC"
+        '
+        'Label_DateEngCompleted
+        '
+        Me.Label_DateEngCompleted.AutoSize = True
+        Me.Label_DateEngCompleted.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "EngCompleted", True))
+        Me.Label_DateEngCompleted.Location = New System.Drawing.Point(74, 101)
+        Me.Label_DateEngCompleted.Name = "Label_DateEngCompleted"
+        Me.Label_DateEngCompleted.Size = New System.Drawing.Size(56, 13)
+        Me.Label_DateEngCompleted.TabIndex = 40
+        Me.Label_DateEngCompleted.Text = "DateEngC"
+        '
+        'Label_DateEngStart
+        '
+        Me.Label_DateEngStart.AutoSize = True
+        Me.Label_DateEngStart.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "EngStarted", True))
+        Me.Label_DateEngStart.Location = New System.Drawing.Point(74, 75)
+        Me.Label_DateEngStart.Name = "Label_DateEngStart"
+        Me.Label_DateEngStart.Size = New System.Drawing.Size(59, 13)
+        Me.Label_DateEngStart.TabIndex = 39
+        Me.Label_DateEngStart.Text = "DateEngSt"
+        '
+        'Label_DateDrftComplete
+        '
+        Me.Label_DateDrftComplete.AutoSize = True
+        Me.Label_DateDrftComplete.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "DrftCompleted", True))
+        Me.Label_DateDrftComplete.Location = New System.Drawing.Point(71, 101)
+        Me.Label_DateDrftComplete.Name = "Label_DateDrftComplete"
+        Me.Label_DateDrftComplete.Size = New System.Drawing.Size(54, 13)
+        Me.Label_DateDrftComplete.TabIndex = 42
+        Me.Label_DateDrftComplete.Text = "DateDrftC"
+        '
+        'Label_DateDrftStart
+        '
+        Me.Label_DateDrftStart.AutoSize = True
+        Me.Label_DateDrftStart.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "DrftStarted", True))
+        Me.Label_DateDrftStart.Location = New System.Drawing.Point(71, 75)
+        Me.Label_DateDrftStart.Name = "Label_DateDrftStart"
+        Me.Label_DateDrftStart.Size = New System.Drawing.Size(54, 13)
+        Me.Label_DateDrftStart.TabIndex = 41
+        Me.Label_DateDrftStart.Text = "DateDrftS"
+        '
+        'Label_DateFabCompleted
+        '
+        Me.Label_DateFabCompleted.AutoSize = True
+        Me.Label_DateFabCompleted.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "FabCompleted", True))
+        Me.Label_DateFabCompleted.Location = New System.Drawing.Point(74, 101)
+        Me.Label_DateFabCompleted.Name = "Label_DateFabCompleted"
+        Me.Label_DateFabCompleted.Size = New System.Drawing.Size(55, 13)
+        Me.Label_DateFabCompleted.TabIndex = 44
+        Me.Label_DateFabCompleted.Text = "DateFabC"
+        '
+        'Label_DateFabStarted
+        '
+        Me.Label_DateFabStarted.AutoSize = True
+        Me.Label_DateFabStarted.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "FabStarted", True))
+        Me.Label_DateFabStarted.Location = New System.Drawing.Point(74, 75)
+        Me.Label_DateFabStarted.Name = "Label_DateFabStarted"
+        Me.Label_DateFabStarted.Size = New System.Drawing.Size(55, 13)
+        Me.Label_DateFabStarted.TabIndex = 43
+        Me.Label_DateFabStarted.Text = "DateFabS"
+        '
+        'Label_DateFinishCompleted
+        '
+        Me.Label_DateFinishCompleted.AutoSize = True
+        Me.Label_DateFinishCompleted.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "FinishCompleted", True))
+        Me.Label_DateFinishCompleted.Location = New System.Drawing.Point(74, 101)
+        Me.Label_DateFinishCompleted.Name = "Label_DateFinishCompleted"
+        Me.Label_DateFinishCompleted.Size = New System.Drawing.Size(51, 13)
+        Me.Label_DateFinishCompleted.TabIndex = 46
+        Me.Label_DateFinishCompleted.Text = "DateFinC"
+        '
+        'Label_DateFinishStart
+        '
+        Me.Label_DateFinishStart.AutoSize = True
+        Me.Label_DateFinishStart.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "FinishStarted", True))
+        Me.Label_DateFinishStart.Location = New System.Drawing.Point(74, 75)
+        Me.Label_DateFinishStart.Name = "Label_DateFinishStart"
+        Me.Label_DateFinishStart.Size = New System.Drawing.Size(51, 13)
+        Me.Label_DateFinishStart.TabIndex = 45
+        Me.Label_DateFinishStart.Text = "DateFinS"
+        '
+        'Label_DateShipCompleted
+        '
+        Me.Label_DateShipCompleted.AutoSize = True
+        Me.Label_DateShipCompleted.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "ShipCompleted", True))
+        Me.Label_DateShipCompleted.Location = New System.Drawing.Point(74, 101)
+        Me.Label_DateShipCompleted.Name = "Label_DateShipCompleted"
+        Me.Label_DateShipCompleted.Size = New System.Drawing.Size(58, 13)
+        Me.Label_DateShipCompleted.TabIndex = 48
+        Me.Label_DateShipCompleted.Text = "DateShipC"
+        '
+        'Label_DateShipStart
+        '
+        Me.Label_DateShipStart.AutoSize = True
+        Me.Label_DateShipStart.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "ShipStarted", True))
+        Me.Label_DateShipStart.Location = New System.Drawing.Point(74, 75)
+        Me.Label_DateShipStart.Name = "Label_DateShipStart"
+        Me.Label_DateShipStart.Size = New System.Drawing.Size(58, 13)
+        Me.Label_DateShipStart.TabIndex = 47
+        Me.Label_DateShipStart.Text = "DateShipS"
+        '
+        'Button_LogDatePriceStart
+        '
+        Me.Button_LogDatePriceStart.Location = New System.Drawing.Point(207, 69)
+        Me.Button_LogDatePriceStart.Name = "Button_LogDatePriceStart"
+        Me.Button_LogDatePriceStart.Size = New System.Drawing.Size(40, 24)
+        Me.Button_LogDatePriceStart.TabIndex = 39
+        Me.Button_LogDatePriceStart.Text = "Log"
+        Me.Button_LogDatePriceStart.UseVisualStyleBackColor = True
+        '
+        'Button_LogDatePriceComplete
+        '
+        Me.Button_LogDatePriceComplete.Location = New System.Drawing.Point(207, 95)
+        Me.Button_LogDatePriceComplete.Name = "Button_LogDatePriceComplete"
+        Me.Button_LogDatePriceComplete.Size = New System.Drawing.Size(40, 24)
+        Me.Button_LogDatePriceComplete.TabIndex = 40
+        Me.Button_LogDatePriceComplete.Text = "Log"
+        Me.Button_LogDatePriceComplete.UseVisualStyleBackColor = True
+        '
+        'Button_LogDateEngComplete
+        '
+        Me.Button_LogDateEngComplete.Location = New System.Drawing.Point(207, 95)
+        Me.Button_LogDateEngComplete.Name = "Button_LogDateEngComplete"
+        Me.Button_LogDateEngComplete.Size = New System.Drawing.Size(40, 24)
+        Me.Button_LogDateEngComplete.TabIndex = 42
+        Me.Button_LogDateEngComplete.Text = "Log"
+        Me.Button_LogDateEngComplete.UseVisualStyleBackColor = True
+        '
+        'Button_LogDateEngStart
+        '
+        Me.Button_LogDateEngStart.Location = New System.Drawing.Point(207, 69)
+        Me.Button_LogDateEngStart.Name = "Button_LogDateEngStart"
+        Me.Button_LogDateEngStart.Size = New System.Drawing.Size(40, 24)
+        Me.Button_LogDateEngStart.TabIndex = 41
+        Me.Button_LogDateEngStart.Text = "Log"
+        Me.Button_LogDateEngStart.UseVisualStyleBackColor = True
+        '
+        'Button_LogDateFabComplete
+        '
+        Me.Button_LogDateFabComplete.Location = New System.Drawing.Point(207, 95)
+        Me.Button_LogDateFabComplete.Name = "Button_LogDateFabComplete"
+        Me.Button_LogDateFabComplete.Size = New System.Drawing.Size(40, 24)
+        Me.Button_LogDateFabComplete.TabIndex = 42
+        Me.Button_LogDateFabComplete.Text = "Log"
+        Me.Button_LogDateFabComplete.UseVisualStyleBackColor = True
+        '
+        'Button_LogDateFabStart
+        '
+        Me.Button_LogDateFabStart.Location = New System.Drawing.Point(207, 69)
+        Me.Button_LogDateFabStart.Name = "Button_LogDateFabStart"
+        Me.Button_LogDateFabStart.Size = New System.Drawing.Size(40, 24)
+        Me.Button_LogDateFabStart.TabIndex = 41
+        Me.Button_LogDateFabStart.Text = "Log"
+        Me.Button_LogDateFabStart.UseVisualStyleBackColor = True
+        '
+        'Button_LogDateFinishComplete
+        '
+        Me.Button_LogDateFinishComplete.Location = New System.Drawing.Point(207, 95)
+        Me.Button_LogDateFinishComplete.Name = "Button_LogDateFinishComplete"
+        Me.Button_LogDateFinishComplete.Size = New System.Drawing.Size(40, 24)
+        Me.Button_LogDateFinishComplete.TabIndex = 46
+        Me.Button_LogDateFinishComplete.Text = "Log"
+        Me.Button_LogDateFinishComplete.UseVisualStyleBackColor = True
+        '
+        'Button_LogDateFinishStart
+        '
+        Me.Button_LogDateFinishStart.Location = New System.Drawing.Point(207, 69)
+        Me.Button_LogDateFinishStart.Name = "Button_LogDateFinishStart"
+        Me.Button_LogDateFinishStart.Size = New System.Drawing.Size(40, 24)
+        Me.Button_LogDateFinishStart.TabIndex = 45
+        Me.Button_LogDateFinishStart.Text = "Log"
+        Me.Button_LogDateFinishStart.UseVisualStyleBackColor = True
+        '
+        'Button_LogDateDrftComplete
+        '
+        Me.Button_LogDateDrftComplete.Location = New System.Drawing.Point(207, 95)
+        Me.Button_LogDateDrftComplete.Name = "Button_LogDateDrftComplete"
+        Me.Button_LogDateDrftComplete.Size = New System.Drawing.Size(40, 24)
+        Me.Button_LogDateDrftComplete.TabIndex = 44
+        Me.Button_LogDateDrftComplete.Text = "Log"
+        Me.Button_LogDateDrftComplete.UseVisualStyleBackColor = True
+        '
+        'Button_LogDateDrftStart
+        '
+        Me.Button_LogDateDrftStart.Location = New System.Drawing.Point(207, 69)
+        Me.Button_LogDateDrftStart.Name = "Button_LogDateDrftStart"
+        Me.Button_LogDateDrftStart.Size = New System.Drawing.Size(40, 24)
+        Me.Button_LogDateDrftStart.TabIndex = 43
+        Me.Button_LogDateDrftStart.Text = "Log"
+        Me.Button_LogDateDrftStart.UseVisualStyleBackColor = True
+        '
+        'Button_LogDateShipComplete
+        '
+        Me.Button_LogDateShipComplete.Location = New System.Drawing.Point(207, 95)
+        Me.Button_LogDateShipComplete.Name = "Button_LogDateShipComplete"
+        Me.Button_LogDateShipComplete.Size = New System.Drawing.Size(40, 24)
+        Me.Button_LogDateShipComplete.TabIndex = 46
+        Me.Button_LogDateShipComplete.Text = "Log"
+        Me.Button_LogDateShipComplete.UseVisualStyleBackColor = True
+        '
+        'Button_LogDateShipStart
+        '
+        Me.Button_LogDateShipStart.Location = New System.Drawing.Point(207, 69)
+        Me.Button_LogDateShipStart.Name = "Button_LogDateShipStart"
+        Me.Button_LogDateShipStart.Size = New System.Drawing.Size(40, 24)
+        Me.Button_LogDateShipStart.TabIndex = 45
+        Me.Button_LogDateShipStart.Text = "Log"
+        Me.Button_LogDateShipStart.UseVisualStyleBackColor = True
+        '
+        'Label_UserPriceStarted
+        '
+        Me.Label_UserPriceStarted.AutoSize = True
+        Me.Label_UserPriceStarted.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "ShipCompleted", True))
+        Me.Label_UserPriceStarted.Location = New System.Drawing.Point(140, 75)
+        Me.Label_UserPriceStarted.Name = "Label_UserPriceStarted"
+        Me.Label_UserPriceStarted.Size = New System.Drawing.Size(60, 13)
+        Me.Label_UserPriceStarted.TabIndex = 41
+        Me.Label_UserPriceStarted.Text = "UserPriceS"
+        '
+        'TableBindingSource
+        '
+        Me.TableBindingSource.DataMember = "Table"
+        Me.TableBindingSource.DataSource = Me.QuoteOrdersDS
+        '
+        'QuoteOrdersDS
+        '
+        Me.QuoteOrdersDS.DataSetName = "QuoteOrdersDS"
+        Me.QuoteOrdersDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'DataGridViewTextBoxColumn1
         '
@@ -738,24 +1711,6 @@ Partial Class Form1
         Me.DataGridViewTextBoxColumn9.DataPropertyName = "Quote Due Date"
         Me.DataGridViewTextBoxColumn9.HeaderText = "Quote Due Date"
         Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
-        '
-        'DataGridViewTextBoxColumn10
-        '
-        Me.DataGridViewTextBoxColumn10.DataPropertyName = "PricingRequired"
-        Me.DataGridViewTextBoxColumn10.HeaderText = "PricingRequired"
-        Me.DataGridViewTextBoxColumn10.Name = "DataGridViewTextBoxColumn10"
-        '
-        'DataGridViewTextBoxColumn11
-        '
-        Me.DataGridViewTextBoxColumn11.DataPropertyName = "PricingStarted"
-        Me.DataGridViewTextBoxColumn11.HeaderText = "PricingStarted"
-        Me.DataGridViewTextBoxColumn11.Name = "DataGridViewTextBoxColumn11"
-        '
-        'DataGridViewTextBoxColumn12
-        '
-        Me.DataGridViewTextBoxColumn12.DataPropertyName = "PricingCompleted"
-        Me.DataGridViewTextBoxColumn12.HeaderText = "PricingCompleted"
-        Me.DataGridViewTextBoxColumn12.Name = "DataGridViewTextBoxColumn12"
         '
         'DataGridViewTextBoxColumn13
         '
@@ -847,804 +1802,125 @@ Partial Class Form1
         Me.DataGridViewTextBoxColumn27.HeaderText = "ShipCompleted"
         Me.DataGridViewTextBoxColumn27.Name = "DataGridViewTextBoxColumn27"
         '
-        'Quote_Label
-        '
-        Quote_Label.AutoSize = True
-        Quote_Label.Location = New System.Drawing.Point(17, 22)
-        Quote_Label.Name = "Quote_Label"
-        Quote_Label.Size = New System.Drawing.Size(56, 13)
-        Quote_Label.TabIndex = 2
-        Quote_Label.Text = "Quote No:"
-        '
-        'Quote_TextBox
-        '
-        Me.Quote_TextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "Quote#", True))
-        Me.Quote_TextBox.Location = New System.Drawing.Point(79, 19)
-        Me.Quote_TextBox.Name = "Quote_TextBox"
-        Me.Quote_TextBox.Size = New System.Drawing.Size(53, 20)
-        Me.Quote_TextBox.TabIndex = 3
-        '
-        'Order_Label
-        '
-        Order_Label.AutoSize = True
-        Order_Label.Location = New System.Drawing.Point(141, 22)
-        Order_Label.Name = "Order_Label"
-        Order_Label.Size = New System.Drawing.Size(53, 13)
-        Order_Label.TabIndex = 4
-        Order_Label.Text = "Order No:"
-        '
-        'Order_TextBox
-        '
-        Me.Order_TextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "Order#", True))
-        Me.Order_TextBox.Location = New System.Drawing.Point(200, 19)
-        Me.Order_TextBox.Name = "Order_TextBox"
-        Me.Order_TextBox.Size = New System.Drawing.Size(53, 20)
-        Me.Order_TextBox.TabIndex = 5
-        '
-        'CustomerLabel
-        '
-        CustomerLabel.AutoSize = True
-        CustomerLabel.Location = New System.Drawing.Point(19, 48)
-        CustomerLabel.Name = "CustomerLabel"
-        CustomerLabel.Size = New System.Drawing.Size(54, 13)
-        CustomerLabel.TabIndex = 6
-        CustomerLabel.Text = "Customer:"
-        '
-        'CustomerTextBox
-        '
-        Me.CustomerTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "Customer", True))
-        Me.CustomerTextBox.Location = New System.Drawing.Point(79, 45)
-        Me.CustomerTextBox.Name = "CustomerTextBox"
-        Me.CustomerTextBox.Size = New System.Drawing.Size(174, 20)
-        Me.CustomerTextBox.TabIndex = 7
-        '
-        'ProjectLabel
-        '
-        ProjectLabel.AutoSize = True
-        ProjectLabel.Location = New System.Drawing.Point(30, 74)
-        ProjectLabel.Name = "ProjectLabel"
-        ProjectLabel.Size = New System.Drawing.Size(43, 13)
-        ProjectLabel.TabIndex = 8
-        ProjectLabel.Text = "Project:"
-        '
-        'ProjectTextBox
-        '
-        Me.ProjectTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "Project", True))
-        Me.ProjectTextBox.Location = New System.Drawing.Point(79, 71)
-        Me.ProjectTextBox.Name = "ProjectTextBox"
-        Me.ProjectTextBox.Size = New System.Drawing.Size(174, 20)
-        Me.ProjectTextBox.TabIndex = 9
-        '
-        'PO_Label
-        '
-        PO_Label.AutoSize = True
-        PO_Label.Location = New System.Drawing.Point(37, 22)
-        PO_Label.Name = "PO_Label"
-        PO_Label.Size = New System.Drawing.Size(42, 13)
-        PO_Label.TabIndex = 10
-        PO_Label.Text = "PO No:"
-        '
-        'PO_TextBox
-        '
-        Me.PO_TextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "PO#", True))
-        Me.PO_TextBox.Location = New System.Drawing.Point(85, 19)
-        Me.PO_TextBox.Name = "PO_TextBox"
-        Me.PO_TextBox.Size = New System.Drawing.Size(168, 20)
-        Me.PO_TextBox.TabIndex = 11
-        '
-        'PO_RecieptLabel
-        '
-        PO_RecieptLabel.AutoSize = True
-        PO_RecieptLabel.Location = New System.Drawing.Point(14, 48)
-        PO_RecieptLabel.Name = "PO_RecieptLabel"
-        PO_RecieptLabel.Size = New System.Drawing.Size(65, 13)
-        PO_RecieptLabel.TabIndex = 12
-        PO_RecieptLabel.Text = "PO Reciept:"
-        '
-        'PO_RecieptDateTimePicker
-        '
-        Me.PO_RecieptDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.TableBindingSource, "PO Reciept", True))
-        Me.PO_RecieptDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.PO_RecieptDateTimePicker.Location = New System.Drawing.Point(85, 45)
-        Me.PO_RecieptDateTimePicker.Name = "PO_RecieptDateTimePicker"
-        Me.PO_RecieptDateTimePicker.Size = New System.Drawing.Size(115, 20)
-        Me.PO_RecieptDateTimePicker.TabIndex = 13
-        '
-        'Delivery_DateLabel
-        '
-        Delivery_DateLabel.AutoSize = True
-        Delivery_DateLabel.Location = New System.Drawing.Point(5, 99)
-        Delivery_DateLabel.Name = "Delivery_DateLabel"
-        Delivery_DateLabel.Size = New System.Drawing.Size(74, 13)
-        Delivery_DateLabel.TabIndex = 14
-        Delivery_DateLabel.Text = "Delivery Date:"
-        '
-        'Delivery_DateDateTimePicker
-        '
-        Me.Delivery_DateDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.TableBindingSource, "Delivery Date", True))
-        Me.Delivery_DateDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.Delivery_DateDateTimePicker.Location = New System.Drawing.Point(85, 96)
-        Me.Delivery_DateDateTimePicker.Name = "Delivery_DateDateTimePicker"
-        Me.Delivery_DateDateTimePicker.Size = New System.Drawing.Size(115, 20)
-        Me.Delivery_DateDateTimePicker.TabIndex = 15
-        '
-        'Quote_Due_DateLabel
-        '
-        Quote_Due_DateLabel.AutoSize = True
-        Quote_Due_DateLabel.Location = New System.Drawing.Point(11, 100)
-        Quote_Due_DateLabel.Name = "Quote_Due_DateLabel"
-        Quote_Due_DateLabel.Size = New System.Drawing.Size(62, 13)
-        Quote_Due_DateLabel.TabIndex = 16
-        Quote_Due_DateLabel.Text = "Quote Due:"
-        '
-        'Quote_Due_DateDateTimePicker
-        '
-        Me.Quote_Due_DateDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.TableBindingSource, "Quote Due Date", True))
-        Me.Quote_Due_DateDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.Quote_Due_DateDateTimePicker.Location = New System.Drawing.Point(79, 97)
-        Me.Quote_Due_DateDateTimePicker.Name = "Quote_Due_DateDateTimePicker"
-        Me.Quote_Due_DateDateTimePicker.Size = New System.Drawing.Size(115, 20)
-        Me.Quote_Due_DateDateTimePicker.TabIndex = 17
-        '
-        'PricingRequiredLabel
-        '
-        PricingRequiredLabel.AutoSize = True
-        PricingRequiredLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        PricingRequiredLabel.Location = New System.Drawing.Point(6, 25)
-        PricingRequiredLabel.Name = "PricingRequiredLabel"
-        PricingRequiredLabel.Size = New System.Drawing.Size(62, 13)
-        PricingRequiredLabel.TabIndex = 18
-        PricingRequiredLabel.Text = "Required:"
-        '
-        'PricingStartedLabel
-        '
-        PricingStartedLabel.AutoSize = True
-        PricingStartedLabel.Location = New System.Drawing.Point(23, 75)
-        PricingStartedLabel.Name = "PricingStartedLabel"
-        PricingStartedLabel.Size = New System.Drawing.Size(44, 13)
-        PricingStartedLabel.TabIndex = 20
-        PricingStartedLabel.Text = "Started:"
-        AddHandler PricingStartedLabel.Click, AddressOf Me.PricingStartedLabel_Click
-        '
-        'PricingStartedDateTimePicker
-        '
-        Me.PricingStartedDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.TableBindingSource, "PricingStarted", True))
-        Me.PricingStartedDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.PricingStartedDateTimePicker.Location = New System.Drawing.Point(73, 69)
-        Me.PricingStartedDateTimePicker.Name = "PricingStartedDateTimePicker"
-        Me.PricingStartedDateTimePicker.Size = New System.Drawing.Size(115, 20)
-        Me.PricingStartedDateTimePicker.TabIndex = 21
-        '
-        'PricingCompletedLabel
-        '
-        PricingCompletedLabel.AutoSize = True
-        PricingCompletedLabel.Location = New System.Drawing.Point(13, 101)
-        PricingCompletedLabel.Name = "PricingCompletedLabel"
-        PricingCompletedLabel.Size = New System.Drawing.Size(54, 13)
-        PricingCompletedLabel.TabIndex = 22
-        PricingCompletedLabel.Text = "Complete:"
-        AddHandler PricingCompletedLabel.Click, AddressOf Me.PricingCompletedLabel_Click
-        '
-        'PricingCompletedDateTimePicker
-        '
-        Me.PricingCompletedDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.TableBindingSource, "PricingCompleted", True))
-        Me.PricingCompletedDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.PricingCompletedDateTimePicker.Location = New System.Drawing.Point(73, 95)
-        Me.PricingCompletedDateTimePicker.Name = "PricingCompletedDateTimePicker"
-        Me.PricingCompletedDateTimePicker.Size = New System.Drawing.Size(115, 20)
-        Me.PricingCompletedDateTimePicker.TabIndex = 23
-        '
-        'EngRequiredDateTimePicker
-        '
-        Me.EngRequiredDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.TableBindingSource, "EngRequired", True))
-        Me.EngRequiredDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.EngRequiredDateTimePicker.Location = New System.Drawing.Point(73, 19)
-        Me.EngRequiredDateTimePicker.Name = "EngRequiredDateTimePicker"
-        Me.EngRequiredDateTimePicker.Size = New System.Drawing.Size(115, 20)
-        Me.EngRequiredDateTimePicker.TabIndex = 25
-        '
-        'EngStartedDateTimePicker
-        '
-        Me.EngStartedDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.TableBindingSource, "EngStarted", True))
-        Me.EngStartedDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.EngStartedDateTimePicker.Location = New System.Drawing.Point(73, 69)
-        Me.EngStartedDateTimePicker.Name = "EngStartedDateTimePicker"
-        Me.EngStartedDateTimePicker.Size = New System.Drawing.Size(115, 20)
-        Me.EngStartedDateTimePicker.TabIndex = 27
-        '
-        'EngCompletedDateTimePicker
-        '
-        Me.EngCompletedDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.TableBindingSource, "EngCompleted", True))
-        Me.EngCompletedDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.EngCompletedDateTimePicker.Location = New System.Drawing.Point(73, 95)
-        Me.EngCompletedDateTimePicker.Name = "EngCompletedDateTimePicker"
-        Me.EngCompletedDateTimePicker.Size = New System.Drawing.Size(115, 20)
-        Me.EngCompletedDateTimePicker.TabIndex = 29
-        '
-        'DrftRequiredDateTimePicker
-        '
-        Me.DrftRequiredDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.TableBindingSource, "DrftRequired", True))
-        Me.DrftRequiredDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DrftRequiredDateTimePicker.Location = New System.Drawing.Point(74, 19)
-        Me.DrftRequiredDateTimePicker.Name = "DrftRequiredDateTimePicker"
-        Me.DrftRequiredDateTimePicker.Size = New System.Drawing.Size(115, 20)
-        Me.DrftRequiredDateTimePicker.TabIndex = 31
-        '
-        'DrftStartedDateTimePicker
-        '
-        Me.DrftStartedDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.TableBindingSource, "DrftStarted", True))
-        Me.DrftStartedDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DrftStartedDateTimePicker.Location = New System.Drawing.Point(74, 68)
-        Me.DrftStartedDateTimePicker.Name = "DrftStartedDateTimePicker"
-        Me.DrftStartedDateTimePicker.Size = New System.Drawing.Size(115, 20)
-        Me.DrftStartedDateTimePicker.TabIndex = 33
-        '
-        'DrftCompletedDateTimePicker
-        '
-        Me.DrftCompletedDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.TableBindingSource, "DrftCompleted", True))
-        Me.DrftCompletedDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DrftCompletedDateTimePicker.Location = New System.Drawing.Point(74, 94)
-        Me.DrftCompletedDateTimePicker.Name = "DrftCompletedDateTimePicker"
-        Me.DrftCompletedDateTimePicker.Size = New System.Drawing.Size(115, 20)
-        Me.DrftCompletedDateTimePicker.TabIndex = 35
-        '
-        'FabRequiredDateTimePicker
-        '
-        Me.FabRequiredDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.TableBindingSource, "FabRequired", True))
-        Me.FabRequiredDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.FabRequiredDateTimePicker.Location = New System.Drawing.Point(73, 18)
-        Me.FabRequiredDateTimePicker.Name = "FabRequiredDateTimePicker"
-        Me.FabRequiredDateTimePicker.Size = New System.Drawing.Size(115, 20)
-        Me.FabRequiredDateTimePicker.TabIndex = 37
-        '
-        'FabStartedDateTimePicker
-        '
-        Me.FabStartedDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.TableBindingSource, "FabStarted", True))
-        Me.FabStartedDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.FabStartedDateTimePicker.Location = New System.Drawing.Point(73, 69)
-        Me.FabStartedDateTimePicker.Name = "FabStartedDateTimePicker"
-        Me.FabStartedDateTimePicker.Size = New System.Drawing.Size(115, 20)
-        Me.FabStartedDateTimePicker.TabIndex = 39
-        '
-        'FabCompletedDateTimePicker
-        '
-        Me.FabCompletedDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.TableBindingSource, "FabCompleted", True))
-        Me.FabCompletedDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.FabCompletedDateTimePicker.Location = New System.Drawing.Point(73, 95)
-        Me.FabCompletedDateTimePicker.Name = "FabCompletedDateTimePicker"
-        Me.FabCompletedDateTimePicker.Size = New System.Drawing.Size(115, 20)
-        Me.FabCompletedDateTimePicker.TabIndex = 41
-        '
-        'FinishRequiredDateTimePicker
-        '
-        Me.FinishRequiredDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.TableBindingSource, "FinishRequired", True))
-        Me.FinishRequiredDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.FinishRequiredDateTimePicker.Location = New System.Drawing.Point(73, 18)
-        Me.FinishRequiredDateTimePicker.Name = "FinishRequiredDateTimePicker"
-        Me.FinishRequiredDateTimePicker.Size = New System.Drawing.Size(115, 20)
-        Me.FinishRequiredDateTimePicker.TabIndex = 43
-        '
-        'FinishStartedDateTimePicker
-        '
-        Me.FinishStartedDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.TableBindingSource, "FinishStarted", True))
-        Me.FinishStartedDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.FinishStartedDateTimePicker.Location = New System.Drawing.Point(73, 69)
-        Me.FinishStartedDateTimePicker.Name = "FinishStartedDateTimePicker"
-        Me.FinishStartedDateTimePicker.Size = New System.Drawing.Size(115, 20)
-        Me.FinishStartedDateTimePicker.TabIndex = 45
-        '
-        'FinishCompletedDateTimePicker
-        '
-        Me.FinishCompletedDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.TableBindingSource, "FinishCompleted", True))
-        Me.FinishCompletedDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.FinishCompletedDateTimePicker.Location = New System.Drawing.Point(73, 95)
-        Me.FinishCompletedDateTimePicker.Name = "FinishCompletedDateTimePicker"
-        Me.FinishCompletedDateTimePicker.Size = New System.Drawing.Size(115, 20)
-        Me.FinishCompletedDateTimePicker.TabIndex = 47
-        '
-        'ShipRequiredDateTimePicker
-        '
-        Me.ShipRequiredDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.TableBindingSource, "ShipRequired", True))
-        Me.ShipRequiredDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.ShipRequiredDateTimePicker.Location = New System.Drawing.Point(74, 19)
-        Me.ShipRequiredDateTimePicker.Name = "ShipRequiredDateTimePicker"
-        Me.ShipRequiredDateTimePicker.Size = New System.Drawing.Size(115, 20)
-        Me.ShipRequiredDateTimePicker.TabIndex = 49
-        '
-        'ShipStartedDateTimePicker
-        '
-        Me.ShipStartedDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.TableBindingSource, "ShipStarted", True))
-        Me.ShipStartedDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.ShipStartedDateTimePicker.Location = New System.Drawing.Point(74, 69)
-        Me.ShipStartedDateTimePicker.Name = "ShipStartedDateTimePicker"
-        Me.ShipStartedDateTimePicker.Size = New System.Drawing.Size(115, 20)
-        Me.ShipStartedDateTimePicker.TabIndex = 51
-        '
-        'ShipCompletedDateTimePicker
-        '
-        Me.ShipCompletedDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.TableBindingSource, "ShipCompleted", True))
-        Me.ShipCompletedDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.ShipCompletedDateTimePicker.Location = New System.Drawing.Point(74, 95)
-        Me.ShipCompletedDateTimePicker.Name = "ShipCompletedDateTimePicker"
-        Me.ShipCompletedDateTimePicker.Size = New System.Drawing.Size(115, 20)
-        Me.ShipCompletedDateTimePicker.TabIndex = 53
-        '
-        'GroupBox3
-        '
-        Me.GroupBox3.Controls.Add(Me.Button_Convert2Order)
-        Me.GroupBox3.Controls.Add(Quote_Label)
-        Me.GroupBox3.Controls.Add(ProjectLabel)
-        Me.GroupBox3.Controls.Add(CustomerLabel)
-        Me.GroupBox3.Controls.Add(Me.ProjectTextBox)
-        Me.GroupBox3.Controls.Add(Order_Label)
-        Me.GroupBox3.Controls.Add(Me.CustomerTextBox)
-        Me.GroupBox3.Controls.Add(Me.Order_TextBox)
-        Me.GroupBox3.Controls.Add(Quote_Due_DateLabel)
-        Me.GroupBox3.Controls.Add(Me.Quote_TextBox)
-        Me.GroupBox3.Controls.Add(Me.Quote_Due_DateDateTimePicker)
-        Me.GroupBox3.Location = New System.Drawing.Point(8, 6)
-        Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(259, 161)
-        Me.GroupBox3.TabIndex = 54
-        Me.GroupBox3.TabStop = False
-        Me.GroupBox3.Text = "Quote"
-        '
-        'Button_Convert2Order
-        '
-        Me.Button_Convert2Order.Location = New System.Drawing.Point(79, 123)
-        Me.Button_Convert2Order.Name = "Button_Convert2Order"
-        Me.Button_Convert2Order.Size = New System.Drawing.Size(174, 24)
-        Me.Button_Convert2Order.TabIndex = 18
-        Me.Button_Convert2Order.Text = "Convert to Order"
-        Me.Button_Convert2Order.UseVisualStyleBackColor = True
-        '
-        'GroupBox4
-        '
-        Me.GroupBox4.Controls.Add(Me.Button_BackSchedule)
-        Me.GroupBox4.Controls.Add(Label12)
-        Me.GroupBox4.Controls.Add(Delivery_DateLabel)
-        Me.GroupBox4.Controls.Add(PO_RecieptLabel)
-        Me.GroupBox4.Controls.Add(Me.Delivery_DateDateTimePicker)
-        Me.GroupBox4.Controls.Add(PO_Label)
-        Me.GroupBox4.Controls.Add(Me.PO_RecieptDateTimePicker)
-        Me.GroupBox4.Controls.Add(Me.PO_TextBox)
-        Me.GroupBox4.Controls.Add(Me.TextBox1)
-        Me.GroupBox4.Location = New System.Drawing.Point(273, 6)
-        Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(259, 161)
-        Me.GroupBox4.TabIndex = 55
-        Me.GroupBox4.TabStop = False
-        Me.GroupBox4.Text = "Order"
-        '
-        'Button_BackSchedule
-        '
-        Me.Button_BackSchedule.Location = New System.Drawing.Point(85, 123)
-        Me.Button_BackSchedule.Name = "Button_BackSchedule"
-        Me.Button_BackSchedule.Size = New System.Drawing.Size(168, 24)
-        Me.Button_BackSchedule.TabIndex = 18
-        Me.Button_BackSchedule.Text = "Back Schedule"
-        Me.Button_BackSchedule.UseVisualStyleBackColor = True
-        '
-        'Label12
-        '
-        Label12.AutoSize = True
-        Label12.Location = New System.Drawing.Point(36, 74)
-        Label12.Name = "Label12"
-        Label12.Size = New System.Drawing.Size(43, 13)
-        Label12.TabIndex = 8
-        Label12.Text = "Project:"
-        '
-        'TextBox1
-        '
-        Me.TextBox1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "Project", True))
-        Me.TextBox1.Location = New System.Drawing.Point(85, 71)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(168, 20)
-        Me.TextBox1.TabIndex = 9
-        '
-        'PricingRequiredDateTimePicker
-        '
-        Me.PricingRequiredDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.TableBindingSource, "PricingRequired", True))
-        Me.PricingRequiredDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.PricingRequiredDateTimePicker.Location = New System.Drawing.Point(73, 19)
-        Me.PricingRequiredDateTimePicker.Name = "PricingRequiredDateTimePicker"
-        Me.PricingRequiredDateTimePicker.Size = New System.Drawing.Size(115, 20)
-        Me.PricingRequiredDateTimePicker.TabIndex = 19
-        '
-        'GroupBox5
-        '
-        Me.GroupBox5.Controls.Add(Me.GroupBox9)
-        Me.GroupBox5.Controls.Add(Me.GroupBox8)
-        Me.GroupBox5.Controls.Add(Me.GroupBox10)
-        Me.GroupBox5.Controls.Add(Me.GroupBox7)
-        Me.GroupBox5.Controls.Add(Me.GroupBox11)
-        Me.GroupBox5.Controls.Add(Me.GroupBox6)
-        Me.GroupBox5.Location = New System.Drawing.Point(8, 173)
-        Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(784, 297)
-        Me.GroupBox5.TabIndex = 56
-        Me.GroupBox5.TabStop = False
-        Me.GroupBox5.Text = "Schedule"
-        '
-        'GroupBox6
-        '
-        Me.GroupBox6.Controls.Add(Label13)
-        Me.GroupBox6.Controls.Add(PricingStartedLabel)
-        Me.GroupBox6.Controls.Add(Label11)
-        Me.GroupBox6.Controls.Add(Me.PricingStartedDateTimePicker)
-        Me.GroupBox6.Controls.Add(PricingCompletedLabel)
-        Me.GroupBox6.Controls.Add(Me.PricingRequiredDateTimePicker)
-        Me.GroupBox6.Controls.Add(Me.PricingCompletedDateTimePicker)
-        Me.GroupBox6.Controls.Add(PricingRequiredLabel)
-        Me.GroupBox6.Location = New System.Drawing.Point(6, 19)
-        Me.GroupBox6.Name = "GroupBox6"
-        Me.GroupBox6.Size = New System.Drawing.Size(253, 133)
-        Me.GroupBox6.TabIndex = 30
-        Me.GroupBox6.TabStop = False
-        Me.GroupBox6.Text = "Pricing"
-        '
-        'Label11
-        '
-        Label11.AutoSize = True
-        Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Label11.Location = New System.Drawing.Point(97, 53)
-        Label11.Name = "Label11"
-        Label11.Size = New System.Drawing.Size(43, 13)
-        Label11.TabIndex = 20
-        Label11.Text = "Actual"
-        '
-        'Label13
-        '
-        Label13.AutoSize = True
-        Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Label13.Location = New System.Drawing.Point(200, 53)
-        Label13.Name = "Label13"
-        Label13.Size = New System.Drawing.Size(33, 13)
-        Label13.TabIndex = 21
-        Label13.Text = "User"
-        '
-        'GroupBox7
-        '
-        Me.GroupBox7.Controls.Add(Label14)
-        Me.GroupBox7.Controls.Add(Label15)
-        Me.GroupBox7.Controls.Add(Label16)
-        Me.GroupBox7.Controls.Add(Me.EngRequiredDateTimePicker)
-        Me.GroupBox7.Controls.Add(Me.EngStartedDateTimePicker)
-        Me.GroupBox7.Controls.Add(Me.EngCompletedDateTimePicker)
-        Me.GroupBox7.Controls.Add(Label17)
-        Me.GroupBox7.Controls.Add(Label18)
-        Me.GroupBox7.Location = New System.Drawing.Point(265, 19)
-        Me.GroupBox7.Name = "GroupBox7"
-        Me.GroupBox7.Size = New System.Drawing.Size(253, 133)
-        Me.GroupBox7.TabIndex = 31
-        Me.GroupBox7.TabStop = False
-        Me.GroupBox7.Text = "Pricing"
-        '
-        'Label14
-        '
-        Label14.AutoSize = True
-        Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Label14.Location = New System.Drawing.Point(200, 53)
-        Label14.Name = "Label14"
-        Label14.Size = New System.Drawing.Size(33, 13)
-        Label14.TabIndex = 21
-        Label14.Text = "User"
-        '
-        'Label15
-        '
-        Label15.AutoSize = True
-        Label15.Location = New System.Drawing.Point(23, 75)
-        Label15.Name = "Label15"
-        Label15.Size = New System.Drawing.Size(44, 13)
-        Label15.TabIndex = 20
-        Label15.Text = "Started:"
-        '
-        'Label16
-        '
-        Label16.AutoSize = True
-        Label16.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Label16.Location = New System.Drawing.Point(97, 53)
-        Label16.Name = "Label16"
-        Label16.Size = New System.Drawing.Size(43, 13)
-        Label16.TabIndex = 20
-        Label16.Text = "Actual"
-        '
-        'Label17
-        '
-        Label17.AutoSize = True
-        Label17.Location = New System.Drawing.Point(13, 101)
-        Label17.Name = "Label17"
-        Label17.Size = New System.Drawing.Size(54, 13)
-        Label17.TabIndex = 22
-        Label17.Text = "Complete:"
-        '
-        'Label18
-        '
-        Label18.AutoSize = True
-        Label18.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Label18.Location = New System.Drawing.Point(6, 25)
-        Label18.Name = "Label18"
-        Label18.Size = New System.Drawing.Size(62, 13)
-        Label18.TabIndex = 18
-        Label18.Text = "Required:"
-        '
-        'GroupBox8
-        '
-        Me.GroupBox8.Controls.Add(Label19)
-        Me.GroupBox8.Controls.Add(Label20)
-        Me.GroupBox8.Controls.Add(Label21)
-        Me.GroupBox8.Controls.Add(Me.DrftStartedDateTimePicker)
-        Me.GroupBox8.Controls.Add(Me.DrftCompletedDateTimePicker)
-        Me.GroupBox8.Controls.Add(Me.DrftRequiredDateTimePicker)
-        Me.GroupBox8.Controls.Add(Label22)
-        Me.GroupBox8.Controls.Add(Label23)
-        Me.GroupBox8.Location = New System.Drawing.Point(524, 19)
-        Me.GroupBox8.Name = "GroupBox8"
-        Me.GroupBox8.Size = New System.Drawing.Size(253, 133)
-        Me.GroupBox8.TabIndex = 32
-        Me.GroupBox8.TabStop = False
-        Me.GroupBox8.Text = "Pricing"
-        '
-        'Label19
-        '
-        Label19.AutoSize = True
-        Label19.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Label19.Location = New System.Drawing.Point(200, 53)
-        Label19.Name = "Label19"
-        Label19.Size = New System.Drawing.Size(33, 13)
-        Label19.TabIndex = 21
-        Label19.Text = "User"
-        '
-        'Label20
-        '
-        Label20.AutoSize = True
-        Label20.Location = New System.Drawing.Point(23, 75)
-        Label20.Name = "Label20"
-        Label20.Size = New System.Drawing.Size(44, 13)
-        Label20.TabIndex = 20
-        Label20.Text = "Started:"
-        '
-        'Label21
-        '
-        Label21.AutoSize = True
-        Label21.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Label21.Location = New System.Drawing.Point(97, 53)
-        Label21.Name = "Label21"
-        Label21.Size = New System.Drawing.Size(43, 13)
-        Label21.TabIndex = 20
-        Label21.Text = "Actual"
-        '
-        'Label22
-        '
-        Label22.AutoSize = True
-        Label22.Location = New System.Drawing.Point(13, 101)
-        Label22.Name = "Label22"
-        Label22.Size = New System.Drawing.Size(54, 13)
-        Label22.TabIndex = 22
-        Label22.Text = "Complete:"
-        '
-        'Label23
-        '
-        Label23.AutoSize = True
-        Label23.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Label23.Location = New System.Drawing.Point(6, 25)
-        Label23.Name = "Label23"
-        Label23.Size = New System.Drawing.Size(62, 13)
-        Label23.TabIndex = 18
-        Label23.Text = "Required:"
-        '
-        'GroupBox9
-        '
-        Me.GroupBox9.Controls.Add(Label24)
-        Me.GroupBox9.Controls.Add(Label25)
-        Me.GroupBox9.Controls.Add(Label26)
-        Me.GroupBox9.Controls.Add(Label27)
-        Me.GroupBox9.Controls.Add(Label28)
-        Me.GroupBox9.Controls.Add(Me.ShipRequiredDateTimePicker)
-        Me.GroupBox9.Controls.Add(Me.ShipStartedDateTimePicker)
-        Me.GroupBox9.Controls.Add(Me.ShipCompletedDateTimePicker)
-        Me.GroupBox9.Location = New System.Drawing.Point(524, 158)
-        Me.GroupBox9.Name = "GroupBox9"
-        Me.GroupBox9.Size = New System.Drawing.Size(253, 133)
-        Me.GroupBox9.TabIndex = 35
-        Me.GroupBox9.TabStop = False
-        Me.GroupBox9.Text = "Pricing"
-        '
-        'Label24
-        '
-        Label24.AutoSize = True
-        Label24.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Label24.Location = New System.Drawing.Point(200, 53)
-        Label24.Name = "Label24"
-        Label24.Size = New System.Drawing.Size(33, 13)
-        Label24.TabIndex = 21
-        Label24.Text = "User"
-        '
-        'Label25
-        '
-        Label25.AutoSize = True
-        Label25.Location = New System.Drawing.Point(23, 75)
-        Label25.Name = "Label25"
-        Label25.Size = New System.Drawing.Size(44, 13)
-        Label25.TabIndex = 20
-        Label25.Text = "Started:"
-        '
-        'Label26
-        '
-        Label26.AutoSize = True
-        Label26.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Label26.Location = New System.Drawing.Point(97, 53)
-        Label26.Name = "Label26"
-        Label26.Size = New System.Drawing.Size(43, 13)
-        Label26.TabIndex = 20
-        Label26.Text = "Actual"
-        '
-        'Label27
-        '
-        Label27.AutoSize = True
-        Label27.Location = New System.Drawing.Point(13, 101)
-        Label27.Name = "Label27"
-        Label27.Size = New System.Drawing.Size(54, 13)
-        Label27.TabIndex = 22
-        Label27.Text = "Complete:"
-        '
-        'Label28
-        '
-        Label28.AutoSize = True
-        Label28.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Label28.Location = New System.Drawing.Point(6, 25)
-        Label28.Name = "Label28"
-        Label28.Size = New System.Drawing.Size(62, 13)
-        Label28.TabIndex = 18
-        Label28.Text = "Required:"
-        '
-        'GroupBox10
-        '
-        Me.GroupBox10.Controls.Add(Label29)
-        Me.GroupBox10.Controls.Add(Label30)
-        Me.GroupBox10.Controls.Add(Label31)
-        Me.GroupBox10.Controls.Add(Me.FinishRequiredDateTimePicker)
-        Me.GroupBox10.Controls.Add(Label32)
-        Me.GroupBox10.Controls.Add(Me.FinishStartedDateTimePicker)
-        Me.GroupBox10.Controls.Add(Label33)
-        Me.GroupBox10.Controls.Add(Me.FinishCompletedDateTimePicker)
-        Me.GroupBox10.Location = New System.Drawing.Point(265, 158)
-        Me.GroupBox10.Name = "GroupBox10"
-        Me.GroupBox10.Size = New System.Drawing.Size(253, 133)
-        Me.GroupBox10.TabIndex = 34
-        Me.GroupBox10.TabStop = False
-        Me.GroupBox10.Text = "Pricing"
-        '
-        'Label29
-        '
-        Label29.AutoSize = True
-        Label29.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Label29.Location = New System.Drawing.Point(200, 53)
-        Label29.Name = "Label29"
-        Label29.Size = New System.Drawing.Size(33, 13)
-        Label29.TabIndex = 21
-        Label29.Text = "User"
-        '
-        'Label30
-        '
-        Label30.AutoSize = True
-        Label30.Location = New System.Drawing.Point(23, 75)
-        Label30.Name = "Label30"
-        Label30.Size = New System.Drawing.Size(44, 13)
-        Label30.TabIndex = 20
-        Label30.Text = "Started:"
-        '
-        'Label31
-        '
-        Label31.AutoSize = True
-        Label31.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Label31.Location = New System.Drawing.Point(97, 53)
-        Label31.Name = "Label31"
-        Label31.Size = New System.Drawing.Size(43, 13)
-        Label31.TabIndex = 20
-        Label31.Text = "Actual"
-        '
-        'Label32
-        '
-        Label32.AutoSize = True
-        Label32.Location = New System.Drawing.Point(13, 101)
-        Label32.Name = "Label32"
-        Label32.Size = New System.Drawing.Size(54, 13)
-        Label32.TabIndex = 22
-        Label32.Text = "Complete:"
-        '
-        'Label33
-        '
-        Label33.AutoSize = True
-        Label33.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Label33.Location = New System.Drawing.Point(6, 25)
-        Label33.Name = "Label33"
-        Label33.Size = New System.Drawing.Size(62, 13)
-        Label33.TabIndex = 18
-        Label33.Text = "Required:"
-        '
-        'GroupBox11
-        '
-        Me.GroupBox11.Controls.Add(Label34)
-        Me.GroupBox11.Controls.Add(Label35)
-        Me.GroupBox11.Controls.Add(Label36)
-        Me.GroupBox11.Controls.Add(Me.FabStartedDateTimePicker)
-        Me.GroupBox11.Controls.Add(Me.FabCompletedDateTimePicker)
-        Me.GroupBox11.Controls.Add(Me.FabRequiredDateTimePicker)
-        Me.GroupBox11.Controls.Add(Label37)
-        Me.GroupBox11.Controls.Add(Label38)
-        Me.GroupBox11.Location = New System.Drawing.Point(6, 158)
-        Me.GroupBox11.Name = "GroupBox11"
-        Me.GroupBox11.Size = New System.Drawing.Size(253, 133)
-        Me.GroupBox11.TabIndex = 33
-        Me.GroupBox11.TabStop = False
-        Me.GroupBox11.Text = "Pricing"
-        '
-        'Label34
-        '
-        Label34.AutoSize = True
-        Label34.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Label34.Location = New System.Drawing.Point(200, 53)
-        Label34.Name = "Label34"
-        Label34.Size = New System.Drawing.Size(33, 13)
-        Label34.TabIndex = 21
-        Label34.Text = "User"
-        '
-        'Label35
-        '
-        Label35.AutoSize = True
-        Label35.Location = New System.Drawing.Point(23, 75)
-        Label35.Name = "Label35"
-        Label35.Size = New System.Drawing.Size(44, 13)
-        Label35.TabIndex = 20
-        Label35.Text = "Started:"
-        '
-        'Label36
-        '
-        Label36.AutoSize = True
-        Label36.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Label36.Location = New System.Drawing.Point(97, 53)
-        Label36.Name = "Label36"
-        Label36.Size = New System.Drawing.Size(43, 13)
-        Label36.TabIndex = 20
-        Label36.Text = "Actual"
-        '
-        'Label37
-        '
-        Label37.AutoSize = True
-        Label37.Location = New System.Drawing.Point(13, 101)
-        Label37.Name = "Label37"
-        Label37.Size = New System.Drawing.Size(54, 13)
-        Label37.TabIndex = 22
-        Label37.Text = "Complete:"
-        '
-        'Label38
-        '
-        Label38.AutoSize = True
-        Label38.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Label38.Location = New System.Drawing.Point(6, 25)
-        Label38.Name = "Label38"
-        Label38.Size = New System.Drawing.Size(62, 13)
-        Label38.TabIndex = 18
-        Label38.Text = "Required:"
-        '
-        'Button_QuoteReport
-        '
-        Me.Button_QuoteReport.Location = New System.Drawing.Point(542, 12)
-        Me.Button_QuoteReport.Name = "Button_QuoteReport"
-        Me.Button_QuoteReport.Size = New System.Drawing.Size(243, 72)
-        Me.Button_QuoteReport.TabIndex = 57
-        Me.Button_QuoteReport.Text = "Quote Report"
-        Me.Button_QuoteReport.UseVisualStyleBackColor = True
-        '
-        'Button_OrderReport
-        '
-        Me.Button_OrderReport.Location = New System.Drawing.Point(542, 95)
-        Me.Button_OrderReport.Name = "Button_OrderReport"
-        Me.Button_OrderReport.Size = New System.Drawing.Size(243, 72)
-        Me.Button_OrderReport.TabIndex = 58
-        Me.Button_OrderReport.Text = "Order Report"
-        Me.Button_OrderReport.UseVisualStyleBackColor = True
+        'TableTableAdapter
+        '
+        Me.TableTableAdapter.ClearBeforeFill = True
+        '
+        'TableAdapterManager
+        '
+        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.TableTableAdapter = Me.TableTableAdapter
+        Me.TableAdapterManager.UpdateOrder = OrderTracker.QuoteOrdersDSTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        '
+        'Label_UserPriceComplete
+        '
+        Me.Label_UserPriceComplete.AutoSize = True
+        Me.Label_UserPriceComplete.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "ShipCompleted", True))
+        Me.Label_UserPriceComplete.Location = New System.Drawing.Point(140, 101)
+        Me.Label_UserPriceComplete.Name = "Label_UserPriceComplete"
+        Me.Label_UserPriceComplete.Size = New System.Drawing.Size(60, 13)
+        Me.Label_UserPriceComplete.TabIndex = 42
+        Me.Label_UserPriceComplete.Text = "UserPriceC"
+        '
+        'Label_UserEngComplete
+        '
+        Me.Label_UserEngComplete.AutoSize = True
+        Me.Label_UserEngComplete.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "ShipCompleted", True))
+        Me.Label_UserEngComplete.Location = New System.Drawing.Point(141, 101)
+        Me.Label_UserEngComplete.Name = "Label_UserEngComplete"
+        Me.Label_UserEngComplete.Size = New System.Drawing.Size(55, 13)
+        Me.Label_UserEngComplete.TabIndex = 44
+        Me.Label_UserEngComplete.Text = "UserEngC"
+        '
+        'Label_UserEngStart
+        '
+        Me.Label_UserEngStart.AutoSize = True
+        Me.Label_UserEngStart.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "ShipCompleted", True))
+        Me.Label_UserEngStart.Location = New System.Drawing.Point(141, 75)
+        Me.Label_UserEngStart.Name = "Label_UserEngStart"
+        Me.Label_UserEngStart.Size = New System.Drawing.Size(55, 13)
+        Me.Label_UserEngStart.TabIndex = 43
+        Me.Label_UserEngStart.Text = "UserEngS"
+        '
+        'Label_UserDrftComplete
+        '
+        Me.Label_UserDrftComplete.AutoSize = True
+        Me.Label_UserDrftComplete.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "ShipCompleted", True))
+        Me.Label_UserDrftComplete.Location = New System.Drawing.Point(141, 101)
+        Me.Label_UserDrftComplete.Name = "Label_UserDrftComplete"
+        Me.Label_UserDrftComplete.Size = New System.Drawing.Size(53, 13)
+        Me.Label_UserDrftComplete.TabIndex = 46
+        Me.Label_UserDrftComplete.Text = "UserDrftC"
+        '
+        'Label_UserDrftStart
+        '
+        Me.Label_UserDrftStart.AutoSize = True
+        Me.Label_UserDrftStart.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "ShipCompleted", True))
+        Me.Label_UserDrftStart.Location = New System.Drawing.Point(141, 75)
+        Me.Label_UserDrftStart.Name = "Label_UserDrftStart"
+        Me.Label_UserDrftStart.Size = New System.Drawing.Size(53, 13)
+        Me.Label_UserDrftStart.TabIndex = 45
+        Me.Label_UserDrftStart.Text = "UserDrftS"
+        '
+        'Label_UserFabComplete
+        '
+        Me.Label_UserFabComplete.AutoSize = True
+        Me.Label_UserFabComplete.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "ShipCompleted", True))
+        Me.Label_UserFabComplete.Location = New System.Drawing.Point(140, 101)
+        Me.Label_UserFabComplete.Name = "Label_UserFabComplete"
+        Me.Label_UserFabComplete.Size = New System.Drawing.Size(54, 13)
+        Me.Label_UserFabComplete.TabIndex = 44
+        Me.Label_UserFabComplete.Text = "UserFabC"
+        '
+        'Label_UserFabStart
+        '
+        Me.Label_UserFabStart.AutoSize = True
+        Me.Label_UserFabStart.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "ShipCompleted", True))
+        Me.Label_UserFabStart.Location = New System.Drawing.Point(140, 75)
+        Me.Label_UserFabStart.Name = "Label_UserFabStart"
+        Me.Label_UserFabStart.Size = New System.Drawing.Size(54, 13)
+        Me.Label_UserFabStart.TabIndex = 43
+        Me.Label_UserFabStart.Text = "UserFabS"
+        '
+        'Label_UserFinishComplete
+        '
+        Me.Label_UserFinishComplete.AutoSize = True
+        Me.Label_UserFinishComplete.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "ShipCompleted", True))
+        Me.Label_UserFinishComplete.Location = New System.Drawing.Point(141, 101)
+        Me.Label_UserFinishComplete.Name = "Label_UserFinishComplete"
+        Me.Label_UserFinishComplete.Size = New System.Drawing.Size(50, 13)
+        Me.Label_UserFinishComplete.TabIndex = 46
+        Me.Label_UserFinishComplete.Text = "UserFinC"
+        '
+        'Label_UserFinishStart
+        '
+        Me.Label_UserFinishStart.AutoSize = True
+        Me.Label_UserFinishStart.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "ShipCompleted", True))
+        Me.Label_UserFinishStart.Location = New System.Drawing.Point(141, 75)
+        Me.Label_UserFinishStart.Name = "Label_UserFinishStart"
+        Me.Label_UserFinishStart.Size = New System.Drawing.Size(50, 13)
+        Me.Label_UserFinishStart.TabIndex = 45
+        Me.Label_UserFinishStart.Text = "UserFinS"
+        '
+        'Label_UserShipComplete
+        '
+        Me.Label_UserShipComplete.AutoSize = True
+        Me.Label_UserShipComplete.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "ShipCompleted", True))
+        Me.Label_UserShipComplete.Location = New System.Drawing.Point(141, 101)
+        Me.Label_UserShipComplete.Name = "Label_UserShipComplete"
+        Me.Label_UserShipComplete.Size = New System.Drawing.Size(57, 13)
+        Me.Label_UserShipComplete.TabIndex = 48
+        Me.Label_UserShipComplete.Text = "UserShipC"
+        '
+        'Label_UserShipStart
+        '
+        Me.Label_UserShipStart.AutoSize = True
+        Me.Label_UserShipStart.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "ShipCompleted", True))
+        Me.Label_UserShipStart.Location = New System.Drawing.Point(141, 75)
+        Me.Label_UserShipStart.Name = "Label_UserShipStart"
+        Me.Label_UserShipStart.Size = New System.Drawing.Size(57, 13)
+        Me.Label_UserShipStart.TabIndex = 47
+        Me.Label_UserShipStart.Text = "UserShipS"
         '
         'Form1
         '
@@ -1657,6 +1933,7 @@ Partial Class Form1
         Me.Text = "Order Tracker v1.0"
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
+        CType(Me.TableDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         CType(Me.PictureBox_ShipActual, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1674,29 +1951,28 @@ Partial Class Form1
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.TabPage2.ResumeLayout(False)
-        CType(Me.QuoteOrdersDS, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TableBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox5.ResumeLayout(False)
+        Me.GroupBox9.ResumeLayout(False)
+        Me.GroupBox9.PerformLayout()
+        Me.GroupBox8.ResumeLayout(False)
+        Me.GroupBox8.PerformLayout()
+        Me.GroupBox10.ResumeLayout(False)
+        Me.GroupBox10.PerformLayout()
+        Me.GroupBox7.ResumeLayout(False)
+        Me.GroupBox7.PerformLayout()
+        Me.GroupBox11.ResumeLayout(False)
+        Me.GroupBox11.PerformLayout()
+        Me.GroupBox6.ResumeLayout(False)
+        Me.GroupBox6.PerformLayout()
+        Me.GroupBox4.ResumeLayout(False)
+        Me.GroupBox4.PerformLayout()
+        Me.GroupBox3.ResumeLayout(False)
+        Me.GroupBox3.PerformLayout()
         CType(Me.TableBindingNavigator, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TableBindingNavigator.ResumeLayout(False)
         Me.TableBindingNavigator.PerformLayout()
-        CType(Me.TableDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GroupBox3.ResumeLayout(False)
-        Me.GroupBox3.PerformLayout()
-        Me.GroupBox4.ResumeLayout(False)
-        Me.GroupBox4.PerformLayout()
-        Me.GroupBox5.ResumeLayout(False)
-        Me.GroupBox6.ResumeLayout(False)
-        Me.GroupBox6.PerformLayout()
-        Me.GroupBox7.ResumeLayout(False)
-        Me.GroupBox7.PerformLayout()
-        Me.GroupBox8.ResumeLayout(False)
-        Me.GroupBox8.PerformLayout()
-        Me.GroupBox9.ResumeLayout(False)
-        Me.GroupBox9.PerformLayout()
-        Me.GroupBox10.ResumeLayout(False)
-        Me.GroupBox10.PerformLayout()
-        Me.GroupBox11.ResumeLayout(False)
-        Me.GroupBox11.PerformLayout()
+        CType(Me.TableBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.QuoteOrdersDS, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1759,9 +2035,6 @@ Partial Class Form1
     Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn8 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn9 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn10 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn11 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn12 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn13 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn14 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn15 As DataGridViewTextBoxColumn
@@ -1787,26 +2060,8 @@ Partial Class Form1
     Friend WithEvents PO_TextBox As TextBox
     Friend WithEvents PO_RecieptDateTimePicker As DateTimePicker
     Friend WithEvents Delivery_DateDateTimePicker As DateTimePicker
-    Friend WithEvents PricingStartedDateTimePicker As DateTimePicker
-    Friend WithEvents PricingCompletedDateTimePicker As DateTimePicker
-    Friend WithEvents EngRequiredDateTimePicker As DateTimePicker
-    Friend WithEvents EngStartedDateTimePicker As DateTimePicker
-    Friend WithEvents EngCompletedDateTimePicker As DateTimePicker
-    Friend WithEvents DrftRequiredDateTimePicker As DateTimePicker
-    Friend WithEvents DrftStartedDateTimePicker As DateTimePicker
-    Friend WithEvents DrftCompletedDateTimePicker As DateTimePicker
-    Friend WithEvents FabRequiredDateTimePicker As DateTimePicker
-    Friend WithEvents FabStartedDateTimePicker As DateTimePicker
-    Friend WithEvents FabCompletedDateTimePicker As DateTimePicker
-    Friend WithEvents FinishRequiredDateTimePicker As DateTimePicker
-    Friend WithEvents FinishStartedDateTimePicker As DateTimePicker
-    Friend WithEvents FinishCompletedDateTimePicker As DateTimePicker
-    Friend WithEvents ShipRequiredDateTimePicker As DateTimePicker
-    Friend WithEvents ShipStartedDateTimePicker As DateTimePicker
-    Friend WithEvents ShipCompletedDateTimePicker As DateTimePicker
     Friend WithEvents GroupBox5 As GroupBox
     Friend WithEvents GroupBox6 As GroupBox
-    Friend WithEvents PricingRequiredDateTimePicker As DateTimePicker
     Friend WithEvents GroupBox4 As GroupBox
     Friend WithEvents Button_BackSchedule As Button
     Friend WithEvents TextBox1 As TextBox
@@ -1817,4 +2072,46 @@ Partial Class Form1
     Friend WithEvents GroupBox10 As GroupBox
     Friend WithEvents GroupBox7 As GroupBox
     Friend WithEvents GroupBox11 As GroupBox
+    Friend WithEvents Label_PricingRequired As Label
+    Friend WithEvents Label_ShipRequired As Label
+    Friend WithEvents Label_DrftRequired As Label
+    Friend WithEvents Label_FinishRequired As Label
+    Friend WithEvents Label_EngRequired As Label
+    Friend WithEvents Label_FabRequired As Label
+    Friend WithEvents Label_DatePricingComplet As Label
+    Friend WithEvents Label_DatePricingStarted As Label
+    Friend WithEvents Label_DateShipCompleted As Label
+    Friend WithEvents Label_DateShipStart As Label
+    Friend WithEvents Label_DateDrftComplete As Label
+    Friend WithEvents Label_DateDrftStart As Label
+    Friend WithEvents Label_DateFinishCompleted As Label
+    Friend WithEvents Label_DateFinishStart As Label
+    Friend WithEvents Label_DateEngCompleted As Label
+    Friend WithEvents Label_DateEngStart As Label
+    Friend WithEvents Label_DateFabCompleted As Label
+    Friend WithEvents Label_DateFabStarted As Label
+    Friend WithEvents Button_LogDateShipComplete As Button
+    Friend WithEvents Button_LogDateShipStart As Button
+    Friend WithEvents Button_LogDateDrftComplete As Button
+    Friend WithEvents Button_LogDateDrftStart As Button
+    Friend WithEvents Button_LogDateFinishComplete As Button
+    Friend WithEvents Button_LogDateFinishStart As Button
+    Friend WithEvents Button_LogDateEngComplete As Button
+    Friend WithEvents Button_LogDateEngStart As Button
+    Friend WithEvents Button_LogDateFabComplete As Button
+    Friend WithEvents Button_LogDateFabStart As Button
+    Friend WithEvents Button_LogDatePriceComplete As Button
+    Friend WithEvents Button_LogDatePriceStart As Button
+    Friend WithEvents Label_UserPriceStarted As Label
+    Friend WithEvents Label_UserPriceComplete As Label
+    Friend WithEvents Label_UserShipComplete As Label
+    Friend WithEvents Label_UserShipStart As Label
+    Friend WithEvents Label_UserDrftComplete As Label
+    Friend WithEvents Label_UserDrftStart As Label
+    Friend WithEvents Label_UserFinishComplete As Label
+    Friend WithEvents Label_UserFinishStart As Label
+    Friend WithEvents Label_UserEngComplete As Label
+    Friend WithEvents Label_UserEngStart As Label
+    Friend WithEvents Label_UserFabComplete As Label
+    Friend WithEvents Label_UserFabStart As Label
 End Class
