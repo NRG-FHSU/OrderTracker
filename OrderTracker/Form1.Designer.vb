@@ -66,6 +66,8 @@ Partial Class Form1
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.TableDataGridView = New System.Windows.Forms.DataGridView()
+        Me.TableBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.QuoteOrdersDS = New OrderTracker.QuoteOrdersDS()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.PictureBox_ShipActual = New System.Windows.Forms.PictureBox()
         Me.PictureBox_ShipCommit = New System.Windows.Forms.PictureBox()
@@ -98,16 +100,52 @@ Partial Class Form1
         Me.Button_QuoteReport = New System.Windows.Forms.Button()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
         Me.GroupBox9 = New System.Windows.Forms.GroupBox()
+        Me.Label_UserShipComplete = New System.Windows.Forms.Label()
+        Me.Button_LogDateShipComplete = New System.Windows.Forms.Button()
+        Me.Label_UserShipStart = New System.Windows.Forms.Label()
         Me.Label_ShipRequired = New System.Windows.Forms.Label()
+        Me.Button_LogDateShipStart = New System.Windows.Forms.Button()
+        Me.Label_DateShipCompleted = New System.Windows.Forms.Label()
+        Me.Label_DateShipStart = New System.Windows.Forms.Label()
         Me.GroupBox8 = New System.Windows.Forms.GroupBox()
+        Me.Label_UserDrftComplete = New System.Windows.Forms.Label()
+        Me.Button_LogDateDrftComplete = New System.Windows.Forms.Button()
+        Me.Label_UserDrftStart = New System.Windows.Forms.Label()
+        Me.Label_DateDrftComplete = New System.Windows.Forms.Label()
+        Me.Button_LogDateDrftStart = New System.Windows.Forms.Button()
+        Me.Label_DateDrftStart = New System.Windows.Forms.Label()
         Me.Label_DrftRequired = New System.Windows.Forms.Label()
         Me.GroupBox10 = New System.Windows.Forms.GroupBox()
+        Me.Label_UserFinishComplete = New System.Windows.Forms.Label()
+        Me.Button_LogDateFinishComplete = New System.Windows.Forms.Button()
+        Me.Label_UserFinishStart = New System.Windows.Forms.Label()
         Me.Label_FinishRequired = New System.Windows.Forms.Label()
+        Me.Button_LogDateFinishStart = New System.Windows.Forms.Button()
+        Me.Label_DateFinishCompleted = New System.Windows.Forms.Label()
+        Me.Label_DateFinishStart = New System.Windows.Forms.Label()
         Me.GroupBox7 = New System.Windows.Forms.GroupBox()
+        Me.Label_UserEngComplete = New System.Windows.Forms.Label()
+        Me.Button_LogDateEngComplete = New System.Windows.Forms.Button()
+        Me.Label_UserEngStart = New System.Windows.Forms.Label()
         Me.Label_EngRequired = New System.Windows.Forms.Label()
+        Me.Button_LogDateEngStart = New System.Windows.Forms.Button()
+        Me.Label_DateEngCompleted = New System.Windows.Forms.Label()
+        Me.Label_DateEngStart = New System.Windows.Forms.Label()
         Me.GroupBox11 = New System.Windows.Forms.GroupBox()
+        Me.Label_UserFabComplete = New System.Windows.Forms.Label()
+        Me.Button_LogDateFabComplete = New System.Windows.Forms.Button()
+        Me.Label_UserFabStart = New System.Windows.Forms.Label()
+        Me.Label_DateFabCompleted = New System.Windows.Forms.Label()
+        Me.Button_LogDateFabStart = New System.Windows.Forms.Button()
         Me.Label_FabRequired = New System.Windows.Forms.Label()
+        Me.Label_DateFabStarted = New System.Windows.Forms.Label()
         Me.GroupBox6 = New System.Windows.Forms.GroupBox()
+        Me.Label_UserPriceComplete = New System.Windows.Forms.Label()
+        Me.Label_UserPriceStarted = New System.Windows.Forms.Label()
+        Me.Button_LogDatePriceComplete = New System.Windows.Forms.Button()
+        Me.Button_LogDatePriceStart = New System.Windows.Forms.Button()
+        Me.Label_DatePricingComplet = New System.Windows.Forms.Label()
+        Me.Label_DatePricingStarted = New System.Windows.Forms.Label()
         Me.Label_PricingRequired = New System.Windows.Forms.Label()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.Button_BackSchedule = New System.Windows.Forms.Button()
@@ -135,70 +173,16 @@ Partial Class Form1
         Me.BindingNavigatorMoveLastItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.TableBindingNavigatorSaveItem = New System.Windows.Forms.ToolStripButton()
-        Me.Label_DatePricingStarted = New System.Windows.Forms.Label()
-        Me.Label_DatePricingComplet = New System.Windows.Forms.Label()
-        Me.Label_DateEngCompleted = New System.Windows.Forms.Label()
-        Me.Label_DateEngStart = New System.Windows.Forms.Label()
-        Me.Label_DateDrftComplete = New System.Windows.Forms.Label()
-        Me.Label_DateDrftStart = New System.Windows.Forms.Label()
-        Me.Label_DateFabCompleted = New System.Windows.Forms.Label()
-        Me.Label_DateFabStarted = New System.Windows.Forms.Label()
-        Me.Label_DateFinishCompleted = New System.Windows.Forms.Label()
-        Me.Label_DateFinishStart = New System.Windows.Forms.Label()
-        Me.Label_DateShipCompleted = New System.Windows.Forms.Label()
-        Me.Label_DateShipStart = New System.Windows.Forms.Label()
-        Me.Button_LogDatePriceStart = New System.Windows.Forms.Button()
-        Me.Button_LogDatePriceComplete = New System.Windows.Forms.Button()
-        Me.Button_LogDateEngComplete = New System.Windows.Forms.Button()
-        Me.Button_LogDateEngStart = New System.Windows.Forms.Button()
-        Me.Button_LogDateFabComplete = New System.Windows.Forms.Button()
-        Me.Button_LogDateFabStart = New System.Windows.Forms.Button()
-        Me.Button_LogDateFinishComplete = New System.Windows.Forms.Button()
-        Me.Button_LogDateFinishStart = New System.Windows.Forms.Button()
-        Me.Button_LogDateDrftComplete = New System.Windows.Forms.Button()
-        Me.Button_LogDateDrftStart = New System.Windows.Forms.Button()
-        Me.Button_LogDateShipComplete = New System.Windows.Forms.Button()
-        Me.Button_LogDateShipStart = New System.Windows.Forms.Button()
-        Me.Label_UserPriceStarted = New System.Windows.Forms.Label()
-        Me.TableBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.QuoteOrdersDS = New OrderTracker.QuoteOrdersDS()
-        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn16 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn17 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn18 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn19 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn20 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn21 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn22 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn23 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn24 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn25 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn26 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn27 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TableTableAdapter = New OrderTracker.QuoteOrdersDSTableAdapters.TableTableAdapter()
         Me.TableAdapterManager = New OrderTracker.QuoteOrdersDSTableAdapters.TableAdapterManager()
-        Me.Label_UserPriceComplete = New System.Windows.Forms.Label()
-        Me.Label_UserEngComplete = New System.Windows.Forms.Label()
-        Me.Label_UserEngStart = New System.Windows.Forms.Label()
-        Me.Label_UserDrftComplete = New System.Windows.Forms.Label()
-        Me.Label_UserDrftStart = New System.Windows.Forms.Label()
-        Me.Label_UserFabComplete = New System.Windows.Forms.Label()
-        Me.Label_UserFabStart = New System.Windows.Forms.Label()
-        Me.Label_UserFinishComplete = New System.Windows.Forms.Label()
-        Me.Label_UserFinishStart = New System.Windows.Forms.Label()
-        Me.Label_UserShipComplete = New System.Windows.Forms.Label()
-        Me.Label_UserShipStart = New System.Windows.Forms.Label()
+        Me.QuoteOrdersDS1 = New OrderTracker.QuoteOrdersDS()
+        Me.QuoteNo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.OrderNo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PONo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Quote_Label = New System.Windows.Forms.Label()
         Order_Label = New System.Windows.Forms.Label()
         CustomerLabel = New System.Windows.Forms.Label()
@@ -241,6 +225,8 @@ Partial Class Form1
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         CType(Me.TableDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TableBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.QuoteOrdersDS, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         CType(Me.PictureBox_ShipActual, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox_ShipCommit, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -267,8 +253,7 @@ Partial Class Form1
         Me.GroupBox3.SuspendLayout()
         CType(Me.TableBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableBindingNavigator.SuspendLayout()
-        CType(Me.TableBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.QuoteOrdersDS, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.QuoteOrdersDS1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Quote_Label
@@ -473,7 +458,7 @@ Partial Class Form1
         '
         Label21.AutoSize = True
         Label21.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Label21.Location = New System.Drawing.Point(86, 53)
+        Label21.Location = New System.Drawing.Point(84, 53)
         Label21.Name = "Label21"
         Label21.Size = New System.Drawing.Size(43, 13)
         Label21.TabIndex = 20
@@ -669,12 +654,22 @@ Partial Class Form1
         '
         Me.TableDataGridView.AutoGenerateColumns = False
         Me.TableDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.TableDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn13, Me.DataGridViewTextBoxColumn14, Me.DataGridViewTextBoxColumn15, Me.DataGridViewTextBoxColumn16, Me.DataGridViewTextBoxColumn17, Me.DataGridViewTextBoxColumn18, Me.DataGridViewTextBoxColumn19, Me.DataGridViewTextBoxColumn20, Me.DataGridViewTextBoxColumn21, Me.DataGridViewTextBoxColumn22, Me.DataGridViewTextBoxColumn23, Me.DataGridViewTextBoxColumn24, Me.DataGridViewTextBoxColumn25, Me.DataGridViewTextBoxColumn26, Me.DataGridViewTextBoxColumn27})
+        Me.TableDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.QuoteNo, Me.DataGridViewTextBoxColumn9, Me.OrderNo, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn8, Me.PONo})
         Me.TableDataGridView.DataSource = Me.TableBindingSource
         Me.TableDataGridView.Location = New System.Drawing.Point(8, 102)
         Me.TableDataGridView.Name = "TableDataGridView"
         Me.TableDataGridView.Size = New System.Drawing.Size(781, 374)
         Me.TableDataGridView.TabIndex = 5
+        '
+        'TableBindingSource
+        '
+        Me.TableBindingSource.DataMember = "Table"
+        Me.TableBindingSource.DataSource = Me.QuoteOrdersDS
+        '
+        'QuoteOrdersDS
+        '
+        Me.QuoteOrdersDS.DataSetName = "QuoteOrdersDS"
+        Me.QuoteOrdersDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'GroupBox2
         '
@@ -1000,6 +995,35 @@ Partial Class Form1
         Me.GroupBox9.TabStop = False
         Me.GroupBox9.Text = "Shipping"
         '
+        'Label_UserShipComplete
+        '
+        Me.Label_UserShipComplete.AutoSize = True
+        Me.Label_UserShipComplete.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "UserShipComplete", True))
+        Me.Label_UserShipComplete.Location = New System.Drawing.Point(141, 101)
+        Me.Label_UserShipComplete.Name = "Label_UserShipComplete"
+        Me.Label_UserShipComplete.Size = New System.Drawing.Size(57, 13)
+        Me.Label_UserShipComplete.TabIndex = 48
+        Me.Label_UserShipComplete.Text = "UserShipC"
+        '
+        'Button_LogDateShipComplete
+        '
+        Me.Button_LogDateShipComplete.Location = New System.Drawing.Point(207, 95)
+        Me.Button_LogDateShipComplete.Name = "Button_LogDateShipComplete"
+        Me.Button_LogDateShipComplete.Size = New System.Drawing.Size(40, 24)
+        Me.Button_LogDateShipComplete.TabIndex = 46
+        Me.Button_LogDateShipComplete.Text = "Log"
+        Me.Button_LogDateShipComplete.UseVisualStyleBackColor = True
+        '
+        'Label_UserShipStart
+        '
+        Me.Label_UserShipStart.AutoSize = True
+        Me.Label_UserShipStart.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "UserShipStart", True))
+        Me.Label_UserShipStart.Location = New System.Drawing.Point(141, 75)
+        Me.Label_UserShipStart.Name = "Label_UserShipStart"
+        Me.Label_UserShipStart.Size = New System.Drawing.Size(57, 13)
+        Me.Label_UserShipStart.TabIndex = 47
+        Me.Label_UserShipStart.Text = "UserShipS"
+        '
         'Label_ShipRequired
         '
         Me.Label_ShipRequired.AutoSize = True
@@ -1009,6 +1033,35 @@ Partial Class Form1
         Me.Label_ShipRequired.Size = New System.Drawing.Size(45, 13)
         Me.Label_ShipRequired.TabIndex = 41
         Me.Label_ShipRequired.Text = "DateSR"
+        '
+        'Button_LogDateShipStart
+        '
+        Me.Button_LogDateShipStart.Location = New System.Drawing.Point(207, 69)
+        Me.Button_LogDateShipStart.Name = "Button_LogDateShipStart"
+        Me.Button_LogDateShipStart.Size = New System.Drawing.Size(40, 24)
+        Me.Button_LogDateShipStart.TabIndex = 45
+        Me.Button_LogDateShipStart.Text = "Log"
+        Me.Button_LogDateShipStart.UseVisualStyleBackColor = True
+        '
+        'Label_DateShipCompleted
+        '
+        Me.Label_DateShipCompleted.AutoSize = True
+        Me.Label_DateShipCompleted.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "ShipCompleted", True))
+        Me.Label_DateShipCompleted.Location = New System.Drawing.Point(74, 101)
+        Me.Label_DateShipCompleted.Name = "Label_DateShipCompleted"
+        Me.Label_DateShipCompleted.Size = New System.Drawing.Size(58, 13)
+        Me.Label_DateShipCompleted.TabIndex = 48
+        Me.Label_DateShipCompleted.Text = "DateShipC"
+        '
+        'Label_DateShipStart
+        '
+        Me.Label_DateShipStart.AutoSize = True
+        Me.Label_DateShipStart.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "ShipStarted", True))
+        Me.Label_DateShipStart.Location = New System.Drawing.Point(74, 75)
+        Me.Label_DateShipStart.Name = "Label_DateShipStart"
+        Me.Label_DateShipStart.Size = New System.Drawing.Size(58, 13)
+        Me.Label_DateShipStart.TabIndex = 47
+        Me.Label_DateShipStart.Text = "DateShipS"
         '
         'GroupBox8
         '
@@ -1030,6 +1083,64 @@ Partial Class Form1
         Me.GroupBox8.TabIndex = 32
         Me.GroupBox8.TabStop = False
         Me.GroupBox8.Text = "Drafting"
+        '
+        'Label_UserDrftComplete
+        '
+        Me.Label_UserDrftComplete.AutoSize = True
+        Me.Label_UserDrftComplete.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "UserDrftComplete", True))
+        Me.Label_UserDrftComplete.Location = New System.Drawing.Point(141, 101)
+        Me.Label_UserDrftComplete.Name = "Label_UserDrftComplete"
+        Me.Label_UserDrftComplete.Size = New System.Drawing.Size(53, 13)
+        Me.Label_UserDrftComplete.TabIndex = 46
+        Me.Label_UserDrftComplete.Text = "UserDrftC"
+        '
+        'Button_LogDateDrftComplete
+        '
+        Me.Button_LogDateDrftComplete.Location = New System.Drawing.Point(207, 95)
+        Me.Button_LogDateDrftComplete.Name = "Button_LogDateDrftComplete"
+        Me.Button_LogDateDrftComplete.Size = New System.Drawing.Size(40, 24)
+        Me.Button_LogDateDrftComplete.TabIndex = 44
+        Me.Button_LogDateDrftComplete.Text = "Log"
+        Me.Button_LogDateDrftComplete.UseVisualStyleBackColor = True
+        '
+        'Label_UserDrftStart
+        '
+        Me.Label_UserDrftStart.AutoSize = True
+        Me.Label_UserDrftStart.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "UserDrftStart", True))
+        Me.Label_UserDrftStart.Location = New System.Drawing.Point(141, 75)
+        Me.Label_UserDrftStart.Name = "Label_UserDrftStart"
+        Me.Label_UserDrftStart.Size = New System.Drawing.Size(53, 13)
+        Me.Label_UserDrftStart.TabIndex = 45
+        Me.Label_UserDrftStart.Text = "UserDrftS"
+        '
+        'Label_DateDrftComplete
+        '
+        Me.Label_DateDrftComplete.AutoSize = True
+        Me.Label_DateDrftComplete.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "DrftCompleted", True))
+        Me.Label_DateDrftComplete.Location = New System.Drawing.Point(71, 101)
+        Me.Label_DateDrftComplete.Name = "Label_DateDrftComplete"
+        Me.Label_DateDrftComplete.Size = New System.Drawing.Size(54, 13)
+        Me.Label_DateDrftComplete.TabIndex = 42
+        Me.Label_DateDrftComplete.Text = "DateDrftC"
+        '
+        'Button_LogDateDrftStart
+        '
+        Me.Button_LogDateDrftStart.Location = New System.Drawing.Point(207, 69)
+        Me.Button_LogDateDrftStart.Name = "Button_LogDateDrftStart"
+        Me.Button_LogDateDrftStart.Size = New System.Drawing.Size(40, 24)
+        Me.Button_LogDateDrftStart.TabIndex = 43
+        Me.Button_LogDateDrftStart.Text = "Log"
+        Me.Button_LogDateDrftStart.UseVisualStyleBackColor = True
+        '
+        'Label_DateDrftStart
+        '
+        Me.Label_DateDrftStart.AutoSize = True
+        Me.Label_DateDrftStart.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "DrftStarted", True))
+        Me.Label_DateDrftStart.Location = New System.Drawing.Point(71, 75)
+        Me.Label_DateDrftStart.Name = "Label_DateDrftStart"
+        Me.Label_DateDrftStart.Size = New System.Drawing.Size(54, 13)
+        Me.Label_DateDrftStart.TabIndex = 41
+        Me.Label_DateDrftStart.Text = "DateDrftS"
         '
         'Label_DrftRequired
         '
@@ -1062,6 +1173,35 @@ Partial Class Form1
         Me.GroupBox10.TabStop = False
         Me.GroupBox10.Text = "Finish"
         '
+        'Label_UserFinishComplete
+        '
+        Me.Label_UserFinishComplete.AutoSize = True
+        Me.Label_UserFinishComplete.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "UserFinishComplete", True))
+        Me.Label_UserFinishComplete.Location = New System.Drawing.Point(141, 101)
+        Me.Label_UserFinishComplete.Name = "Label_UserFinishComplete"
+        Me.Label_UserFinishComplete.Size = New System.Drawing.Size(50, 13)
+        Me.Label_UserFinishComplete.TabIndex = 46
+        Me.Label_UserFinishComplete.Text = "UserFinC"
+        '
+        'Button_LogDateFinishComplete
+        '
+        Me.Button_LogDateFinishComplete.Location = New System.Drawing.Point(207, 95)
+        Me.Button_LogDateFinishComplete.Name = "Button_LogDateFinishComplete"
+        Me.Button_LogDateFinishComplete.Size = New System.Drawing.Size(40, 24)
+        Me.Button_LogDateFinishComplete.TabIndex = 46
+        Me.Button_LogDateFinishComplete.Text = "Log"
+        Me.Button_LogDateFinishComplete.UseVisualStyleBackColor = True
+        '
+        'Label_UserFinishStart
+        '
+        Me.Label_UserFinishStart.AutoSize = True
+        Me.Label_UserFinishStart.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "UserFinishStart", True))
+        Me.Label_UserFinishStart.Location = New System.Drawing.Point(141, 75)
+        Me.Label_UserFinishStart.Name = "Label_UserFinishStart"
+        Me.Label_UserFinishStart.Size = New System.Drawing.Size(50, 13)
+        Me.Label_UserFinishStart.TabIndex = 45
+        Me.Label_UserFinishStart.Text = "UserFinS"
+        '
         'Label_FinishRequired
         '
         Me.Label_FinishRequired.AutoSize = True
@@ -1071,6 +1211,35 @@ Partial Class Form1
         Me.Label_FinishRequired.Size = New System.Drawing.Size(52, 13)
         Me.Label_FinishRequired.TabIndex = 40
         Me.Label_FinishRequired.Text = "DateFinR"
+        '
+        'Button_LogDateFinishStart
+        '
+        Me.Button_LogDateFinishStart.Location = New System.Drawing.Point(207, 69)
+        Me.Button_LogDateFinishStart.Name = "Button_LogDateFinishStart"
+        Me.Button_LogDateFinishStart.Size = New System.Drawing.Size(40, 24)
+        Me.Button_LogDateFinishStart.TabIndex = 45
+        Me.Button_LogDateFinishStart.Text = "Log"
+        Me.Button_LogDateFinishStart.UseVisualStyleBackColor = True
+        '
+        'Label_DateFinishCompleted
+        '
+        Me.Label_DateFinishCompleted.AutoSize = True
+        Me.Label_DateFinishCompleted.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "FinishCompleted", True))
+        Me.Label_DateFinishCompleted.Location = New System.Drawing.Point(74, 101)
+        Me.Label_DateFinishCompleted.Name = "Label_DateFinishCompleted"
+        Me.Label_DateFinishCompleted.Size = New System.Drawing.Size(51, 13)
+        Me.Label_DateFinishCompleted.TabIndex = 46
+        Me.Label_DateFinishCompleted.Text = "DateFinC"
+        '
+        'Label_DateFinishStart
+        '
+        Me.Label_DateFinishStart.AutoSize = True
+        Me.Label_DateFinishStart.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "FinishStarted", True))
+        Me.Label_DateFinishStart.Location = New System.Drawing.Point(74, 75)
+        Me.Label_DateFinishStart.Name = "Label_DateFinishStart"
+        Me.Label_DateFinishStart.Size = New System.Drawing.Size(51, 13)
+        Me.Label_DateFinishStart.TabIndex = 45
+        Me.Label_DateFinishStart.Text = "DateFinS"
         '
         'GroupBox7
         '
@@ -1093,6 +1262,35 @@ Partial Class Form1
         Me.GroupBox7.TabStop = False
         Me.GroupBox7.Text = "Engineering"
         '
+        'Label_UserEngComplete
+        '
+        Me.Label_UserEngComplete.AutoSize = True
+        Me.Label_UserEngComplete.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "UserEngComplete", True))
+        Me.Label_UserEngComplete.Location = New System.Drawing.Point(141, 101)
+        Me.Label_UserEngComplete.Name = "Label_UserEngComplete"
+        Me.Label_UserEngComplete.Size = New System.Drawing.Size(55, 13)
+        Me.Label_UserEngComplete.TabIndex = 44
+        Me.Label_UserEngComplete.Text = "UserEngC"
+        '
+        'Button_LogDateEngComplete
+        '
+        Me.Button_LogDateEngComplete.Location = New System.Drawing.Point(207, 95)
+        Me.Button_LogDateEngComplete.Name = "Button_LogDateEngComplete"
+        Me.Button_LogDateEngComplete.Size = New System.Drawing.Size(40, 24)
+        Me.Button_LogDateEngComplete.TabIndex = 42
+        Me.Button_LogDateEngComplete.Text = "Log"
+        Me.Button_LogDateEngComplete.UseVisualStyleBackColor = True
+        '
+        'Label_UserEngStart
+        '
+        Me.Label_UserEngStart.AutoSize = True
+        Me.Label_UserEngStart.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "UserEngStart", True))
+        Me.Label_UserEngStart.Location = New System.Drawing.Point(141, 75)
+        Me.Label_UserEngStart.Name = "Label_UserEngStart"
+        Me.Label_UserEngStart.Size = New System.Drawing.Size(55, 13)
+        Me.Label_UserEngStart.TabIndex = 43
+        Me.Label_UserEngStart.Text = "UserEngS"
+        '
         'Label_EngRequired
         '
         Me.Label_EngRequired.AutoSize = True
@@ -1102,6 +1300,35 @@ Partial Class Form1
         Me.Label_EngRequired.Size = New System.Drawing.Size(45, 13)
         Me.Label_EngRequired.TabIndex = 37
         Me.Label_EngRequired.Text = "DateER"
+        '
+        'Button_LogDateEngStart
+        '
+        Me.Button_LogDateEngStart.Location = New System.Drawing.Point(207, 69)
+        Me.Button_LogDateEngStart.Name = "Button_LogDateEngStart"
+        Me.Button_LogDateEngStart.Size = New System.Drawing.Size(40, 24)
+        Me.Button_LogDateEngStart.TabIndex = 41
+        Me.Button_LogDateEngStart.Text = "Log"
+        Me.Button_LogDateEngStart.UseVisualStyleBackColor = True
+        '
+        'Label_DateEngCompleted
+        '
+        Me.Label_DateEngCompleted.AutoSize = True
+        Me.Label_DateEngCompleted.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "EngCompleted", True))
+        Me.Label_DateEngCompleted.Location = New System.Drawing.Point(74, 101)
+        Me.Label_DateEngCompleted.Name = "Label_DateEngCompleted"
+        Me.Label_DateEngCompleted.Size = New System.Drawing.Size(56, 13)
+        Me.Label_DateEngCompleted.TabIndex = 40
+        Me.Label_DateEngCompleted.Text = "DateEngC"
+        '
+        'Label_DateEngStart
+        '
+        Me.Label_DateEngStart.AutoSize = True
+        Me.Label_DateEngStart.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "EngStarted", True))
+        Me.Label_DateEngStart.Location = New System.Drawing.Point(74, 75)
+        Me.Label_DateEngStart.Name = "Label_DateEngStart"
+        Me.Label_DateEngStart.Size = New System.Drawing.Size(59, 13)
+        Me.Label_DateEngStart.TabIndex = 39
+        Me.Label_DateEngStart.Text = "DateEngSt"
         '
         'GroupBox11
         '
@@ -1124,6 +1351,54 @@ Partial Class Form1
         Me.GroupBox11.TabStop = False
         Me.GroupBox11.Text = "Fabrication"
         '
+        'Label_UserFabComplete
+        '
+        Me.Label_UserFabComplete.AutoSize = True
+        Me.Label_UserFabComplete.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "UserFabComplete", True))
+        Me.Label_UserFabComplete.Location = New System.Drawing.Point(140, 101)
+        Me.Label_UserFabComplete.Name = "Label_UserFabComplete"
+        Me.Label_UserFabComplete.Size = New System.Drawing.Size(54, 13)
+        Me.Label_UserFabComplete.TabIndex = 44
+        Me.Label_UserFabComplete.Text = "UserFabC"
+        '
+        'Button_LogDateFabComplete
+        '
+        Me.Button_LogDateFabComplete.Location = New System.Drawing.Point(207, 95)
+        Me.Button_LogDateFabComplete.Name = "Button_LogDateFabComplete"
+        Me.Button_LogDateFabComplete.Size = New System.Drawing.Size(40, 24)
+        Me.Button_LogDateFabComplete.TabIndex = 42
+        Me.Button_LogDateFabComplete.Text = "Log"
+        Me.Button_LogDateFabComplete.UseVisualStyleBackColor = True
+        '
+        'Label_UserFabStart
+        '
+        Me.Label_UserFabStart.AutoSize = True
+        Me.Label_UserFabStart.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "UserFabStart", True))
+        Me.Label_UserFabStart.Location = New System.Drawing.Point(140, 75)
+        Me.Label_UserFabStart.Name = "Label_UserFabStart"
+        Me.Label_UserFabStart.Size = New System.Drawing.Size(54, 13)
+        Me.Label_UserFabStart.TabIndex = 43
+        Me.Label_UserFabStart.Text = "UserFabS"
+        '
+        'Label_DateFabCompleted
+        '
+        Me.Label_DateFabCompleted.AutoSize = True
+        Me.Label_DateFabCompleted.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "FabCompleted", True))
+        Me.Label_DateFabCompleted.Location = New System.Drawing.Point(74, 101)
+        Me.Label_DateFabCompleted.Name = "Label_DateFabCompleted"
+        Me.Label_DateFabCompleted.Size = New System.Drawing.Size(55, 13)
+        Me.Label_DateFabCompleted.TabIndex = 44
+        Me.Label_DateFabCompleted.Text = "DateFabC"
+        '
+        'Button_LogDateFabStart
+        '
+        Me.Button_LogDateFabStart.Location = New System.Drawing.Point(207, 69)
+        Me.Button_LogDateFabStart.Name = "Button_LogDateFabStart"
+        Me.Button_LogDateFabStart.Size = New System.Drawing.Size(40, 24)
+        Me.Button_LogDateFabStart.TabIndex = 41
+        Me.Button_LogDateFabStart.Text = "Log"
+        Me.Button_LogDateFabStart.UseVisualStyleBackColor = True
+        '
         'Label_FabRequired
         '
         Me.Label_FabRequired.AutoSize = True
@@ -1133,6 +1408,16 @@ Partial Class Form1
         Me.Label_FabRequired.Size = New System.Drawing.Size(56, 13)
         Me.Label_FabRequired.TabIndex = 39
         Me.Label_FabRequired.Text = "DateFabR"
+        '
+        'Label_DateFabStarted
+        '
+        Me.Label_DateFabStarted.AutoSize = True
+        Me.Label_DateFabStarted.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "FabStarted", True))
+        Me.Label_DateFabStarted.Location = New System.Drawing.Point(74, 75)
+        Me.Label_DateFabStarted.Name = "Label_DateFabStarted"
+        Me.Label_DateFabStarted.Size = New System.Drawing.Size(55, 13)
+        Me.Label_DateFabStarted.TabIndex = 43
+        Me.Label_DateFabStarted.Text = "DateFabS"
         '
         'GroupBox6
         '
@@ -1154,6 +1439,64 @@ Partial Class Form1
         Me.GroupBox6.TabIndex = 30
         Me.GroupBox6.TabStop = False
         Me.GroupBox6.Text = "Pricing"
+        '
+        'Label_UserPriceComplete
+        '
+        Me.Label_UserPriceComplete.AutoSize = True
+        Me.Label_UserPriceComplete.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "UserPriceComplete", True))
+        Me.Label_UserPriceComplete.Location = New System.Drawing.Point(140, 101)
+        Me.Label_UserPriceComplete.Name = "Label_UserPriceComplete"
+        Me.Label_UserPriceComplete.Size = New System.Drawing.Size(60, 13)
+        Me.Label_UserPriceComplete.TabIndex = 42
+        Me.Label_UserPriceComplete.Text = "UserPriceC"
+        '
+        'Label_UserPriceStarted
+        '
+        Me.Label_UserPriceStarted.AutoSize = True
+        Me.Label_UserPriceStarted.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "UserPriceStart", True))
+        Me.Label_UserPriceStarted.Location = New System.Drawing.Point(140, 75)
+        Me.Label_UserPriceStarted.Name = "Label_UserPriceStarted"
+        Me.Label_UserPriceStarted.Size = New System.Drawing.Size(60, 13)
+        Me.Label_UserPriceStarted.TabIndex = 41
+        Me.Label_UserPriceStarted.Text = "UserPriceS"
+        '
+        'Button_LogDatePriceComplete
+        '
+        Me.Button_LogDatePriceComplete.Location = New System.Drawing.Point(207, 95)
+        Me.Button_LogDatePriceComplete.Name = "Button_LogDatePriceComplete"
+        Me.Button_LogDatePriceComplete.Size = New System.Drawing.Size(40, 24)
+        Me.Button_LogDatePriceComplete.TabIndex = 40
+        Me.Button_LogDatePriceComplete.Text = "Log"
+        Me.Button_LogDatePriceComplete.UseVisualStyleBackColor = True
+        '
+        'Button_LogDatePriceStart
+        '
+        Me.Button_LogDatePriceStart.Location = New System.Drawing.Point(207, 69)
+        Me.Button_LogDatePriceStart.Name = "Button_LogDatePriceStart"
+        Me.Button_LogDatePriceStart.Size = New System.Drawing.Size(40, 24)
+        Me.Button_LogDatePriceStart.TabIndex = 39
+        Me.Button_LogDatePriceStart.Text = "Log"
+        Me.Button_LogDatePriceStart.UseVisualStyleBackColor = True
+        '
+        'Label_DatePricingComplet
+        '
+        Me.Label_DatePricingComplet.AutoSize = True
+        Me.Label_DatePricingComplet.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "PricingCompleted", True))
+        Me.Label_DatePricingComplet.Location = New System.Drawing.Point(74, 101)
+        Me.Label_DatePricingComplet.Name = "Label_DatePricingComplet"
+        Me.Label_DatePricingComplet.Size = New System.Drawing.Size(61, 13)
+        Me.Label_DatePricingComplet.TabIndex = 38
+        Me.Label_DatePricingComplet.Text = "DatePriceC"
+        '
+        'Label_DatePricingStarted
+        '
+        Me.Label_DatePricingStarted.AutoSize = True
+        Me.Label_DatePricingStarted.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "PricingStarted", True))
+        Me.Label_DatePricingStarted.Location = New System.Drawing.Point(74, 75)
+        Me.Label_DatePricingStarted.Name = "Label_DatePricingStarted"
+        Me.Label_DatePricingStarted.Size = New System.Drawing.Size(61, 13)
+        Me.Label_DatePricingStarted.TabIndex = 37
+        Me.Label_DatePricingStarted.Text = "DatePriceS"
         '
         'Label_PricingRequired
         '
@@ -1214,7 +1557,7 @@ Partial Class Form1
         '
         'PO_TextBox
         '
-        Me.PO_TextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "PO#", True))
+        Me.PO_TextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "PONo", True))
         Me.PO_TextBox.Location = New System.Drawing.Point(85, 19)
         Me.PO_TextBox.Name = "PO_TextBox"
         Me.PO_TextBox.Size = New System.Drawing.Size(168, 20)
@@ -1275,7 +1618,7 @@ Partial Class Form1
         '
         'Order_TextBox
         '
-        Me.Order_TextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "Order#", True))
+        Me.Order_TextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "OrderNo", True))
         Me.Order_TextBox.Location = New System.Drawing.Point(200, 19)
         Me.Order_TextBox.Name = "Order_TextBox"
         Me.Order_TextBox.Size = New System.Drawing.Size(53, 20)
@@ -1283,7 +1626,7 @@ Partial Class Form1
         '
         'Quote_TextBox
         '
-        Me.Quote_TextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "Quote#", True))
+        Me.Quote_TextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "QuoteNo", True))
         Me.Quote_TextBox.Location = New System.Drawing.Point(79, 19)
         Me.Quote_TextBox.Name = "Quote_TextBox"
         Me.Quote_TextBox.Size = New System.Drawing.Size(53, 20)
@@ -1410,398 +1753,6 @@ Partial Class Form1
         Me.TableBindingNavigatorSaveItem.Size = New System.Drawing.Size(23, 22)
         Me.TableBindingNavigatorSaveItem.Text = "Save Data"
         '
-        'Label_DatePricingStarted
-        '
-        Me.Label_DatePricingStarted.AutoSize = True
-        Me.Label_DatePricingStarted.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "PricingStarted", True))
-        Me.Label_DatePricingStarted.Location = New System.Drawing.Point(74, 75)
-        Me.Label_DatePricingStarted.Name = "Label_DatePricingStarted"
-        Me.Label_DatePricingStarted.Size = New System.Drawing.Size(61, 13)
-        Me.Label_DatePricingStarted.TabIndex = 37
-        Me.Label_DatePricingStarted.Text = "DatePriceS"
-        '
-        'Label_DatePricingComplet
-        '
-        Me.Label_DatePricingComplet.AutoSize = True
-        Me.Label_DatePricingComplet.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "PricingCompleted", True))
-        Me.Label_DatePricingComplet.Location = New System.Drawing.Point(74, 101)
-        Me.Label_DatePricingComplet.Name = "Label_DatePricingComplet"
-        Me.Label_DatePricingComplet.Size = New System.Drawing.Size(61, 13)
-        Me.Label_DatePricingComplet.TabIndex = 38
-        Me.Label_DatePricingComplet.Text = "DatePriceC"
-        '
-        'Label_DateEngCompleted
-        '
-        Me.Label_DateEngCompleted.AutoSize = True
-        Me.Label_DateEngCompleted.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "EngCompleted", True))
-        Me.Label_DateEngCompleted.Location = New System.Drawing.Point(74, 101)
-        Me.Label_DateEngCompleted.Name = "Label_DateEngCompleted"
-        Me.Label_DateEngCompleted.Size = New System.Drawing.Size(56, 13)
-        Me.Label_DateEngCompleted.TabIndex = 40
-        Me.Label_DateEngCompleted.Text = "DateEngC"
-        '
-        'Label_DateEngStart
-        '
-        Me.Label_DateEngStart.AutoSize = True
-        Me.Label_DateEngStart.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "EngStarted", True))
-        Me.Label_DateEngStart.Location = New System.Drawing.Point(74, 75)
-        Me.Label_DateEngStart.Name = "Label_DateEngStart"
-        Me.Label_DateEngStart.Size = New System.Drawing.Size(59, 13)
-        Me.Label_DateEngStart.TabIndex = 39
-        Me.Label_DateEngStart.Text = "DateEngSt"
-        '
-        'Label_DateDrftComplete
-        '
-        Me.Label_DateDrftComplete.AutoSize = True
-        Me.Label_DateDrftComplete.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "DrftCompleted", True))
-        Me.Label_DateDrftComplete.Location = New System.Drawing.Point(71, 101)
-        Me.Label_DateDrftComplete.Name = "Label_DateDrftComplete"
-        Me.Label_DateDrftComplete.Size = New System.Drawing.Size(54, 13)
-        Me.Label_DateDrftComplete.TabIndex = 42
-        Me.Label_DateDrftComplete.Text = "DateDrftC"
-        '
-        'Label_DateDrftStart
-        '
-        Me.Label_DateDrftStart.AutoSize = True
-        Me.Label_DateDrftStart.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "DrftStarted", True))
-        Me.Label_DateDrftStart.Location = New System.Drawing.Point(71, 75)
-        Me.Label_DateDrftStart.Name = "Label_DateDrftStart"
-        Me.Label_DateDrftStart.Size = New System.Drawing.Size(54, 13)
-        Me.Label_DateDrftStart.TabIndex = 41
-        Me.Label_DateDrftStart.Text = "DateDrftS"
-        '
-        'Label_DateFabCompleted
-        '
-        Me.Label_DateFabCompleted.AutoSize = True
-        Me.Label_DateFabCompleted.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "FabCompleted", True))
-        Me.Label_DateFabCompleted.Location = New System.Drawing.Point(74, 101)
-        Me.Label_DateFabCompleted.Name = "Label_DateFabCompleted"
-        Me.Label_DateFabCompleted.Size = New System.Drawing.Size(55, 13)
-        Me.Label_DateFabCompleted.TabIndex = 44
-        Me.Label_DateFabCompleted.Text = "DateFabC"
-        '
-        'Label_DateFabStarted
-        '
-        Me.Label_DateFabStarted.AutoSize = True
-        Me.Label_DateFabStarted.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "FabStarted", True))
-        Me.Label_DateFabStarted.Location = New System.Drawing.Point(74, 75)
-        Me.Label_DateFabStarted.Name = "Label_DateFabStarted"
-        Me.Label_DateFabStarted.Size = New System.Drawing.Size(55, 13)
-        Me.Label_DateFabStarted.TabIndex = 43
-        Me.Label_DateFabStarted.Text = "DateFabS"
-        '
-        'Label_DateFinishCompleted
-        '
-        Me.Label_DateFinishCompleted.AutoSize = True
-        Me.Label_DateFinishCompleted.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "FinishCompleted", True))
-        Me.Label_DateFinishCompleted.Location = New System.Drawing.Point(74, 101)
-        Me.Label_DateFinishCompleted.Name = "Label_DateFinishCompleted"
-        Me.Label_DateFinishCompleted.Size = New System.Drawing.Size(51, 13)
-        Me.Label_DateFinishCompleted.TabIndex = 46
-        Me.Label_DateFinishCompleted.Text = "DateFinC"
-        '
-        'Label_DateFinishStart
-        '
-        Me.Label_DateFinishStart.AutoSize = True
-        Me.Label_DateFinishStart.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "FinishStarted", True))
-        Me.Label_DateFinishStart.Location = New System.Drawing.Point(74, 75)
-        Me.Label_DateFinishStart.Name = "Label_DateFinishStart"
-        Me.Label_DateFinishStart.Size = New System.Drawing.Size(51, 13)
-        Me.Label_DateFinishStart.TabIndex = 45
-        Me.Label_DateFinishStart.Text = "DateFinS"
-        '
-        'Label_DateShipCompleted
-        '
-        Me.Label_DateShipCompleted.AutoSize = True
-        Me.Label_DateShipCompleted.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "ShipCompleted", True))
-        Me.Label_DateShipCompleted.Location = New System.Drawing.Point(74, 101)
-        Me.Label_DateShipCompleted.Name = "Label_DateShipCompleted"
-        Me.Label_DateShipCompleted.Size = New System.Drawing.Size(58, 13)
-        Me.Label_DateShipCompleted.TabIndex = 48
-        Me.Label_DateShipCompleted.Text = "DateShipC"
-        '
-        'Label_DateShipStart
-        '
-        Me.Label_DateShipStart.AutoSize = True
-        Me.Label_DateShipStart.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "ShipStarted", True))
-        Me.Label_DateShipStart.Location = New System.Drawing.Point(74, 75)
-        Me.Label_DateShipStart.Name = "Label_DateShipStart"
-        Me.Label_DateShipStart.Size = New System.Drawing.Size(58, 13)
-        Me.Label_DateShipStart.TabIndex = 47
-        Me.Label_DateShipStart.Text = "DateShipS"
-        '
-        'Button_LogDatePriceStart
-        '
-        Me.Button_LogDatePriceStart.Location = New System.Drawing.Point(207, 69)
-        Me.Button_LogDatePriceStart.Name = "Button_LogDatePriceStart"
-        Me.Button_LogDatePriceStart.Size = New System.Drawing.Size(40, 24)
-        Me.Button_LogDatePriceStart.TabIndex = 39
-        Me.Button_LogDatePriceStart.Text = "Log"
-        Me.Button_LogDatePriceStart.UseVisualStyleBackColor = True
-        '
-        'Button_LogDatePriceComplete
-        '
-        Me.Button_LogDatePriceComplete.Location = New System.Drawing.Point(207, 95)
-        Me.Button_LogDatePriceComplete.Name = "Button_LogDatePriceComplete"
-        Me.Button_LogDatePriceComplete.Size = New System.Drawing.Size(40, 24)
-        Me.Button_LogDatePriceComplete.TabIndex = 40
-        Me.Button_LogDatePriceComplete.Text = "Log"
-        Me.Button_LogDatePriceComplete.UseVisualStyleBackColor = True
-        '
-        'Button_LogDateEngComplete
-        '
-        Me.Button_LogDateEngComplete.Location = New System.Drawing.Point(207, 95)
-        Me.Button_LogDateEngComplete.Name = "Button_LogDateEngComplete"
-        Me.Button_LogDateEngComplete.Size = New System.Drawing.Size(40, 24)
-        Me.Button_LogDateEngComplete.TabIndex = 42
-        Me.Button_LogDateEngComplete.Text = "Log"
-        Me.Button_LogDateEngComplete.UseVisualStyleBackColor = True
-        '
-        'Button_LogDateEngStart
-        '
-        Me.Button_LogDateEngStart.Location = New System.Drawing.Point(207, 69)
-        Me.Button_LogDateEngStart.Name = "Button_LogDateEngStart"
-        Me.Button_LogDateEngStart.Size = New System.Drawing.Size(40, 24)
-        Me.Button_LogDateEngStart.TabIndex = 41
-        Me.Button_LogDateEngStart.Text = "Log"
-        Me.Button_LogDateEngStart.UseVisualStyleBackColor = True
-        '
-        'Button_LogDateFabComplete
-        '
-        Me.Button_LogDateFabComplete.Location = New System.Drawing.Point(207, 95)
-        Me.Button_LogDateFabComplete.Name = "Button_LogDateFabComplete"
-        Me.Button_LogDateFabComplete.Size = New System.Drawing.Size(40, 24)
-        Me.Button_LogDateFabComplete.TabIndex = 42
-        Me.Button_LogDateFabComplete.Text = "Log"
-        Me.Button_LogDateFabComplete.UseVisualStyleBackColor = True
-        '
-        'Button_LogDateFabStart
-        '
-        Me.Button_LogDateFabStart.Location = New System.Drawing.Point(207, 69)
-        Me.Button_LogDateFabStart.Name = "Button_LogDateFabStart"
-        Me.Button_LogDateFabStart.Size = New System.Drawing.Size(40, 24)
-        Me.Button_LogDateFabStart.TabIndex = 41
-        Me.Button_LogDateFabStart.Text = "Log"
-        Me.Button_LogDateFabStart.UseVisualStyleBackColor = True
-        '
-        'Button_LogDateFinishComplete
-        '
-        Me.Button_LogDateFinishComplete.Location = New System.Drawing.Point(207, 95)
-        Me.Button_LogDateFinishComplete.Name = "Button_LogDateFinishComplete"
-        Me.Button_LogDateFinishComplete.Size = New System.Drawing.Size(40, 24)
-        Me.Button_LogDateFinishComplete.TabIndex = 46
-        Me.Button_LogDateFinishComplete.Text = "Log"
-        Me.Button_LogDateFinishComplete.UseVisualStyleBackColor = True
-        '
-        'Button_LogDateFinishStart
-        '
-        Me.Button_LogDateFinishStart.Location = New System.Drawing.Point(207, 69)
-        Me.Button_LogDateFinishStart.Name = "Button_LogDateFinishStart"
-        Me.Button_LogDateFinishStart.Size = New System.Drawing.Size(40, 24)
-        Me.Button_LogDateFinishStart.TabIndex = 45
-        Me.Button_LogDateFinishStart.Text = "Log"
-        Me.Button_LogDateFinishStart.UseVisualStyleBackColor = True
-        '
-        'Button_LogDateDrftComplete
-        '
-        Me.Button_LogDateDrftComplete.Location = New System.Drawing.Point(207, 95)
-        Me.Button_LogDateDrftComplete.Name = "Button_LogDateDrftComplete"
-        Me.Button_LogDateDrftComplete.Size = New System.Drawing.Size(40, 24)
-        Me.Button_LogDateDrftComplete.TabIndex = 44
-        Me.Button_LogDateDrftComplete.Text = "Log"
-        Me.Button_LogDateDrftComplete.UseVisualStyleBackColor = True
-        '
-        'Button_LogDateDrftStart
-        '
-        Me.Button_LogDateDrftStart.Location = New System.Drawing.Point(207, 69)
-        Me.Button_LogDateDrftStart.Name = "Button_LogDateDrftStart"
-        Me.Button_LogDateDrftStart.Size = New System.Drawing.Size(40, 24)
-        Me.Button_LogDateDrftStart.TabIndex = 43
-        Me.Button_LogDateDrftStart.Text = "Log"
-        Me.Button_LogDateDrftStart.UseVisualStyleBackColor = True
-        '
-        'Button_LogDateShipComplete
-        '
-        Me.Button_LogDateShipComplete.Location = New System.Drawing.Point(207, 95)
-        Me.Button_LogDateShipComplete.Name = "Button_LogDateShipComplete"
-        Me.Button_LogDateShipComplete.Size = New System.Drawing.Size(40, 24)
-        Me.Button_LogDateShipComplete.TabIndex = 46
-        Me.Button_LogDateShipComplete.Text = "Log"
-        Me.Button_LogDateShipComplete.UseVisualStyleBackColor = True
-        '
-        'Button_LogDateShipStart
-        '
-        Me.Button_LogDateShipStart.Location = New System.Drawing.Point(207, 69)
-        Me.Button_LogDateShipStart.Name = "Button_LogDateShipStart"
-        Me.Button_LogDateShipStart.Size = New System.Drawing.Size(40, 24)
-        Me.Button_LogDateShipStart.TabIndex = 45
-        Me.Button_LogDateShipStart.Text = "Log"
-        Me.Button_LogDateShipStart.UseVisualStyleBackColor = True
-        '
-        'Label_UserPriceStarted
-        '
-        Me.Label_UserPriceStarted.AutoSize = True
-        Me.Label_UserPriceStarted.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "ShipCompleted", True))
-        Me.Label_UserPriceStarted.Location = New System.Drawing.Point(140, 75)
-        Me.Label_UserPriceStarted.Name = "Label_UserPriceStarted"
-        Me.Label_UserPriceStarted.Size = New System.Drawing.Size(60, 13)
-        Me.Label_UserPriceStarted.TabIndex = 41
-        Me.Label_UserPriceStarted.Text = "UserPriceS"
-        '
-        'TableBindingSource
-        '
-        Me.TableBindingSource.DataMember = "Table"
-        Me.TableBindingSource.DataSource = Me.QuoteOrdersDS
-        '
-        'QuoteOrdersDS
-        '
-        Me.QuoteOrdersDS.DataSetName = "QuoteOrdersDS"
-        Me.QuoteOrdersDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'DataGridViewTextBoxColumn1
-        '
-        Me.DataGridViewTextBoxColumn1.DataPropertyName = "Id"
-        Me.DataGridViewTextBoxColumn1.HeaderText = "Id"
-        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
-        '
-        'DataGridViewTextBoxColumn2
-        '
-        Me.DataGridViewTextBoxColumn2.DataPropertyName = "Quote#"
-        Me.DataGridViewTextBoxColumn2.HeaderText = "Quote#"
-        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
-        '
-        'DataGridViewTextBoxColumn3
-        '
-        Me.DataGridViewTextBoxColumn3.DataPropertyName = "Order#"
-        Me.DataGridViewTextBoxColumn3.HeaderText = "Order#"
-        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
-        '
-        'DataGridViewTextBoxColumn4
-        '
-        Me.DataGridViewTextBoxColumn4.DataPropertyName = "Customer"
-        Me.DataGridViewTextBoxColumn4.HeaderText = "Customer"
-        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
-        '
-        'DataGridViewTextBoxColumn5
-        '
-        Me.DataGridViewTextBoxColumn5.DataPropertyName = "Project"
-        Me.DataGridViewTextBoxColumn5.HeaderText = "Project"
-        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
-        '
-        'DataGridViewTextBoxColumn6
-        '
-        Me.DataGridViewTextBoxColumn6.DataPropertyName = "PO#"
-        Me.DataGridViewTextBoxColumn6.HeaderText = "PO#"
-        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
-        '
-        'DataGridViewTextBoxColumn7
-        '
-        Me.DataGridViewTextBoxColumn7.DataPropertyName = "PO Reciept"
-        Me.DataGridViewTextBoxColumn7.HeaderText = "PO Reciept"
-        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
-        '
-        'DataGridViewTextBoxColumn8
-        '
-        Me.DataGridViewTextBoxColumn8.DataPropertyName = "Delivery Date"
-        Me.DataGridViewTextBoxColumn8.HeaderText = "Delivery Date"
-        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
-        '
-        'DataGridViewTextBoxColumn9
-        '
-        Me.DataGridViewTextBoxColumn9.DataPropertyName = "Quote Due Date"
-        Me.DataGridViewTextBoxColumn9.HeaderText = "Quote Due Date"
-        Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
-        '
-        'DataGridViewTextBoxColumn13
-        '
-        Me.DataGridViewTextBoxColumn13.DataPropertyName = "EngRequired"
-        Me.DataGridViewTextBoxColumn13.HeaderText = "EngRequired"
-        Me.DataGridViewTextBoxColumn13.Name = "DataGridViewTextBoxColumn13"
-        '
-        'DataGridViewTextBoxColumn14
-        '
-        Me.DataGridViewTextBoxColumn14.DataPropertyName = "EngStarted"
-        Me.DataGridViewTextBoxColumn14.HeaderText = "EngStarted"
-        Me.DataGridViewTextBoxColumn14.Name = "DataGridViewTextBoxColumn14"
-        '
-        'DataGridViewTextBoxColumn15
-        '
-        Me.DataGridViewTextBoxColumn15.DataPropertyName = "EngCompleted"
-        Me.DataGridViewTextBoxColumn15.HeaderText = "EngCompleted"
-        Me.DataGridViewTextBoxColumn15.Name = "DataGridViewTextBoxColumn15"
-        '
-        'DataGridViewTextBoxColumn16
-        '
-        Me.DataGridViewTextBoxColumn16.DataPropertyName = "DrftRequired"
-        Me.DataGridViewTextBoxColumn16.HeaderText = "DrftRequired"
-        Me.DataGridViewTextBoxColumn16.Name = "DataGridViewTextBoxColumn16"
-        '
-        'DataGridViewTextBoxColumn17
-        '
-        Me.DataGridViewTextBoxColumn17.DataPropertyName = "DrftStarted"
-        Me.DataGridViewTextBoxColumn17.HeaderText = "DrftStarted"
-        Me.DataGridViewTextBoxColumn17.Name = "DataGridViewTextBoxColumn17"
-        '
-        'DataGridViewTextBoxColumn18
-        '
-        Me.DataGridViewTextBoxColumn18.DataPropertyName = "DrftCompleted"
-        Me.DataGridViewTextBoxColumn18.HeaderText = "DrftCompleted"
-        Me.DataGridViewTextBoxColumn18.Name = "DataGridViewTextBoxColumn18"
-        '
-        'DataGridViewTextBoxColumn19
-        '
-        Me.DataGridViewTextBoxColumn19.DataPropertyName = "FabRequired"
-        Me.DataGridViewTextBoxColumn19.HeaderText = "FabRequired"
-        Me.DataGridViewTextBoxColumn19.Name = "DataGridViewTextBoxColumn19"
-        '
-        'DataGridViewTextBoxColumn20
-        '
-        Me.DataGridViewTextBoxColumn20.DataPropertyName = "FabStarted"
-        Me.DataGridViewTextBoxColumn20.HeaderText = "FabStarted"
-        Me.DataGridViewTextBoxColumn20.Name = "DataGridViewTextBoxColumn20"
-        '
-        'DataGridViewTextBoxColumn21
-        '
-        Me.DataGridViewTextBoxColumn21.DataPropertyName = "FabCompleted"
-        Me.DataGridViewTextBoxColumn21.HeaderText = "FabCompleted"
-        Me.DataGridViewTextBoxColumn21.Name = "DataGridViewTextBoxColumn21"
-        '
-        'DataGridViewTextBoxColumn22
-        '
-        Me.DataGridViewTextBoxColumn22.DataPropertyName = "FinishRequired"
-        Me.DataGridViewTextBoxColumn22.HeaderText = "FinishRequired"
-        Me.DataGridViewTextBoxColumn22.Name = "DataGridViewTextBoxColumn22"
-        '
-        'DataGridViewTextBoxColumn23
-        '
-        Me.DataGridViewTextBoxColumn23.DataPropertyName = "FinishStarted"
-        Me.DataGridViewTextBoxColumn23.HeaderText = "FinishStarted"
-        Me.DataGridViewTextBoxColumn23.Name = "DataGridViewTextBoxColumn23"
-        '
-        'DataGridViewTextBoxColumn24
-        '
-        Me.DataGridViewTextBoxColumn24.DataPropertyName = "FinishCompleted"
-        Me.DataGridViewTextBoxColumn24.HeaderText = "FinishCompleted"
-        Me.DataGridViewTextBoxColumn24.Name = "DataGridViewTextBoxColumn24"
-        '
-        'DataGridViewTextBoxColumn25
-        '
-        Me.DataGridViewTextBoxColumn25.DataPropertyName = "ShipRequired"
-        Me.DataGridViewTextBoxColumn25.HeaderText = "ShipRequired"
-        Me.DataGridViewTextBoxColumn25.Name = "DataGridViewTextBoxColumn25"
-        '
-        'DataGridViewTextBoxColumn26
-        '
-        Me.DataGridViewTextBoxColumn26.DataPropertyName = "ShipStarted"
-        Me.DataGridViewTextBoxColumn26.HeaderText = "ShipStarted"
-        Me.DataGridViewTextBoxColumn26.Name = "DataGridViewTextBoxColumn26"
-        '
-        'DataGridViewTextBoxColumn27
-        '
-        Me.DataGridViewTextBoxColumn27.DataPropertyName = "ShipCompleted"
-        Me.DataGridViewTextBoxColumn27.HeaderText = "ShipCompleted"
-        Me.DataGridViewTextBoxColumn27.Name = "DataGridViewTextBoxColumn27"
-        '
         'TableTableAdapter
         '
         Me.TableTableAdapter.ClearBeforeFill = True
@@ -1812,115 +1763,58 @@ Partial Class Form1
         Me.TableAdapterManager.TableTableAdapter = Me.TableTableAdapter
         Me.TableAdapterManager.UpdateOrder = OrderTracker.QuoteOrdersDSTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
-        'Label_UserPriceComplete
+        'QuoteOrdersDS1
         '
-        Me.Label_UserPriceComplete.AutoSize = True
-        Me.Label_UserPriceComplete.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "ShipCompleted", True))
-        Me.Label_UserPriceComplete.Location = New System.Drawing.Point(140, 101)
-        Me.Label_UserPriceComplete.Name = "Label_UserPriceComplete"
-        Me.Label_UserPriceComplete.Size = New System.Drawing.Size(60, 13)
-        Me.Label_UserPriceComplete.TabIndex = 42
-        Me.Label_UserPriceComplete.Text = "UserPriceC"
+        Me.QuoteOrdersDS1.DataSetName = "QuoteOrdersDS"
+        Me.QuoteOrdersDS1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
-        'Label_UserEngComplete
+        'QuoteNo
         '
-        Me.Label_UserEngComplete.AutoSize = True
-        Me.Label_UserEngComplete.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "ShipCompleted", True))
-        Me.Label_UserEngComplete.Location = New System.Drawing.Point(141, 101)
-        Me.Label_UserEngComplete.Name = "Label_UserEngComplete"
-        Me.Label_UserEngComplete.Size = New System.Drawing.Size(55, 13)
-        Me.Label_UserEngComplete.TabIndex = 44
-        Me.Label_UserEngComplete.Text = "UserEngC"
+        Me.QuoteNo.DataPropertyName = "QuoteNo"
+        Me.QuoteNo.HeaderText = "Quote No"
+        Me.QuoteNo.Name = "QuoteNo"
+        Me.QuoteNo.Width = 75
         '
-        'Label_UserEngStart
+        'DataGridViewTextBoxColumn9
         '
-        Me.Label_UserEngStart.AutoSize = True
-        Me.Label_UserEngStart.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "ShipCompleted", True))
-        Me.Label_UserEngStart.Location = New System.Drawing.Point(141, 75)
-        Me.Label_UserEngStart.Name = "Label_UserEngStart"
-        Me.Label_UserEngStart.Size = New System.Drawing.Size(55, 13)
-        Me.Label_UserEngStart.TabIndex = 43
-        Me.Label_UserEngStart.Text = "UserEngS"
+        Me.DataGridViewTextBoxColumn9.DataPropertyName = "Quote Due Date"
+        Me.DataGridViewTextBoxColumn9.HeaderText = "Quote Due Date"
+        Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
+        Me.DataGridViewTextBoxColumn9.Width = 108
         '
-        'Label_UserDrftComplete
+        'OrderNo
         '
-        Me.Label_UserDrftComplete.AutoSize = True
-        Me.Label_UserDrftComplete.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "ShipCompleted", True))
-        Me.Label_UserDrftComplete.Location = New System.Drawing.Point(141, 101)
-        Me.Label_UserDrftComplete.Name = "Label_UserDrftComplete"
-        Me.Label_UserDrftComplete.Size = New System.Drawing.Size(53, 13)
-        Me.Label_UserDrftComplete.TabIndex = 46
-        Me.Label_UserDrftComplete.Text = "UserDrftC"
+        Me.OrderNo.DataPropertyName = "OrderNo"
+        Me.OrderNo.HeaderText = "Order No"
+        Me.OrderNo.Name = "OrderNo"
+        Me.OrderNo.Width = 75
         '
-        'Label_UserDrftStart
+        'DataGridViewTextBoxColumn4
         '
-        Me.Label_UserDrftStart.AutoSize = True
-        Me.Label_UserDrftStart.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "ShipCompleted", True))
-        Me.Label_UserDrftStart.Location = New System.Drawing.Point(141, 75)
-        Me.Label_UserDrftStart.Name = "Label_UserDrftStart"
-        Me.Label_UserDrftStart.Size = New System.Drawing.Size(53, 13)
-        Me.Label_UserDrftStart.TabIndex = 45
-        Me.Label_UserDrftStart.Text = "UserDrftS"
+        Me.DataGridViewTextBoxColumn4.DataPropertyName = "Customer"
+        Me.DataGridViewTextBoxColumn4.HeaderText = "Customer"
+        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
+        Me.DataGridViewTextBoxColumn4.Width = 125
         '
-        'Label_UserFabComplete
+        'DataGridViewTextBoxColumn5
         '
-        Me.Label_UserFabComplete.AutoSize = True
-        Me.Label_UserFabComplete.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "ShipCompleted", True))
-        Me.Label_UserFabComplete.Location = New System.Drawing.Point(140, 101)
-        Me.Label_UserFabComplete.Name = "Label_UserFabComplete"
-        Me.Label_UserFabComplete.Size = New System.Drawing.Size(54, 13)
-        Me.Label_UserFabComplete.TabIndex = 44
-        Me.Label_UserFabComplete.Text = "UserFabC"
+        Me.DataGridViewTextBoxColumn5.DataPropertyName = "Project"
+        Me.DataGridViewTextBoxColumn5.HeaderText = "Project"
+        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
+        Me.DataGridViewTextBoxColumn5.Width = 150
         '
-        'Label_UserFabStart
+        'DataGridViewTextBoxColumn8
         '
-        Me.Label_UserFabStart.AutoSize = True
-        Me.Label_UserFabStart.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "ShipCompleted", True))
-        Me.Label_UserFabStart.Location = New System.Drawing.Point(140, 75)
-        Me.Label_UserFabStart.Name = "Label_UserFabStart"
-        Me.Label_UserFabStart.Size = New System.Drawing.Size(54, 13)
-        Me.Label_UserFabStart.TabIndex = 43
-        Me.Label_UserFabStart.Text = "UserFabS"
+        Me.DataGridViewTextBoxColumn8.DataPropertyName = "Delivery Date"
+        Me.DataGridViewTextBoxColumn8.HeaderText = "Delivery Date"
+        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
         '
-        'Label_UserFinishComplete
+        'PONo
         '
-        Me.Label_UserFinishComplete.AutoSize = True
-        Me.Label_UserFinishComplete.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "ShipCompleted", True))
-        Me.Label_UserFinishComplete.Location = New System.Drawing.Point(141, 101)
-        Me.Label_UserFinishComplete.Name = "Label_UserFinishComplete"
-        Me.Label_UserFinishComplete.Size = New System.Drawing.Size(50, 13)
-        Me.Label_UserFinishComplete.TabIndex = 46
-        Me.Label_UserFinishComplete.Text = "UserFinC"
-        '
-        'Label_UserFinishStart
-        '
-        Me.Label_UserFinishStart.AutoSize = True
-        Me.Label_UserFinishStart.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "ShipCompleted", True))
-        Me.Label_UserFinishStart.Location = New System.Drawing.Point(141, 75)
-        Me.Label_UserFinishStart.Name = "Label_UserFinishStart"
-        Me.Label_UserFinishStart.Size = New System.Drawing.Size(50, 13)
-        Me.Label_UserFinishStart.TabIndex = 45
-        Me.Label_UserFinishStart.Text = "UserFinS"
-        '
-        'Label_UserShipComplete
-        '
-        Me.Label_UserShipComplete.AutoSize = True
-        Me.Label_UserShipComplete.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "ShipCompleted", True))
-        Me.Label_UserShipComplete.Location = New System.Drawing.Point(141, 101)
-        Me.Label_UserShipComplete.Name = "Label_UserShipComplete"
-        Me.Label_UserShipComplete.Size = New System.Drawing.Size(57, 13)
-        Me.Label_UserShipComplete.TabIndex = 48
-        Me.Label_UserShipComplete.Text = "UserShipC"
-        '
-        'Label_UserShipStart
-        '
-        Me.Label_UserShipStart.AutoSize = True
-        Me.Label_UserShipStart.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TableBindingSource, "ShipCompleted", True))
-        Me.Label_UserShipStart.Location = New System.Drawing.Point(141, 75)
-        Me.Label_UserShipStart.Name = "Label_UserShipStart"
-        Me.Label_UserShipStart.Size = New System.Drawing.Size(57, 13)
-        Me.Label_UserShipStart.TabIndex = 47
-        Me.Label_UserShipStart.Text = "UserShipS"
+        Me.PONo.DataPropertyName = "PONo"
+        Me.PONo.HeaderText = "PO No"
+        Me.PONo.Name = "PONo"
+        Me.PONo.Width = 105
         '
         'Form1
         '
@@ -1929,11 +1823,14 @@ Partial Class Form1
         Me.ClientSize = New System.Drawing.Size(799, 529)
         Me.Controls.Add(Me.TableBindingNavigator)
         Me.Controls.Add(Me.TabControl1)
+        Me.MaximizeBox = False
         Me.Name = "Form1"
         Me.Text = "Order Tracker v1.0"
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
         CType(Me.TableDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TableBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.QuoteOrdersDS, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         CType(Me.PictureBox_ShipActual, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1971,8 +1868,7 @@ Partial Class Form1
         CType(Me.TableBindingNavigator, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TableBindingNavigator.ResumeLayout(False)
         Me.TableBindingNavigator.PerformLayout()
-        CType(Me.TableBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.QuoteOrdersDS, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.QuoteOrdersDS1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -2026,30 +1922,6 @@ Partial Class Form1
     Friend WithEvents BindingNavigatorSeparator2 As ToolStripSeparator
     Friend WithEvents TableBindingNavigatorSaveItem As ToolStripButton
     Friend WithEvents TableDataGridView As DataGridView
-    Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn6 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn8 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn9 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn13 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn14 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn15 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn16 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn17 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn18 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn19 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn20 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn21 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn22 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn23 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn24 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn25 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn26 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn27 As DataGridViewTextBoxColumn
     Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents Button_Convert2Order As Button
     Friend WithEvents ProjectTextBox As TextBox
@@ -2114,4 +1986,13 @@ Partial Class Form1
     Friend WithEvents Label_UserEngStart As Label
     Friend WithEvents Label_UserFabComplete As Label
     Friend WithEvents Label_UserFabStart As Label
+    Friend WithEvents QuoteOrdersDS1 As QuoteOrdersDS
+    Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
+    Friend WithEvents QuoteNo As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn9 As DataGridViewTextBoxColumn
+    Friend WithEvents OrderNo As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn8 As DataGridViewTextBoxColumn
+    Friend WithEvents PONo As DataGridViewTextBoxColumn
 End Class
