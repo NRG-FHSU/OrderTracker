@@ -66,6 +66,13 @@ Partial Class Form1
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.TableDataGridView = New System.Windows.Forms.DataGridView()
+        Me.QuoteNo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.OrderNo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PONo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TableBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.QuoteOrdersDS = New OrderTracker.QuoteOrdersDS()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
@@ -176,13 +183,6 @@ Partial Class Form1
         Me.TableTableAdapter = New OrderTracker.QuoteOrdersDSTableAdapters.TableTableAdapter()
         Me.TableAdapterManager = New OrderTracker.QuoteOrdersDSTableAdapters.TableAdapterManager()
         Me.QuoteOrdersDS1 = New OrderTracker.QuoteOrdersDS()
-        Me.QuoteNo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.OrderNo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PONo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Quote_Label = New System.Windows.Forms.Label()
         Order_Label = New System.Windows.Forms.Label()
         CustomerLabel = New System.Windows.Forms.Label()
@@ -661,6 +661,54 @@ Partial Class Form1
         Me.TableDataGridView.Size = New System.Drawing.Size(781, 374)
         Me.TableDataGridView.TabIndex = 5
         '
+        'QuoteNo
+        '
+        Me.QuoteNo.DataPropertyName = "QuoteNo"
+        Me.QuoteNo.HeaderText = "Quote No"
+        Me.QuoteNo.Name = "QuoteNo"
+        Me.QuoteNo.Width = 75
+        '
+        'DataGridViewTextBoxColumn9
+        '
+        Me.DataGridViewTextBoxColumn9.DataPropertyName = "Quote Due Date"
+        Me.DataGridViewTextBoxColumn9.HeaderText = "Quote Due Date"
+        Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
+        Me.DataGridViewTextBoxColumn9.Width = 108
+        '
+        'OrderNo
+        '
+        Me.OrderNo.DataPropertyName = "OrderNo"
+        Me.OrderNo.HeaderText = "Order No"
+        Me.OrderNo.Name = "OrderNo"
+        Me.OrderNo.Width = 75
+        '
+        'DataGridViewTextBoxColumn4
+        '
+        Me.DataGridViewTextBoxColumn4.DataPropertyName = "Customer"
+        Me.DataGridViewTextBoxColumn4.HeaderText = "Customer"
+        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
+        Me.DataGridViewTextBoxColumn4.Width = 125
+        '
+        'DataGridViewTextBoxColumn5
+        '
+        Me.DataGridViewTextBoxColumn5.DataPropertyName = "Project"
+        Me.DataGridViewTextBoxColumn5.HeaderText = "Project"
+        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
+        Me.DataGridViewTextBoxColumn5.Width = 150
+        '
+        'DataGridViewTextBoxColumn8
+        '
+        Me.DataGridViewTextBoxColumn8.DataPropertyName = "Delivery Date"
+        Me.DataGridViewTextBoxColumn8.HeaderText = "Delivery Date"
+        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
+        '
+        'PONo
+        '
+        Me.PONo.DataPropertyName = "PONo"
+        Me.PONo.HeaderText = "PO No"
+        Me.PONo.Name = "PONo"
+        Me.PONo.Width = 105
+        '
         'TableBindingSource
         '
         Me.TableBindingSource.DataMember = "Table"
@@ -894,7 +942,10 @@ Partial Class Form1
         '
         'ComboBox1
         '
+        Me.ComboBox1.AllowDrop = True
+        Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.ImeMode = System.Windows.Forms.ImeMode.NoControl
         Me.ComboBox1.Location = New System.Drawing.Point(237, 26)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(151, 21)
@@ -1712,6 +1763,7 @@ Partial Class Form1
         '
         Me.BindingNavigatorPositionItem.AccessibleName = "Position"
         Me.BindingNavigatorPositionItem.AutoSize = False
+        Me.BindingNavigatorPositionItem.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.BindingNavigatorPositionItem.Name = "BindingNavigatorPositionItem"
         Me.BindingNavigatorPositionItem.Size = New System.Drawing.Size(50, 23)
         Me.BindingNavigatorPositionItem.Text = "0"
@@ -1767,54 +1819,6 @@ Partial Class Form1
         '
         Me.QuoteOrdersDS1.DataSetName = "QuoteOrdersDS"
         Me.QuoteOrdersDS1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'QuoteNo
-        '
-        Me.QuoteNo.DataPropertyName = "QuoteNo"
-        Me.QuoteNo.HeaderText = "Quote No"
-        Me.QuoteNo.Name = "QuoteNo"
-        Me.QuoteNo.Width = 75
-        '
-        'DataGridViewTextBoxColumn9
-        '
-        Me.DataGridViewTextBoxColumn9.DataPropertyName = "Quote Due Date"
-        Me.DataGridViewTextBoxColumn9.HeaderText = "Quote Due Date"
-        Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
-        Me.DataGridViewTextBoxColumn9.Width = 108
-        '
-        'OrderNo
-        '
-        Me.OrderNo.DataPropertyName = "OrderNo"
-        Me.OrderNo.HeaderText = "Order No"
-        Me.OrderNo.Name = "OrderNo"
-        Me.OrderNo.Width = 75
-        '
-        'DataGridViewTextBoxColumn4
-        '
-        Me.DataGridViewTextBoxColumn4.DataPropertyName = "Customer"
-        Me.DataGridViewTextBoxColumn4.HeaderText = "Customer"
-        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
-        Me.DataGridViewTextBoxColumn4.Width = 125
-        '
-        'DataGridViewTextBoxColumn5
-        '
-        Me.DataGridViewTextBoxColumn5.DataPropertyName = "Project"
-        Me.DataGridViewTextBoxColumn5.HeaderText = "Project"
-        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
-        Me.DataGridViewTextBoxColumn5.Width = 150
-        '
-        'DataGridViewTextBoxColumn8
-        '
-        Me.DataGridViewTextBoxColumn8.DataPropertyName = "Delivery Date"
-        Me.DataGridViewTextBoxColumn8.HeaderText = "Delivery Date"
-        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
-        '
-        'PONo
-        '
-        Me.PONo.DataPropertyName = "PONo"
-        Me.PONo.HeaderText = "PO No"
-        Me.PONo.Name = "PONo"
-        Me.PONo.Width = 105
         '
         'Form1
         '

@@ -136,4 +136,8 @@ Public Class Form1
     Private Sub Button_LogDateShipComplete_Click(sender As Object, e As EventArgs) Handles Button_LogDateShipComplete.Click
         'log ship completion date here
     End Sub
+
+    Private Sub ComboBox1_KeyPress(sender As Object, e As KeyPressEventArgs)
+
+    End Sub
 End Class
