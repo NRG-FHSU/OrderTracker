@@ -1,16 +1,25 @@
 ﻿Public Class LogDate
 
-    Public dateLogged As Date
-    Public userInitials As String
+    Private _dateLogged As String
+    Private _userInitials As String
 
     Public Sub New()
-        Me.dateLogged = Today
-        Me.userInitials = "NRG"
+        Me._dateLogged = CType(Today, String)
+        Me._userInitials = "NRG"
+    End Sub
 
+    Public Sub setUser(userInitials As String)
+        Me._userInitials = userInitials
     End Sub
-    Public Sub New(dateLogged As Date, userInitials As String)
-        Me.dateLogged = dateLogged
-        Me.userInitials = userInitials
-    End Sub
+
+    Public Function getDate() As String
+        Return CType(Today, String)
+    End Function
+
+    Public ReadOnly Property userInitials As String
+        Get
+            Return _userInitials
+        End Get
+    End Property
 
 End Class

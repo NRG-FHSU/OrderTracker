@@ -1,6 +1,6 @@
 ﻿Public Class Search
 
-    Public _field As String
+    Private _field As String
 
     Public Sub New()
         _field = "Customer"
