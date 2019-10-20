@@ -750,6 +750,7 @@ Partial Class Form1
         '
         'PictureBox_ShipActual
         '
+        Me.PictureBox_ShipActual.Image = CType(resources.GetObject("PictureBox_ShipActual.Image"), System.Drawing.Image)
         Me.PictureBox_ShipActual.Location = New System.Drawing.Point(320, 60)
         Me.PictureBox_ShipActual.Name = "PictureBox_ShipActual"
         Me.PictureBox_ShipActual.Size = New System.Drawing.Size(31, 22)
@@ -767,6 +768,7 @@ Partial Class Form1
         '
         'PictureBox_EngActual
         '
+        Me.PictureBox_EngActual.Image = CType(resources.GetObject("PictureBox_EngActual.Image"), System.Drawing.Image)
         Me.PictureBox_EngActual.Location = New System.Drawing.Point(120, 60)
         Me.PictureBox_EngActual.Name = "PictureBox_EngActual"
         Me.PictureBox_EngActual.Size = New System.Drawing.Size(31, 22)
@@ -784,6 +786,7 @@ Partial Class Form1
         '
         'PictureBox_FinishActual
         '
+        Me.PictureBox_FinishActual.Image = CType(resources.GetObject("PictureBox_FinishActual.Image"), System.Drawing.Image)
         Me.PictureBox_FinishActual.Location = New System.Drawing.Point(270, 60)
         Me.PictureBox_FinishActual.Name = "PictureBox_FinishActual"
         Me.PictureBox_FinishActual.Size = New System.Drawing.Size(31, 22)
@@ -801,6 +804,7 @@ Partial Class Form1
         '
         'PictureBox_FabActual
         '
+        Me.PictureBox_FabActual.Image = CType(resources.GetObject("PictureBox_FabActual.Image"), System.Drawing.Image)
         Me.PictureBox_FabActual.Location = New System.Drawing.Point(219, 60)
         Me.PictureBox_FabActual.Name = "PictureBox_FabActual"
         Me.PictureBox_FabActual.Size = New System.Drawing.Size(31, 22)
@@ -818,6 +822,7 @@ Partial Class Form1
         '
         'PictureBox_DrftActual
         '
+        Me.PictureBox_DrftActual.Image = CType(resources.GetObject("PictureBox_DrftActual.Image"), System.Drawing.Image)
         Me.PictureBox_DrftActual.Location = New System.Drawing.Point(169, 60)
         Me.PictureBox_DrftActual.Name = "PictureBox_DrftActual"
         Me.PictureBox_DrftActual.Size = New System.Drawing.Size(31, 22)
@@ -835,6 +840,7 @@ Partial Class Form1
         '
         'PictureBox_PriceActual
         '
+        Me.PictureBox_PriceActual.Image = Global.OrderTracker.My.Resources.Resources.yellowSquare
         Me.PictureBox_PriceActual.Location = New System.Drawing.Point(71, 60)
         Me.PictureBox_PriceActual.Name = "PictureBox_PriceActual"
         Me.PictureBox_PriceActual.Size = New System.Drawing.Size(31, 22)
@@ -1821,6 +1827,7 @@ Partial Class Form1
         '
         'ToolStripComboBox_User
         '
+        Me.ToolStripComboBox_User.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ToolStripComboBox_User.Name = "ToolStripComboBox_User"
         Me.ToolStripComboBox_User.Size = New System.Drawing.Size(121, 25)
         '
