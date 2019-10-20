@@ -189,6 +189,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="greenSquare.bmp" />
     <Content Include="QuoteOrders.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -196,6 +197,8 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>QuoteOrders.mdf</DependentUpon>
     </Content>
+    <Content Include="redSquare.bmp" />
+    <Content Include="yellowSquare.bmp" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">

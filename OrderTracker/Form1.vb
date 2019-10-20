@@ -182,4 +182,8 @@ Public Class Form1
     Private Sub ToolStripComboBox_User_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ToolStripComboBox_User.SelectedIndexChanged
         logging.setUser(ToolStripComboBox_User.Text)
     End Sub
+
+    Private Sub BindingNavigatorPositionItem_TextChanged(sender As Object, e As EventArgs) Handles BindingNavigatorPositionItem.TextChanged
+        'using this function as a check for status of each record (Quote/Order)
+    End Sub
 End Class

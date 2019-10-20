@@ -67,8 +67,14 @@ Partial Class Form1
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.TableDataGridView = New System.Windows.Forms.DataGridView()
         Me.QuoteNo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.OrderNo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PONo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TableBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.QuoteOrdersDS = New OrderTracker.QuoteOrdersDS()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.PictureBox_ShipActual = New System.Windows.Forms.PictureBox()
         Me.PictureBox_ShipCommit = New System.Windows.Forms.PictureBox()
@@ -174,17 +180,11 @@ Partial Class Form1
         Me.BindingNavigatorMoveLastItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.TableBindingNavigatorSaveItem = New System.Windows.Forms.ToolStripButton()
-        Me.TableBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.QuoteOrdersDS = New OrderTracker.QuoteOrdersDS()
-        Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
+        Me.ToolStripComboBox_User = New System.Windows.Forms.ToolStripComboBox()
         Me.TableTableAdapter = New OrderTracker.QuoteOrdersDSTableAdapters.TableTableAdapter()
         Me.TableAdapterManager = New OrderTracker.QuoteOrdersDSTableAdapters.TableAdapterManager()
         Me.QuoteOrdersDS1 = New OrderTracker.QuoteOrdersDS()
-        Me.ToolStripComboBox_User = New System.Windows.Forms.ToolStripComboBox()
-        Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
         Quote_Label = New System.Windows.Forms.Label()
         Order_Label = New System.Windows.Forms.Label()
         CustomerLabel = New System.Windows.Forms.Label()
@@ -227,6 +227,8 @@ Partial Class Form1
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         CType(Me.TableDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TableBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.QuoteOrdersDS, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         CType(Me.PictureBox_ShipActual, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox_ShipCommit, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -253,8 +255,6 @@ Partial Class Form1
         Me.GroupBox3.SuspendLayout()
         CType(Me.TableBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableBindingNavigator.SuspendLayout()
-        CType(Me.TableBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.QuoteOrdersDS, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.QuoteOrdersDS1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -668,6 +668,13 @@ Partial Class Form1
         Me.QuoteNo.Name = "QuoteNo"
         Me.QuoteNo.Width = 75
         '
+        'DataGridViewTextBoxColumn9
+        '
+        Me.DataGridViewTextBoxColumn9.DataPropertyName = "Quote Due Date"
+        Me.DataGridViewTextBoxColumn9.HeaderText = "Quote Due Date"
+        Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
+        Me.DataGridViewTextBoxColumn9.Width = 108
+        '
         'OrderNo
         '
         Me.OrderNo.DataPropertyName = "OrderNo"
@@ -675,12 +682,42 @@ Partial Class Form1
         Me.OrderNo.Name = "OrderNo"
         Me.OrderNo.Width = 75
         '
+        'DataGridViewTextBoxColumn4
+        '
+        Me.DataGridViewTextBoxColumn4.DataPropertyName = "Customer"
+        Me.DataGridViewTextBoxColumn4.HeaderText = "Customer"
+        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
+        Me.DataGridViewTextBoxColumn4.Width = 125
+        '
+        'DataGridViewTextBoxColumn5
+        '
+        Me.DataGridViewTextBoxColumn5.DataPropertyName = "Project"
+        Me.DataGridViewTextBoxColumn5.HeaderText = "Project"
+        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
+        Me.DataGridViewTextBoxColumn5.Width = 150
+        '
+        'DataGridViewTextBoxColumn8
+        '
+        Me.DataGridViewTextBoxColumn8.DataPropertyName = "Delivery Date"
+        Me.DataGridViewTextBoxColumn8.HeaderText = "Delivery Date"
+        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
+        '
         'PONo
         '
         Me.PONo.DataPropertyName = "PONo"
         Me.PONo.HeaderText = "PO No"
         Me.PONo.Name = "PONo"
         Me.PONo.Width = 105
+        '
+        'TableBindingSource
+        '
+        Me.TableBindingSource.DataMember = "Table"
+        Me.TableBindingSource.DataSource = Me.QuoteOrdersDS
+        '
+        'QuoteOrdersDS
+        '
+        Me.QuoteOrdersDS.DataSetName = "QuoteOrdersDS"
+        Me.QuoteOrdersDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'GroupBox2
         '
@@ -721,6 +758,7 @@ Partial Class Form1
         '
         'PictureBox_ShipCommit
         '
+        Me.PictureBox_ShipCommit.Image = Global.OrderTracker.My.Resources.Resources.greenSquare
         Me.PictureBox_ShipCommit.Location = New System.Drawing.Point(320, 32)
         Me.PictureBox_ShipCommit.Name = "PictureBox_ShipCommit"
         Me.PictureBox_ShipCommit.Size = New System.Drawing.Size(31, 22)
@@ -737,6 +775,7 @@ Partial Class Form1
         '
         'PictureBox_EngCommit
         '
+        Me.PictureBox_EngCommit.Image = Global.OrderTracker.My.Resources.Resources.greenSquare
         Me.PictureBox_EngCommit.Location = New System.Drawing.Point(120, 32)
         Me.PictureBox_EngCommit.Name = "PictureBox_EngCommit"
         Me.PictureBox_EngCommit.Size = New System.Drawing.Size(31, 22)
@@ -753,6 +792,7 @@ Partial Class Form1
         '
         'PictureBox_FinishCommit
         '
+        Me.PictureBox_FinishCommit.Image = Global.OrderTracker.My.Resources.Resources.greenSquare
         Me.PictureBox_FinishCommit.Location = New System.Drawing.Point(270, 32)
         Me.PictureBox_FinishCommit.Name = "PictureBox_FinishCommit"
         Me.PictureBox_FinishCommit.Size = New System.Drawing.Size(31, 22)
@@ -769,6 +809,7 @@ Partial Class Form1
         '
         'PictureBox_FabCommit
         '
+        Me.PictureBox_FabCommit.Image = Global.OrderTracker.My.Resources.Resources.greenSquare
         Me.PictureBox_FabCommit.Location = New System.Drawing.Point(219, 32)
         Me.PictureBox_FabCommit.Name = "PictureBox_FabCommit"
         Me.PictureBox_FabCommit.Size = New System.Drawing.Size(31, 22)
@@ -785,6 +826,7 @@ Partial Class Form1
         '
         'PictureBox_DrftCommit
         '
+        Me.PictureBox_DrftCommit.Image = Global.OrderTracker.My.Resources.Resources.greenSquare
         Me.PictureBox_DrftCommit.Location = New System.Drawing.Point(169, 32)
         Me.PictureBox_DrftCommit.Name = "PictureBox_DrftCommit"
         Me.PictureBox_DrftCommit.Size = New System.Drawing.Size(31, 22)
@@ -801,6 +843,8 @@ Partial Class Form1
         '
         'PictureBox_PriceCommit
         '
+        Me.PictureBox_PriceCommit.Image = Global.OrderTracker.My.Resources.Resources.greenSquare
+        Me.PictureBox_PriceCommit.InitialImage = Nothing
         Me.PictureBox_PriceCommit.Location = New System.Drawing.Point(71, 32)
         Me.PictureBox_PriceCommit.Name = "PictureBox_PriceCommit"
         Me.PictureBox_PriceCommit.Size = New System.Drawing.Size(31, 22)
@@ -1769,42 +1813,16 @@ Partial Class Form1
         Me.TableBindingNavigatorSaveItem.Size = New System.Drawing.Size(23, 22)
         Me.TableBindingNavigatorSaveItem.Text = "Save Data"
         '
-        'TableBindingSource
+        'ToolStripLabel1
         '
-        Me.TableBindingSource.DataMember = "Table"
-        Me.TableBindingSource.DataSource = Me.QuoteOrdersDS
+        Me.ToolStripLabel1.Name = "ToolStripLabel1"
+        Me.ToolStripLabel1.Size = New System.Drawing.Size(76, 22)
+        Me.ToolStripLabel1.Text = "Current User:"
         '
-        'QuoteOrdersDS
+        'ToolStripComboBox_User
         '
-        Me.QuoteOrdersDS.DataSetName = "QuoteOrdersDS"
-        Me.QuoteOrdersDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'DataGridViewTextBoxColumn9
-        '
-        Me.DataGridViewTextBoxColumn9.DataPropertyName = "Quote Due Date"
-        Me.DataGridViewTextBoxColumn9.HeaderText = "Quote Due Date"
-        Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
-        Me.DataGridViewTextBoxColumn9.Width = 108
-        '
-        'DataGridViewTextBoxColumn4
-        '
-        Me.DataGridViewTextBoxColumn4.DataPropertyName = "Customer"
-        Me.DataGridViewTextBoxColumn4.HeaderText = "Customer"
-        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
-        Me.DataGridViewTextBoxColumn4.Width = 125
-        '
-        'DataGridViewTextBoxColumn5
-        '
-        Me.DataGridViewTextBoxColumn5.DataPropertyName = "Project"
-        Me.DataGridViewTextBoxColumn5.HeaderText = "Project"
-        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
-        Me.DataGridViewTextBoxColumn5.Width = 150
-        '
-        'DataGridViewTextBoxColumn8
-        '
-        Me.DataGridViewTextBoxColumn8.DataPropertyName = "Delivery Date"
-        Me.DataGridViewTextBoxColumn8.HeaderText = "Delivery Date"
-        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
+        Me.ToolStripComboBox_User.Name = "ToolStripComboBox_User"
+        Me.ToolStripComboBox_User.Size = New System.Drawing.Size(121, 25)
         '
         'TableTableAdapter
         '
@@ -1821,17 +1839,6 @@ Partial Class Form1
         Me.QuoteOrdersDS1.DataSetName = "QuoteOrdersDS"
         Me.QuoteOrdersDS1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
-        'ToolStripComboBox_User
-        '
-        Me.ToolStripComboBox_User.Name = "ToolStripComboBox_User"
-        Me.ToolStripComboBox_User.Size = New System.Drawing.Size(121, 25)
-        '
-        'ToolStripLabel1
-        '
-        Me.ToolStripLabel1.Name = "ToolStripLabel1"
-        Me.ToolStripLabel1.Size = New System.Drawing.Size(76, 22)
-        Me.ToolStripLabel1.Text = "Current User:"
-        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1845,6 +1852,8 @@ Partial Class Form1
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
         CType(Me.TableDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TableBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.QuoteOrdersDS, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         CType(Me.PictureBox_ShipActual, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1882,8 +1891,6 @@ Partial Class Form1
         CType(Me.TableBindingNavigator, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TableBindingNavigator.ResumeLayout(False)
         Me.TableBindingNavigator.PerformLayout()
-        CType(Me.TableBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.QuoteOrdersDS, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.QuoteOrdersDS1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
