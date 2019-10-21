@@ -95,6 +95,7 @@
       <DependentUpon>Form1.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="LogDate.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -120,11 +121,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QuoteOrdersDS.xsd</DependentUpon>
     </Compile>
+    <Compile Include="QuoteOrdersDS.vb">
+      <DependentUpon>QuoteOrdersDS.xsd</DependentUpon>
+    </Compile>
     <Compile Include="QuoteOrdersTracking.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>QuoteOrdersTracking.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Schedule.vb" />
+    <Compile Include="Search.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Form1.resx">
@@ -183,6 +189,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="greenSquare.bmp" />
     <Content Include="QuoteOrders.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -190,6 +197,8 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>QuoteOrders.mdf</DependentUpon>
     </Content>
+    <Content Include="redSquare.bmp" />
+    <Content Include="yellowSquare.bmp" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
