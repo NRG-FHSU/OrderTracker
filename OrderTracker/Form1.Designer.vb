@@ -76,18 +76,6 @@ Partial Class Form1
         Me.TableBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.QuoteOrdersDS = New OrderTracker.QuoteOrdersDS()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.PictureBox_ShipActual = New System.Windows.Forms.PictureBox()
-        Me.PictureBox_ShipCommit = New System.Windows.Forms.PictureBox()
-        Me.PictureBox_EngActual = New System.Windows.Forms.PictureBox()
-        Me.PictureBox_EngCommit = New System.Windows.Forms.PictureBox()
-        Me.PictureBox_FinishActual = New System.Windows.Forms.PictureBox()
-        Me.PictureBox_FinishCommit = New System.Windows.Forms.PictureBox()
-        Me.PictureBox_FabActual = New System.Windows.Forms.PictureBox()
-        Me.PictureBox_FabCommit = New System.Windows.Forms.PictureBox()
-        Me.PictureBox_DrftActual = New System.Windows.Forms.PictureBox()
-        Me.PictureBox_DrftCommit = New System.Windows.Forms.PictureBox()
-        Me.PictureBox_PriceActual = New System.Windows.Forms.PictureBox()
-        Me.PictureBox_PriceCommit = New System.Windows.Forms.PictureBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
@@ -168,23 +156,35 @@ Partial Class Form1
         Me.Quote_TextBox = New System.Windows.Forms.TextBox()
         Me.Quote_Due_DateDateTimePicker = New System.Windows.Forms.DateTimePicker()
         Me.TableBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
-        Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorCountItem = New System.Windows.Forms.ToolStripLabel()
-        Me.BindingNavigatorDeleteItem = New System.Windows.Forms.ToolStripButton()
-        Me.BindingNavigatorMoveFirstItem = New System.Windows.Forms.ToolStripButton()
-        Me.BindingNavigatorMovePreviousItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorSeparator = New System.Windows.Forms.ToolStripSeparator()
         Me.BindingNavigatorPositionItem = New System.Windows.Forms.ToolStripTextBox()
         Me.BindingNavigatorSeparator1 = New System.Windows.Forms.ToolStripSeparator()
-        Me.BindingNavigatorMoveNextItem = New System.Windows.Forms.ToolStripButton()
-        Me.BindingNavigatorMoveLastItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorSeparator2 = New System.Windows.Forms.ToolStripSeparator()
-        Me.TableBindingNavigatorSaveItem = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
         Me.ToolStripComboBox_User = New System.Windows.Forms.ToolStripComboBox()
         Me.TableTableAdapter = New OrderTracker.QuoteOrdersDSTableAdapters.TableTableAdapter()
         Me.TableAdapterManager = New OrderTracker.QuoteOrdersDSTableAdapters.TableAdapterManager()
         Me.QuoteOrdersDS1 = New OrderTracker.QuoteOrdersDS()
+        Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
+        Me.BindingNavigatorDeleteItem = New System.Windows.Forms.ToolStripButton()
+        Me.BindingNavigatorMoveFirstItem = New System.Windows.Forms.ToolStripButton()
+        Me.BindingNavigatorMovePreviousItem = New System.Windows.Forms.ToolStripButton()
+        Me.BindingNavigatorMoveNextItem = New System.Windows.Forms.ToolStripButton()
+        Me.BindingNavigatorMoveLastItem = New System.Windows.Forms.ToolStripButton()
+        Me.TableBindingNavigatorSaveItem = New System.Windows.Forms.ToolStripButton()
+        Me.PictureBox_ShipActual = New System.Windows.Forms.PictureBox()
+        Me.PictureBox_ShipCommit = New System.Windows.Forms.PictureBox()
+        Me.PictureBox_EngActual = New System.Windows.Forms.PictureBox()
+        Me.PictureBox_EngCommit = New System.Windows.Forms.PictureBox()
+        Me.PictureBox_FinishActual = New System.Windows.Forms.PictureBox()
+        Me.PictureBox_FinishCommit = New System.Windows.Forms.PictureBox()
+        Me.PictureBox_FabActual = New System.Windows.Forms.PictureBox()
+        Me.PictureBox_FabCommit = New System.Windows.Forms.PictureBox()
+        Me.PictureBox_DrftActual = New System.Windows.Forms.PictureBox()
+        Me.PictureBox_DrftCommit = New System.Windows.Forms.PictureBox()
+        Me.PictureBox_PriceActual = New System.Windows.Forms.PictureBox()
+        Me.PictureBox_PriceCommit = New System.Windows.Forms.PictureBox()
         Quote_Label = New System.Windows.Forms.Label()
         Order_Label = New System.Windows.Forms.Label()
         CustomerLabel = New System.Windows.Forms.Label()
@@ -230,18 +230,6 @@ Partial Class Form1
         CType(Me.TableBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.QuoteOrdersDS, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
-        CType(Me.PictureBox_ShipActual, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox_ShipCommit, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox_EngActual, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox_EngCommit, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox_FinishActual, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox_FinishCommit, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox_FabActual, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox_FabCommit, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox_DrftActual, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox_DrftCommit, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox_PriceActual, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox_PriceCommit, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
@@ -256,6 +244,18 @@ Partial Class Form1
         CType(Me.TableBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableBindingNavigator.SuspendLayout()
         CType(Me.QuoteOrdersDS1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox_ShipActual, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox_ShipCommit, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox_EngActual, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox_EngCommit, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox_FinishActual, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox_FinishCommit, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox_FabActual, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox_FabCommit, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox_DrftActual, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox_DrftCommit, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox_PriceActual, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox_PriceCommit, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Quote_Label
@@ -747,115 +747,6 @@ Partial Class Form1
         Me.GroupBox2.TabIndex = 5
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Status"
-        '
-        'PictureBox_ShipActual
-        '
-        Me.PictureBox_ShipActual.Image = CType(resources.GetObject("PictureBox_ShipActual.Image"), System.Drawing.Image)
-        Me.PictureBox_ShipActual.Location = New System.Drawing.Point(320, 60)
-        Me.PictureBox_ShipActual.Name = "PictureBox_ShipActual"
-        Me.PictureBox_ShipActual.Size = New System.Drawing.Size(31, 22)
-        Me.PictureBox_ShipActual.TabIndex = 19
-        Me.PictureBox_ShipActual.TabStop = False
-        '
-        'PictureBox_ShipCommit
-        '
-        Me.PictureBox_ShipCommit.Image = Global.OrderTracker.My.Resources.Resources.greenSquare
-        Me.PictureBox_ShipCommit.Location = New System.Drawing.Point(320, 32)
-        Me.PictureBox_ShipCommit.Name = "PictureBox_ShipCommit"
-        Me.PictureBox_ShipCommit.Size = New System.Drawing.Size(31, 22)
-        Me.PictureBox_ShipCommit.TabIndex = 18
-        Me.PictureBox_ShipCommit.TabStop = False
-        '
-        'PictureBox_EngActual
-        '
-        Me.PictureBox_EngActual.Image = CType(resources.GetObject("PictureBox_EngActual.Image"), System.Drawing.Image)
-        Me.PictureBox_EngActual.Location = New System.Drawing.Point(120, 60)
-        Me.PictureBox_EngActual.Name = "PictureBox_EngActual"
-        Me.PictureBox_EngActual.Size = New System.Drawing.Size(31, 22)
-        Me.PictureBox_EngActual.TabIndex = 17
-        Me.PictureBox_EngActual.TabStop = False
-        '
-        'PictureBox_EngCommit
-        '
-        Me.PictureBox_EngCommit.Image = Global.OrderTracker.My.Resources.Resources.greenSquare
-        Me.PictureBox_EngCommit.Location = New System.Drawing.Point(120, 32)
-        Me.PictureBox_EngCommit.Name = "PictureBox_EngCommit"
-        Me.PictureBox_EngCommit.Size = New System.Drawing.Size(31, 22)
-        Me.PictureBox_EngCommit.TabIndex = 16
-        Me.PictureBox_EngCommit.TabStop = False
-        '
-        'PictureBox_FinishActual
-        '
-        Me.PictureBox_FinishActual.Image = CType(resources.GetObject("PictureBox_FinishActual.Image"), System.Drawing.Image)
-        Me.PictureBox_FinishActual.Location = New System.Drawing.Point(270, 60)
-        Me.PictureBox_FinishActual.Name = "PictureBox_FinishActual"
-        Me.PictureBox_FinishActual.Size = New System.Drawing.Size(31, 22)
-        Me.PictureBox_FinishActual.TabIndex = 15
-        Me.PictureBox_FinishActual.TabStop = False
-        '
-        'PictureBox_FinishCommit
-        '
-        Me.PictureBox_FinishCommit.Image = Global.OrderTracker.My.Resources.Resources.greenSquare
-        Me.PictureBox_FinishCommit.Location = New System.Drawing.Point(270, 32)
-        Me.PictureBox_FinishCommit.Name = "PictureBox_FinishCommit"
-        Me.PictureBox_FinishCommit.Size = New System.Drawing.Size(31, 22)
-        Me.PictureBox_FinishCommit.TabIndex = 14
-        Me.PictureBox_FinishCommit.TabStop = False
-        '
-        'PictureBox_FabActual
-        '
-        Me.PictureBox_FabActual.Image = CType(resources.GetObject("PictureBox_FabActual.Image"), System.Drawing.Image)
-        Me.PictureBox_FabActual.Location = New System.Drawing.Point(219, 60)
-        Me.PictureBox_FabActual.Name = "PictureBox_FabActual"
-        Me.PictureBox_FabActual.Size = New System.Drawing.Size(31, 22)
-        Me.PictureBox_FabActual.TabIndex = 13
-        Me.PictureBox_FabActual.TabStop = False
-        '
-        'PictureBox_FabCommit
-        '
-        Me.PictureBox_FabCommit.Image = Global.OrderTracker.My.Resources.Resources.greenSquare
-        Me.PictureBox_FabCommit.Location = New System.Drawing.Point(219, 32)
-        Me.PictureBox_FabCommit.Name = "PictureBox_FabCommit"
-        Me.PictureBox_FabCommit.Size = New System.Drawing.Size(31, 22)
-        Me.PictureBox_FabCommit.TabIndex = 12
-        Me.PictureBox_FabCommit.TabStop = False
-        '
-        'PictureBox_DrftActual
-        '
-        Me.PictureBox_DrftActual.Image = CType(resources.GetObject("PictureBox_DrftActual.Image"), System.Drawing.Image)
-        Me.PictureBox_DrftActual.Location = New System.Drawing.Point(169, 60)
-        Me.PictureBox_DrftActual.Name = "PictureBox_DrftActual"
-        Me.PictureBox_DrftActual.Size = New System.Drawing.Size(31, 22)
-        Me.PictureBox_DrftActual.TabIndex = 11
-        Me.PictureBox_DrftActual.TabStop = False
-        '
-        'PictureBox_DrftCommit
-        '
-        Me.PictureBox_DrftCommit.Image = Global.OrderTracker.My.Resources.Resources.greenSquare
-        Me.PictureBox_DrftCommit.Location = New System.Drawing.Point(169, 32)
-        Me.PictureBox_DrftCommit.Name = "PictureBox_DrftCommit"
-        Me.PictureBox_DrftCommit.Size = New System.Drawing.Size(31, 22)
-        Me.PictureBox_DrftCommit.TabIndex = 10
-        Me.PictureBox_DrftCommit.TabStop = False
-        '
-        'PictureBox_PriceActual
-        '
-        Me.PictureBox_PriceActual.Image = Global.OrderTracker.My.Resources.Resources.yellowSquare
-        Me.PictureBox_PriceActual.Location = New System.Drawing.Point(71, 60)
-        Me.PictureBox_PriceActual.Name = "PictureBox_PriceActual"
-        Me.PictureBox_PriceActual.Size = New System.Drawing.Size(31, 22)
-        Me.PictureBox_PriceActual.TabIndex = 9
-        Me.PictureBox_PriceActual.TabStop = False
-        '
-        'PictureBox_PriceCommit
-        '
-        Me.PictureBox_PriceCommit.Image = Global.OrderTracker.My.Resources.Resources.greenSquare
-        Me.PictureBox_PriceCommit.InitialImage = Nothing
-        Me.PictureBox_PriceCommit.Location = New System.Drawing.Point(71, 32)
-        Me.PictureBox_PriceCommit.Name = "PictureBox_PriceCommit"
-        Me.PictureBox_PriceCommit.Size = New System.Drawing.Size(31, 22)
-        Me.PictureBox_PriceCommit.TabIndex = 8
-        Me.PictureBox_PriceCommit.TabStop = False
         '
         'Label10
         '
@@ -1725,48 +1616,12 @@ Partial Class Form1
         Me.TableBindingNavigator.TabIndex = 1
         Me.TableBindingNavigator.Text = "BindingNavigator1"
         '
-        'BindingNavigatorAddNewItem
-        '
-        Me.BindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.BindingNavigatorAddNewItem.Image = CType(resources.GetObject("BindingNavigatorAddNewItem.Image"), System.Drawing.Image)
-        Me.BindingNavigatorAddNewItem.Name = "BindingNavigatorAddNewItem"
-        Me.BindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorAddNewItem.Size = New System.Drawing.Size(23, 22)
-        Me.BindingNavigatorAddNewItem.Text = "Add new"
-        '
         'BindingNavigatorCountItem
         '
         Me.BindingNavigatorCountItem.Name = "BindingNavigatorCountItem"
         Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(35, 22)
         Me.BindingNavigatorCountItem.Text = "of {0}"
         Me.BindingNavigatorCountItem.ToolTipText = "Total number of items"
-        '
-        'BindingNavigatorDeleteItem
-        '
-        Me.BindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.BindingNavigatorDeleteItem.Image = CType(resources.GetObject("BindingNavigatorDeleteItem.Image"), System.Drawing.Image)
-        Me.BindingNavigatorDeleteItem.Name = "BindingNavigatorDeleteItem"
-        Me.BindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorDeleteItem.Size = New System.Drawing.Size(23, 22)
-        Me.BindingNavigatorDeleteItem.Text = "Delete"
-        '
-        'BindingNavigatorMoveFirstItem
-        '
-        Me.BindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.BindingNavigatorMoveFirstItem.Image = CType(resources.GetObject("BindingNavigatorMoveFirstItem.Image"), System.Drawing.Image)
-        Me.BindingNavigatorMoveFirstItem.Name = "BindingNavigatorMoveFirstItem"
-        Me.BindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorMoveFirstItem.Size = New System.Drawing.Size(23, 22)
-        Me.BindingNavigatorMoveFirstItem.Text = "Move first"
-        '
-        'BindingNavigatorMovePreviousItem
-        '
-        Me.BindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.BindingNavigatorMovePreviousItem.Image = CType(resources.GetObject("BindingNavigatorMovePreviousItem.Image"), System.Drawing.Image)
-        Me.BindingNavigatorMovePreviousItem.Name = "BindingNavigatorMovePreviousItem"
-        Me.BindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorMovePreviousItem.Size = New System.Drawing.Size(23, 22)
-        Me.BindingNavigatorMovePreviousItem.Text = "Move previous"
         '
         'BindingNavigatorSeparator
         '
@@ -1777,7 +1632,6 @@ Partial Class Form1
         '
         Me.BindingNavigatorPositionItem.AccessibleName = "Position"
         Me.BindingNavigatorPositionItem.AutoSize = False
-        Me.BindingNavigatorPositionItem.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.BindingNavigatorPositionItem.Name = "BindingNavigatorPositionItem"
         Me.BindingNavigatorPositionItem.Size = New System.Drawing.Size(50, 23)
         Me.BindingNavigatorPositionItem.Text = "0"
@@ -1788,36 +1642,10 @@ Partial Class Form1
         Me.BindingNavigatorSeparator1.Name = "BindingNavigatorSeparator1"
         Me.BindingNavigatorSeparator1.Size = New System.Drawing.Size(6, 25)
         '
-        'BindingNavigatorMoveNextItem
-        '
-        Me.BindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.BindingNavigatorMoveNextItem.Image = CType(resources.GetObject("BindingNavigatorMoveNextItem.Image"), System.Drawing.Image)
-        Me.BindingNavigatorMoveNextItem.Name = "BindingNavigatorMoveNextItem"
-        Me.BindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorMoveNextItem.Size = New System.Drawing.Size(23, 22)
-        Me.BindingNavigatorMoveNextItem.Text = "Move next"
-        '
-        'BindingNavigatorMoveLastItem
-        '
-        Me.BindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.BindingNavigatorMoveLastItem.Image = CType(resources.GetObject("BindingNavigatorMoveLastItem.Image"), System.Drawing.Image)
-        Me.BindingNavigatorMoveLastItem.Name = "BindingNavigatorMoveLastItem"
-        Me.BindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorMoveLastItem.Size = New System.Drawing.Size(23, 22)
-        Me.BindingNavigatorMoveLastItem.Text = "Move last"
-        '
         'BindingNavigatorSeparator2
         '
         Me.BindingNavigatorSeparator2.Name = "BindingNavigatorSeparator2"
         Me.BindingNavigatorSeparator2.Size = New System.Drawing.Size(6, 25)
-        '
-        'TableBindingNavigatorSaveItem
-        '
-        Me.TableBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.TableBindingNavigatorSaveItem.Image = CType(resources.GetObject("TableBindingNavigatorSaveItem.Image"), System.Drawing.Image)
-        Me.TableBindingNavigatorSaveItem.Name = "TableBindingNavigatorSaveItem"
-        Me.TableBindingNavigatorSaveItem.Size = New System.Drawing.Size(23, 22)
-        Me.TableBindingNavigatorSaveItem.Text = "Save Data"
         '
         'ToolStripLabel1
         '
@@ -1846,6 +1674,183 @@ Partial Class Form1
         Me.QuoteOrdersDS1.DataSetName = "QuoteOrdersDS"
         Me.QuoteOrdersDS1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
+        'BindingNavigatorAddNewItem
+        '
+        Me.BindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorAddNewItem.Image = CType(resources.GetObject("BindingNavigatorAddNewItem.Image"), System.Drawing.Image)
+        Me.BindingNavigatorAddNewItem.Name = "BindingNavigatorAddNewItem"
+        Me.BindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorAddNewItem.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorAddNewItem.Text = "Add new"
+        '
+        'BindingNavigatorDeleteItem
+        '
+        Me.BindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorDeleteItem.Image = CType(resources.GetObject("BindingNavigatorDeleteItem.Image"), System.Drawing.Image)
+        Me.BindingNavigatorDeleteItem.Name = "BindingNavigatorDeleteItem"
+        Me.BindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorDeleteItem.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorDeleteItem.Text = "Delete"
+        '
+        'BindingNavigatorMoveFirstItem
+        '
+        Me.BindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorMoveFirstItem.Image = CType(resources.GetObject("BindingNavigatorMoveFirstItem.Image"), System.Drawing.Image)
+        Me.BindingNavigatorMoveFirstItem.Name = "BindingNavigatorMoveFirstItem"
+        Me.BindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorMoveFirstItem.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorMoveFirstItem.Text = "Move first"
+        '
+        'BindingNavigatorMovePreviousItem
+        '
+        Me.BindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorMovePreviousItem.Image = CType(resources.GetObject("BindingNavigatorMovePreviousItem.Image"), System.Drawing.Image)
+        Me.BindingNavigatorMovePreviousItem.Name = "BindingNavigatorMovePreviousItem"
+        Me.BindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorMovePreviousItem.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorMovePreviousItem.Text = "Move previous"
+        '
+        'BindingNavigatorMoveNextItem
+        '
+        Me.BindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorMoveNextItem.Image = CType(resources.GetObject("BindingNavigatorMoveNextItem.Image"), System.Drawing.Image)
+        Me.BindingNavigatorMoveNextItem.Name = "BindingNavigatorMoveNextItem"
+        Me.BindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorMoveNextItem.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorMoveNextItem.Text = "Move next"
+        '
+        'BindingNavigatorMoveLastItem
+        '
+        Me.BindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorMoveLastItem.Image = CType(resources.GetObject("BindingNavigatorMoveLastItem.Image"), System.Drawing.Image)
+        Me.BindingNavigatorMoveLastItem.Name = "BindingNavigatorMoveLastItem"
+        Me.BindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorMoveLastItem.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorMoveLastItem.Text = "Move last"
+        '
+        'TableBindingNavigatorSaveItem
+        '
+        Me.TableBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.TableBindingNavigatorSaveItem.Image = CType(resources.GetObject("TableBindingNavigatorSaveItem.Image"), System.Drawing.Image)
+        Me.TableBindingNavigatorSaveItem.Name = "TableBindingNavigatorSaveItem"
+        Me.TableBindingNavigatorSaveItem.Size = New System.Drawing.Size(23, 22)
+        Me.TableBindingNavigatorSaveItem.Text = "Save Data"
+        '
+        'PictureBox_ShipActual
+        '
+        Me.PictureBox_ShipActual.Image = CType(resources.GetObject("PictureBox_ShipActual.Image"), System.Drawing.Image)
+        Me.PictureBox_ShipActual.InitialImage = Nothing
+        Me.PictureBox_ShipActual.Location = New System.Drawing.Point(320, 60)
+        Me.PictureBox_ShipActual.Name = "PictureBox_ShipActual"
+        Me.PictureBox_ShipActual.Size = New System.Drawing.Size(31, 22)
+        Me.PictureBox_ShipActual.TabIndex = 19
+        Me.PictureBox_ShipActual.TabStop = False
+        '
+        'PictureBox_ShipCommit
+        '
+        Me.PictureBox_ShipCommit.Image = CType(resources.GetObject("PictureBox_ShipCommit.Image"), System.Drawing.Image)
+        Me.PictureBox_ShipCommit.Location = New System.Drawing.Point(320, 32)
+        Me.PictureBox_ShipCommit.Name = "PictureBox_ShipCommit"
+        Me.PictureBox_ShipCommit.Size = New System.Drawing.Size(31, 22)
+        Me.PictureBox_ShipCommit.TabIndex = 18
+        Me.PictureBox_ShipCommit.TabStop = False
+        '
+        'PictureBox_EngActual
+        '
+        Me.PictureBox_EngActual.Image = CType(resources.GetObject("PictureBox_EngActual.Image"), System.Drawing.Image)
+        Me.PictureBox_EngActual.InitialImage = Nothing
+        Me.PictureBox_EngActual.Location = New System.Drawing.Point(120, 60)
+        Me.PictureBox_EngActual.Name = "PictureBox_EngActual"
+        Me.PictureBox_EngActual.Size = New System.Drawing.Size(31, 22)
+        Me.PictureBox_EngActual.TabIndex = 17
+        Me.PictureBox_EngActual.TabStop = False
+        '
+        'PictureBox_EngCommit
+        '
+        Me.PictureBox_EngCommit.Image = CType(resources.GetObject("PictureBox_EngCommit.Image"), System.Drawing.Image)
+        Me.PictureBox_EngCommit.Location = New System.Drawing.Point(120, 32)
+        Me.PictureBox_EngCommit.Name = "PictureBox_EngCommit"
+        Me.PictureBox_EngCommit.Size = New System.Drawing.Size(31, 22)
+        Me.PictureBox_EngCommit.TabIndex = 16
+        Me.PictureBox_EngCommit.TabStop = False
+        '
+        'PictureBox_FinishActual
+        '
+        Me.PictureBox_FinishActual.Image = CType(resources.GetObject("PictureBox_FinishActual.Image"), System.Drawing.Image)
+        Me.PictureBox_FinishActual.InitialImage = Nothing
+        Me.PictureBox_FinishActual.Location = New System.Drawing.Point(270, 60)
+        Me.PictureBox_FinishActual.Name = "PictureBox_FinishActual"
+        Me.PictureBox_FinishActual.Size = New System.Drawing.Size(31, 22)
+        Me.PictureBox_FinishActual.TabIndex = 15
+        Me.PictureBox_FinishActual.TabStop = False
+        '
+        'PictureBox_FinishCommit
+        '
+        Me.PictureBox_FinishCommit.Image = CType(resources.GetObject("PictureBox_FinishCommit.Image"), System.Drawing.Image)
+        Me.PictureBox_FinishCommit.Location = New System.Drawing.Point(270, 32)
+        Me.PictureBox_FinishCommit.Name = "PictureBox_FinishCommit"
+        Me.PictureBox_FinishCommit.Size = New System.Drawing.Size(31, 22)
+        Me.PictureBox_FinishCommit.TabIndex = 14
+        Me.PictureBox_FinishCommit.TabStop = False
+        '
+        'PictureBox_FabActual
+        '
+        Me.PictureBox_FabActual.Image = CType(resources.GetObject("PictureBox_FabActual.Image"), System.Drawing.Image)
+        Me.PictureBox_FabActual.InitialImage = Nothing
+        Me.PictureBox_FabActual.Location = New System.Drawing.Point(219, 60)
+        Me.PictureBox_FabActual.Name = "PictureBox_FabActual"
+        Me.PictureBox_FabActual.Size = New System.Drawing.Size(31, 22)
+        Me.PictureBox_FabActual.TabIndex = 13
+        Me.PictureBox_FabActual.TabStop = False
+        '
+        'PictureBox_FabCommit
+        '
+        Me.PictureBox_FabCommit.Image = CType(resources.GetObject("PictureBox_FabCommit.Image"), System.Drawing.Image)
+        Me.PictureBox_FabCommit.Location = New System.Drawing.Point(219, 32)
+        Me.PictureBox_FabCommit.Name = "PictureBox_FabCommit"
+        Me.PictureBox_FabCommit.Size = New System.Drawing.Size(31, 22)
+        Me.PictureBox_FabCommit.TabIndex = 12
+        Me.PictureBox_FabCommit.TabStop = False
+        '
+        'PictureBox_DrftActual
+        '
+        Me.PictureBox_DrftActual.Image = CType(resources.GetObject("PictureBox_DrftActual.Image"), System.Drawing.Image)
+        Me.PictureBox_DrftActual.InitialImage = Nothing
+        Me.PictureBox_DrftActual.Location = New System.Drawing.Point(169, 60)
+        Me.PictureBox_DrftActual.Name = "PictureBox_DrftActual"
+        Me.PictureBox_DrftActual.Size = New System.Drawing.Size(31, 22)
+        Me.PictureBox_DrftActual.TabIndex = 11
+        Me.PictureBox_DrftActual.TabStop = False
+        '
+        'PictureBox_DrftCommit
+        '
+        Me.PictureBox_DrftCommit.Image = CType(resources.GetObject("PictureBox_DrftCommit.Image"), System.Drawing.Image)
+        Me.PictureBox_DrftCommit.Location = New System.Drawing.Point(169, 32)
+        Me.PictureBox_DrftCommit.Name = "PictureBox_DrftCommit"
+        Me.PictureBox_DrftCommit.Size = New System.Drawing.Size(31, 22)
+        Me.PictureBox_DrftCommit.TabIndex = 10
+        Me.PictureBox_DrftCommit.TabStop = False
+        '
+        'PictureBox_PriceActual
+        '
+        Me.PictureBox_PriceActual.Image = CType(resources.GetObject("PictureBox_PriceActual.Image"), System.Drawing.Image)
+        Me.PictureBox_PriceActual.InitialImage = Nothing
+        Me.PictureBox_PriceActual.Location = New System.Drawing.Point(71, 60)
+        Me.PictureBox_PriceActual.Name = "PictureBox_PriceActual"
+        Me.PictureBox_PriceActual.Size = New System.Drawing.Size(31, 22)
+        Me.PictureBox_PriceActual.TabIndex = 9
+        Me.PictureBox_PriceActual.TabStop = False
+        '
+        'PictureBox_PriceCommit
+        '
+        Me.PictureBox_PriceCommit.Image = CType(resources.GetObject("PictureBox_PriceCommit.Image"), System.Drawing.Image)
+        Me.PictureBox_PriceCommit.InitialImage = Nothing
+        Me.PictureBox_PriceCommit.Location = New System.Drawing.Point(71, 32)
+        Me.PictureBox_PriceCommit.Name = "PictureBox_PriceCommit"
+        Me.PictureBox_PriceCommit.Size = New System.Drawing.Size(31, 22)
+        Me.PictureBox_PriceCommit.TabIndex = 8
+        Me.PictureBox_PriceCommit.TabStop = False
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1863,18 +1868,6 @@ Partial Class Form1
         CType(Me.QuoteOrdersDS, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
-        CType(Me.PictureBox_ShipActual, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox_ShipCommit, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox_EngActual, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox_EngCommit, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox_FinishActual, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox_FinishCommit, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox_FabActual, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox_FabCommit, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox_DrftActual, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox_DrftCommit, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox_PriceActual, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox_PriceCommit, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.TabPage2.ResumeLayout(False)
@@ -1899,6 +1892,18 @@ Partial Class Form1
         Me.TableBindingNavigator.ResumeLayout(False)
         Me.TableBindingNavigator.PerformLayout()
         CType(Me.QuoteOrdersDS1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox_ShipActual, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox_ShipCommit, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox_EngActual, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox_EngCommit, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox_FinishActual, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox_FinishCommit, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox_FabActual, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox_FabCommit, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox_DrftActual, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox_DrftCommit, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox_PriceActual, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox_PriceCommit, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
