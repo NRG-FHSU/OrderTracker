@@ -198,6 +198,9 @@
       <DependentUpon>QuoteOrders.mdf</DependentUpon>
     </Content>
     <Content Include="redSquare.bmp" />
+    <None Include="Resources\GreenButton.png" />
+    <None Include="Resources\RedButton.png" />
+    <None Include="Resources\YellowButton.png" />
     <Content Include="yellowSquare.bmp" />
   </ItemGroup>
   <ItemGroup>
