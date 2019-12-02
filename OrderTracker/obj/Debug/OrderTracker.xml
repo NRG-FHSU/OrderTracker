@@ -52,6 +52,71 @@ OrderTracker
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="T:OrderTracker.OrderReport">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:OrderTracker.OrderReport.TableDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:OrderTracker.OrderReport.TableRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:OrderTracker.OrderReport.TableRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:OrderTracker.OrderReportTableAdapters.TableTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:OrderTracker.OrderReportTableAdapters.TableAdapterManager">
+<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member>
+<member name="M:OrderTracker.OrderReportTableAdapters.TableAdapterManager.UpdateUpdatedRows(OrderTracker.OrderReport,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Update rows in top-down order.
+</summary>
+</member>
+<member name="M:OrderTracker.OrderReportTableAdapters.TableAdapterManager.UpdateInsertedRows(OrderTracker.OrderReport,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Insert rows in top-down order.
+</summary>
+</member>
+<member name="M:OrderTracker.OrderReportTableAdapters.TableAdapterManager.UpdateDeletedRows(OrderTracker.OrderReport,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Delete rows in bottom-up order.
+</summary>
+</member>
+<member name="M:OrderTracker.OrderReportTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member>
+<member name="M:OrderTracker.OrderReportTableAdapters.TableAdapterManager.UpdateAll(OrderTracker.OrderReport)">
+<summary>
+Update all changes to the dataset.
+</summary>
+</member>
+<member name="T:OrderTracker.OrderReportTableAdapters.TableAdapterManager.UpdateOrderOption">
+<summary>
+Update Order Option
+</summary>
+</member>
+<member name="T:OrderTracker.OrderReportTableAdapters.TableAdapterManager.SelfReferenceComparer">
+<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member>
 <member name="T:OrderTracker.QuoteOrdersDataSet">
 <summary>
 Represents a strongly typed in-memory cache of data.
@@ -183,6 +248,71 @@ Update Order Option
 </summary>
 </member>
 <member name="T:OrderTracker.QuoteOrdersTrackingTableAdapters.TableAdapterManager.SelfReferenceComparer">
+<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member>
+<member name="T:OrderTracker.QuoteReport">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:OrderTracker.QuoteReport.TableDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:OrderTracker.QuoteReport.TableRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:OrderTracker.QuoteReport.TableRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:OrderTracker.QuoteReportTableAdapters.TableTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:OrderTracker.QuoteReportTableAdapters.TableAdapterManager">
+<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member>
+<member name="M:OrderTracker.QuoteReportTableAdapters.TableAdapterManager.UpdateUpdatedRows(OrderTracker.QuoteReport,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Update rows in top-down order.
+</summary>
+</member>
+<member name="M:OrderTracker.QuoteReportTableAdapters.TableAdapterManager.UpdateInsertedRows(OrderTracker.QuoteReport,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Insert rows in top-down order.
+</summary>
+</member>
+<member name="M:OrderTracker.QuoteReportTableAdapters.TableAdapterManager.UpdateDeletedRows(OrderTracker.QuoteReport,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Delete rows in bottom-up order.
+</summary>
+</member>
+<member name="M:OrderTracker.QuoteReportTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member>
+<member name="M:OrderTracker.QuoteReportTableAdapters.TableAdapterManager.UpdateAll(OrderTracker.QuoteReport)">
+<summary>
+Update all changes to the dataset.
+</summary>
+</member>
+<member name="T:OrderTracker.QuoteReportTableAdapters.TableAdapterManager.UpdateOrderOption">
+<summary>
+Update Order Option
+</summary>
+</member>
+<member name="T:OrderTracker.QuoteReportTableAdapters.TableAdapterManager.SelfReferenceComparer">
 <summary>
 Used to sort self-referenced table's rows
 </summary>

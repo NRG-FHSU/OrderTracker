@@ -283,8 +283,6 @@ Partial Public Class QuoteOrdersDS
     Partial Public Class TableDataTable
         Inherits Global.System.Data.TypedTableBase(Of TableRow)
         
-        Private columnId As Global.System.Data.DataColumn
-        
         Private columnCustomer As Global.System.Data.DataColumn
         
         Private columnProject As Global.System.Data.DataColumn
@@ -397,14 +395,6 @@ Partial Public Class QuoteOrdersDS
             MyBase.New(info, context)
             Me.InitVars
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property IdColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnId
-            End Get
-        End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
@@ -756,7 +746,6 @@ Partial Public Class QuoteOrdersDS
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Overloads Function AddTableRow( _
-                    ByVal Id As Integer,  _
                     ByVal Customer As String,  _
                     ByVal Project As String,  _
                     ByVal PO_Reciept As Date,  _
@@ -797,7 +786,7 @@ Partial Public Class QuoteOrdersDS
                     ByVal POProject As String,  _
                     ByVal PricingStarted As String) As TableRow
             Dim rowTableRow As TableRow = CType(Me.NewRow,TableRow)
-            Dim columnValuesArray() As Object = New Object() {Id, Customer, Project, PO_Reciept, Delivery_Date, Quote_Due_Date, EngRequired, EngStarted, EngCompleted, DrftRequired, DrftStarted, DrftCompleted, FabRequired, FabStarted, FabCompleted, FinishRequired, FinishStarted, FinishCompleted, ShipRequired, ShipStarted, ShipCompleted, PricingRequired, PricingCompleted, UserPriceStart, UserPriceComplete, UserEngStart, UserEngComplete, UserDrftStart, UserDrftComplete, UserFabStart, UserFabComplete, UserFinishStart, UserFinishComplete, UserShipStart, UserShipComplete, QuoteNo, OrderNo, PONo, POProject, PricingStarted}
+            Dim columnValuesArray() As Object = New Object() {Customer, Project, PO_Reciept, Delivery_Date, Quote_Due_Date, EngRequired, EngStarted, EngCompleted, DrftRequired, DrftStarted, DrftCompleted, FabRequired, FabStarted, FabCompleted, FinishRequired, FinishStarted, FinishCompleted, ShipRequired, ShipStarted, ShipCompleted, PricingRequired, PricingCompleted, UserPriceStart, UserPriceComplete, UserEngStart, UserEngComplete, UserDrftStart, UserDrftComplete, UserFabStart, UserFabComplete, UserFinishStart, UserFinishComplete, UserShipStart, UserShipComplete, QuoteNo, OrderNo, PONo, POProject, PricingStarted}
             rowTableRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowTableRow)
             Return rowTableRow
@@ -805,8 +794,8 @@ Partial Public Class QuoteOrdersDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function FindById(ByVal Id As Integer) As TableRow
-            Return CType(Me.Rows.Find(New Object() {Id}),TableRow)
+        Public Function FindByCustomer(ByVal Customer As String) As TableRow
+            Return CType(Me.Rows.Find(New Object() {Customer}),TableRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -826,7 +815,6 @@ Partial Public Class QuoteOrdersDS
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Friend Sub InitVars()
-            Me.columnId = MyBase.Columns("Id")
             Me.columnCustomer = MyBase.Columns("Customer")
             Me.columnProject = MyBase.Columns("Project")
             Me.columnPO_Reciept = MyBase.Columns("PO Reciept")
@@ -871,8 +859,6 @@ Partial Public Class QuoteOrdersDS
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Private Sub InitClass()
-            Me.columnId = New Global.System.Data.DataColumn("Id", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnId)
             Me.columnCustomer = New Global.System.Data.DataColumn("Customer", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCustomer)
             Me.columnProject = New Global.System.Data.DataColumn("Project", GetType(String), Nothing, Global.System.Data.MappingType.Element)
@@ -951,10 +937,9 @@ Partial Public Class QuoteOrdersDS
             MyBase.Columns.Add(Me.columnPOProject)
             Me.columnPricingStarted = New Global.System.Data.DataColumn("PricingStarted", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnPricingStarted)
-            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnId}, true))
-            Me.columnId.AllowDBNull = false
-            Me.columnId.Unique = true
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnCustomer}, true))
             Me.columnCustomer.AllowDBNull = false
+            Me.columnCustomer.Unique = true
             Me.columnCustomer.MaxLength = 50
             Me.columnProject.AllowDBNull = false
             Me.columnProject.MaxLength = 50
@@ -1126,17 +1111,6 @@ Partial Public Class QuoteOrdersDS
             MyBase.New(rb)
             Me.tableTable = CType(Me.Table,TableDataTable)
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property Id() As Integer
-            Get
-                Return CType(Me(Me.tableTable.IdColumn),Integer)
-            End Get
-            Set
-                Me(Me.tableTable.IdColumn) = value
-            End Set
-        End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
@@ -2310,7 +2284,6 @@ Namespace QuoteOrdersDSTableAdapters
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
             tableMapping.SourceTable = "Table"
             tableMapping.DataSetTable = "Table"
-            tableMapping.ColumnMappings.Add("Id", "Id")
             tableMapping.ColumnMappings.Add("Customer", "Customer")
             tableMapping.ColumnMappings.Add("Project", "Project")
             tableMapping.ColumnMappings.Add("PO Reciept", "PO Reciept")
@@ -2353,62 +2326,59 @@ Namespace QuoteOrdersDSTableAdapters
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [Table] WHERE (((@IsNull_Id = 1 AND [Id] IS NULL) OR ([Id] = @Origina"& _ 
-                "l_Id)) AND ([Customer] = @Original_Customer) AND ((@IsNull_Project = 1 AND [Proj"& _ 
-                "ect] IS NULL) OR ([Project] = @Original_Project)) AND ((@IsNull_PO_Reciept = 1 A"& _ 
-                "ND [PO Reciept] IS NULL) OR ([PO Reciept] = @Original_PO_Reciept)) AND ((@IsNull"& _ 
-                "_Delivery_Date = 1 AND [Delivery Date] IS NULL) OR ([Delivery Date] = @Original_"& _ 
-                "Delivery_Date)) AND ((@IsNull_Quote_Due_Date = 1 AND [Quote Due Date] IS NULL) O"& _ 
-                "R ([Quote Due Date] = @Original_Quote_Due_Date)) AND ((@IsNull_EngRequired = 1 A"& _ 
-                "ND [EngRequired] IS NULL) OR ([EngRequired] = @Original_EngRequired)) AND ((@IsN"& _ 
-                "ull_EngStarted = 1 AND [EngStarted] IS NULL) OR ([EngStarted] = @Original_EngSta"& _ 
-                "rted)) AND ((@IsNull_EngCompleted = 1 AND [EngCompleted] IS NULL) OR ([EngComple"& _ 
-                "ted] = @Original_EngCompleted)) AND ((@IsNull_DrftRequired = 1 AND [DrftRequired"& _ 
-                "] IS NULL) OR ([DrftRequired] = @Original_DrftRequired)) AND ((@IsNull_DrftStart"& _ 
-                "ed = 1 AND [DrftStarted] IS NULL) OR ([DrftStarted] = @Original_DrftStarted)) AN"& _ 
-                "D ((@IsNull_DrftCompleted = 1 AND [DrftCompleted] IS NULL) OR ([DrftCompleted] ="& _ 
-                " @Original_DrftCompleted)) AND ((@IsNull_FabRequired = 1 AND [FabRequired] IS NU"& _ 
-                "LL) OR ([FabRequired] = @Original_FabRequired)) AND ((@IsNull_FabStarted = 1 AND"& _ 
-                " [FabStarted] IS NULL) OR ([FabStarted] = @Original_FabStarted)) AND ((@IsNull_F"& _ 
-                "abCompleted = 1 AND [FabCompleted] IS NULL) OR ([FabCompleted] = @Original_FabCo"& _ 
-                "mpleted)) AND ((@IsNull_FinishRequired = 1 AND [FinishRequired] IS NULL) OR ([Fi"& _ 
-                "nishRequired] = @Original_FinishRequired)) AND ((@IsNull_FinishStarted = 1 AND ["& _ 
-                "FinishStarted] IS NULL) OR ([FinishStarted] = @Original_FinishStarted)) AND ((@I"& _ 
-                "sNull_FinishCompleted = 1 AND [FinishCompleted] IS NULL) OR ([FinishCompleted] ="& _ 
-                " @Original_FinishCompleted)) AND ((@IsNull_ShipRequired = 1 AND [ShipRequired] I"& _ 
-                "S NULL) OR ([ShipRequired] = @Original_ShipRequired)) AND ((@IsNull_ShipStarted "& _ 
-                "= 1 AND [ShipStarted] IS NULL) OR ([ShipStarted] = @Original_ShipStarted)) AND ("& _ 
-                "(@IsNull_ShipCompleted = 1 AND [ShipCompleted] IS NULL) OR ([ShipCompleted] = @O"& _ 
-                "riginal_ShipCompleted)) AND ((@IsNull_PricingCompleted = 1 AND [PricingCompleted"& _ 
-                "] IS NULL) OR ([PricingCompleted] = @Original_PricingCompleted)) AND ((@IsNull_P"& _ 
-                "ricingRequired = 1 AND [PricingRequired] IS NULL) OR ([PricingRequired] = @Origi"& _ 
-                "nal_PricingRequired)) AND ((@IsNull_UserDrftComplete = 1 AND [UserDrftComplete] "& _ 
-                "IS NULL) OR ([UserDrftComplete] = @Original_UserDrftComplete)) AND ((@IsNull_Use"& _ 
-                "rDrftStart = 1 AND [UserDrftStart] IS NULL) OR ([UserDrftStart] = @Original_User"& _ 
-                "DrftStart)) AND ((@IsNull_UserEngComplete = 1 AND [UserEngComplete] IS NULL) OR "& _ 
-                "([UserEngComplete] = @Original_UserEngComplete)) AND ((@IsNull_UserEngStart = 1 "& _ 
-                "AND [UserEngStart] IS NULL) OR ([UserEngStart] = @Original_UserEngStart)) AND (("& _ 
-                "@IsNull_UserFabComplete = 1 AND [UserFabComplete] IS NULL) OR ([UserFabComplete]"& _ 
-                " = @Original_UserFabComplete)) AND ((@IsNull_UserFabStart = 1 AND [UserFabStart]"& _ 
-                " IS NULL) OR ([UserFabStart] = @Original_UserFabStart)) AND ((@IsNull_UserFinish"& _ 
-                "Complete = 1 AND [UserFinishComplete] IS NULL) OR ([UserFinishComplete] = @Origi"& _ 
-                "nal_UserFinishComplete)) AND ((@IsNull_UserFinishStart = 1 AND [UserFinishStart]"& _ 
-                " IS NULL) OR ([UserFinishStart] = @Original_UserFinishStart)) AND ((@IsNull_User"& _ 
-                "PriceComplete = 1 AND [UserPriceComplete] IS NULL) OR ([UserPriceComplete] = @Or"& _ 
-                "iginal_UserPriceComplete)) AND ((@IsNull_UserPriceStart = 1 AND [UserPriceStart]"& _ 
-                " IS NULL) OR ([UserPriceStart] = @Original_UserPriceStart)) AND ((@IsNull_UserSh"& _ 
-                "ipComplete = 1 AND [UserShipComplete] IS NULL) OR ([UserShipComplete] = @Origina"& _ 
-                "l_UserShipComplete)) AND ((@IsNull_UserShipStart = 1 AND [UserShipStart] IS NULL"& _ 
-                ") OR ([UserShipStart] = @Original_UserShipStart)) AND ((@IsNull_OrderNo = 1 AND "& _ 
-                "[OrderNo] IS NULL) OR ([OrderNo] = @Original_OrderNo)) AND ((@IsNull_QuoteNo = 1"& _ 
-                " AND [QuoteNo] IS NULL) OR ([QuoteNo] = @Original_QuoteNo)) AND ((@IsNull_PONo ="& _ 
-                " 1 AND [PONo] IS NULL) OR ([PONo] = @Original_PONo)) AND ((@IsNull_POProject = 1"& _ 
-                " AND [POProject] IS NULL) OR ([POProject] = @Original_POProject)) AND ((@IsNull_"& _ 
-                "PricingStarted = 1 AND [PricingStarted] IS NULL) OR ([PricingStarted] = @Origina"& _ 
-                "l_PricingStarted)))"
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [Table] WHERE (([Customer] = @Original_Customer) AND ((@IsNull_Projec"& _ 
+                "t = 1 AND [Project] IS NULL) OR ([Project] = @Original_Project)) AND ((@IsNull_P"& _ 
+                "O_Reciept = 1 AND [PO Reciept] IS NULL) OR ([PO Reciept] = @Original_PO_Reciept)"& _ 
+                ") AND ((@IsNull_Delivery_Date = 1 AND [Delivery Date] IS NULL) OR ([Delivery Dat"& _ 
+                "e] = @Original_Delivery_Date)) AND ((@IsNull_Quote_Due_Date = 1 AND [Quote Due D"& _ 
+                "ate] IS NULL) OR ([Quote Due Date] = @Original_Quote_Due_Date)) AND ((@IsNull_En"& _ 
+                "gRequired = 1 AND [EngRequired] IS NULL) OR ([EngRequired] = @Original_EngRequir"& _ 
+                "ed)) AND ((@IsNull_EngStarted = 1 AND [EngStarted] IS NULL) OR ([EngStarted] = @"& _ 
+                "Original_EngStarted)) AND ((@IsNull_EngCompleted = 1 AND [EngCompleted] IS NULL)"& _ 
+                " OR ([EngCompleted] = @Original_EngCompleted)) AND ((@IsNull_DrftRequired = 1 AN"& _ 
+                "D [DrftRequired] IS NULL) OR ([DrftRequired] = @Original_DrftRequired)) AND ((@I"& _ 
+                "sNull_DrftStarted = 1 AND [DrftStarted] IS NULL) OR ([DrftStarted] = @Original_D"& _ 
+                "rftStarted)) AND ((@IsNull_DrftCompleted = 1 AND [DrftCompleted] IS NULL) OR ([D"& _ 
+                "rftCompleted] = @Original_DrftCompleted)) AND ((@IsNull_FabRequired = 1 AND [Fab"& _ 
+                "Required] IS NULL) OR ([FabRequired] = @Original_FabRequired)) AND ((@IsNull_Fab"& _ 
+                "Started = 1 AND [FabStarted] IS NULL) OR ([FabStarted] = @Original_FabStarted)) "& _ 
+                "AND ((@IsNull_FabCompleted = 1 AND [FabCompleted] IS NULL) OR ([FabCompleted] = "& _ 
+                "@Original_FabCompleted)) AND ((@IsNull_FinishRequired = 1 AND [FinishRequired] I"& _ 
+                "S NULL) OR ([FinishRequired] = @Original_FinishRequired)) AND ((@IsNull_FinishSt"& _ 
+                "arted = 1 AND [FinishStarted] IS NULL) OR ([FinishStarted] = @Original_FinishSta"& _ 
+                "rted)) AND ((@IsNull_FinishCompleted = 1 AND [FinishCompleted] IS NULL) OR ([Fin"& _ 
+                "ishCompleted] = @Original_FinishCompleted)) AND ((@IsNull_ShipRequired = 1 AND ["& _ 
+                "ShipRequired] IS NULL) OR ([ShipRequired] = @Original_ShipRequired)) AND ((@IsNu"& _ 
+                "ll_ShipStarted = 1 AND [ShipStarted] IS NULL) OR ([ShipStarted] = @Original_Ship"& _ 
+                "Started)) AND ((@IsNull_ShipCompleted = 1 AND [ShipCompleted] IS NULL) OR ([Ship"& _ 
+                "Completed] = @Original_ShipCompleted)) AND ((@IsNull_PricingCompleted = 1 AND [P"& _ 
+                "ricingCompleted] IS NULL) OR ([PricingCompleted] = @Original_PricingCompleted)) "& _ 
+                "AND ((@IsNull_PricingRequired = 1 AND [PricingRequired] IS NULL) OR ([PricingReq"& _ 
+                "uired] = @Original_PricingRequired)) AND ((@IsNull_UserDrftComplete = 1 AND [Use"& _ 
+                "rDrftComplete] IS NULL) OR ([UserDrftComplete] = @Original_UserDrftComplete)) AN"& _ 
+                "D ((@IsNull_UserDrftStart = 1 AND [UserDrftStart] IS NULL) OR ([UserDrftStart] ="& _ 
+                " @Original_UserDrftStart)) AND ((@IsNull_UserEngComplete = 1 AND [UserEngComplet"& _ 
+                "e] IS NULL) OR ([UserEngComplete] = @Original_UserEngComplete)) AND ((@IsNull_Us"& _ 
+                "erEngStart = 1 AND [UserEngStart] IS NULL) OR ([UserEngStart] = @Original_UserEn"& _ 
+                "gStart)) AND ((@IsNull_UserFabComplete = 1 AND [UserFabComplete] IS NULL) OR ([U"& _ 
+                "serFabComplete] = @Original_UserFabComplete)) AND ((@IsNull_UserFabStart = 1 AND"& _ 
+                " [UserFabStart] IS NULL) OR ([UserFabStart] = @Original_UserFabStart)) AND ((@Is"& _ 
+                "Null_UserFinishComplete = 1 AND [UserFinishComplete] IS NULL) OR ([UserFinishCom"& _ 
+                "plete] = @Original_UserFinishComplete)) AND ((@IsNull_UserFinishStart = 1 AND [U"& _ 
+                "serFinishStart] IS NULL) OR ([UserFinishStart] = @Original_UserFinishStart)) AND"& _ 
+                " ((@IsNull_UserPriceComplete = 1 AND [UserPriceComplete] IS NULL) OR ([UserPrice"& _ 
+                "Complete] = @Original_UserPriceComplete)) AND ((@IsNull_UserPriceStart = 1 AND ["& _ 
+                "UserPriceStart] IS NULL) OR ([UserPriceStart] = @Original_UserPriceStart)) AND ("& _ 
+                "(@IsNull_UserShipComplete = 1 AND [UserShipComplete] IS NULL) OR ([UserShipCompl"& _ 
+                "ete] = @Original_UserShipComplete)) AND ((@IsNull_UserShipStart = 1 AND [UserShi"& _ 
+                "pStart] IS NULL) OR ([UserShipStart] = @Original_UserShipStart)) AND ((@IsNull_O"& _ 
+                "rderNo = 1 AND [OrderNo] IS NULL) OR ([OrderNo] = @Original_OrderNo)) AND ((@IsN"& _ 
+                "ull_QuoteNo = 1 AND [QuoteNo] IS NULL) OR ([QuoteNo] = @Original_QuoteNo)) AND ("& _ 
+                "(@IsNull_PONo = 1 AND [PONo] IS NULL) OR ([PONo] = @Original_PONo)) AND ((@IsNul"& _ 
+                "l_POProject = 1 AND [POProject] IS NULL) OR ([POProject] = @Original_POProject))"& _ 
+                " AND ((@IsNull_PricingStarted = 1 AND [PricingStarted] IS NULL) OR ([PricingStar"& _ 
+                "ted] = @Original_PricingStarted)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Id", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Id", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Id", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Id", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Customer", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Customer", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Project", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Project", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Project", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Project", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
@@ -2488,32 +2458,31 @@ Namespace QuoteOrdersDSTableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_PricingStarted", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PricingStarted", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO [Table] ([Id], [Customer], [Project], [PO Reciept], [Delivery Date], "& _ 
-                "[Quote Due Date], [EngRequired], [EngStarted], [EngCompleted], [DrftRequired], ["& _ 
-                "DrftStarted], [DrftCompleted], [FabRequired], [FabStarted], [FabCompleted], [Fin"& _ 
-                "ishRequired], [FinishStarted], [FinishCompleted], [ShipRequired], [ShipStarted],"& _ 
-                " [ShipCompleted], [PricingCompleted], [PricingRequired], [UserDrftComplete], [Us"& _ 
-                "erDrftStart], [UserEngComplete], [UserEngStart], [UserFabComplete], [UserFabStar"& _ 
-                "t], [UserFinishComplete], [UserFinishStart], [UserPriceComplete], [UserPriceStar"& _ 
-                "t], [UserShipComplete], [UserShipStart], [OrderNo], [QuoteNo], [PONo], [POProjec"& _ 
-                "t], [PricingStarted]) VALUES (@Id, @Customer, @Project, @PO_Reciept, @Delivery_D"& _ 
-                "ate, @Quote_Due_Date, @EngRequired, @EngStarted, @EngCompleted, @DrftRequired, @"& _ 
-                "DrftStarted, @DrftCompleted, @FabRequired, @FabStarted, @FabCompleted, @FinishRe"& _ 
-                "quired, @FinishStarted, @FinishCompleted, @ShipRequired, @ShipStarted, @ShipComp"& _ 
-                "leted, @PricingCompleted, @PricingRequired, @UserDrftComplete, @UserDrftStart, @"& _ 
-                "UserEngComplete, @UserEngStart, @UserFabComplete, @UserFabStart, @UserFinishComp"& _ 
-                "lete, @UserFinishStart, @UserPriceComplete, @UserPriceStart, @UserShipComplete, "& _ 
-                "@UserShipStart, @OrderNo, @QuoteNo, @PONo, @POProject, @PricingStarted);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT"& _ 
-                " Id, Customer, Project, [PO Reciept], [Delivery Date], [Quote Due Date], EngRequ"& _ 
-                "ired, EngStarted, EngCompleted, DrftRequired, DrftStarted, DrftCompleted, FabReq"& _ 
-                "uired, FabStarted, FabCompleted, FinishRequired, FinishStarted, FinishCompleted,"& _ 
-                " ShipRequired, ShipStarted, ShipCompleted, PricingCompleted, PricingRequired, Us"& _ 
-                "erDrftComplete, UserDrftStart, UserEngComplete, UserEngStart, UserFabComplete, U"& _ 
-                "serFabStart, UserFinishComplete, UserFinishStart, UserPriceComplete, UserPriceSt"& _ 
-                "art, UserShipComplete, UserShipStart, OrderNo, QuoteNo, PONo, POProject, Pricing"& _ 
-                "Started FROM [Table] WHERE (Customer = @Customer)"
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [Table] ([Customer], [Project], [PO Reciept], [Delivery Date], [Quote"& _ 
+                " Due Date], [EngRequired], [EngStarted], [EngCompleted], [DrftRequired], [DrftSt"& _ 
+                "arted], [DrftCompleted], [FabRequired], [FabStarted], [FabCompleted], [FinishReq"& _ 
+                "uired], [FinishStarted], [FinishCompleted], [ShipRequired], [ShipStarted], [Ship"& _ 
+                "Completed], [PricingCompleted], [PricingRequired], [UserDrftComplete], [UserDrft"& _ 
+                "Start], [UserEngComplete], [UserEngStart], [UserFabComplete], [UserFabStart], [U"& _ 
+                "serFinishComplete], [UserFinishStart], [UserPriceComplete], [UserPriceStart], [U"& _ 
+                "serShipComplete], [UserShipStart], [OrderNo], [QuoteNo], [PONo], [POProject], [P"& _ 
+                "ricingStarted]) VALUES (@Customer, @Project, @PO_Reciept, @Delivery_Date, @Quote"& _ 
+                "_Due_Date, @EngRequired, @EngStarted, @EngCompleted, @DrftRequired, @DrftStarted"& _ 
+                ", @DrftCompleted, @FabRequired, @FabStarted, @FabCompleted, @FinishRequired, @Fi"& _ 
+                "nishStarted, @FinishCompleted, @ShipRequired, @ShipStarted, @ShipCompleted, @Pri"& _ 
+                "cingCompleted, @PricingRequired, @UserDrftComplete, @UserDrftStart, @UserEngComp"& _ 
+                "lete, @UserEngStart, @UserFabComplete, @UserFabStart, @UserFinishComplete, @User"& _ 
+                "FinishStart, @UserPriceComplete, @UserPriceStart, @UserShipComplete, @UserShipSt"& _ 
+                "art, @OrderNo, @QuoteNo, @PONo, @POProject, @PricingStarted);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Customer, "& _ 
+                "Project, [PO Reciept], [Delivery Date], [Quote Due Date], EngRequired, EngStarte"& _ 
+                "d, EngCompleted, DrftRequired, DrftStarted, DrftCompleted, FabRequired, FabStart"& _ 
+                "ed, FabCompleted, FinishRequired, FinishStarted, FinishCompleted, ShipRequired, "& _ 
+                "ShipStarted, ShipCompleted, PricingCompleted, PricingRequired, UserDrftComplete,"& _ 
+                " UserDrftStart, UserEngComplete, UserEngStart, UserFabComplete, UserFabStart, Us"& _ 
+                "erFinishComplete, UserFinishStart, UserPriceComplete, UserPriceStart, UserShipCo"& _ 
+                "mplete, UserShipStart, OrderNo, QuoteNo, PONo, POProject, PricingStarted FROM [T"& _ 
+                "able] WHERE (Customer = @Customer)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Id", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Id", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Customer", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Customer", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Project", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Project", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PO_Reciept", Global.System.Data.SqlDbType.SmallDateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PO Reciept", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -2555,84 +2524,82 @@ Namespace QuoteOrdersDSTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PricingStarted", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PricingStarted", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE [Table] SET [Id] = @Id, [Customer] = @Customer, [Project] = @Project, [PO "& _ 
-                "Reciept] = @PO_Reciept, [Delivery Date] = @Delivery_Date, [Quote Due Date] = @Qu"& _ 
-                "ote_Due_Date, [EngRequired] = @EngRequired, [EngStarted] = @EngStarted, [EngComp"& _ 
-                "leted] = @EngCompleted, [DrftRequired] = @DrftRequired, [DrftStarted] = @DrftSta"& _ 
-                "rted, [DrftCompleted] = @DrftCompleted, [FabRequired] = @FabRequired, [FabStarte"& _ 
-                "d] = @FabStarted, [FabCompleted] = @FabCompleted, [FinishRequired] = @FinishRequ"& _ 
-                "ired, [FinishStarted] = @FinishStarted, [FinishCompleted] = @FinishCompleted, [S"& _ 
-                "hipRequired] = @ShipRequired, [ShipStarted] = @ShipStarted, [ShipCompleted] = @S"& _ 
-                "hipCompleted, [PricingCompleted] = @PricingCompleted, [PricingRequired] = @Prici"& _ 
-                "ngRequired, [UserDrftComplete] = @UserDrftComplete, [UserDrftStart] = @UserDrftS"& _ 
-                "tart, [UserEngComplete] = @UserEngComplete, [UserEngStart] = @UserEngStart, [Use"& _ 
-                "rFabComplete] = @UserFabComplete, [UserFabStart] = @UserFabStart, [UserFinishCom"& _ 
-                "plete] = @UserFinishComplete, [UserFinishStart] = @UserFinishStart, [UserPriceCo"& _ 
-                "mplete] = @UserPriceComplete, [UserPriceStart] = @UserPriceStart, [UserShipCompl"& _ 
-                "ete] = @UserShipComplete, [UserShipStart] = @UserShipStart, [OrderNo] = @OrderNo"& _ 
-                ", [QuoteNo] = @QuoteNo, [PONo] = @PONo, [POProject] = @POProject, [PricingStarte"& _ 
-                "d] = @PricingStarted WHERE (((@IsNull_Id = 1 AND [Id] IS NULL) OR ([Id] = @Origi"& _ 
-                "nal_Id)) AND ([Customer] = @Original_Customer) AND ((@IsNull_Project = 1 AND [Pr"& _ 
-                "oject] IS NULL) OR ([Project] = @Original_Project)) AND ((@IsNull_PO_Reciept = 1"& _ 
-                " AND [PO Reciept] IS NULL) OR ([PO Reciept] = @Original_PO_Reciept)) AND ((@IsNu"& _ 
-                "ll_Delivery_Date = 1 AND [Delivery Date] IS NULL) OR ([Delivery Date] = @Origina"& _ 
-                "l_Delivery_Date)) AND ((@IsNull_Quote_Due_Date = 1 AND [Quote Due Date] IS NULL)"& _ 
-                " OR ([Quote Due Date] = @Original_Quote_Due_Date)) AND ((@IsNull_EngRequired = 1"& _ 
-                " AND [EngRequired] IS NULL) OR ([EngRequired] = @Original_EngRequired)) AND ((@I"& _ 
-                "sNull_EngStarted = 1 AND [EngStarted] IS NULL) OR ([EngStarted] = @Original_EngS"& _ 
-                "tarted)) AND ((@IsNull_EngCompleted = 1 AND [EngCompleted] IS NULL) OR ([EngComp"& _ 
-                "leted] = @Original_EngCompleted)) AND ((@IsNull_DrftRequired = 1 AND [DrftRequir"& _ 
-                "ed] IS NULL) OR ([DrftRequired] = @Original_DrftRequired)) AND ((@IsNull_DrftSta"& _ 
-                "rted = 1 AND [DrftStarted] IS NULL) OR ([DrftStarted] = @Original_DrftStarted)) "& _ 
-                "AND ((@IsNull_DrftCompleted = 1 AND [DrftCompleted] IS NULL) OR ([DrftCompleted]"& _ 
-                " = @Original_DrftCompleted)) AND ((@IsNull_FabRequired = 1 AND [FabRequired] IS "& _ 
-                "NULL) OR ([FabRequired] = @Original_FabRequired)) AND ((@IsNull_FabStarted = 1 A"& _ 
-                "ND [FabStarted] IS NULL) OR ([FabStarted] = @Original_FabStarted)) AND ((@IsNull"& _ 
-                "_FabCompleted = 1 AND [FabCompleted] IS NULL) OR ([FabCompleted] = @Original_Fab"& _ 
-                "Completed)) AND ((@IsNull_FinishRequired = 1 AND [FinishRequired] IS NULL) OR (["& _ 
-                "FinishRequired] = @Original_FinishRequired)) AND ((@IsNull_FinishStarted = 1 AND"& _ 
-                " [FinishStarted] IS NULL) OR ([FinishStarted] = @Original_FinishStarted)) AND (("& _ 
-                "@IsNull_FinishCompleted = 1 AND [FinishCompleted] IS NULL) OR ([FinishCompleted]"& _ 
-                " = @Original_FinishCompleted)) AND ((@IsNull_ShipRequired = 1 AND [ShipRequired]"& _ 
-                " IS NULL) OR ([ShipRequired] = @Original_ShipRequired)) AND ((@IsNull_ShipStarte"& _ 
-                "d = 1 AND [ShipStarted] IS NULL) OR ([ShipStarted] = @Original_ShipStarted)) AND"& _ 
-                " ((@IsNull_ShipCompleted = 1 AND [ShipCompleted] IS NULL) OR ([ShipCompleted] = "& _ 
-                "@Original_ShipCompleted)) AND ((@IsNull_PricingCompleted = 1 AND [PricingComplet"& _ 
-                "ed] IS NULL) OR ([PricingCompleted] = @Original_PricingCompleted)) AND ((@IsNull"& _ 
-                "_PricingRequired = 1 AND [PricingRequired] IS NULL) OR ([PricingRequired] = @Ori"& _ 
-                "ginal_PricingRequired)) AND ((@IsNull_UserDrftComplete = 1 AND [UserDrftComplete"& _ 
-                "] IS NULL) OR ([UserDrftComplete] = @Original_UserDrftComplete)) AND ((@IsNull_U"& _ 
-                "serDrftStart = 1 AND [UserDrftStart] IS NULL) OR ([UserDrftStart] = @Original_Us"& _ 
-                "erDrftStart)) AND ((@IsNull_UserEngComplete = 1 AND [UserEngComplete] IS NULL) O"& _ 
-                "R ([UserEngComplete] = @Original_UserEngComplete)) AND ((@IsNull_UserEngStart = "& _ 
-                "1 AND [UserEngStart] IS NULL) OR ([UserEngStart] = @Original_UserEngStart)) AND "& _ 
-                "((@IsNull_UserFabComplete = 1 AND [UserFabComplete] IS NULL) OR ([UserFabComplet"& _ 
-                "e] = @Original_UserFabComplete)) AND ((@IsNull_UserFabStart = 1 AND [UserFabStar"& _ 
-                "t] IS NULL) OR ([UserFabStart] = @Original_UserFabStart)) AND ((@IsNull_UserFini"& _ 
-                "shComplete = 1 AND [UserFinishComplete] IS NULL) OR ([UserFinishComplete] = @Ori"& _ 
-                "ginal_UserFinishComplete)) AND ((@IsNull_UserFinishStart = 1 AND [UserFinishStar"& _ 
-                "t] IS NULL) OR ([UserFinishStart] = @Original_UserFinishStart)) AND ((@IsNull_Us"& _ 
-                "erPriceComplete = 1 AND [UserPriceComplete] IS NULL) OR ([UserPriceComplete] = @"& _ 
-                "Original_UserPriceComplete)) AND ((@IsNull_UserPriceStart = 1 AND [UserPriceStar"& _ 
-                "t] IS NULL) OR ([UserPriceStart] = @Original_UserPriceStart)) AND ((@IsNull_User"& _ 
-                "ShipComplete = 1 AND [UserShipComplete] IS NULL) OR ([UserShipComplete] = @Origi"& _ 
-                "nal_UserShipComplete)) AND ((@IsNull_UserShipStart = 1 AND [UserShipStart] IS NU"& _ 
-                "LL) OR ([UserShipStart] = @Original_UserShipStart)) AND ((@IsNull_OrderNo = 1 AN"& _ 
-                "D [OrderNo] IS NULL) OR ([OrderNo] = @Original_OrderNo)) AND ((@IsNull_QuoteNo ="& _ 
-                " 1 AND [QuoteNo] IS NULL) OR ([QuoteNo] = @Original_QuoteNo)) AND ((@IsNull_PONo"& _ 
-                " = 1 AND [PONo] IS NULL) OR ([PONo] = @Original_PONo)) AND ((@IsNull_POProject ="& _ 
-                " 1 AND [POProject] IS NULL) OR ([POProject] = @Original_POProject)) AND ((@IsNul"& _ 
-                "l_PricingStarted = 1 AND [PricingStarted] IS NULL) OR ([PricingStarted] = @Origi"& _ 
-                "nal_PricingStarted)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Id, Customer, Project, [PO Reciept], [Delivery Da"& _ 
-                "te], [Quote Due Date], EngRequired, EngStarted, EngCompleted, DrftRequired, Drft"& _ 
-                "Started, DrftCompleted, FabRequired, FabStarted, FabCompleted, FinishRequired, F"& _ 
-                "inishStarted, FinishCompleted, ShipRequired, ShipStarted, ShipCompleted, Pricing"& _ 
-                "Completed, PricingRequired, UserDrftComplete, UserDrftStart, UserEngComplete, Us"& _ 
-                "erEngStart, UserFabComplete, UserFabStart, UserFinishComplete, UserFinishStart, "& _ 
-                "UserPriceComplete, UserPriceStart, UserShipComplete, UserShipStart, OrderNo, Quo"& _ 
-                "teNo, PONo, POProject, PricingStarted FROM [Table] WHERE (Customer = @Customer)"
+            Me._adapter.UpdateCommand.CommandText = "UPDATE [Table] SET [Customer] = @Customer, [Project] = @Project, [PO Reciept] = @"& _ 
+                "PO_Reciept, [Delivery Date] = @Delivery_Date, [Quote Due Date] = @Quote_Due_Date"& _ 
+                ", [EngRequired] = @EngRequired, [EngStarted] = @EngStarted, [EngCompleted] = @En"& _ 
+                "gCompleted, [DrftRequired] = @DrftRequired, [DrftStarted] = @DrftStarted, [DrftC"& _ 
+                "ompleted] = @DrftCompleted, [FabRequired] = @FabRequired, [FabStarted] = @FabSta"& _ 
+                "rted, [FabCompleted] = @FabCompleted, [FinishRequired] = @FinishRequired, [Finis"& _ 
+                "hStarted] = @FinishStarted, [FinishCompleted] = @FinishCompleted, [ShipRequired]"& _ 
+                " = @ShipRequired, [ShipStarted] = @ShipStarted, [ShipCompleted] = @ShipCompleted"& _ 
+                ", [PricingCompleted] = @PricingCompleted, [PricingRequired] = @PricingRequired, "& _ 
+                "[UserDrftComplete] = @UserDrftComplete, [UserDrftStart] = @UserDrftStart, [UserE"& _ 
+                "ngComplete] = @UserEngComplete, [UserEngStart] = @UserEngStart, [UserFabComplete"& _ 
+                "] = @UserFabComplete, [UserFabStart] = @UserFabStart, [UserFinishComplete] = @Us"& _ 
+                "erFinishComplete, [UserFinishStart] = @UserFinishStart, [UserPriceComplete] = @U"& _ 
+                "serPriceComplete, [UserPriceStart] = @UserPriceStart, [UserShipComplete] = @User"& _ 
+                "ShipComplete, [UserShipStart] = @UserShipStart, [OrderNo] = @OrderNo, [QuoteNo] "& _ 
+                "= @QuoteNo, [PONo] = @PONo, [POProject] = @POProject, [PricingStarted] = @Pricin"& _ 
+                "gStarted WHERE (([Customer] = @Original_Customer) AND ((@IsNull_Project = 1 AND "& _ 
+                "[Project] IS NULL) OR ([Project] = @Original_Project)) AND ((@IsNull_PO_Reciept "& _ 
+                "= 1 AND [PO Reciept] IS NULL) OR ([PO Reciept] = @Original_PO_Reciept)) AND ((@I"& _ 
+                "sNull_Delivery_Date = 1 AND [Delivery Date] IS NULL) OR ([Delivery Date] = @Orig"& _ 
+                "inal_Delivery_Date)) AND ((@IsNull_Quote_Due_Date = 1 AND [Quote Due Date] IS NU"& _ 
+                "LL) OR ([Quote Due Date] = @Original_Quote_Due_Date)) AND ((@IsNull_EngRequired "& _ 
+                "= 1 AND [EngRequired] IS NULL) OR ([EngRequired] = @Original_EngRequired)) AND ("& _ 
+                "(@IsNull_EngStarted = 1 AND [EngStarted] IS NULL) OR ([EngStarted] = @Original_E"& _ 
+                "ngStarted)) AND ((@IsNull_EngCompleted = 1 AND [EngCompleted] IS NULL) OR ([EngC"& _ 
+                "ompleted] = @Original_EngCompleted)) AND ((@IsNull_DrftRequired = 1 AND [DrftReq"& _ 
+                "uired] IS NULL) OR ([DrftRequired] = @Original_DrftRequired)) AND ((@IsNull_Drft"& _ 
+                "Started = 1 AND [DrftStarted] IS NULL) OR ([DrftStarted] = @Original_DrftStarted"& _ 
+                ")) AND ((@IsNull_DrftCompleted = 1 AND [DrftCompleted] IS NULL) OR ([DrftComplet"& _ 
+                "ed] = @Original_DrftCompleted)) AND ((@IsNull_FabRequired = 1 AND [FabRequired] "& _ 
+                "IS NULL) OR ([FabRequired] = @Original_FabRequired)) AND ((@IsNull_FabStarted = "& _ 
+                "1 AND [FabStarted] IS NULL) OR ([FabStarted] = @Original_FabStarted)) AND ((@IsN"& _ 
+                "ull_FabCompleted = 1 AND [FabCompleted] IS NULL) OR ([FabCompleted] = @Original_"& _ 
+                "FabCompleted)) AND ((@IsNull_FinishRequired = 1 AND [FinishRequired] IS NULL) OR"& _ 
+                " ([FinishRequired] = @Original_FinishRequired)) AND ((@IsNull_FinishStarted = 1 "& _ 
+                "AND [FinishStarted] IS NULL) OR ([FinishStarted] = @Original_FinishStarted)) AND"& _ 
+                " ((@IsNull_FinishCompleted = 1 AND [FinishCompleted] IS NULL) OR ([FinishComplet"& _ 
+                "ed] = @Original_FinishCompleted)) AND ((@IsNull_ShipRequired = 1 AND [ShipRequir"& _ 
+                "ed] IS NULL) OR ([ShipRequired] = @Original_ShipRequired)) AND ((@IsNull_ShipSta"& _ 
+                "rted = 1 AND [ShipStarted] IS NULL) OR ([ShipStarted] = @Original_ShipStarted)) "& _ 
+                "AND ((@IsNull_ShipCompleted = 1 AND [ShipCompleted] IS NULL) OR ([ShipCompleted]"& _ 
+                " = @Original_ShipCompleted)) AND ((@IsNull_PricingCompleted = 1 AND [PricingComp"& _ 
+                "leted] IS NULL) OR ([PricingCompleted] = @Original_PricingCompleted)) AND ((@IsN"& _ 
+                "ull_PricingRequired = 1 AND [PricingRequired] IS NULL) OR ([PricingRequired] = @"& _ 
+                "Original_PricingRequired)) AND ((@IsNull_UserDrftComplete = 1 AND [UserDrftCompl"& _ 
+                "ete] IS NULL) OR ([UserDrftComplete] = @Original_UserDrftComplete)) AND ((@IsNul"& _ 
+                "l_UserDrftStart = 1 AND [UserDrftStart] IS NULL) OR ([UserDrftStart] = @Original"& _ 
+                "_UserDrftStart)) AND ((@IsNull_UserEngComplete = 1 AND [UserEngComplete] IS NULL"& _ 
+                ") OR ([UserEngComplete] = @Original_UserEngComplete)) AND ((@IsNull_UserEngStart"& _ 
+                " = 1 AND [UserEngStart] IS NULL) OR ([UserEngStart] = @Original_UserEngStart)) A"& _ 
+                "ND ((@IsNull_UserFabComplete = 1 AND [UserFabComplete] IS NULL) OR ([UserFabComp"& _ 
+                "lete] = @Original_UserFabComplete)) AND ((@IsNull_UserFabStart = 1 AND [UserFabS"& _ 
+                "tart] IS NULL) OR ([UserFabStart] = @Original_UserFabStart)) AND ((@IsNull_UserF"& _ 
+                "inishComplete = 1 AND [UserFinishComplete] IS NULL) OR ([UserFinishComplete] = @"& _ 
+                "Original_UserFinishComplete)) AND ((@IsNull_UserFinishStart = 1 AND [UserFinishS"& _ 
+                "tart] IS NULL) OR ([UserFinishStart] = @Original_UserFinishStart)) AND ((@IsNull"& _ 
+                "_UserPriceComplete = 1 AND [UserPriceComplete] IS NULL) OR ([UserPriceComplete] "& _ 
+                "= @Original_UserPriceComplete)) AND ((@IsNull_UserPriceStart = 1 AND [UserPriceS"& _ 
+                "tart] IS NULL) OR ([UserPriceStart] = @Original_UserPriceStart)) AND ((@IsNull_U"& _ 
+                "serShipComplete = 1 AND [UserShipComplete] IS NULL) OR ([UserShipComplete] = @Or"& _ 
+                "iginal_UserShipComplete)) AND ((@IsNull_UserShipStart = 1 AND [UserShipStart] IS"& _ 
+                " NULL) OR ([UserShipStart] = @Original_UserShipStart)) AND ((@IsNull_OrderNo = 1"& _ 
+                " AND [OrderNo] IS NULL) OR ([OrderNo] = @Original_OrderNo)) AND ((@IsNull_QuoteN"& _ 
+                "o = 1 AND [QuoteNo] IS NULL) OR ([QuoteNo] = @Original_QuoteNo)) AND ((@IsNull_P"& _ 
+                "ONo = 1 AND [PONo] IS NULL) OR ([PONo] = @Original_PONo)) AND ((@IsNull_POProjec"& _ 
+                "t = 1 AND [POProject] IS NULL) OR ([POProject] = @Original_POProject)) AND ((@Is"& _ 
+                "Null_PricingStarted = 1 AND [PricingStarted] IS NULL) OR ([PricingStarted] = @Or"& _ 
+                "iginal_PricingStarted)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Customer, Project, [PO Reciept], [Delivery Dat"& _ 
+                "e], [Quote Due Date], EngRequired, EngStarted, EngCompleted, DrftRequired, DrftS"& _ 
+                "tarted, DrftCompleted, FabRequired, FabStarted, FabCompleted, FinishRequired, Fi"& _ 
+                "nishStarted, FinishCompleted, ShipRequired, ShipStarted, ShipCompleted, PricingC"& _ 
+                "ompleted, PricingRequired, UserDrftComplete, UserDrftStart, UserEngComplete, Use"& _ 
+                "rEngStart, UserFabComplete, UserFabStart, UserFinishComplete, UserFinishStart, U"& _ 
+                "serPriceComplete, UserPriceStart, UserShipComplete, UserShipStart, OrderNo, Quot"& _ 
+                "eNo, PONo, POProject, PricingStarted FROM [Table] WHERE (Customer = @Customer)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Id", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Id", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Customer", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Customer", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Project", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Project", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PO_Reciept", Global.System.Data.SqlDbType.SmallDateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PO Reciept", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -2672,8 +2639,6 @@ Namespace QuoteOrdersDSTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PONo", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PONo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@POProject", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "POProject", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PricingStarted", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PricingStarted", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Id", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Id", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Id", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Id", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Customer", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Customer", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Project", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Project", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Project", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Project", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
@@ -2766,14 +2731,14 @@ Namespace QuoteOrdersDSTableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT Id, Customer, Project, [PO Reciept], [Delivery Date], [Quote Due Date], En"& _ 
-                "gRequired, EngStarted, EngCompleted, DrftRequired, DrftStarted, DrftCompleted, F"& _ 
-                "abRequired, FabStarted, FabCompleted, FinishRequired, FinishStarted, FinishCompl"& _ 
-                "eted, ShipRequired, ShipStarted, ShipCompleted, PricingCompleted, PricingRequire"& _ 
-                "d, UserDrftComplete, UserDrftStart, UserEngComplete, UserEngStart, UserFabComple"& _ 
-                "te, UserFabStart, UserFinishComplete, UserFinishStart, UserPriceComplete, UserPr"& _ 
-                "iceStart, UserShipComplete, UserShipStart, OrderNo, QuoteNo, PONo, POProject, Pr"& _ 
-                "icingStarted FROM [Table]"
+            Me._commandCollection(0).CommandText = "SELECT Customer, Project, [PO Reciept], [Delivery Date], [Quote Due Date], EngReq"& _ 
+                "uired, EngStarted, EngCompleted, DrftRequired, DrftStarted, DrftCompleted, FabRe"& _ 
+                "quired, FabStarted, FabCompleted, FinishRequired, FinishStarted, FinishCompleted"& _ 
+                ", ShipRequired, ShipStarted, ShipCompleted, PricingCompleted, PricingRequired, U"& _ 
+                "serDrftComplete, UserDrftStart, UserEngComplete, UserEngStart, UserFabComplete, "& _ 
+                "UserFabStart, UserFinishComplete, UserFinishStart, UserPriceComplete, UserPriceS"& _ 
+                "tart, UserShipComplete, UserShipStart, OrderNo, QuoteNo, PONo, POProject, Pricin"& _ 
+                "gStarted FROM [Table]"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -2834,7 +2799,6 @@ Namespace QuoteOrdersDSTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
         Public Overloads Overridable Function Delete( _
-                    ByVal Original_Id As Global.System.Nullable(Of Integer),  _
                     ByVal Original_Customer As String,  _
                     ByVal Original_Project As String,  _
                     ByVal Original_PO_Reciept As Global.System.Nullable(Of Date),  _
@@ -2874,283 +2838,276 @@ Namespace QuoteOrdersDSTableAdapters
                     ByVal Original_PONo As String,  _
                     ByVal Original_POProject As String,  _
                     ByVal Original_PricingStarted As String) As Integer
-            If (Original_Id.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(0).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(Original_Id.Value,Integer)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(0).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(1).Value = Global.System.DBNull.Value
-            End If
             If (Original_Customer Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_Customer")
             Else
-                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_Customer,String)
+                Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_Customer,String)
             End If
             If (Original_Project Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(4).Value = Global.System.DBNull.Value
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(2).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_Project,String)
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_Project,String)
             End If
             If (Original_PO_Reciept.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_PO_Reciept.Value,Date)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(4).Value = Global.System.DBNull.Value
+            End If
+            If (Original_Delivery_Date.HasValue = true) Then
                 Me.Adapter.DeleteCommand.Parameters(5).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_PO_Reciept.Value,Date)
+                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_Delivery_Date.Value,Date)
             Else
                 Me.Adapter.DeleteCommand.Parameters(5).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(6).Value = Global.System.DBNull.Value
             End If
-            If (Original_Delivery_Date.HasValue = true) Then
+            If (Original_Quote_Due_Date.HasValue = true) Then
                 Me.Adapter.DeleteCommand.Parameters(7).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(Original_Delivery_Date.Value,Date)
+                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(Original_Quote_Due_Date.Value,Date)
             Else
                 Me.Adapter.DeleteCommand.Parameters(7).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(8).Value = Global.System.DBNull.Value
             End If
-            If (Original_Quote_Due_Date.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(10).Value = CType(Original_Quote_Due_Date.Value,Date)
-            Else
+            If (Original_EngRequired Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(9).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(10).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(10).Value = CType(Original_EngRequired,String)
             End If
-            If (Original_EngRequired Is Nothing) Then
+            If (Original_EngStarted Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(11).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(12).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.DeleteCommand.Parameters(11).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(12).Value = CType(Original_EngRequired,String)
+                Me.Adapter.DeleteCommand.Parameters(12).Value = CType(Original_EngStarted,String)
             End If
-            If (Original_EngStarted Is Nothing) Then
+            If (Original_EngCompleted Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(13).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(14).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.DeleteCommand.Parameters(13).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(14).Value = CType(Original_EngStarted,String)
+                Me.Adapter.DeleteCommand.Parameters(14).Value = CType(Original_EngCompleted,String)
             End If
-            If (Original_EngCompleted Is Nothing) Then
+            If (Original_DrftRequired Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(15).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(16).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.DeleteCommand.Parameters(15).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(16).Value = CType(Original_EngCompleted,String)
+                Me.Adapter.DeleteCommand.Parameters(16).Value = CType(Original_DrftRequired,String)
             End If
-            If (Original_DrftRequired Is Nothing) Then
+            If (Original_DrftStarted Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(17).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(18).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.DeleteCommand.Parameters(17).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(18).Value = CType(Original_DrftRequired,String)
+                Me.Adapter.DeleteCommand.Parameters(18).Value = CType(Original_DrftStarted,String)
             End If
-            If (Original_DrftStarted Is Nothing) Then
+            If (Original_DrftCompleted Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(19).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(20).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.DeleteCommand.Parameters(19).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(20).Value = CType(Original_DrftStarted,String)
+                Me.Adapter.DeleteCommand.Parameters(20).Value = CType(Original_DrftCompleted,String)
             End If
-            If (Original_DrftCompleted Is Nothing) Then
+            If (Original_FabRequired Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(21).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(22).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.DeleteCommand.Parameters(21).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(22).Value = CType(Original_DrftCompleted,String)
+                Me.Adapter.DeleteCommand.Parameters(22).Value = CType(Original_FabRequired,String)
             End If
-            If (Original_FabRequired Is Nothing) Then
+            If (Original_FabStarted Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(23).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(24).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.DeleteCommand.Parameters(23).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(24).Value = CType(Original_FabRequired,String)
+                Me.Adapter.DeleteCommand.Parameters(24).Value = CType(Original_FabStarted,String)
             End If
-            If (Original_FabStarted Is Nothing) Then
+            If (Original_FabCompleted Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(25).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(26).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.DeleteCommand.Parameters(25).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(26).Value = CType(Original_FabStarted,String)
+                Me.Adapter.DeleteCommand.Parameters(26).Value = CType(Original_FabCompleted,String)
             End If
-            If (Original_FabCompleted Is Nothing) Then
+            If (Original_FinishRequired Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(27).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(28).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.DeleteCommand.Parameters(27).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(28).Value = CType(Original_FabCompleted,String)
+                Me.Adapter.DeleteCommand.Parameters(28).Value = CType(Original_FinishRequired,String)
             End If
-            If (Original_FinishRequired Is Nothing) Then
+            If (Original_FinishStarted Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(29).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(30).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.DeleteCommand.Parameters(29).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(30).Value = CType(Original_FinishRequired,String)
+                Me.Adapter.DeleteCommand.Parameters(30).Value = CType(Original_FinishStarted,String)
             End If
-            If (Original_FinishStarted Is Nothing) Then
+            If (Original_FinishCompleted Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(31).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(32).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.DeleteCommand.Parameters(31).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(32).Value = CType(Original_FinishStarted,String)
+                Me.Adapter.DeleteCommand.Parameters(32).Value = CType(Original_FinishCompleted,String)
             End If
-            If (Original_FinishCompleted Is Nothing) Then
+            If (Original_ShipRequired Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(33).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(34).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.DeleteCommand.Parameters(33).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(34).Value = CType(Original_FinishCompleted,String)
+                Me.Adapter.DeleteCommand.Parameters(34).Value = CType(Original_ShipRequired,String)
             End If
-            If (Original_ShipRequired Is Nothing) Then
+            If (Original_ShipStarted Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(35).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(36).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.DeleteCommand.Parameters(35).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(36).Value = CType(Original_ShipRequired,String)
+                Me.Adapter.DeleteCommand.Parameters(36).Value = CType(Original_ShipStarted,String)
             End If
-            If (Original_ShipStarted Is Nothing) Then
+            If (Original_ShipCompleted Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(37).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(38).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.DeleteCommand.Parameters(37).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(38).Value = CType(Original_ShipStarted,String)
+                Me.Adapter.DeleteCommand.Parameters(38).Value = CType(Original_ShipCompleted,String)
             End If
-            If (Original_ShipCompleted Is Nothing) Then
+            If (Original_PricingCompleted Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(39).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(40).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.DeleteCommand.Parameters(39).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(40).Value = CType(Original_ShipCompleted,String)
+                Me.Adapter.DeleteCommand.Parameters(40).Value = CType(Original_PricingCompleted,String)
             End If
-            If (Original_PricingCompleted Is Nothing) Then
+            If (Original_PricingRequired Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(41).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(42).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.DeleteCommand.Parameters(41).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(42).Value = CType(Original_PricingCompleted,String)
+                Me.Adapter.DeleteCommand.Parameters(42).Value = CType(Original_PricingRequired,String)
             End If
-            If (Original_PricingRequired Is Nothing) Then
+            If (Original_UserDrftComplete Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(43).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(44).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.DeleteCommand.Parameters(43).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(44).Value = CType(Original_PricingRequired,String)
+                Me.Adapter.DeleteCommand.Parameters(44).Value = CType(Original_UserDrftComplete,String)
             End If
-            If (Original_UserDrftComplete Is Nothing) Then
+            If (Original_UserDrftStart Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(45).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(46).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.DeleteCommand.Parameters(45).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(46).Value = CType(Original_UserDrftComplete,String)
+                Me.Adapter.DeleteCommand.Parameters(46).Value = CType(Original_UserDrftStart,String)
             End If
-            If (Original_UserDrftStart Is Nothing) Then
+            If (Original_UserEngComplete Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(47).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(48).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.DeleteCommand.Parameters(47).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(48).Value = CType(Original_UserDrftStart,String)
+                Me.Adapter.DeleteCommand.Parameters(48).Value = CType(Original_UserEngComplete,String)
             End If
-            If (Original_UserEngComplete Is Nothing) Then
+            If (Original_UserEngStart Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(49).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(50).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.DeleteCommand.Parameters(49).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(50).Value = CType(Original_UserEngComplete,String)
+                Me.Adapter.DeleteCommand.Parameters(50).Value = CType(Original_UserEngStart,String)
             End If
-            If (Original_UserEngStart Is Nothing) Then
+            If (Original_UserFabComplete Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(51).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(52).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.DeleteCommand.Parameters(51).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(52).Value = CType(Original_UserEngStart,String)
+                Me.Adapter.DeleteCommand.Parameters(52).Value = CType(Original_UserFabComplete,String)
             End If
-            If (Original_UserFabComplete Is Nothing) Then
+            If (Original_UserFabStart Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(53).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(54).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.DeleteCommand.Parameters(53).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(54).Value = CType(Original_UserFabComplete,String)
+                Me.Adapter.DeleteCommand.Parameters(54).Value = CType(Original_UserFabStart,String)
             End If
-            If (Original_UserFabStart Is Nothing) Then
+            If (Original_UserFinishComplete Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(55).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(56).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.DeleteCommand.Parameters(55).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(56).Value = CType(Original_UserFabStart,String)
+                Me.Adapter.DeleteCommand.Parameters(56).Value = CType(Original_UserFinishComplete,String)
             End If
-            If (Original_UserFinishComplete Is Nothing) Then
+            If (Original_UserFinishStart Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(57).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(58).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.DeleteCommand.Parameters(57).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(58).Value = CType(Original_UserFinishComplete,String)
+                Me.Adapter.DeleteCommand.Parameters(58).Value = CType(Original_UserFinishStart,String)
             End If
-            If (Original_UserFinishStart Is Nothing) Then
+            If (Original_UserPriceComplete Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(59).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(60).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.DeleteCommand.Parameters(59).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(60).Value = CType(Original_UserFinishStart,String)
+                Me.Adapter.DeleteCommand.Parameters(60).Value = CType(Original_UserPriceComplete,String)
             End If
-            If (Original_UserPriceComplete Is Nothing) Then
+            If (Original_UserPriceStart Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(61).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(62).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.DeleteCommand.Parameters(61).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(62).Value = CType(Original_UserPriceComplete,String)
+                Me.Adapter.DeleteCommand.Parameters(62).Value = CType(Original_UserPriceStart,String)
             End If
-            If (Original_UserPriceStart Is Nothing) Then
+            If (Original_UserShipComplete Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(63).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(64).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.DeleteCommand.Parameters(63).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(64).Value = CType(Original_UserPriceStart,String)
+                Me.Adapter.DeleteCommand.Parameters(64).Value = CType(Original_UserShipComplete,String)
             End If
-            If (Original_UserShipComplete Is Nothing) Then
+            If (Original_UserShipStart Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(65).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(66).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.DeleteCommand.Parameters(65).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(66).Value = CType(Original_UserShipComplete,String)
+                Me.Adapter.DeleteCommand.Parameters(66).Value = CType(Original_UserShipStart,String)
             End If
-            If (Original_UserShipStart Is Nothing) Then
+            If (Original_OrderNo Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(67).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(68).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.DeleteCommand.Parameters(67).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(68).Value = CType(Original_UserShipStart,String)
+                Me.Adapter.DeleteCommand.Parameters(68).Value = CType(Original_OrderNo,String)
             End If
-            If (Original_OrderNo Is Nothing) Then
+            If (Original_QuoteNo Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(69).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(70).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.DeleteCommand.Parameters(69).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(70).Value = CType(Original_OrderNo,String)
+                Me.Adapter.DeleteCommand.Parameters(70).Value = CType(Original_QuoteNo,String)
             End If
-            If (Original_QuoteNo Is Nothing) Then
+            If (Original_PONo Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(71).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(72).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.DeleteCommand.Parameters(71).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(72).Value = CType(Original_QuoteNo,String)
+                Me.Adapter.DeleteCommand.Parameters(72).Value = CType(Original_PONo,String)
             End If
-            If (Original_PONo Is Nothing) Then
+            If (Original_POProject Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(73).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(74).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.DeleteCommand.Parameters(73).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(74).Value = CType(Original_PONo,String)
+                Me.Adapter.DeleteCommand.Parameters(74).Value = CType(Original_POProject,String)
             End If
-            If (Original_POProject Is Nothing) Then
+            If (Original_PricingStarted Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(75).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(76).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.DeleteCommand.Parameters(75).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(76).Value = CType(Original_POProject,String)
-            End If
-            If (Original_PricingStarted Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(77).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(78).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(77).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(78).Value = CType(Original_PricingStarted,String)
+                Me.Adapter.DeleteCommand.Parameters(76).Value = CType(Original_PricingStarted,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -3172,7 +3129,6 @@ Namespace QuoteOrdersDSTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
         Public Overloads Overridable Function Insert( _
-                    ByVal Id As Global.System.Nullable(Of Integer),  _
                     ByVal Customer As String,  _
                     ByVal Project As String,  _
                     ByVal PO_Reciept As Global.System.Nullable(Of Date),  _
@@ -3212,205 +3168,200 @@ Namespace QuoteOrdersDSTableAdapters
                     ByVal PONo As String,  _
                     ByVal POProject As String,  _
                     ByVal PricingStarted As String) As Integer
-            If (Id.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(0).Value = CType(Id.Value,Integer)
-            Else
-                Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
-            End If
             If (Customer Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Customer")
             Else
-                Me.Adapter.InsertCommand.Parameters(1).Value = CType(Customer,String)
+                Me.Adapter.InsertCommand.Parameters(0).Value = CType(Customer,String)
             End If
             If (Project Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(2).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(2).Value = CType(Project,String)
+                Me.Adapter.InsertCommand.Parameters(1).Value = CType(Project,String)
             End If
             If (PO_Reciept.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(3).Value = CType(PO_Reciept.Value,Date)
+                Me.Adapter.InsertCommand.Parameters(2).Value = CType(PO_Reciept.Value,Date)
+            Else
+                Me.Adapter.InsertCommand.Parameters(2).Value = Global.System.DBNull.Value
+            End If
+            If (Delivery_Date.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(3).Value = CType(Delivery_Date.Value,Date)
             Else
                 Me.Adapter.InsertCommand.Parameters(3).Value = Global.System.DBNull.Value
             End If
-            If (Delivery_Date.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(4).Value = CType(Delivery_Date.Value,Date)
+            If (Quote_Due_Date.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(4).Value = CType(Quote_Due_Date.Value,Date)
             Else
                 Me.Adapter.InsertCommand.Parameters(4).Value = Global.System.DBNull.Value
             End If
-            If (Quote_Due_Date.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(5).Value = CType(Quote_Due_Date.Value,Date)
-            Else
-                Me.Adapter.InsertCommand.Parameters(5).Value = Global.System.DBNull.Value
-            End If
             If (EngRequired Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(6).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(5).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(6).Value = CType(EngRequired,String)
+                Me.Adapter.InsertCommand.Parameters(5).Value = CType(EngRequired,String)
             End If
             If (EngStarted Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(7).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(6).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(7).Value = CType(EngStarted,String)
+                Me.Adapter.InsertCommand.Parameters(6).Value = CType(EngStarted,String)
             End If
             If (EngCompleted Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(8).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(7).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(8).Value = CType(EngCompleted,String)
+                Me.Adapter.InsertCommand.Parameters(7).Value = CType(EngCompleted,String)
             End If
             If (DrftRequired Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(9).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(8).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(9).Value = CType(DrftRequired,String)
+                Me.Adapter.InsertCommand.Parameters(8).Value = CType(DrftRequired,String)
             End If
             If (DrftStarted Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(10).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(9).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(10).Value = CType(DrftStarted,String)
+                Me.Adapter.InsertCommand.Parameters(9).Value = CType(DrftStarted,String)
             End If
             If (DrftCompleted Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(11).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(10).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(11).Value = CType(DrftCompleted,String)
+                Me.Adapter.InsertCommand.Parameters(10).Value = CType(DrftCompleted,String)
             End If
             If (FabRequired Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(12).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(11).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(12).Value = CType(FabRequired,String)
+                Me.Adapter.InsertCommand.Parameters(11).Value = CType(FabRequired,String)
             End If
             If (FabStarted Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(13).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(12).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(13).Value = CType(FabStarted,String)
+                Me.Adapter.InsertCommand.Parameters(12).Value = CType(FabStarted,String)
             End If
             If (FabCompleted Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(14).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(13).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(14).Value = CType(FabCompleted,String)
+                Me.Adapter.InsertCommand.Parameters(13).Value = CType(FabCompleted,String)
             End If
             If (FinishRequired Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(15).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(14).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(15).Value = CType(FinishRequired,String)
+                Me.Adapter.InsertCommand.Parameters(14).Value = CType(FinishRequired,String)
             End If
             If (FinishStarted Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(16).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(15).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(16).Value = CType(FinishStarted,String)
+                Me.Adapter.InsertCommand.Parameters(15).Value = CType(FinishStarted,String)
             End If
             If (FinishCompleted Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(17).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(16).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(17).Value = CType(FinishCompleted,String)
+                Me.Adapter.InsertCommand.Parameters(16).Value = CType(FinishCompleted,String)
             End If
             If (ShipRequired Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(18).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(17).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(18).Value = CType(ShipRequired,String)
+                Me.Adapter.InsertCommand.Parameters(17).Value = CType(ShipRequired,String)
             End If
             If (ShipStarted Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(19).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(18).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(19).Value = CType(ShipStarted,String)
+                Me.Adapter.InsertCommand.Parameters(18).Value = CType(ShipStarted,String)
             End If
             If (ShipCompleted Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(20).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(19).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(20).Value = CType(ShipCompleted,String)
+                Me.Adapter.InsertCommand.Parameters(19).Value = CType(ShipCompleted,String)
             End If
             If (PricingCompleted Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(21).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(20).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(21).Value = CType(PricingCompleted,String)
+                Me.Adapter.InsertCommand.Parameters(20).Value = CType(PricingCompleted,String)
             End If
             If (PricingRequired Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(22).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(21).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(22).Value = CType(PricingRequired,String)
+                Me.Adapter.InsertCommand.Parameters(21).Value = CType(PricingRequired,String)
             End If
             If (UserDrftComplete Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(23).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(22).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(23).Value = CType(UserDrftComplete,String)
+                Me.Adapter.InsertCommand.Parameters(22).Value = CType(UserDrftComplete,String)
             End If
             If (UserDrftStart Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(24).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(23).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(24).Value = CType(UserDrftStart,String)
+                Me.Adapter.InsertCommand.Parameters(23).Value = CType(UserDrftStart,String)
             End If
             If (UserEngComplete Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(25).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(24).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(25).Value = CType(UserEngComplete,String)
+                Me.Adapter.InsertCommand.Parameters(24).Value = CType(UserEngComplete,String)
             End If
             If (UserEngStart Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(26).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(25).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(26).Value = CType(UserEngStart,String)
+                Me.Adapter.InsertCommand.Parameters(25).Value = CType(UserEngStart,String)
             End If
             If (UserFabComplete Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(27).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(26).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(27).Value = CType(UserFabComplete,String)
+                Me.Adapter.InsertCommand.Parameters(26).Value = CType(UserFabComplete,String)
             End If
             If (UserFabStart Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(28).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(27).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(28).Value = CType(UserFabStart,String)
+                Me.Adapter.InsertCommand.Parameters(27).Value = CType(UserFabStart,String)
             End If
             If (UserFinishComplete Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(29).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(28).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(29).Value = CType(UserFinishComplete,String)
+                Me.Adapter.InsertCommand.Parameters(28).Value = CType(UserFinishComplete,String)
             End If
             If (UserFinishStart Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(30).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(29).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(30).Value = CType(UserFinishStart,String)
+                Me.Adapter.InsertCommand.Parameters(29).Value = CType(UserFinishStart,String)
             End If
             If (UserPriceComplete Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(31).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(30).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(31).Value = CType(UserPriceComplete,String)
+                Me.Adapter.InsertCommand.Parameters(30).Value = CType(UserPriceComplete,String)
             End If
             If (UserPriceStart Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(32).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(31).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(32).Value = CType(UserPriceStart,String)
+                Me.Adapter.InsertCommand.Parameters(31).Value = CType(UserPriceStart,String)
             End If
             If (UserShipComplete Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(33).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(32).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(33).Value = CType(UserShipComplete,String)
+                Me.Adapter.InsertCommand.Parameters(32).Value = CType(UserShipComplete,String)
             End If
             If (UserShipStart Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(34).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(33).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(34).Value = CType(UserShipStart,String)
+                Me.Adapter.InsertCommand.Parameters(33).Value = CType(UserShipStart,String)
             End If
             If (OrderNo Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(35).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(34).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(35).Value = CType(OrderNo,String)
+                Me.Adapter.InsertCommand.Parameters(34).Value = CType(OrderNo,String)
             End If
             If (QuoteNo Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(36).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(35).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(36).Value = CType(QuoteNo,String)
+                Me.Adapter.InsertCommand.Parameters(35).Value = CType(QuoteNo,String)
             End If
             If (PONo Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(37).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(36).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(37).Value = CType(PONo,String)
+                Me.Adapter.InsertCommand.Parameters(36).Value = CType(PONo,String)
             End If
             If (POProject Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(38).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(37).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(38).Value = CType(POProject,String)
+                Me.Adapter.InsertCommand.Parameters(37).Value = CType(POProject,String)
             End If
             If (PricingStarted Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(39).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(38).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(39).Value = CType(PricingStarted,String)
+                Me.Adapter.InsertCommand.Parameters(38).Value = CType(PricingStarted,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -3432,7 +3383,6 @@ Namespace QuoteOrdersDSTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
         Public Overloads Overridable Function Update( _
-                    ByVal Id As Global.System.Nullable(Of Integer),  _
                     ByVal Customer As String,  _
                     ByVal Project As String,  _
                     ByVal PO_Reciept As Global.System.Nullable(Of Date),  _
@@ -3472,7 +3422,6 @@ Namespace QuoteOrdersDSTableAdapters
                     ByVal PONo As String,  _
                     ByVal POProject As String,  _
                     ByVal PricingStarted As String,  _
-                    ByVal Original_Id As Global.System.Nullable(Of Integer),  _
                     ByVal Original_Customer As String,  _
                     ByVal Original_Project As String,  _
                     ByVal Original_PO_Reciept As Global.System.Nullable(Of Date),  _
@@ -3512,483 +3461,471 @@ Namespace QuoteOrdersDSTableAdapters
                     ByVal Original_PONo As String,  _
                     ByVal Original_POProject As String,  _
                     ByVal Original_PricingStarted As String) As Integer
-            If (Id.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(Id.Value,Integer)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
-            End If
             If (Customer Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Customer")
             Else
-                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(Customer,String)
+                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(Customer,String)
             End If
             If (Project Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(2).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(1).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(Project,String)
+                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(Project,String)
             End If
             If (PO_Reciept.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(PO_Reciept.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(PO_Reciept.Value,Date)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(2).Value = Global.System.DBNull.Value
+            End If
+            If (Delivery_Date.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(Delivery_Date.Value,Date)
             Else
                 Me.Adapter.UpdateCommand.Parameters(3).Value = Global.System.DBNull.Value
             End If
-            If (Delivery_Date.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Delivery_Date.Value,Date)
+            If (Quote_Due_Date.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Quote_Due_Date.Value,Date)
             Else
                 Me.Adapter.UpdateCommand.Parameters(4).Value = Global.System.DBNull.Value
             End If
-            If (Quote_Due_Date.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Quote_Due_Date.Value,Date)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(5).Value = Global.System.DBNull.Value
-            End If
             If (EngRequired Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(6).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(5).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(EngRequired,String)
+                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(EngRequired,String)
             End If
             If (EngStarted Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(6).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(EngStarted,String)
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(EngStarted,String)
             End If
             If (EngCompleted Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(8).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(EngCompleted,String)
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(EngCompleted,String)
             End If
             If (DrftRequired Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(9).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(8).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(DrftRequired,String)
+                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(DrftRequired,String)
             End If
             If (DrftStarted Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(10).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(9).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(DrftStarted,String)
+                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(DrftStarted,String)
             End If
             If (DrftCompleted Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(11).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(10).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(DrftCompleted,String)
+                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(DrftCompleted,String)
             End If
             If (FabRequired Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(12).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(11).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(FabRequired,String)
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(FabRequired,String)
             End If
             If (FabStarted Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(13).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(12).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(FabStarted,String)
+                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(FabStarted,String)
             End If
             If (FabCompleted Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(14).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(13).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(FabCompleted,String)
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(FabCompleted,String)
             End If
             If (FinishRequired Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(15).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(14).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(FinishRequired,String)
+                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(FinishRequired,String)
             End If
             If (FinishStarted Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(16).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(15).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(FinishStarted,String)
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(FinishStarted,String)
             End If
             If (FinishCompleted Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(17).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(16).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(FinishCompleted,String)
+                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(FinishCompleted,String)
             End If
             If (ShipRequired Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(18).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(17).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(ShipRequired,String)
+                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(ShipRequired,String)
             End If
             If (ShipStarted Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(19).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(18).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(ShipStarted,String)
+                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(ShipStarted,String)
             End If
             If (ShipCompleted Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(20).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(19).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(ShipCompleted,String)
+                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(ShipCompleted,String)
             End If
             If (PricingCompleted Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(21).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(20).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(PricingCompleted,String)
+                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(PricingCompleted,String)
             End If
             If (PricingRequired Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(22).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(21).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(PricingRequired,String)
+                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(PricingRequired,String)
             End If
             If (UserDrftComplete Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(23).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(22).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(UserDrftComplete,String)
+                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(UserDrftComplete,String)
             End If
             If (UserDrftStart Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(24).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(23).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(UserDrftStart,String)
+                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(UserDrftStart,String)
             End If
             If (UserEngComplete Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(25).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(24).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(UserEngComplete,String)
+                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(UserEngComplete,String)
             End If
             If (UserEngStart Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(26).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(25).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(UserEngStart,String)
+                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(UserEngStart,String)
             End If
             If (UserFabComplete Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(27).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(26).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(UserFabComplete,String)
+                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(UserFabComplete,String)
             End If
             If (UserFabStart Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(28).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(27).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(UserFabStart,String)
+                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(UserFabStart,String)
             End If
             If (UserFinishComplete Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(29).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(28).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(UserFinishComplete,String)
+                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(UserFinishComplete,String)
             End If
             If (UserFinishStart Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(30).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(29).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(UserFinishStart,String)
+                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(UserFinishStart,String)
             End If
             If (UserPriceComplete Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(31).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(30).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(UserPriceComplete,String)
+                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(UserPriceComplete,String)
             End If
             If (UserPriceStart Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(32).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(31).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(UserPriceStart,String)
+                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(UserPriceStart,String)
             End If
             If (UserShipComplete Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(33).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(32).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(33).Value = CType(UserShipComplete,String)
+                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(UserShipComplete,String)
             End If
             If (UserShipStart Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(34).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(33).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(UserShipStart,String)
+                Me.Adapter.UpdateCommand.Parameters(33).Value = CType(UserShipStart,String)
             End If
             If (OrderNo Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(35).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(34).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(35).Value = CType(OrderNo,String)
+                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(OrderNo,String)
             End If
             If (QuoteNo Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(36).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(35).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(36).Value = CType(QuoteNo,String)
+                Me.Adapter.UpdateCommand.Parameters(35).Value = CType(QuoteNo,String)
             End If
             If (PONo Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(37).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(36).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(37).Value = CType(PONo,String)
+                Me.Adapter.UpdateCommand.Parameters(36).Value = CType(PONo,String)
             End If
             If (POProject Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(38).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(37).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(38).Value = CType(POProject,String)
+                Me.Adapter.UpdateCommand.Parameters(37).Value = CType(POProject,String)
             End If
             If (PricingStarted Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(39).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(38).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(39).Value = CType(PricingStarted,String)
-            End If
-            If (Original_Id.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(40).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(41).Value = CType(Original_Id.Value,Integer)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(40).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(41).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(38).Value = CType(PricingStarted,String)
             End If
             If (Original_Customer Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_Customer")
             Else
-                Me.Adapter.UpdateCommand.Parameters(42).Value = CType(Original_Customer,String)
+                Me.Adapter.UpdateCommand.Parameters(39).Value = CType(Original_Customer,String)
             End If
             If (Original_Project Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(43).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(44).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(40).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(41).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(43).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(44).Value = CType(Original_Project,String)
+                Me.Adapter.UpdateCommand.Parameters(40).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(41).Value = CType(Original_Project,String)
             End If
             If (Original_PO_Reciept.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(45).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(46).Value = CType(Original_PO_Reciept.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(42).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(43).Value = CType(Original_PO_Reciept.Value,Date)
             Else
-                Me.Adapter.UpdateCommand.Parameters(45).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(46).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(42).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(43).Value = Global.System.DBNull.Value
             End If
             If (Original_Delivery_Date.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(47).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(48).Value = CType(Original_Delivery_Date.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(44).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(45).Value = CType(Original_Delivery_Date.Value,Date)
             Else
-                Me.Adapter.UpdateCommand.Parameters(47).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(48).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(44).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(45).Value = Global.System.DBNull.Value
             End If
             If (Original_Quote_Due_Date.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(49).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(50).Value = CType(Original_Quote_Due_Date.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(46).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(47).Value = CType(Original_Quote_Due_Date.Value,Date)
             Else
-                Me.Adapter.UpdateCommand.Parameters(49).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(50).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(46).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(47).Value = Global.System.DBNull.Value
             End If
             If (Original_EngRequired Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(51).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(52).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(48).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(49).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(51).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(52).Value = CType(Original_EngRequired,String)
+                Me.Adapter.UpdateCommand.Parameters(48).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(49).Value = CType(Original_EngRequired,String)
             End If
             If (Original_EngStarted Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(53).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(54).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(50).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(51).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(53).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(54).Value = CType(Original_EngStarted,String)
+                Me.Adapter.UpdateCommand.Parameters(50).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(51).Value = CType(Original_EngStarted,String)
             End If
             If (Original_EngCompleted Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(55).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(56).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(52).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(53).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(55).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(56).Value = CType(Original_EngCompleted,String)
+                Me.Adapter.UpdateCommand.Parameters(52).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(53).Value = CType(Original_EngCompleted,String)
             End If
             If (Original_DrftRequired Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(57).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(58).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(54).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(55).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(57).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(58).Value = CType(Original_DrftRequired,String)
+                Me.Adapter.UpdateCommand.Parameters(54).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(55).Value = CType(Original_DrftRequired,String)
             End If
             If (Original_DrftStarted Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(59).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(60).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(56).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(57).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(59).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(60).Value = CType(Original_DrftStarted,String)
+                Me.Adapter.UpdateCommand.Parameters(56).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(57).Value = CType(Original_DrftStarted,String)
             End If
             If (Original_DrftCompleted Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(61).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(62).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(58).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(59).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(61).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(62).Value = CType(Original_DrftCompleted,String)
+                Me.Adapter.UpdateCommand.Parameters(58).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(59).Value = CType(Original_DrftCompleted,String)
             End If
             If (Original_FabRequired Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(63).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(64).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(60).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(61).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(63).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(64).Value = CType(Original_FabRequired,String)
+                Me.Adapter.UpdateCommand.Parameters(60).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(61).Value = CType(Original_FabRequired,String)
             End If
             If (Original_FabStarted Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(65).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(66).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(62).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(63).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(65).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(66).Value = CType(Original_FabStarted,String)
+                Me.Adapter.UpdateCommand.Parameters(62).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(63).Value = CType(Original_FabStarted,String)
             End If
             If (Original_FabCompleted Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(67).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(68).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(64).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(65).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(67).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(68).Value = CType(Original_FabCompleted,String)
+                Me.Adapter.UpdateCommand.Parameters(64).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(65).Value = CType(Original_FabCompleted,String)
             End If
             If (Original_FinishRequired Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(69).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(70).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(66).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(67).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(69).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(70).Value = CType(Original_FinishRequired,String)
+                Me.Adapter.UpdateCommand.Parameters(66).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(67).Value = CType(Original_FinishRequired,String)
             End If
             If (Original_FinishStarted Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(71).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(72).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(68).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(69).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(71).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(72).Value = CType(Original_FinishStarted,String)
+                Me.Adapter.UpdateCommand.Parameters(68).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(69).Value = CType(Original_FinishStarted,String)
             End If
             If (Original_FinishCompleted Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(73).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(74).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(70).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(71).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(73).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(74).Value = CType(Original_FinishCompleted,String)
+                Me.Adapter.UpdateCommand.Parameters(70).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(71).Value = CType(Original_FinishCompleted,String)
             End If
             If (Original_ShipRequired Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(75).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(76).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(72).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(73).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(75).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(76).Value = CType(Original_ShipRequired,String)
+                Me.Adapter.UpdateCommand.Parameters(72).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(73).Value = CType(Original_ShipRequired,String)
             End If
             If (Original_ShipStarted Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(77).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(78).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(74).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(75).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(77).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(78).Value = CType(Original_ShipStarted,String)
+                Me.Adapter.UpdateCommand.Parameters(74).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(75).Value = CType(Original_ShipStarted,String)
             End If
             If (Original_ShipCompleted Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(79).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(80).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(76).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(77).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(79).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(80).Value = CType(Original_ShipCompleted,String)
+                Me.Adapter.UpdateCommand.Parameters(76).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(77).Value = CType(Original_ShipCompleted,String)
             End If
             If (Original_PricingCompleted Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(81).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(82).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(78).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(79).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(81).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(82).Value = CType(Original_PricingCompleted,String)
+                Me.Adapter.UpdateCommand.Parameters(78).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(79).Value = CType(Original_PricingCompleted,String)
             End If
             If (Original_PricingRequired Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(83).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(84).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(80).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(81).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(83).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(84).Value = CType(Original_PricingRequired,String)
+                Me.Adapter.UpdateCommand.Parameters(80).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(81).Value = CType(Original_PricingRequired,String)
             End If
             If (Original_UserDrftComplete Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(85).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(86).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(82).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(83).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(85).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(86).Value = CType(Original_UserDrftComplete,String)
+                Me.Adapter.UpdateCommand.Parameters(82).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(83).Value = CType(Original_UserDrftComplete,String)
             End If
             If (Original_UserDrftStart Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(87).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(88).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(84).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(85).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(87).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(88).Value = CType(Original_UserDrftStart,String)
+                Me.Adapter.UpdateCommand.Parameters(84).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(85).Value = CType(Original_UserDrftStart,String)
             End If
             If (Original_UserEngComplete Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(89).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(90).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(86).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(87).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(89).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(90).Value = CType(Original_UserEngComplete,String)
+                Me.Adapter.UpdateCommand.Parameters(86).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(87).Value = CType(Original_UserEngComplete,String)
             End If
             If (Original_UserEngStart Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(91).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(92).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(88).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(89).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(91).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(92).Value = CType(Original_UserEngStart,String)
+                Me.Adapter.UpdateCommand.Parameters(88).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(89).Value = CType(Original_UserEngStart,String)
             End If
             If (Original_UserFabComplete Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(93).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(94).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(90).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(91).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(93).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(94).Value = CType(Original_UserFabComplete,String)
+                Me.Adapter.UpdateCommand.Parameters(90).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(91).Value = CType(Original_UserFabComplete,String)
             End If
             If (Original_UserFabStart Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(95).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(96).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(92).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(93).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(95).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(96).Value = CType(Original_UserFabStart,String)
+                Me.Adapter.UpdateCommand.Parameters(92).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(93).Value = CType(Original_UserFabStart,String)
             End If
             If (Original_UserFinishComplete Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(97).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(98).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(94).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(95).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(97).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(98).Value = CType(Original_UserFinishComplete,String)
+                Me.Adapter.UpdateCommand.Parameters(94).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(95).Value = CType(Original_UserFinishComplete,String)
             End If
             If (Original_UserFinishStart Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(99).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(100).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(96).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(97).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(99).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(100).Value = CType(Original_UserFinishStart,String)
+                Me.Adapter.UpdateCommand.Parameters(96).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(97).Value = CType(Original_UserFinishStart,String)
             End If
             If (Original_UserPriceComplete Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(101).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(102).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(98).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(99).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(101).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(102).Value = CType(Original_UserPriceComplete,String)
+                Me.Adapter.UpdateCommand.Parameters(98).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(99).Value = CType(Original_UserPriceComplete,String)
             End If
             If (Original_UserPriceStart Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(103).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(104).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(100).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(101).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(103).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(104).Value = CType(Original_UserPriceStart,String)
+                Me.Adapter.UpdateCommand.Parameters(100).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(101).Value = CType(Original_UserPriceStart,String)
             End If
             If (Original_UserShipComplete Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(105).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(106).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(102).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(103).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(105).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(106).Value = CType(Original_UserShipComplete,String)
+                Me.Adapter.UpdateCommand.Parameters(102).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(103).Value = CType(Original_UserShipComplete,String)
             End If
             If (Original_UserShipStart Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(107).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(108).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(104).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(105).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(107).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(108).Value = CType(Original_UserShipStart,String)
+                Me.Adapter.UpdateCommand.Parameters(104).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(105).Value = CType(Original_UserShipStart,String)
             End If
             If (Original_OrderNo Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(109).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(110).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(106).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(107).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(109).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(110).Value = CType(Original_OrderNo,String)
+                Me.Adapter.UpdateCommand.Parameters(106).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(107).Value = CType(Original_OrderNo,String)
             End If
             If (Original_QuoteNo Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(111).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(112).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(108).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(109).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(111).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(112).Value = CType(Original_QuoteNo,String)
+                Me.Adapter.UpdateCommand.Parameters(108).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(109).Value = CType(Original_QuoteNo,String)
             End If
             If (Original_PONo Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(113).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(114).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(110).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(111).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(113).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(114).Value = CType(Original_PONo,String)
+                Me.Adapter.UpdateCommand.Parameters(110).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(111).Value = CType(Original_PONo,String)
             End If
             If (Original_POProject Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(115).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(116).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(112).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(113).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(115).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(116).Value = CType(Original_POProject,String)
+                Me.Adapter.UpdateCommand.Parameters(112).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(113).Value = CType(Original_POProject,String)
             End If
             If (Original_PricingStarted Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(117).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(118).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(114).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(115).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(117).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(118).Value = CType(Original_PricingStarted,String)
+                Me.Adapter.UpdateCommand.Parameters(114).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(115).Value = CType(Original_PricingStarted,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -4010,7 +3947,6 @@ Namespace QuoteOrdersDSTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
         Public Overloads Overridable Function Update( _
-                    ByVal Customer As String,  _
                     ByVal Project As String,  _
                     ByVal PO_Reciept As Global.System.Nullable(Of Date),  _
                     ByVal Delivery_Date As Global.System.Nullable(Of Date),  _
@@ -4049,7 +3985,6 @@ Namespace QuoteOrdersDSTableAdapters
                     ByVal PONo As String,  _
                     ByVal POProject As String,  _
                     ByVal PricingStarted As String,  _
-                    ByVal Original_Id As Global.System.Nullable(Of Integer),  _
                     ByVal Original_Customer As String,  _
                     ByVal Original_Project As String,  _
                     ByVal Original_PO_Reciept As Global.System.Nullable(Of Date),  _
@@ -4089,7 +4024,7 @@ Namespace QuoteOrdersDSTableAdapters
                     ByVal Original_PONo As String,  _
                     ByVal Original_POProject As String,  _
                     ByVal Original_PricingStarted As String) As Integer
-            Return Me.Update(Original_Id, Customer, Project, PO_Reciept, Delivery_Date, Quote_Due_Date, EngRequired, EngStarted, EngCompleted, DrftRequired, DrftStarted, DrftCompleted, FabRequired, FabStarted, FabCompleted, FinishRequired, FinishStarted, FinishCompleted, ShipRequired, ShipStarted, ShipCompleted, PricingCompleted, PricingRequired, UserDrftComplete, UserDrftStart, UserEngComplete, UserEngStart, UserFabComplete, UserFabStart, UserFinishComplete, UserFinishStart, UserPriceComplete, UserPriceStart, UserShipComplete, UserShipStart, OrderNo, QuoteNo, PONo, POProject, PricingStarted, Original_Id, Original_Customer, Original_Project, Original_PO_Reciept, Original_Delivery_Date, Original_Quote_Due_Date, Original_EngRequired, Original_EngStarted, Original_EngCompleted, Original_DrftRequired, Original_DrftStarted, Original_DrftCompleted, Original_FabRequired, Original_FabStarted, Original_FabCompleted, Original_FinishRequired, Original_FinishStarted, Original_FinishCompleted, Original_ShipRequired, Original_ShipStarted, Original_ShipCompleted, Original_PricingCompleted, Original_PricingRequired, Original_UserDrftComplete, Original_UserDrftStart, Original_UserEngComplete, Original_UserEngStart, Original_UserFabComplete, Original_UserFabStart, Original_UserFinishComplete, Original_UserFinishStart, Original_UserPriceComplete, Original_UserPriceStart, Original_UserShipComplete, Original_UserShipStart, Original_OrderNo, Original_QuoteNo, Original_PONo, Original_POProject, Original_PricingStarted)
+            Return Me.Update(Original_Customer, Project, PO_Reciept, Delivery_Date, Quote_Due_Date, EngRequired, EngStarted, EngCompleted, DrftRequired, DrftStarted, DrftCompleted, FabRequired, FabStarted, FabCompleted, FinishRequired, FinishStarted, FinishCompleted, ShipRequired, ShipStarted, ShipCompleted, PricingCompleted, PricingRequired, UserDrftComplete, UserDrftStart, UserEngComplete, UserEngStart, UserFabComplete, UserFabStart, UserFinishComplete, UserFinishStart, UserPriceComplete, UserPriceStart, UserShipComplete, UserShipStart, OrderNo, QuoteNo, PONo, POProject, PricingStarted, Original_Customer, Original_Project, Original_PO_Reciept, Original_Delivery_Date, Original_Quote_Due_Date, Original_EngRequired, Original_EngStarted, Original_EngCompleted, Original_DrftRequired, Original_DrftStarted, Original_DrftCompleted, Original_FabRequired, Original_FabStarted, Original_FabCompleted, Original_FinishRequired, Original_FinishStarted, Original_FinishCompleted, Original_ShipRequired, Original_ShipStarted, Original_ShipCompleted, Original_PricingCompleted, Original_PricingRequired, Original_UserDrftComplete, Original_UserDrftStart, Original_UserEngComplete, Original_UserEngStart, Original_UserFabComplete, Original_UserFabStart, Original_UserFinishComplete, Original_UserFinishStart, Original_UserPriceComplete, Original_UserPriceStart, Original_UserShipComplete, Original_UserShipStart, Original_OrderNo, Original_QuoteNo, Original_PONo, Original_POProject, Original_PricingStarted)
         End Function
     End Class
     

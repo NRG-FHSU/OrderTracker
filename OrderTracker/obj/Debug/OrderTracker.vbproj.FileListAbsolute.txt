@@ -26,3 +26,16 @@ C:\Users\Nathan\Source\Repos\NRG-FHSU\OrderTracker\OrderTracker\obj\Debug\OrderT
 C:\Users\Nathan\Source\Repos\NRG-FHSU\OrderTracker\OrderTracker\obj\Debug\OrderTracker.Resources.resources
 C:\Users\Nathan\Source\Repos\NRG-FHSU\OrderTracker\OrderTracker\obj\Debug\OrderTracker.vbproj.GenerateResource.cache
 C:\Users\Nathan\Source\Repos\NRG-FHSU\OrderTracker\OrderTracker\obj\Debug\OrderTracker.vbproj.CoreCompileInputs.cache
+C:\Users\nate2\Source\Repos\NRG-FHSU\OrderTracker\OrderTracker\bin\Debug\QuoteOrders.mdf
+C:\Users\nate2\Source\Repos\NRG-FHSU\OrderTracker\OrderTracker\bin\Debug\QuoteOrders_log.ldf
+C:\Users\nate2\Source\Repos\NRG-FHSU\OrderTracker\OrderTracker\bin\Debug\OrderTracker.exe.config
+C:\Users\nate2\Source\Repos\NRG-FHSU\OrderTracker\OrderTracker\bin\Debug\OrderTracker.exe
+C:\Users\nate2\Source\Repos\NRG-FHSU\OrderTracker\OrderTracker\bin\Debug\OrderTracker.pdb
+C:\Users\nate2\Source\Repos\NRG-FHSU\OrderTracker\OrderTracker\bin\Debug\OrderTracker.xml
+C:\Users\nate2\Source\Repos\NRG-FHSU\OrderTracker\OrderTracker\obj\Debug\OrderTracker.vbprojAssemblyReference.cache
+C:\Users\nate2\Source\Repos\NRG-FHSU\OrderTracker\OrderTracker\obj\Debug\OrderTracker.Form1.resources
+C:\Users\nate2\Source\Repos\NRG-FHSU\OrderTracker\OrderTracker\obj\Debug\OrderTracker.Resources.resources
+C:\Users\nate2\Source\Repos\NRG-FHSU\OrderTracker\OrderTracker\obj\Debug\OrderTracker.vbproj.GenerateResource.cache
+C:\Users\nate2\Source\Repos\NRG-FHSU\OrderTracker\OrderTracker\obj\Debug\OrderTracker.exe
+C:\Users\nate2\Source\Repos\NRG-FHSU\OrderTracker\OrderTracker\obj\Debug\OrderTracker.xml
+C:\Users\nate2\Source\Repos\NRG-FHSU\OrderTracker\OrderTracker\obj\Debug\OrderTracker.pdb

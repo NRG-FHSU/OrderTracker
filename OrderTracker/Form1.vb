@@ -6,11 +6,16 @@ Public Class Form1
     Dim fieldSearch As Search = New Search()
     Dim backschedule As Schedule = New Schedule()
     Dim logging As LogDate = New LogDate()
+    'Dim status As Status = New Status()
+
+    Dim CheckDateComplete As Date
+    Dim CheckDateRequired As Date
     'Dim user As String ' = "NRG"
     Private Sub TableBindingNavigatorSaveItem_Click(sender As Object, e As EventArgs)
         Me.Validate()
         Me.TableBindingSource.EndEdit()
         Me.TableAdapterManager.UpdateAll(Me.QuoteOrdersDS)
+        UpdateStatus()
 
     End Sub
 
@@ -19,10 +24,18 @@ Public Class Form1
         Me.TableBindingSource.EndEdit()
         On Error Resume Next 'handle for concurrency violation for multiple users that should not be present
         Me.TableAdapterManager.UpdateAll(Me.QuoteOrdersDS)
+        UpdateStatus()
 
     End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: This line of code loads data into the 'OrderReport.Table' table. You can move, or remove it, as needed.
+        Me.TableTableAdapter2.Fill(Me.OrderReport.Table)
+        TableBindingSource2.Sort = "Delivery Date ASC" 'sorts the table
+        'TableBindingSource2.Filter 
+        'TODO: This line of code loads data into the 'QuoteReport.Table' table. You can move, or remove it, as needed.
+        Me.TableTableAdapter1.Fill(Me.QuoteReport.Table)
+        TableBindingSource1.Sort = "Quote Due Date ASC" 'sorts the table
         'TODO: This line of code loads data into the 'QuoteOrdersDS1.Table' table. You can move, or remove it, as needed.
         'Me.TableTableAdapter.Fill(Me.QuoteOrdersDS1.Table)
         'TODO: This line of code loads data into the 'QuoteOrdersDS.Table' table. You can move, or remove it, as needed.
@@ -37,6 +50,8 @@ Public Class Form1
 
         ComboBox1.Items.AddRange({"QuoteNo", "OrderNo", "PONo", "Customer", "Project"}) 'populates combo box
         ComboBox1.SelectedIndex = 3 'initiates combo box to Customer
+
+        UpdateStatus()
 
     End Sub
 
@@ -184,6 +199,68 @@ Public Class Form1
     End Sub
 
     Private Sub BindingNavigatorPositionItem_TextChanged(sender As Object, e As EventArgs) Handles BindingNavigatorPositionItem.TextChanged
-        'using this function as a check for status of each record (Quote/Order)
+        'not used currently, but maybe future state
+    End Sub
+
+    Private Sub BindingNavigatorMoveNextItem_MouseUp(sender As Object, e As MouseEventArgs) Handles BindingNavigatorMoveNextItem.MouseUp
+        UpdateStatus()
+    End Sub
+
+    Private Sub BindingNavigatorMovePreviousItem_MouseUp(sender As Object, e As MouseEventArgs) Handles BindingNavigatorMovePreviousItem.MouseUp
+        UpdateStatus()
+    End Sub
+
+    Private Sub UpdateStatus()
+        'this checks dates against each other for late or on time status.
+
+        'CheckDateComplete = DateTime.Parse(Label_DatePricingComplet.Text)
+        'CheckDateRequired = DateTime.Parse(Label_PricingRequired.Text)
+
+
+        If String.Compare(Label_DatePricingComplet.Text, Label_PricingRequired.Text) = 0 Then
+            PictureBox_PriceActual.Image = My.Resources.GreenButton
+        End If
+        If String.Compare(Label_DatePricingComplet.Text, Label_PricingRequired.Text) <> 0 Then
+            PictureBox_PriceActual.Image = My.Resources.RedButton
+        End If
+
+        If String.Compare(Label_DateEngCompleted.Text, Label_EngRequired.Text) = 0 Then
+            PictureBox_EngActual.Image = My.Resources.GreenButton
+        End If
+        If String.Compare(Label_DateEngCompleted.Text, Label_EngRequired.Text) <> 0 Then
+            PictureBox_EngActual.Image = My.Resources.RedButton
+        End If
+
+        If String.Compare(Label_DateDrftComplete.Text, Label_DrftRequired.Text) = 0 Then
+            PictureBox_DrftActual.Image = My.Resources.GreenButton
+        End If
+        If String.Compare(Label_DateDrftComplete.Text, Label_DrftRequired.Text) <> 0 Then
+            PictureBox_DrftActual.Image = My.Resources.RedButton
+        End If
+
+        If String.Compare(Label_DateFabCompleted.Text, Label_FabRequired.Text) = 0 Then
+            PictureBox_FabActual.Image = My.Resources.GreenButton
+        End If
+        If String.Compare(Label_DateFabCompleted.Text, Label_FabRequired.Text) <> 0 Then
+            PictureBox_FabActual.Image = My.Resources.RedButton
+        End If
+
+        If String.Compare(Label_DateFinishCompleted.Text, Label_FinishRequired.Text) = 0 Then
+            PictureBox_FinishActual.Image = My.Resources.GreenButton
+        End If
+        If String.Compare(Label_DateFinishCompleted.Text, Label_FinishRequired.Text) <> 0 Then
+            PictureBox_FinishActual.Image = My.Resources.RedButton
+        End If
+
+        If String.Compare(Label_DateShipCompleted.Text, Label_ShipRequired.Text) = 0 Then
+            PictureBox_ShipActual.Image = My.Resources.GreenButton
+        End If
+        If String.Compare(Label_DateShipCompleted.Text, Label_ShipRequired.Text) <> 0 Then
+            PictureBox_ShipActual.Image = My.Resources.RedButton
+        End If
+    End Sub
+
+    Private Sub TableDataGridView_CellMouseUp(sender As Object, e As DataGridViewCellMouseEventArgs) Handles TableDataGridView.CellMouseUp
+        UpdateStatus()
     End Sub
 End Class
